@@ -1,0 +1,48 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const page = await getEntry('pages', 'kontakt');
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <section class="container content">
+    <Content />
+
+    <div class="contact-options">
+      <div class="contact-card">
+        <h3>Termin buchen</h3>
+        <p>Such dir einen passenden Termin aus — ich melde mich zur vereinbarten Zeit.</p>
+        <a href="#" class="btn btn-primary">Termin vereinbaren</a>
+      </div>
+      <div class="contact-card">
+        <h3>LinkedIn</h3>
+        <p>Vernetze dich mit mir auf LinkedIn für regelmässige Insights.</p>
+        <a href="https://www.linkedin.com/in/jochenwitte/" class="btn btn-accent" target="_blank" rel="noopener">LinkedIn-Profil</a>
+      </div>
+      <div class="contact-card">
+        <h3>E-Mail</h3>
+        <p>Konkrete Anfrage? Schreib mir direkt.</p>
+        <a href="mailto:jochen@fumu.ch" class="btn btn-primary">jochen@fumu.ch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+  .contact-card {
+    background: var(--color-neutral);
+    padding: var(--space-lg);
+    border-radius: 8px;
+  }
+  .contact-card h3 {
+    margin-top: 0;
+  }
+</style>

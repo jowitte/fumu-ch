@@ -1,0 +1,41 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const page = await getEntry('pages', 'home');
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <section class="hero">
+    <div class="container">
+      <h1>{page.data.title}</h1>
+      <p class="hero-sub">{page.data.description}</p>
+      <a href="/kontakt/" class="btn btn-primary">Termin vereinbaren</a>
+    </div>
+  </section>
+  <section class="container content">
+    <Content />
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: var(--color-neutral);
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+  .hero-sub {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: var(--space-md) auto var(--space-lg);
+  }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.75rem; }
+  }
+</style>

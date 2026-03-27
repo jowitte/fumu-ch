@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('perspektiven', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article class="container content">
+    <header>
+      <h1>{post.data.title}</h1>
+      <time datetime={post.data.date.toISOString()}>
+        {post.data.date.toLocaleDateString('de-CH', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+      {post.data.category && <span class="category">{post.data.category}</span>}
+    </header>
+    <Content />
+    <footer>
+      <a href="/perspektiven/">&larr; Alle Perspektiven</a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  header {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-neutral);
+  }
+  header h1 { margin-top: var(--space-lg); }
+  time {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+  }
+  .category {
+    font-size: 0.8rem;
+    background: var(--color-neutral);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: var(--space-sm);
+  }
+  footer {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-neutral);
+  }
+</style>

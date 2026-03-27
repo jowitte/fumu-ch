@@ -1,0 +1,95 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-brand">fumu</p>
+        <p class="footer-tagline">Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Kontakt</p>
+        <ul>
+          <li><a href="/kontakt/">Termin vereinbaren</a></li>
+          <li><a href="https://www.linkedin.com/in/jochenwitte/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:jochen@fumu.ch">jochen@fumu.ch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Seiten</p>
+        <ul>
+          <li><a href="/perspektiven/">Perspektiven</a></li>
+          <li><a href="/impressum/">Impressum</a></li>
+          <li><a href="/datenschutz/">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; {year} fumu GmbH, Zürich</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-xl) 0 var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-tagline {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  .footer-heading {
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  .site-footer ul {
+    list-style: none;
+  }
+
+  .site-footer li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .site-footer a {
+    color: var(--color-white);
+    opacity: 0.8;
+    font-size: 0.875rem;
+  }
+
+  .site-footer a:hover {
+    opacity: 1;
+  }
+
+  .footer-copy {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>

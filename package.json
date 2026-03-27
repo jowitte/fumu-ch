@@ -1,0 +1,16 @@
+{
+  "name": "fumu-ch",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "fumu.ch — Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.1.1"
+  }
+}

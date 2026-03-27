@@ -1,0 +1,116 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/medien-adtech/', label: 'Medien & AdTech' },
+  { href: '/digitale-geschaeftsmodelle/', label: 'Digitale Geschäftsmodelle' },
+  { href: '/arbeitsweise/', label: 'Arbeitsweise' },
+  { href: '/perspektiven/', label: 'Perspektiven' },
+  { href: '/kontakt/', label: 'Kontakt' },
+];
+---
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">fumu</a>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-list">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['nav-link', { active: currentPath === item.href }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('.nav-list');
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    navList?.classList.toggle('open');
+  });
+</script>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-neutral);
+    padding: var(--space-md) 0;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .logo:hover { text-decoration: none; }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-lg);
+  }
+
+  .nav-link {
+    color: var(--color-text);
+    font-size: 0.9rem;
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+    .nav-list {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: var(--space-md);
+      padding-top: var(--space-md);
+    }
+    .nav-list.open {
+      display: flex;
+    }
+  }
+</style>
