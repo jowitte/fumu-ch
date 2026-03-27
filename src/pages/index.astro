@@ -1,42 +1,44 @@
 ---
-import { getEntry, render } from 'astro:content';
+import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const page = await getEntry('pages', 'home');
-const { Content } = await render(page);
 ---
 
 <BaseLayout title={page.data.title} description={page.data.description}>
   <section class="hero">
     <div class="container">
-      <h1 class="hero-title">{page.data.title}</h1>
-      <p class="hero-sub">{page.data.description}</p>
+      <h1 class="hero-title">Technologie-getriebene Transformationen.</h1>
+      <p class="hero-sub">Ich begleite komplexe Organisationen durch digitale Transformationen — mit technischem Sachverstand, systemischem Blick und Startup-Mentalität.</p>
     </div>
-  </section>
-  <section class="container content">
-    <Content />
   </section>
 </BaseLayout>
 
 <style>
   .hero {
-    padding: var(--space-xl) 0;
+    padding: 12vh 0 40vh;
   }
   .hero-title {
     font-family: var(--font-sans);
-    font-size: 32px;
-    font-weight: 600;
+    font-size: 48px;
+    font-weight: 400;
     color: var(--color-coral);
-    line-height: 1.2;
+    line-height: 1.15;
     margin-top: 0;
     margin-bottom: var(--space-md);
+    max-width: 700px;
   }
   .hero-sub {
     font-family: var(--font-serif);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     color: var(--color-text);
-    line-height: 1.6;
+    line-height: 1.5;
     max-width: 600px;
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 8vh 0 20vh; }
+    .hero-title { font-size: 32px; }
+    .hero-sub { font-size: 18px; }
   }
 </style>
