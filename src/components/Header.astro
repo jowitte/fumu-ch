@@ -46,7 +46,7 @@ const navItems = [
 
 <style>
   .site-header {
-    border-bottom: 1px solid var(--color-neutral);
+    background: var(--color-dark);
     padding: var(--space-md) 0;
   }
 
@@ -60,7 +60,7 @@ const navItems = [
   .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-white);
     letter-spacing: -0.02em;
   }
 
@@ -70,16 +70,24 @@ const navItems = [
     display: flex;
     list-style: none;
     gap: var(--space-lg);
+    padding: 0;
+    margin: 0;
   }
 
   .nav-link {
-    color: var(--color-text);
-    font-size: 0.9rem;
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+    text-decoration: none;
   }
 
   .nav-link.active {
-    color: var(--color-primary);
-    font-weight: 600;
+    color: var(--color-blue);
+    font-weight: 700;
   }
 
   .menu-toggle {
@@ -95,7 +103,7 @@ const navItems = [
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--color-primary);
+    background: var(--color-white);
   }
 
   @media (max-width: 768px) {

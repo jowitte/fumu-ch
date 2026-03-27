@@ -1,16 +1,18 @@
 :root {
   --color-primary: #223A5E;
   --color-accent: #3EC6D3;
-  --color-warning: #FF6F61;
+  --color-coral: #FF6F61;
+  --color-blue: #3D73FF;
   --color-neutral: #F4F4F4;
   --color-white: #FFFFFF;
+  --color-dark: #1D1D1D;
   --color-text: #223A5E;
   --color-text-light: #666;
 
   --font-body: 'IBM Plex Mono', 'Courier New', monospace;
   --font-heading: 'IBM Plex Mono', 'Courier New', monospace;
 
-  --max-width: 1200px;
+  --max-width: 1280px;
   --content-width: 720px;
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -32,22 +34,25 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-weight: 300;
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.6em;
   background: var(--color-white);
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--color-primary);
-  line-height: 1.2;
+  font-weight: 500;
+  color: var(--color-coral);
+  line-height: 1em;
   margin-top: var(--space-lg);
   margin-bottom: var(--space-md);
 }
 
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.75rem; }
-h3 { font-size: 1.25rem; }
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 17px; }
+h4 { font-size: 14px; }
 
 p {
   margin-bottom: var(--space-md);
@@ -59,12 +64,26 @@ a {
 }
 
 a:hover {
+  color: var(--color-blue);
   text-decoration: underline;
+}
+
+strong {
+  font-weight: 600;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+ul, ol {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+li {
+  margin-bottom: var(--space-xs);
 }
 
 .container {
@@ -81,10 +100,11 @@ img {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 1rem;
+  padding: 0.3em 1em;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
   cursor: pointer;
   transition: opacity 0.2s;
 }
@@ -95,7 +115,7 @@ img {
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-blue);
   color: var(--color-white);
 }
 
@@ -104,10 +124,16 @@ img {
   color: var(--color-white);
 }
 
+.btn-outline {
+  background: transparent;
+  color: var(--color-blue);
+  border: 2px solid var(--color-blue);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  h1 { font-size: 1.75rem; }
-  h2 { font-size: 1.5rem; }
+  h1 { font-size: 20px; }
+  h2 { font-size: 17px; }
   :root {
     --space-xl: 2rem;
     --space-lg: 1.5rem;
