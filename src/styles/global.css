@@ -2,17 +2,18 @@
   --color-primary: #223A5E;
   --color-accent: #3EC6D3;
   --color-coral: #FF6F61;
-  --color-blue: #3D73FF;
+  --color-yellow: #FFD447;
+  --color-green: #2CB67D;
   --color-neutral: #F4F4F4;
   --color-white: #FFFFFF;
-  --color-dark: #1D1D1D;
-  --color-text: #223A5E;
+  --color-text: #414141;
   --color-text-light: #666;
 
-  --font-body: 'IBM Plex Mono', 'Courier New', monospace;
-  --font-heading: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 
-  --max-width: 1280px;
+  --max-width: 1040px;
   --content-width: 720px;
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -33,23 +34,25 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  font-weight: 300;
+  font-family: var(--font-serif);
+  font-weight: 400;
   color: var(--color-text);
-  line-height: 1.6em;
+  line-height: 1.6;
+  letter-spacing: 0.4px;
   background: var(--color-white);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 500;
-  color: var(--color-coral);
-  line-height: 1em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
   margin-top: var(--space-lg);
   margin-bottom: var(--space-md);
 }
 
-h1 { font-size: 24px; }
+h1 { font-size: 20px; }
 h2 { font-size: 20px; }
 h3 { font-size: 17px; }
 h4 { font-size: 14px; }
@@ -59,13 +62,12 @@ p {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-blue);
-  text-decoration: underline;
+  color: var(--color-coral);
 }
 
 strong {
@@ -89,7 +91,7 @@ li {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-md);
+  padding: 0 var(--space-lg);
 }
 
 .content {
@@ -97,43 +99,66 @@ li {
   margin: 0 auto;
 }
 
-/* Buttons */
+/* Section titles — coral accent like ben-evans */
+.section-title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-coral);
+  letter-spacing: 0.5px;
+}
+
+/* Buttons — minimal, understated */
 .btn {
   display: inline-block;
-  padding: 0.3em 1em;
-  border-radius: 50px;
-  font-weight: 700;
+  padding: 0.5em 1.5em;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 14px;
-  text-transform: uppercase;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 }
 
 .btn:hover {
   text-decoration: none;
-  opacity: 0.9;
 }
 
 .btn-primary {
-  background: var(--color-blue);
+  background: var(--color-coral);
   color: var(--color-white);
+  border: none;
 }
 
-.btn-accent {
-  background: var(--color-accent);
+.btn-primary:hover {
   color: var(--color-white);
+  opacity: 0.9;
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-blue);
-  border: 2px solid var(--color-blue);
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+}
+
+.btn-outline:hover {
+  color: var(--color-coral);
+  border-color: var(--color-coral);
+}
+
+/* Dates — small serif */
+.date {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--color-text);
+  letter-spacing: 0.4px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  h1 { font-size: 20px; }
-  h2 { font-size: 17px; }
+  .container {
+    padding: 0 var(--space-md);
+  }
   :root {
     --space-xl: 2rem;
     --space-lg: 1.5rem;

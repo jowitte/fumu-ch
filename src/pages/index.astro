@@ -9,9 +9,8 @@ const { Content } = await render(page);
 <BaseLayout title={page.data.title} description={page.data.description}>
   <section class="hero">
     <div class="container">
-      <h1>{page.data.title}</h1>
+      <h1 class="hero-title">{page.data.title}</h1>
       <p class="hero-sub">{page.data.description}</p>
-      <a href="/kontakt/" class="btn btn-primary">Termin vereinbaren</a>
     </div>
   </section>
   <section class="container content">
@@ -21,22 +20,23 @@ const { Content } = await render(page);
 
 <style>
   .hero {
-    background: var(--color-neutral);
     padding: var(--space-xl) 0;
-    text-align: center;
   }
-  .hero h1 {
-    font-size: 24px;
+  .hero-title {
+    font-family: var(--font-sans);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-coral);
+    line-height: 1.2;
     margin-top: 0;
+    margin-bottom: var(--space-md);
   }
   .hero-sub {
-    font-size: 16px;
-    font-weight: 300;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 400;
     color: var(--color-text);
+    line-height: 1.6;
     max-width: 600px;
-    margin: var(--space-md) auto var(--space-lg);
-  }
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 1.75rem; }
   }
 </style>

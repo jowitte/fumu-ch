@@ -4,92 +4,62 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <p class="footer-brand">fumu</p>
-        <p class="footer-tagline">Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration</p>
-      </div>
-      <div class="footer-col">
-        <p class="footer-heading">Kontakt</p>
-        <ul>
-          <li><a href="/kontakt/">Termin vereinbaren</a></li>
-          <li><a href="https://www.linkedin.com/in/jochenwitte/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="mailto:jochen@fumu.ch">jochen@fumu.ch</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-heading">Seiten</p>
-        <ul>
-          <li><a href="/perspektiven/">Perspektiven</a></li>
-          <li><a href="/impressum/">Impressum</a></li>
-          <li><a href="/datenschutz/">Datenschutz</a></li>
-        </ul>
-      </div>
+    <div class="footer-content">
+      <p>&copy; {year} fumu GmbH, Zürich</p>
+      <nav class="footer-nav">
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+        <a href="https://www.linkedin.com/in/jochenwitte/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:jochen@fumu.ch">jochen@fumu.ch</a>
+      </nav>
     </div>
-    <p class="footer-copy">&copy; {year} fumu GmbH, Zürich</p>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background: var(--color-coral);
-    color: var(--color-white);
-    padding: var(--space-xl) 0 var(--space-lg);
+    border-top: 1px solid var(--color-coral);
+    padding: var(--space-lg) 0;
     margin-top: var(--space-xl);
   }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-content p {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    color: var(--color-text-light);
+    margin: 0;
+  }
+
+  .footer-nav {
+    display: flex;
     gap: var(--space-lg);
   }
 
-  .footer-brand {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: var(--space-sm);
+  .footer-nav a {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text-light);
   }
 
-  .footer-tagline {
-    font-size: 0.875rem;
-    opacity: 0.8;
-  }
-
-  .footer-heading {
-    font-weight: 500;
-    color: var(--color-white);
-    margin-bottom: var(--space-sm);
-  }
-
-  .site-footer ul {
-    list-style: none;
-  }
-
-  .site-footer li {
-    margin-bottom: var(--space-xs);
-  }
-
-  .site-footer a {
-    color: var(--color-white);
-    opacity: 0.8;
-    font-size: 0.875rem;
-  }
-
-  .site-footer a:hover {
-    opacity: 1;
-  }
-
-  .footer-copy {
-    margin-top: var(--space-lg);
-    padding-top: var(--space-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.8rem;
-    opacity: 0.6;
+  .footer-nav a:hover {
+    color: var(--color-coral);
   }
 
   @media (max-width: 768px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
+    .footer-content {
+      flex-direction: column;
+      gap: var(--space-md);
+      text-align: center;
+    }
+    .footer-nav {
+      flex-wrap: wrap;
+      justify-content: center;
       gap: var(--space-md);
     }
   }

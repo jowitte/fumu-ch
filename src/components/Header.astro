@@ -2,7 +2,6 @@
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { href: '/', label: 'Home' },
   { href: '/medien-adtech/', label: 'Medien & AdTech' },
   { href: '/digitale-geschaeftsmodelle/', label: 'Digitale Geschäftsmodelle' },
   { href: '/arbeitsweise/', label: 'Arbeitsweise' },
@@ -46,7 +45,8 @@ const navItems = [
 
 <style>
   .site-header {
-    background: var(--color-coral);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-coral);
     padding: var(--space-md) 0;
   }
 
@@ -58,13 +58,17 @@ const navItems = [
   }
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-white);
-    letter-spacing: -0.02em;
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
   }
 
-  .logo:hover { text-decoration: none; }
+  .logo:hover {
+    color: var(--color-coral);
+    text-decoration: none;
+  }
 
   .nav-list {
     display: flex;
@@ -75,19 +79,20 @@ const navItems = [
   }
 
   .nav-link {
-    color: var(--color-white);
-    font-size: 16px;
+    font-family: var(--font-sans);
+    font-size: 15px;
     font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: 0.3px;
   }
 
   .nav-link:hover {
-    color: var(--color-accent);
+    color: var(--color-coral);
     text-decoration: none;
   }
 
   .nav-link.active {
-    color: var(--color-blue);
-    font-weight: 700;
+    color: var(--color-coral);
   }
 
   .menu-toggle {
@@ -103,7 +108,7 @@ const navItems = [
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--color-white);
+    background: var(--color-text);
   }
 
   @media (max-width: 768px) {
