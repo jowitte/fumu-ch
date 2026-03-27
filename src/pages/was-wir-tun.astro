@@ -1,13 +1,207 @@
 ---
-import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const page = await getEntry('pages', 'was-wir-tun');
-const { Content } = await render(page);
 ---
 
-<BaseLayout title={page.data.title} description={page.data.description}>
-  <section class="container content">
-    <Content />
+<BaseLayout title="Was wir tun" description="Strategie, Organisation, Prozesse und Technologie zusammenbringen. Mit Schwerpunkt in Medien, Marketing und Werbetechnologie.">
+
+  <section class="evans-page">
+    <div class="container">
+
+      <p class="intro">Technologie allein verändert nichts. Neue Tools, Plattformen und Algorithmen entfalten erst dann Wirkung, wenn Strategie, Organisation und Prozesse mitspielen. Genau dort arbeiten wir.</p>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <h2>Unser Ansatz</h2>
+        </div>
+        <div class="evans-content">
+          <div class="evans-item">
+            <span class="evans-tag">Strategie</span>
+            <h3>Klarheit schaffen</h3>
+            <p>Optionen entwickeln, Entscheidungsgrundlagen schaffen, Prioritäten setzen. Nicht Frameworks, sondern Klarheit — was zuerst, was gar nicht, und warum.</p>
+          </div>
+          <div class="evans-item">
+            <span class="evans-tag">Organisation</span>
+            <h3>Strukturen anpassen</h3>
+            <p>Strukturen, Rollen und Kompetenzen so anpassen, dass neue Strategien auch umgesetzt werden. Technologie scheitert selten an der Technik, fast immer an der Organisation.</p>
+          </div>
+          <div class="evans-item">
+            <span class="evans-tag">Prozesse</span>
+            <h3>Abläufe neu denken</h3>
+            <p>Bestehende Abläufe verstehen, Brüche identifizieren, neue Verfahren einführen. Vom Audit bis zum laufenden Betrieb.</p>
+          </div>
+          <div class="evans-item">
+            <span class="evans-tag">Technologie</span>
+            <h3>Technik als Hebel</h3>
+            <p>Technisches Tiefenverständnis einbringen — nicht als Selbstzweck, sondern als Hebel. Wir bewerten Architekturen, begleiten Implementierungen und übersetzen zwischen Technik und Business.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <h2>Schwerpunkt</h2>
+        </div>
+        <div class="evans-content">
+          <div class="evans-item">
+            <span class="evans-tag">KI</span>
+            <h3>Künstliche Intelligenz</h3>
+            <p>KI verändert gerade ganze Branchen. Wir helfen Organisationen, die richtigen Anwendungsfälle zu identifizieren, Piloten aufzusetzen und KI-Strategien in den laufenden Betrieb zu überführen — pragmatisch und ohne Hype.</p>
+          </div>
+          <div class="evans-item">
+            <span class="evans-tag">Domäne</span>
+            <h3>Medien, Marketing und Werbung</h3>
+            <p>Unser Schwerpunkt liegt im Medien-, Marketing- und Werbe-Ökosystem. Publisher, Agenturen, Vermarkter und Technologie-Anbieter stehen vor massiven Umbrüchen. Wir kennen die Akteure, die Technologie und die Dynamiken dieses Marktes.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <h2>Referenzen</h2>
+        </div>
+        <div class="evans-content">
+          <div class="evans-item">
+            <h3>OneX</h3>
+            <p>Aufbau und strategische Begleitung des Joint Ventures der führenden Schweizer Medienhäuser für digitale Werbeinfrastruktur.</p>
+          </div>
+          <div class="evans-item">
+            <h3>TBWA</h3>
+            <p>KI-Readiness und Neuausrichtung der Media Unit.</p>
+          </div>
+          <div class="evans-item">
+            <h3>Mediatonic</h3>
+            <p>Prozess- und Technologie-Audit einer Schweizer Mediaagentur.</p>
+          </div>
+          <div class="evans-item">
+            <h3>IAB Switzerland</h3>
+            <p>Leitung der Arbeitsgruppe Data & AI. Branchenweites KI-Maturity-Assessment.</p>
+          </div>
+          <div class="evans-item">
+            <h3>CH Media</h3>
+            <p>Impulsvortrag zu KI und Werbung.</p>
+          </div>
+          <div class="evans-item">
+            <h3>emonitor AG</h3>
+            <p>Strategieprozess für ein PropTech Scale-up.</p>
+          </div>
+          <div class="evans-item">
+            <h3>HWZ</h3>
+            <p>Dozent für Agile Leadership und digitale Transformation.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
+
 </BaseLayout>
+
+<style>
+  .intro {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text);
+    max-width: 720px;
+    margin: var(--space-xl) 0;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--color-coral);
+    margin: 0;
+  }
+
+  .evans-section {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    min-height: 100px;
+  }
+
+  .evans-label {
+    padding: var(--space-xl) var(--space-lg) var(--space-xl) 0;
+  }
+
+  .evans-label h2 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-coral);
+    margin: 0;
+    position: sticky;
+    top: 80px;
+  }
+
+  .evans-content {
+    border-left: 1px solid var(--color-coral);
+    padding: var(--space-xl) 0 var(--space-xl) var(--space-xl);
+  }
+
+  .evans-item {
+    margin-bottom: var(--space-xl);
+  }
+
+  .evans-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .evans-tag {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .evans-item h3 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .evans-item p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+    max-width: 600px;
+  }
+
+  @media (max-width: 768px) {
+    .evans-section {
+      grid-template-columns: 1fr;
+    }
+
+    .evans-label {
+      padding: var(--space-lg) 0 0 0;
+    }
+
+    .evans-label h2 {
+      position: static;
+    }
+
+    .evans-content {
+      border-left: none;
+      border-top: 1px solid var(--color-coral);
+      padding: var(--space-md) 0 var(--space-lg) 0;
+    }
+
+    .intro {
+      font-size: 18px;
+      margin: var(--space-lg) 0;
+    }
+  }
+</style>
