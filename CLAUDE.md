@@ -1,6 +1,6 @@
 # fumu.ch Website
 
-Astro-basierte statische Website für fumu — Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration.
+Astro-basierte statische Website für fumu — Technologie in Wirkung übersetzen. Strategie, Organisation, Prozesse und Technologie für das Medien- und Werbe-Ökosystem.
 
 ## Stack
 
@@ -25,7 +25,7 @@ description: string  # Meta-Description
 order: number        # Navigationsreihenfolge
 ```
 
-Seiten: home, medien-adtech, digitale-geschaeftsmodelle, arbeitsweise, perspektiven, kontakt, impressum, datenschutz
+Seiten: home, was-wir-tun, about, perspektiven, kontakt, impressum, datenschutz
 
 ### `perspektiven` — Blog/Artikel
 
@@ -137,9 +137,8 @@ Push auf `main` → Netlify baut automatisch. Kein manueller Deploy nötig.
 
 ```
 /                          → Home (Hero)
-/medien-adtech/            → Medien & AdTech
-/digitale-geschaeftsmodelle/ → Digitale Geschäftsmodelle
-/arbeitsweise/             → Arbeitsweise
+/was-wir-tun/              → Was wir tun
+/about/                    → About
 /perspektiven/             → Artikelübersicht
 /perspektiven/[slug]/      → Einzelartikel
 /kontakt/                  → Kontakt
