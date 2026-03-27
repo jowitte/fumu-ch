@@ -8,7 +8,14 @@ const { Content } = await render(page);
 
 <BaseLayout title={page.data.title} description={page.data.description}>
   <section class="container content">
-    <Content />
+    <div class="intro">
+      <div class="portrait">
+        <img src="/images/jochen-witte.jpg" alt="Jochen Witte" width="240" height="240" />
+      </div>
+      <div class="intro-text">
+        <Content />
+      </div>
+    </div>
 
     <div class="contact-options">
       <div class="contact-card">
@@ -31,6 +38,34 @@ const { Content } = await render(page);
 </BaseLayout>
 
 <style>
+  .intro {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: flex-start;
+    margin: var(--space-lg) 0 var(--space-xl);
+  }
+  .portrait {
+    flex-shrink: 0;
+  }
+  .portrait img {
+    display: block;
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+  .intro-text {
+    flex: 1;
+  }
+  .intro-text :global(h2) {
+    margin-top: 0;
+  }
+  @media (max-width: 768px) {
+    .intro {
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+  }
   .contact-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
