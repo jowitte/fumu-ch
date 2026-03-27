@@ -12,45 +12,162 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
+};
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article class="container content">
-    <header>
-      <h1>{post.data.title}</h1>
-      <time datetime={post.data.date.toISOString()}>
-        {post.data.date.toLocaleDateString('de-CH', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </time>
-      {post.data.category && <span class="category">{post.data.category}</span>}
-    </header>
-    <Content />
-    <footer>
-      <a href="/perspektiven/">&larr; Alle Perspektiven</a>
-    </footer>
+  <article class="evans-page">
+    <div class="container">
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <span class="post-date">{formatDate(post.data.date)}</span>
+          <span class="post-author">Jochen Witte</span>
+        </div>
+        <div class="evans-content">
+          <h1 class="post-title">{post.data.title}</h1>
+          <div class="post-body">
+            <Content />
+          </div>
+          <footer>
+            <a href="/perspektiven/" class="back-link">&larr; Alle Perspektiven</a>
+          </footer>
+        </div>
+      </div>
+
+    </div>
   </article>
 </BaseLayout>
 
 <style>
-  header {
-    margin-bottom: var(--space-lg);
-    padding-bottom: var(--space-md);
-    border-bottom: 1px solid var(--color-neutral);
+  .evans-section {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
   }
-  header h1 { margin-top: var(--space-lg); }
-  time {
-    font-size: 0.85rem;
+
+  .evans-label {
+    padding: var(--space-xl) var(--space-lg) var(--space-xl) 0;
+  }
+
+  .post-date {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+    display: block;
+    position: sticky;
+    top: 80px;
+  }
+
+  .post-author {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
     color: var(--color-text-light);
+    display: block;
+    margin-top: var(--space-xs);
+    position: sticky;
+    top: 96px;
   }
-  .category {
-    font-size: 0.8rem;
-    background: var(--color-neutral);
-    padding: 2px 8px;
-    border-radius: 3px;
-    margin-left: var(--space-sm);
+
+  .evans-content {
+    border-left: 1px solid var(--color-coral);
+    padding: var(--space-xl) 0 var(--space-xl) var(--space-xl);
   }
+
+  .post-title {
+    font-family: var(--font-sans);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg) 0;
+    line-height: 1.2;
+    max-width: 720px;
+  }
+
+  .post-body {
+    max-width: var(--content-width);
+  }
+
+  .post-body :global(h2) {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .post-body :global(p) {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .post-body :global(img) {
+    max-width: 100%;
+    height: auto;
+    margin: var(--space-lg) 0;
+  }
+
+  .post-body :global(ul), .post-body :global(ol) {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.7;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .post-body :global(strong) {
+    font-weight: 600;
+  }
+
   footer {
     margin-top: var(--space-xl);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--color-neutral);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-coral);
+    margin-bottom: var(--space-xl);
+  }
+
+  .back-link {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-coral);
+  }
+
+  .back-link:hover {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .evans-section {
+      grid-template-columns: 1fr;
+    }
+
+    .evans-label {
+      padding: var(--space-lg) 0 0 0;
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .post-date, .post-author {
+      position: static;
+    }
+
+    .evans-content {
+      border-left: none;
+      border-top: 1px solid var(--color-coral);
+      padding: var(--space-md) 0 var(--space-lg) 0;
+    }
+
+    .post-title {
+      font-size: 28px;
+    }
   }
 </style>

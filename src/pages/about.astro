@@ -1,13 +1,285 @@
 ---
-import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const page = await getEntry('pages', 'about');
-const { Content } = await render(page);
 ---
 
-<BaseLayout title={page.data.title} description={page.data.description}>
-  <section class="container content">
-    <Content />
+<BaseLayout title="About" description="Wer wir sind und wie wir arbeiten. Startup-Erfahrung trifft strategische Disziplin und technisches Tiefenverständnis.">
+
+  <section class="evans-page">
+    <div class="container">
+
+      <p class="intro">Startup-Erfahrung trifft strategische Disziplin. Wir denken in Zusammenhängen, nicht in Silos — und übersetzen zwischen Technik, Organisation und Business.</p>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <h2>Gründer</h2>
+        </div>
+        <div class="evans-content">
+          <div class="person">
+            <img src="/images/jochen-witte.jpg" alt="Jochen Witte" class="person-img" />
+            <div class="person-info">
+              <h3>Jochen Witte</h3>
+              <span class="evans-tag">Strategie & Umsetzungsbegleitung</span>
+              <p>20+ Jahre Digital — Startup-Gründer, Technologie-Chef in Medienhäusern, Strategieberater und AdTech-Experte. Systemische Ausbildung. Konzeption, Projektsteuerung, Sparring.</p>
+              <a href="https://www.linkedin.com/in/jochenwitte/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <h2>Partner</h2>
+        </div>
+        <div class="evans-content">
+          <div class="person">
+            <img src="/images/stefan-ropte.png" alt="Stefan Ropte" class="person-img" />
+            <div class="person-info">
+              <h3>Stefan Ropte</h3>
+              <span class="evans-tag">Requirements & Umsetzung</span>
+              <p>20+ Jahre IT/AdTech/MarTech — ADvendio MD, ProSiebenSat.1. Requirements Engineering, Vendor-Evaluation, Pilotierung. Business Requirements, Evaluationsmatrix, Prototypen.</p>
+              <a href="https://www.linkedin.com/in/stefan-ropte-08b7044a/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+          <div class="person">
+            <img src="/images/lukas-goeroeg.png" alt="Lukas Görög" class="person-img" />
+            <div class="person-info">
+              <h3>Lukas Görög</h3>
+              <span class="evans-tag">KI Akademie</span>
+              <p>KI-Strategie und Befähigung für Organisationen. Schulungen, Workshops und Begleitung auf dem Weg zur systematischen KI-Nutzung.</p>
+              <a href="https://www.linkedin.com/in/lukasgorog/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <h2>Wie wir arbeiten</h2>
+        </div>
+        <div class="evans-content">
+          <div class="evans-item">
+            <h3>Zuhören, bevor wir raten</h3>
+            <p>Jede Organisation ist anders. Wir verstehen zuerst, bevor wir empfehlen.</p>
+          </div>
+          <div class="evans-item">
+            <h3>Herausfordern — konstruktiv</h3>
+            <p>Wir sagen, was wir denken. Auch wenn es unbequem ist.</p>
+          </div>
+          <div class="evans-item">
+            <h3>Verantwortung übernehmen</h3>
+            <p>Wir stehen zu unseren Empfehlungen und begleiten die Umsetzung.</p>
+          </div>
+          <div class="evans-item">
+            <h3>Transparent arbeiten</h3>
+            <p>Keine Black Box. Unsere Arbeit ist nachvollziehbar.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section">
+        <div class="evans-label">
+          <h2>Typische Formate</h2>
+        </div>
+        <div class="evans-content">
+          <div class="evans-item">
+            <span class="evans-tag">8–16 Wochen</span>
+            <h3>Strategische Begleitung</h3>
+            <p>Strukturierte Analyse, Optionenbewertung und Entscheidungsvorlage — von der ersten Hypothese bis zur boardreifen Empfehlung.</p>
+          </div>
+          <div class="evans-item">
+            <span class="evans-tag">6–18 Monate</span>
+            <h3>Interim Leadership</h3>
+            <p>Operative Verantwortung für Transformationsprojekte übernehmen — Strukturen aufbauen, Teams befähigen, Ergebnisse liefern.</p>
+          </div>
+          <div class="evans-item">
+            <span class="evans-tag">Laufend</span>
+            <h3>Sparring</h3>
+            <p>Regelmässiger Austausch auf Augenhöhe für Entscheider — Ideen testen, blinde Flecken aufdecken, Prioritäten schärfen.</p>
+          </div>
+          <div class="evans-item">
+            <span class="evans-tag">1–5 Tage</span>
+            <h3>KI-Schulungen & Workshops</h3>
+            <p>Praxisnahe Befähigung für Teams und Führungskräfte — von der ersten KI-Orientierung bis zur strategischen Integration. In Kooperation mit der Akademie KI.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
+
 </BaseLayout>
+
+<style>
+  .intro {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text);
+    max-width: 720px;
+    margin: var(--space-xl) 0;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--color-coral);
+    margin: 0;
+  }
+
+  .evans-section {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    min-height: 100px;
+  }
+
+  .evans-label {
+    padding: var(--space-xl) var(--space-lg) var(--space-xl) 0;
+  }
+
+  .evans-label h2 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-coral);
+    margin: 0;
+    position: sticky;
+    top: 80px;
+  }
+
+  .evans-content {
+    border-left: 1px solid var(--color-coral);
+    padding: var(--space-xl) 0 var(--space-xl) var(--space-xl);
+  }
+
+  .person {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+  }
+
+  .person:last-child {
+    margin-bottom: 0;
+  }
+
+  .person-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .person-info {
+    flex: 1;
+  }
+
+  .person-info h3 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .person-info p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: var(--space-sm) 0 0 0;
+    max-width: 600px;
+  }
+
+  .linkedin-link {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-coral);
+    display: inline-block;
+    margin-top: var(--space-sm);
+  }
+
+  .linkedin-link:hover {
+    text-decoration: none;
+  }
+
+  .evans-tag {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .evans-item {
+    margin-bottom: var(--space-xl);
+  }
+
+  .evans-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .evans-item h3 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .evans-item p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+    max-width: 600px;
+  }
+
+  @media (max-width: 768px) {
+    .evans-section {
+      grid-template-columns: 1fr;
+    }
+
+    .evans-label {
+      padding: var(--space-lg) 0 0 0;
+    }
+
+    .evans-label h2 {
+      position: static;
+    }
+
+    .evans-content {
+      border-left: none;
+      border-top: 1px solid var(--color-coral);
+      padding: var(--space-md) 0 var(--space-lg) 0;
+    }
+
+    .intro {
+      font-size: 18px;
+      margin: var(--space-lg) 0;
+    }
+
+    .person {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .person-info p {
+      max-width: none;
+    }
+  }
+</style>
