@@ -12,9 +12,9 @@ Transformationen in einem sich grundlegend verändernden Ökosystem.
 
 Die Medien- und Marketingwelt steht vor fundamentalen Umbrüchen. Publisher kämpfen mit sinkenden Reichweiten durch AI Overviews, komplexen Datenstrategien und veralteten AdTech-Stacks. Marken kämpfen mit Fragmentierung der Werbekanäle, Sichtbarkeit in LLM-basierten Systemen und fehlender Transparenz in programmatischen Lieferketten.
 
-### Mein Ansatz
+### Unser Ansatz
 
-Ich bringe drei Dinge mit, die im Markt selten kombiniert sind: technisches Tiefenverständnis, Geschäftsmodell-Perspektive und systemischen Blick.
+Wir bringen drei Dinge mit, die im Markt selten kombiniert sind: technisches Tiefenverständnis, Geschäftsmodell-Perspektive und systemischen Blick.
 
 ### Typische Projekte
 

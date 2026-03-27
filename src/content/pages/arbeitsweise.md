@@ -1,23 +1,23 @@
 ---
 title: "Arbeitsweise & About"
-description: "Wer ich bin und wie ich arbeite. Von Strategie bis Umsetzung — mit systemischem Blick und technischem Sachverstand."
+description: "Wer wir sind und wie wir arbeiten. Von Strategie bis Umsetzung — mit systemischem Blick und technischem Sachverstand."
 order: 4
 ---
 
-## Wer ich bin & wie ich arbeite
+## Wer wir sind & wie wir arbeiten
 
 Von Strategie bis Umsetzung — mit systemischem Blick und technischem Sachverstand.
 
-### Wer ich bin
+### Wer wir sind
 
-Startup-Erfahrung trifft strategische Disziplin. Ich habe selbst Technologie-Unternehmen von 0 aufgebaut und bei McKinsey gelernt, komplexe Strategien zu strukturieren.
+Startup-Erfahrung trifft strategische Disziplin. Wir haben selbst Technologie-Unternehmen von 0 aufgebaut und bei McKinsey gelernt, komplexe Strategien zu strukturieren.
 
-### Wie ich arbeite
+### Wie wir arbeiten
 
-1. Ich höre zu, bevor ich rate
-2. Ich fordere heraus — konstruktiv
-3. Ich übernehme Verantwortung
-4. Ich arbeite transparent
+1. Wir hören zu, bevor wir raten
+2. Wir fordern heraus — konstruktiv
+3. Wir übernehmen Verantwortung
+4. Wir arbeiten transparent
 
 ### Typische Formate
 

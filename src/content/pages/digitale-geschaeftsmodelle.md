@@ -12,9 +12,9 @@ Von 0 auf 1 — mit Startup-Mentalität und systemischem Blick.
 
 Etablierte Unternehmen stehen vor einem Dilemma: Digitale Geschäftsmodelle sind überlebenswichtig, aber bestehende Strukturen sind für Effizienz optimiert, nicht für Innovation.
 
-### Mein Ansatz
+### Unser Ansatz
 
-Ich bringe Startup-Gründer-Erfahrung, systemische Beratung und technischen Sachverstand zusammen.
+Wir bringen Startup-Gründer-Erfahrung, systemische Beratung und technischen Sachverstand zusammen.
 
 ### Typische Projekte
 

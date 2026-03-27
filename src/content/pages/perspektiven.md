@@ -8,4 +8,4 @@ order: 5
 
 Gedanken zu Technologie, Transformation und Organisationen.
 
-Ich schreibe über Themen, die mich in meiner täglichen Arbeit beschäftigen: Wie Organisationen mit Technologie-Wandel umgehen. Wo KI echten Mehrwert schafft. Was bei Transformationsprojekten wirklich funktioniert.
+Wir schreiben über Themen, die uns in unserer täglichen Arbeit beschäftigen: Wie Organisationen mit Technologie-Wandel umgehen. Wo KI echten Mehrwert schafft. Was bei Transformationsprojekten wirklich funktioniert.
