@@ -15,6 +15,8 @@ const formatDate = (date: Date) => {
   <section class="evans-page">
     <div class="container">
 
+      <p class="intro">Analysen und Einordnungen an der Schnittstelle von Technologie, Medien und digitaler Werbung.</p>
+
       <hr class="section-divider" />
       <div class="evans-section">
         <div class="evans-label">
@@ -43,6 +45,15 @@ const formatDate = (date: Date) => {
 </BaseLayout>
 
 <style>
+  .intro {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text);
+    max-width: 720px;
+    margin: var(--space-xl) 0;
+  }
+
   .section-divider {
     border: none;
     border-top: 1px solid var(--color-coral);
@@ -130,6 +141,11 @@ const formatDate = (date: Date) => {
   }
 
   @media (max-width: 768px) {
+    .intro {
+      font-size: 18px;
+      margin: var(--space-lg) 0;
+    }
+
     .evans-section {
       grid-template-columns: 1fr;
     }
