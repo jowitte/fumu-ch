@@ -9,9 +9,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="not-found-label">
           <span class="error-code">404</span>
         </div>
+        <div class="not-found-line"></div>
         <div class="not-found-content">
-          <h1>Hier ist nichts.</h1>
-          <p>Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.</p>
+          <h1>Diese Seite hat sich selbst disrupted.</h1>
+          <p>Vermutlich war sie nicht datengetrieben genug.</p>
           <a href="/" class="back-link">Zur Startseite</a>
         </div>
       </div>
@@ -27,42 +28,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .not-found-layout {
-    display: grid;
-    grid-template-columns: auto 1px 1fr;
-    gap: var(--space-lg);
+    display: flex;
     align-items: center;
-    max-width: var(--content-width);
-  }
-
-  .not-found-label {
-    text-align: right;
-    padding-right: var(--space-lg);
+    gap: var(--space-lg);
   }
 
   .error-code {
     font-family: var(--font-sans);
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 400;
     color: var(--color-coral);
     line-height: 1;
+    white-space: nowrap;
   }
 
-  /* Vertikale Linie */
-  .not-found-layout::before {
-    content: '';
-    grid-column: 2;
+  .not-found-line {
     width: 1px;
-    height: 100%;
-    min-height: 120px;
+    align-self: stretch;
     background-color: var(--color-coral);
+    flex-shrink: 0;
   }
 
   .not-found-content h1 {
     font-family: var(--font-sans);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 400;
     color: var(--color-text);
-    margin: 0 0 var(--space-sm) 0;
+    margin: 0 0 var(--space-xs) 0;
   }
 
   .not-found-content p {
@@ -86,26 +78,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   @media (max-width: 768px) {
     .not-found-layout {
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
+      flex-direction: column;
       text-align: center;
     }
 
-    .not-found-label {
-      text-align: center;
-      padding-right: 0;
-    }
-
-    .not-found-layout::before {
-      grid-column: 1;
+    .not-found-line {
       width: 60px;
       height: 1px;
-      min-height: 0;
-      margin: 0 auto;
+      align-self: auto;
     }
 
     .error-code {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
   }
 </style>
