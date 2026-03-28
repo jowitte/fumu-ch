@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Seite nicht gefunden" description="Die angeforderte Seite existiert nicht.">
+  <section class="not-found">
+    <div class="container">
+      <div class="not-found-layout">
+        <div class="not-found-label">
+          <span class="error-code">404</span>
+        </div>
+        <div class="not-found-content">
+          <h1>Hier ist nichts.</h1>
+          <p>Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.</p>
+          <a href="/" class="back-link">Zur Startseite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .not-found-layout {
+    display: grid;
+    grid-template-columns: auto 1px 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+    max-width: var(--content-width);
+  }
+
+  .not-found-label {
+    text-align: right;
+    padding-right: var(--space-lg);
+  }
+
+  .error-code {
+    font-family: var(--font-sans);
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--color-coral);
+    line-height: 1;
+  }
+
+  /* Vertikale Linie */
+  .not-found-layout::before {
+    content: '';
+    grid-column: 2;
+    width: 1px;
+    height: 100%;
+    min-height: 120px;
+    background-color: var(--color-coral);
+  }
+
+  .not-found-content h1 {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .not-found-content p {
+    font-family: var(--font-serif);
+    color: var(--color-text-light);
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  .back-link {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-coral);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-coral);
+    padding-bottom: 2px;
+  }
+
+  .back-link:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .not-found-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      text-align: center;
+    }
+
+    .not-found-label {
+      text-align: center;
+      padding-right: 0;
+    }
+
+    .not-found-layout::before {
+      grid-column: 1;
+      width: 60px;
+      height: 1px;
+      min-height: 0;
+      margin: 0 auto;
+    }
+
+    .error-code {
+      font-size: 3rem;
+    }
+  }
+</style>
