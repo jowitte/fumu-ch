@@ -6,10 +6,82 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  article?: {
+    title: string;
+    description: string;
+    date: Date;
+    author?: string;
+    slug: string;
+  };
 }
 
-const { title, description = 'Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration' } = Astro.props;
+const { title, description = 'Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration', article } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://fumu.ch';
+
+// Breadcrumb aus URL-Pfad ableiten
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = [
+  { name: 'Home', url: `${siteUrl}/` },
+  ...pathSegments.map((seg, i) => ({
+    name: seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, ' '),
+    url: `${siteUrl}/${pathSegments.slice(0, i + 1).join('/')}/`,
+  })),
+];
+
+// Organization JSON-LD (auf jeder Seite)
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'fumu',
+  url: siteUrl,
+  logo: `${siteUrl}/favicon-32x32.png`,
+  description: 'Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration',
+  email: 'hello@fumu.ch',
+  foundingDate: '2024',
+  founder: {
+    '@type': 'Person',
+    name: 'Jochen Witte',
+    url: 'https://linkedin.com/in/jochenwitte',
+  },
+  areaServed: { '@type': 'GeoShape', name: 'DACH' },
+  knowsAbout: ['Digital Advertising', 'AdTech', 'MarTech', 'AI Integration', 'Programmatic Advertising'],
+};
+
+// BreadcrumbList JSON-LD (auf allen Seiten ausser Home)
+const breadcrumbLd = pathSegments.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+} : null;
+
+// Article JSON-LD (nur auf Artikelseiten)
+const articleLd = article ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.title,
+  description: article.description,
+  datePublished: article.date.toISOString().split('T')[0],
+  author: {
+    '@type': 'Person',
+    name: article.author || 'Jochen Witte',
+    url: 'https://linkedin.com/in/jochenwitte',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'fumu',
+    url: siteUrl,
+  },
+  mainEntityOfPage: canonicalUrl.toString(),
+  url: canonicalUrl.toString(),
+} : null;
+
+const ogType = article ? 'article' : 'website';
 ---
 
 <!DOCTYPE html>
@@ -25,11 +97,17 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <link rel="canonical" href={canonicalUrl} />
   <meta property="og:title" content={`${title} — fumu`} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="fumu" />
+  {article && <meta property="article:published_time" content={article.date.toISOString().split('T')[0]} />}
+  {article && <meta property="article:author" content={article.author || 'Jochen Witte'} />}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json" set:html={JSON.stringify(organizationLd)} />
+  {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
+  {articleLd && <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />}
 </head>
 <body>
   <Header />

@@ -1,0 +1,30 @@
+# fumu
+
+> fumu ist eine Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration. Wir beraten Verlage, Medienunternehmen, Werbevermarkter und Brands im DACH-Raum.
+
+## Über uns
+
+fumu verbindet Strategie, Organisation und Technologie — damit aus technologischem Potenzial echte Wirkung wird. Gegründet von Jochen Witte, vereint fumu Startup-Erfahrung, strategische Disziplin (McKinsey) und technisches Tiefenverständnis.
+
+- [Was wir tun](https://fumu.ch/was-wir-tun/): Strategieberatung, Technologie-Evaluation, Organisationsentwicklung, Interim Leadership
+- [About](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
+- [Kontakt](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren
+
+## Perspektiven (Blog)
+
+- [Das doppelte Unbundling](https://fumu.ch/perspektiven/das-doppelte-unbundling/): Was passiert mit digitaler Werbung, wenn Nutzer aufhören, Websites zu besuchen?
+- [AI in der digitalen Werbung — 5 Trends für 2026](https://fumu.ch/perspektiven/ai-trends-2026/): Wie KI die digitale Werbung verändert
+
+## Kernthemen
+
+- Digitale Werbung und Programmatic Advertising
+- AdTech/MarTech-Ökosystem und Konsolidierung
+- AI-Integration in Marketing und Werbung
+- Geschäftsmodell-Transformation für Medienunternehmen
+- Datenstrategie und First-Party-Data
+
+## Kontakt
+
+- Website: https://fumu.ch
+- E-Mail: hello@fumu.ch
+- Jochen Witte auf LinkedIn: https://linkedin.com/in/jochenwitte
