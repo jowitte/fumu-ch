@@ -23,12 +23,19 @@ const formatDate = (date: Date) => {
     <section class="recent-posts">
       <div class="container">
         <hr class="section-divider" />
-        {posts.map(post => (
-          <a href={`/perspektiven/${post.id}/`} class="post-row">
-            <span class="post-date">{formatDate(post.data.date)}</span>
-            <span class="post-title">{post.data.title}</span>
-          </a>
-        ))}
+        <div class="posts-grid">
+          <div class="posts-label">
+            <h2>Perspektiven</h2>
+          </div>
+          <div class="posts-list">
+            {posts.map(post => (
+              <a href={`/perspektiven/${post.id}/`} class="post-row">
+                <span class="post-date">{formatDate(post.data.date)}</span>
+                <span class="post-title">{post.data.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )}
@@ -67,6 +74,29 @@ const formatDate = (date: Date) => {
     margin: 0;
   }
 
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+  }
+
+  .posts-label {
+    padding: var(--space-xl) var(--space-lg) var(--space-xl) 0;
+  }
+
+  .posts-label h2 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-coral);
+    margin: 0;
+  }
+
+  .posts-list {
+    border-left: 1px solid var(--color-coral);
+    padding-left: var(--space-xl);
+  }
+
   .post-row {
     display: flex;
     align-items: baseline;
@@ -103,6 +133,20 @@ const formatDate = (date: Date) => {
     .hero { padding: 8vh 0 6vh; }
     .hero-title { font-size: 32px; }
     .hero-sub { font-size: 18px; }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .posts-label {
+      padding: var(--space-lg) 0 0 0;
+    }
+
+    .posts-list {
+      border-left: none;
+      border-top: 1px solid var(--color-coral);
+      padding-left: 0;
+    }
 
     .post-row {
       flex-direction: column;
