@@ -3,6 +3,7 @@ title: "Das doppelte Unbundling"
 description: "Was passiert mit der digitalen Werbung, wenn Nutzer aufhören, Websites zu besuchen? Nicht weil sie das Internet verlassen — sondern weil die Antwort jetzt direkt im Chat erscheint."
 date: 2026-03-27
 category: "Medien"
+image: "/images/perspektiven/drei-aeren-brand.png"
 draft: false
 ---
 
