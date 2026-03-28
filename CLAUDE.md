@@ -47,14 +47,12 @@ Slug = Dateiname (ohne .md). URL: `/perspektiven/[slug]/`
 
 | Variable | Hex | Verwendung |
 |----------|-----|------------|
-| `--color-primary` | #223A5E | Akzent dunkel |
-| `--color-accent` | #3EC6D3 | Akzent hell |
-| `--color-coral` | #FF6F61 | Primärfarbe (Logo, CTAs, Section Titles, Borders) |
-| `--color-yellow` | #FFD447 | Highlight |
-| `--color-green` | #2CB67D | Positiv |
+| `--color-coral` | #C44540 | Primärfarbe (Logo, CTAs, Linien, Headlines, Links) |
+| `--color-primary` | #223A5E | Tertiär (komplexe Charts, dunkle Akzente) |
 | `--color-text` | #414141 | Fliesstext |
 | `--color-text-light` | #666 | Sekundärtext |
 | `--color-neutral` | #F4F4F4 | Hintergrund-Akzent |
+| `--color-white` | #FFFFFF | Seitenhintergrund |
 
 ### Typografie
 
