@@ -31,7 +31,10 @@ const formatDate = (date: Date) => {
             {posts.map(post => (
               <a href={`/perspektiven/${post.id}/`} class="post-row">
                 <span class="post-date">{formatDate(post.data.date)}</span>
-                <span class="post-title">{post.data.title}</span>
+                <div class="post-text">
+                  <span class="post-title">{post.data.title}</span>
+                  <span class="post-description">{post.data.description}</span>
+                </div>
               </a>
             ))}
           </div>
@@ -71,7 +74,7 @@ const formatDate = (date: Date) => {
   .section-divider {
     border: none;
     border-top: 1px solid var(--color-coral);
-    margin: 0;
+    margin: 0 0 var(--space-xl) 0;
   }
 
   .posts-grid {
@@ -81,7 +84,7 @@ const formatDate = (date: Date) => {
   }
 
   .posts-label {
-    padding: var(--space-xl) var(--space-lg) var(--space-xl) 0;
+    padding: var(--space-lg) var(--space-lg) var(--space-xl) 0;
   }
 
   .posts-label h2 {
@@ -90,21 +93,28 @@ const formatDate = (date: Date) => {
     font-weight: 500;
     color: var(--color-coral);
     margin: 0;
+    position: sticky;
+    top: 80px;
   }
 
   .posts-list {
     border-left: 1px solid var(--color-coral);
     padding-left: var(--space-xl);
+    padding-top: var(--space-lg);
   }
 
   .post-row {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     gap: var(--space-lg);
-    padding: var(--space-md) 0;
+    padding: var(--space-md) 0 var(--space-lg) 0;
     border-bottom: 1px solid #eee;
     text-decoration: none;
     transition: background 0.15s;
+  }
+
+  .post-row:last-child {
+    border-bottom: none;
   }
 
   .post-row:hover {
@@ -120,6 +130,13 @@ const formatDate = (date: Date) => {
     letter-spacing: 0.5px;
     flex-shrink: 0;
     width: 120px;
+    padding-top: 3px;
+  }
+
+  .post-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
   }
 
   .post-title {
@@ -127,6 +144,13 @@ const formatDate = (date: Date) => {
     font-size: 17px;
     font-weight: 500;
     color: var(--color-text);
+  }
+
+  .post-description {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-text-light);
   }
 
   @media (max-width: 768px) {
