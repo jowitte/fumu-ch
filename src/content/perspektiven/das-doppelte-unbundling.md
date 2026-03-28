@@ -66,4 +66,6 @@ In den kommenden fünf Posts zeige ich jeden Trend einzeln: Was genau passiert, 
 - **Trend 4:** Agentic Commerce — Wenn Maschinen für Menschen einkaufen
 - **Trend 5:** Measurement Reset — Wenn alte Metriken versagen
 
-Alle fünf Trends, die dahinterliegenden Daten und konkrete Handlungsempfehlungen finden sich bereits jetzt vollständig im Whitepaper [„AI in der digitalen Werbung: 5 Trends für 2026"](/downloads/ai-trends-2026.pdf).
+Alle fünf Trends, die dahinterliegenden Daten und konkrete Handlungsempfehlungen finden sich bereits jetzt vollständig im Whitepaper.
+
+<a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>
