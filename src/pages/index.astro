@@ -1,8 +1,14 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const page = await getEntry('pages', 'home');
+const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
+};
 ---
 
 <BaseLayout title={page.data.title} description={page.data.description}>
@@ -12,11 +18,25 @@ const page = await getEntry('pages', 'home');
       <p class="hero-sub">Wir verbinden Strategie, Organisation und Technologie — damit aus technologischem Potenzial echte Wirkung wird.</p>
     </div>
   </section>
+
+  {posts.length > 0 && (
+    <section class="recent-posts">
+      <div class="container">
+        <hr class="section-divider" />
+        {posts.map(post => (
+          <a href={`/perspektiven/${post.id}/`} class="post-row">
+            <span class="post-date">{formatDate(post.data.date)}</span>
+            <span class="post-title">{post.data.title}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
   .hero {
-    padding: 12vh 0 40vh;
+    padding: 12vh 0 8vh;
   }
   .hero-title {
     font-family: var(--font-sans);
@@ -36,9 +56,61 @@ const page = await getEntry('pages', 'home');
     line-height: 1.5;
     max-width: 600px;
   }
+
+  .recent-posts {
+    padding-bottom: 12vh;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--color-coral);
+    margin: 0;
+  }
+
+  .post-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .post-row:hover {
+    background: var(--color-neutral);
+    text-decoration: none;
+  }
+
+  .post-date {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    width: 120px;
+  }
+
+  .post-title {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
   @media (max-width: 768px) {
-    .hero { padding: 8vh 0 20vh; }
+    .hero { padding: 8vh 0 6vh; }
     .hero-title { font-size: 32px; }
     .hero-sub { font-size: 18px; }
+
+    .post-row {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .post-date {
+      width: auto;
+    }
   }
 </style>
