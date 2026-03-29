@@ -1,0 +1,22 @@
+# 301 Redirects: WordPress -> Astro Migration (2026-03)
+# Kann entfernt werden, sobald Google die alten URLs deindexiert hat.
+
+# Bekannte alte Seiten
+/jochenwitte/                    /about/              301
+/author/jochen-wittefumu-ch/     /about/              301
+/author/*                        /about/              301
+
+# WordPress-Taxonomien
+/tag/*                           /perspektiven/       301
+/category/*                      /perspektiven/       301
+
+# WordPress-Infrastruktur (bewusst 404)
+/wp-content/*                    /404.html            404
+/wp-admin/*                      /404.html            404
+/wp-login.php                    /404.html            404
+/xmlrpc.php                      /404.html            404
+/feed/                           /404.html            404
+/feed                            /404.html            404
+
+# Alte Query-Parameter-URLs
+/?p=*                            /                    301
