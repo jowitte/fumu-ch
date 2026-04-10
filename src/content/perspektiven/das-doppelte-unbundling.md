@@ -62,7 +62,7 @@ Es gibt keine Strategie, die den Status quo erhält.
 In den kommenden fünf Posts zeige ich jeden Trend einzeln: Was genau passiert, welche Zahlen dahinterstehen — und was das konkret bedeutet.
 
 - **Trend 1:** AI Eyeballs — Sichtbarkeit in AI-Antworten statt auf Websites
-- **Trend 2:** Werbung in AI-Interfaces — ChatGPT, Perplexity, AI Overviews als neue Werbekanäle
+- **Trend 2:** [Werbung in AI-Interfaces](/perspektiven/60-dollar-chat-antwort/) — ChatGPT, Perplexity, AI Overviews als neue Werbekanäle
 - **Trend 3:** Agentic Advertising Operations — Wenn Maschinen die Werbemaschine steuern
 - **Trend 4:** Agentic Commerce — Wenn Maschinen für Menschen einkaufen
 - **Trend 5:** Measurement Reset — Wenn alte Metriken versagen
