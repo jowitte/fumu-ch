@@ -15,7 +15,7 @@ Auf der Nutzerseite zeigt sich dieselbe Bewegung. Wer ChatGPT eine Frage stellt,
 
 Bei klassischen Google-Suchergebnissen bleiben heute 65% der Anfragen ohne Klick. Bei AI Overviews — die in den USA bei rund 60% aller Suchanfragen erscheinen — steigt der Wert auf 95%. Bei ChatGPT auf 99%. Das ist keine Variation des Suchmaschinenmodells, sondern eine andere Art, an Information zu kommen.
 
-Die Publisher selbst rechnen damit. Eine Reuters-Erhebung beziffert den erwarteten Suchmaschinen-Traffic-Rückgang in den nächsten drei Jahren auf über 40%. Selbst wenn ein Klick kommt, geht er selten zum Publisher: Google Discover leitet 77% seiner AI-Zusammenfassungen auf YouTube — Google-Eigeninhalt, kein Drittangebot. Und die organische Click-through-Rate bei AI-Overview-Zitierungen liegt nach Seers jüngsten Daten bei 0,7% — ein Rückgang um fast die Hälfte in zwölf Monaten. Die Quellenangabe ist eine Formalie, keine Traffic-Quelle.
+Die Publisher selbst rechnen damit. Eine Reuters-Erhebung beziffert den erwarteten Suchmaschinen-Traffic-Rückgang in den nächsten drei Jahren auf über 40%. Selbst wenn ein Klick kommt, geht er selten zum Publisher: Google Discover leitet 77% seiner AI-Zusammenfassungen auf YouTube — Google-Eigeninhalt, kein Drittangebot. Und die organische Click-through-Rate bei AI-Overview-Zitierungen fiel bis September 2025 auf 0,7% — fast eine Halbierung innerhalb eines Jahres. Die Quellenangabe ist eine Formalie, keine Traffic-Quelle.
 
 ## Wo der Default schon kippt
 
