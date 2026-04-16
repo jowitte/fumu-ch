@@ -15,7 +15,7 @@ Auf der Nutzerseite zeigt sich dieselbe Bewegung. Wer ChatGPT eine Frage stellt,
 
 Bei klassischen Google-Suchergebnissen bleiben heute 65% der Anfragen ohne Klick. Bei AI Overviews — die in den USA bei rund 60% aller Suchanfragen erscheinen — steigt der Wert auf 95%. Bei ChatGPT auf 99%. Das ist keine Variation des Suchmaschinenmodells, sondern eine andere Art, an Information zu kommen.
 
-Die Publisher selbst rechnen damit. Eine Reuters-Erhebung beziffert den erwarteten Suchmaschinen-Traffic-Rückgang in den nächsten drei Jahren auf über 40%. Selbst wenn ein Klick kommt, geht er selten zum Publisher: Google Discover leitet 77% seiner AI-Zusammenfassungen auf YouTube — Google-Eigeninhalt, kein Drittangebot. Und die organische Click-through-Rate bei AI-Overview-Zitierungen liegt bei rund 1%. Die Quellenangabe ist eine Formalie, keine Traffic-Quelle.
+Die Publisher selbst rechnen damit. Eine Reuters-Erhebung beziffert den erwarteten Suchmaschinen-Traffic-Rückgang in den nächsten drei Jahren auf über 40%. Selbst wenn ein Klick kommt, geht er selten zum Publisher: Google Discover leitet 77% seiner AI-Zusammenfassungen auf YouTube — Google-Eigeninhalt, kein Drittangebot. Und die organische Click-through-Rate bei AI-Overview-Zitierungen liegt nach Seers jüngsten Daten bei 0,7% — ein Rückgang um fast die Hälfte in zwölf Monaten. Die Quellenangabe ist eine Formalie, keine Traffic-Quelle.
 
 ## Wo der Default schon kippt
 
@@ -65,7 +65,7 @@ Das zweite Unbundling ist keine Prognose. Es passiert.
 ### Quellen
 
 1. Xponent21 / Advanced Web Ranking — [AI Overviews Prevalence Study](https://xponent21.com/insights/google-ai-overviews-surpass-60-percent/) (2025)
-2. Seer Interactive — [AI Overviews CTR-Studie](https://www.seerinteractive.com/insights/ctr-aio) (2025)
+2. Seer Interactive — [AIO Impact on Google CTR — September 2025 Update](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update)
 3. Reuters Institute — [Journalism, Media, and Technology Trends and Predictions 2026](https://reutersinstitute.politics.ox.ac.uk/journalism-media-and-technology-trends-and-predictions-2026)
 4. Cloudflare — [Radar AI Insights: Crawl-to-Refer Ratios, Zero-Click-Daten](https://blog.cloudflare.com/crawlers-click-ai-bots-training/) (2025)
 5. First Page Sage — [Google vs ChatGPT Market Share Report](https://firstpagesage.com/seo-blog/google-vs-chatgpt-market-share-report/) (Q4 2025)
