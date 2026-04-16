@@ -53,7 +53,7 @@ Direkt schalten können Schweizer Werbetreibende bei ChatGPT noch nicht. Die Tim
 
 Für Publisher ist die unmittelbare Bedrohung weniger gross als die Schlagzeilen suggerieren — aber die strukturelle ist grösser. ChatGPT kann heute nicht liefern, was Premium-Publisher können: kein redaktionelles Umfeld mit Glaubwürdigkeit, kein Schweizer Publikum, kein Attention-Nachweis, der belegt, dass jemand tatsächlich hingeschaut hat. Wer das belegen kann, hält ein Argument in der Hand, das CPM-Vergleiche nicht abbilden. Mittelfristig allerdings fliesst ein wachsender Teil der Werbegelder in Kanäle, die Publisher nicht kontrollieren. Direkte Beziehungen — Newsletter-Abonnenten, App-Nutzer, zahlende Leser — werden zur wichtigsten Absicherung.
 
-**Diese Serie auf fumu.ch:** Das ist Trend 2 von fünf. Im Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) erkläre ich, warum diese Entwicklungen kein Zufall sind — und was das strukturelle Muster dahinter ist.
+**Diese Serie auf fumu.ch:** Dieser Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind — und was das strukturelle Muster dahinter ist.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>
 
