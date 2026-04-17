@@ -25,7 +25,7 @@ Diese Zahlen stammen aus US-Erhebungen. Für Europa und die Schweiz fehlen vergl
 
 ## Was Cloudflare sieht
 
-Cloudflare schützt und beschleunigt rund 20% aller Websites weltweit und sieht deshalb sehr genau, wer crawlt — und wer im Gegenzug Traffic zurückschickt. Das Verhältnis ist die ehrlichste Kennzahl, die der Markt gerade hat. Durchschnitt Q1 2026:
+Cloudflare schützt und beschleunigt rund 20% aller Websites weltweit und sieht deshalb sehr genau, wer crawlt — und wer im Gegenzug Traffic zurückschickt. Für Publisher heisst das: AI-Plattformen konsumieren ihre Inhalte in industriellem Massstab — und schicken fast nichts zurück. Jeder Crawl ist eine Seite, die gelesen, verarbeitet und in eine Antwort eingebaut wird, ohne dass der Leser je beim Ursprung landet. Das Verhältnis ist die ehrlichste Kennzahl, die der Markt gerade hat. Durchschnitt Q1 2026:
 
 - **Google:** 5 gecrawlte Seiten pro Referral
 - **Perplexity:** 111 zu 1
