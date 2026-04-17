@@ -1,13 +1,13 @@
 ---
 title: "99 Prozent Zero-Click"
-description: "38'100 Crawls pro Referral bei Anthropic. Was diese Zahl über das zweite Unbundling verrät — und was Publisher jetzt tun können."
+description: "24'000 Crawls pro Referral bei Anthropic — und das ist schon eine Verbesserung. Was die Cloudflare-Zahlen über das zweite Unbundling verraten."
 date: 2026-04-16
 category: "KI & AdTech"
 image: "/images/perspektiven/zero-click-crawl-to-refer.png"
 draft: false
 ---
 
-38'100 mal crawlt ein Anthropic-Bot eine Website für einen Besucher, der an den Publisher zurückgeschickt wird. Stand Juli 2025, Cloudflare-Messung. Wenn ich eine Zahl nennen müsste, die erklärt, was gerade passiert, wäre es diese.
+Knapp 24'000 mal crawlt ein Anthropic-Bot eine Website für einen Besucher, der an den Publisher zurückgeschickt wird. Durchschnitt erstes Quartal 2026, Cloudflare Radar. Vor einem Jahr waren es 286'000 — die Richtung stimmt, die Grössenordnung nicht. Wenn ich eine Zahl nennen müsste, die erklärt, was gerade passiert, wäre es diese.
 
 Auf der Nutzerseite zeigt sich dieselbe Bewegung. Wer ChatGPT eine Frage stellt, klickt fast nie weiter. Die Antwort ist da, der Klick erübrigt sich. Publisher, deren Geschäft auf Traffic gebaut ist, verlieren damit die Grundlage ihrer Erlösstruktur. Nicht im Drei-Jahres-Ausblick, sondern im laufenden Quartal.
 
@@ -25,16 +25,16 @@ Diese Zahlen stammen aus US-Erhebungen. Für Europa und die Schweiz fehlen vergl
 
 ## Was Cloudflare sieht
 
-Cloudflare schützt und beschleunigt rund 20% aller Websites weltweit und sieht deshalb sehr genau, wer crawlt — und wer im Gegenzug Traffic zurückschickt. Das Verhältnis ist die ehrlichste Kennzahl, die der Markt gerade hat. Stand Juli 2025:
+Cloudflare schützt und beschleunigt rund 20% aller Websites weltweit und sieht deshalb sehr genau, wer crawlt — und wer im Gegenzug Traffic zurückschickt. Das Verhältnis ist die ehrlichste Kennzahl, die der Markt gerade hat. Durchschnitt Q1 2026:
 
 - **Google:** 5 gecrawlte Seiten pro Referral
-- **Perplexity:** 195 zu 1
-- **OpenAI:** 1'091 zu 1
-- **Anthropic:** 38'100 zu 1
+- **Perplexity:** 111 zu 1
+- **OpenAI:** 1'276 zu 1
+- **Anthropic:** 23'951 zu 1
 
-![Crawl-zu-Referral-Verhältnis pro Plattform, Stand Juli 2025. Google, Perplexity und OpenAI auf der unteren Skala; Anthropic bricht die Y-Achse mit 38'100 zu 1.](/images/perspektiven/zero-click-crawl-to-refer.png)
+![Crawl-zu-Referral-Verhältnis pro Plattform, Durchschnitt Q1 2026. Google, Perplexity und OpenAI auf der unteren Skala; Anthropic bricht die Y-Achse mit 23'951 zu 1.](/images/perspektiven/zero-click-crawl-to-refer.png)
 
-Die Verhältnisse bewegen sich, aber nicht alle in dieselbe Richtung. Anthropic ist innerhalb von sechs Monaten um 87% gefallen — von 286'000 zu 1 im Januar auf 38'100 im Juli. Auslöser war Claudes Web-Suche mit klickbaren Quellen, seit Mai für alle Nutzer. Seither fliessen ein paar Klicks zurück. Trotzdem bleibt 38'100 zu 1 das Ende einer Verbesserung, nicht der Anfang einer Lösung. Perplexity geht in die andere Richtung. Und Google crawlt viel, generiert über die klassische Indexierung aber weiterhin den Grossteil seines Referral-Traffics. Genau dieses Gleichgewicht verschiebt sich.
+Die Verhältnisse bewegen sich — bei Anthropic in die richtige Richtung. Von 286'000 zu 1 im Januar 2025 über 38'100 im Juli auf knapp 12'000 im März 2026. Auslöser war Claudes Web-Suche mit klickbaren Quellen, seit Mai 2025 für alle Nutzer. Die Verbesserung um 96% in 14 Monaten klingt beeindruckend — bis man sie gegen Google hält: 12'000 zu 1 versus 5 zu 1. Das ist das Ende einer Verbesserung, nicht der Anfang einer Lösung. Perplexity verbessert sich ebenfalls stetig (von 195 auf 111). Und die Branchenunterschiede sind erheblich: Für Verlage und News-Sites misst Cloudflare bei Anthropic 2'500 zu 1 — deutlich besser als im Gesamtdurchschnitt. Google crawlt viel, generiert über die klassische Indexierung aber weiterhin den Grossteil seines Referral-Traffics. Genau dieses Gleichgewicht verschiebt sich.
 
 ## Was sich strukturell verschiebt
 
@@ -70,3 +70,5 @@ Das zweite Unbundling ist keine Prognose. Es passiert.
 4. Cloudflare — [Radar AI Insights: Crawl-to-Refer Ratios, Zero-Click-Daten](https://blog.cloudflare.com/crawlers-click-ai-bots-training/) (2025)
 5. First Page Sage — [Google vs ChatGPT Market Share Report](https://firstpagesage.com/seo-blog/google-vs-chatgpt-market-share-report/) (Q4 2025)
 6. Fractl / Search Engine Land — [Gen Z Search Behavior Report](https://www.frac.tl/ai-vs-seo-how-generative-search-is-reshaping-discovery-content-strategy-and-consumer-trust-in-2025/) (2025)
+7. SEOmator — [GEO Data Report 2026: Crawl-to-Refer-Ratios Q1 2026](https://seomator.com/blog/crawl-to-refer-ratio-ai-crawlers-llm-bots) (basierend auf Cloudflare Radar)
+8. Cloudflare — [A deeper look at AI crawlers: breaking down traffic by purpose and industry](https://blog.cloudflare.com/ai-crawler-traffic-by-purpose-and-industry/) (August 2025)
