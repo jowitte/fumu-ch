@@ -8,7 +8,7 @@ Astro-basierte statische Website für fumu — Technologie in Wirkung übersetze
 |------------|------|---------|
 | Framework | Astro 6 (Static) | `output: 'static'`, kein JS-Framework |
 | Hosting | Netlify Free | Auto-Deploy via GitHub, native Forms |
-| Fonts | IBM Plex | Serif (Body), Sans (Headings/Nav), Mono (Code) |
+| Fonts | Fraunces + IBM Plex | Headings (Fraunces), Body (IBM Plex Sans), Mono (IBM Plex Mono) |
 | CSS | Custom Properties | Kein Framework, reines CSS |
 | Content | Astro Content Collections | Markdown mit Zod-Schema |
 | Preview | https://fumu-ch.netlify.app | Staging-URL |
@@ -56,10 +56,10 @@ Slug = Dateiname (ohne .md). URL: `/perspektiven/[slug]/`
 
 ### Typografie
 
-- Body: `var(--font-serif)` — IBM Plex Serif, 16px, 400
-- Headings: `var(--font-sans)` — IBM Plex Sans, 600
+- Body: `var(--font-sans)` — IBM Plex Sans, 16px, 400
+- Headings: `var(--font-serif)` — Fraunces, 600
 - H1/H2: 20px, H3: 17px, H4: 14px
-- Hero-Titel: 48px, Sans, 400, Coral
+- Hero-Titel: 48px, Fraunces, 400, Coral
 
 ### Spacing
 
