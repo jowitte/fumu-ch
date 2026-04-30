@@ -221,9 +221,9 @@ li {
   border-color: var(--color-coral);
 }
 
-/* Dates — small serif */
+/* Dates — small sans, used as Meta-Element */
 .date {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 13px;
   color: var(--color-text);
   letter-spacing: 0.4px;
