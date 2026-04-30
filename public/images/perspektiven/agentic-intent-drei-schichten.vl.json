@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Wo Agentic AI hingeht — und was aussen vor bleibt",
+    "subtitle": [
+      "Drei Schichten der Kampagnenarbeit. Bars: Anteil der US-Mediaentscheider, die Agentic AI",
+      "für die Aufgabe einsetzen oder einsetzen wollen (IAB 2026 Outlook, n=161, Brands & Agenturen)"
+    ],
+    "anchor": "start",
+    "fontSize": 17,
+    "subtitleFontSize": 11,
+    "offset": 12
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"domain": false, "labelFontSize": 11, "titleFontSize": 11},
+    "concat": {"spacing": 24}
+  },
+  "vconcat": [
+    {
+      "title": {"text": "Strategie / Briefing / Spezifikation", "anchor": "start", "fontSize": 12, "fontWeight": "bold", "offset": 6},
+      "width": 540,
+      "height": 32,
+      "data": {"values": [{"x0": 0, "x1": 100, "y": 0, "label": "heute noch menschlich"}]},
+      "layer": [
+        {
+          "mark": {"type": "rect", "fill": "#E5E5E5"},
+          "encoding": {
+            "x": {"field": "x0", "type": "quantitative", "scale": {"domain": [0, 100]}, "axis": null},
+            "x2": {"field": "x1"},
+            "y": {"value": 4},
+            "y2": {"value": 28}
+          }
+        },
+        {
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "fontStyle": "italic", "fontSize": 11, "color": "#666666"},
+          "encoding": {
+            "x": {"value": 0},
+            "y": {"value": 16},
+            "text": {"field": "label"}
+          }
+        }
+      ]
+    },
+    {
+      "title": {"text": "Verhandlung", "anchor": "start", "fontSize": 12, "fontWeight": "bold", "offset": 6},
+      "width": 540,
+      "height": 70,
+      "data": {
+        "values": [
+          {"task": "Programmatic Deal Execution", "share": 57, "label": "57"},
+          {"task": "Direct I/O Negotiations", "share": 45, "label": "45"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {"type": "bar", "color": "#414141"},
+          "encoding": {
+            "y": {"field": "task", "type": "nominal", "sort": ["Programmatic Deal Execution", "Direct I/O Negotiations"], "axis": {"title": null, "labelFontSize": 11, "ticks": false}},
+            "x": {"field": "share", "type": "quantitative", "scale": {"domain": [0, 100]}, "axis": null}
+          }
+        },
+        {
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 4, "fontWeight": "bold", "fontSize": 12, "color": "#414141"},
+          "encoding": {
+            "y": {"field": "task", "type": "nominal", "sort": ["Programmatic Deal Execution", "Direct I/O Negotiations"]},
+            "x": {"field": "share", "type": "quantitative"},
+            "text": {"field": "label"}
+          }
+        }
+      ]
+    },
+    {
+      "title": {"text": "Operative Umsetzung", "anchor": "start", "fontSize": 12, "fontWeight": "bold", "offset": 6},
+      "width": 540,
+      "height": 250,
+      "data": {
+        "values": [
+          {"task": "Performance-Analyse", "share": 93, "label": "93"},
+          {"task": "Creative-Optimierung", "share": 91, "label": "91"},
+          {"task": "Media Planning & Buying", "share": 84, "label": "84"},
+          {"task": "Media Pre-Planning", "share": 82, "label": "82"},
+          {"task": "Budget-Allokation & Pacing", "share": 82, "label": "82"},
+          {"task": "Campaign Decisioning", "share": 79, "label": "79"},
+          {"task": "Inventory Discovery", "share": 75, "label": "75"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {"type": "bar", "color": "#C44540"},
+          "encoding": {
+            "y": {
+              "field": "task",
+              "type": "nominal",
+              "sort": ["Performance-Analyse", "Creative-Optimierung", "Media Planning & Buying", "Media Pre-Planning", "Budget-Allokation & Pacing", "Campaign Decisioning", "Inventory Discovery"],
+              "axis": {"title": null, "labelFontSize": 11, "ticks": false}
+            },
+            "x": {"field": "share", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Anteil der Buyer (%)", "axis": {"values": [0, 20, 40, 60, 80, 100]}}
+          }
+        },
+        {
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 4, "fontWeight": "bold", "fontSize": 12, "color": "#000000"},
+          "encoding": {
+            "y": {
+              "field": "task",
+              "type": "nominal",
+              "sort": ["Performance-Analyse", "Creative-Optimierung", "Media Planning & Buying", "Media Pre-Planning", "Budget-Allokation & Pacing", "Campaign Decisioning", "Inventory Discovery"]
+            },
+            "x": {"field": "share", "type": "quantitative"},
+            "text": {"field": "label"}
+          }
+        }
+      ]
+    }
+  ]
+}
