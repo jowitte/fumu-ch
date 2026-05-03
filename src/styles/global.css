@@ -153,16 +153,6 @@ a:hover {
   color: var(--color-coral);
 }
 
-/* Inline-Links im Fliesstext — dezent unterstrichen, erkennbar */
-p a, li a:not(.nav-link) {
-  border-bottom: 0.5px solid var(--color-coral);
-  padding-bottom: 1px;
-}
-
-p a:hover, li a:not(.nav-link):hover {
-  color: var(--color-coral);
-}
-
 strong {
   font-weight: 600;
 }
