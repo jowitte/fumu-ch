@@ -71,7 +71,7 @@ Im DACH-Markt fehlt der Pivot bisher — der Markt muss sich noch finden und ist
 
 ## Wo der nächste Klick fällt
 
-Die Frage ist nicht, ob AdCP funktioniert — das tut es. Die Frage ist, ob die Mainstream-Werbungsbranche aus dem Walled-Garden-Komfort herausfindet, wenn der nächste Klick auf Performance Max immer noch funktioniert. Das Email-Muster legt eine eher zurückhaltende Antwort nahe: Solche Entscheidungen fallen nicht in den Standardisierungs-Komitees, sondern dort, wo der Mainstream den nächsten Klick setzt.
+Die Frage ist nicht, ob AdCP funktioniert — das tut es. Die Frage ist, ob die Mainstream-Werbebranche aus dem Walled-Garden-Komfort herausfindet, wenn der nächste Klick auf Performance Max immer noch funktioniert. Das Email-Muster legt eine eher zurückhaltende Antwort nahe: Solche Entscheidungen fallen nicht in den Standardisierungs-Komitees, sondern dort, wo der Mainstream den nächsten Klick setzt.
 
 **Diese Serie auf fumu.ch:** Dieser Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind — und was das strukturelle Muster dahinter ist.
 
