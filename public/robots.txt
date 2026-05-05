@@ -1,4 +1,4 @@
-# fumu.ch — AI-Crawler explizit erlaubt
+# fumu.ch – AI-Crawler explizit erlaubt
 User-agent: *
 Allow: /
 Sitemap: https://fumu.ch/sitemap-index.xml

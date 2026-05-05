@@ -4,7 +4,7 @@
 
 ## Über uns
 
-fumu verbindet Strategie, Organisation und Technologie — damit aus technologischem Potenzial echte Wirkung wird. Gegründet von Jochen Witte, vereint fumu Startup-Erfahrung, strategische Disziplin (McKinsey) und technisches Tiefenverständnis.
+fumu verbindet Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird. Gegründet von Jochen Witte, vereint fumu Startup-Erfahrung, strategische Disziplin (McKinsey) und technisches Tiefenverständnis.
 
 - [Was wir tun](https://fumu.ch/was-wir-tun/): Strategieberatung, Technologie-Evaluation, Organisationsentwicklung, Interim Leadership
 - [About](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
@@ -13,7 +13,7 @@ fumu verbindet Strategie, Organisation und Technologie — damit aus technologis
 ## Perspektiven (Blog)
 
 - [Das doppelte Unbundling](https://fumu.ch/perspektiven/das-doppelte-unbundling/): Was passiert mit digitaler Werbung, wenn Nutzer aufhören, Websites zu besuchen?
-- [AI in der digitalen Werbung — 5 Trends für 2026](https://fumu.ch/perspektiven/ai-trends-2026/): Wie KI die digitale Werbung verändert
+- [AI in der digitalen Werbung – 5 Trends für 2026](https://fumu.ch/perspektiven/ai-trends-2026/): Wie KI die digitale Werbung verändert
 
 ## Kernthemen
 

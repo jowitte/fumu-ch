@@ -10,7 +10,7 @@ Technologie allein verändert nichts. Neue Tools, Plattformen und Algorithmen en
 
 ### Strategie
 
-Optionen entwickeln, Entscheidungsgrundlagen schaffen, Prioritäten setzen. Nicht Frameworks, sondern Klarheit — was zuerst, was gar nicht, und warum.
+Optionen entwickeln, Entscheidungsgrundlagen schaffen, Prioritäten setzen. Nicht Frameworks, sondern Klarheit – was zuerst, was gar nicht, und warum.
 
 ### Organisation
 
@@ -22,11 +22,11 @@ Bestehende Abläufe verstehen, Brüche identifizieren, neue Verfahren einführen
 
 ### Technologie
 
-Technisches Tiefenverständnis einbringen — nicht als Selbstzweck, sondern als Hebel. Wir bewerten Architekturen, begleiten Implementierungen und übersetzen zwischen Technik und Business.
+Technisches Tiefenverständnis einbringen – nicht als Selbstzweck, sondern als Hebel. Wir bewerten Architekturen, begleiten Implementierungen und übersetzen zwischen Technik und Business.
 
 ## Aktueller Schwerpunkt: KI
 
-Künstliche Intelligenz verändert gerade ganze Branchen. Wir helfen Organisationen, die richtigen Anwendungsfälle zu identifizieren, Piloten aufzusetzen und KI-Strategien in den laufenden Betrieb zu überführen — pragmatisch und ohne Hype.
+Künstliche Intelligenz verändert gerade ganze Branchen. Wir helfen Organisationen, die richtigen Anwendungsfälle zu identifizieren, Piloten aufzusetzen und KI-Strategien in den laufenden Betrieb zu überführen – pragmatisch und ohne Hype.
 
 ## Wo wir arbeiten
 
@@ -34,10 +34,10 @@ Unser Schwerpunkt liegt im Medien-, Marketing- und Werbe-Ökosystem. Publisher, 
 
 ## Referenzen
 
-- **OneX** — Aufbau und strategische Begleitung des Joint Ventures der führenden Schweizer Medienhäuser für digitale Werbeinfrastruktur
-- **TBWA** — KI-Readiness und Neuausrichtung der Media Unit
-- **Mediatonic** — Prozess- und Technologie-Audit einer Schweizer Mediaagentur
-- **CH Media** — Impulsvortrag zu KI und Werbung
-- **IAB Switzerland** — Leitung der Arbeitsgruppe Data & AI, Branchenweites KI-Maturity-Assessment
-- **emonitor AG** — Strategieprozess für ein PropTech Scale-up
-- **HWZ** — Dozent für Agile Leadership und digitale Transformation
+- **OneX** – Aufbau und strategische Begleitung des Joint Ventures der führenden Schweizer Medienhäuser für digitale Werbeinfrastruktur
+- **TBWA** – KI-Readiness und Neuausrichtung der Media Unit
+- **Mediatonic** – Prozess- und Technologie-Audit einer Schweizer Mediaagentur
+- **CH Media** – Impulsvortrag zu KI und Werbung
+- **IAB Switzerland** – Leitung der Arbeitsgruppe Data & AI, Branchenweites KI-Maturity-Assessment
+- **emonitor AG** – Strategieprozess für ein PropTech Scale-up
+- **HWZ** – Dozent für Agile Leadership und digitale Transformation

@@ -1,6 +1,6 @@
 # fumu.ch Website
 
-Astro-basierte statische Website für fumu — Technologie in Wirkung übersetzen. Strategie, Organisation, Prozesse und Technologie für das Medien- und Werbe-Ökosystem.
+Astro-basierte statische Website für fumu – Technologie in Wirkung übersetzen. Strategie, Organisation, Prozesse und Technologie für das Medien- und Werbe-Ökosystem.
 
 ## Stack
 
@@ -15,7 +15,7 @@ Astro-basierte statische Website für fumu — Technologie in Wirkung übersetze
 
 ## Content Collections
 
-### `pages` — Statische Seiten
+### `pages` – Statische Seiten
 
 Pfad: `src/content/pages/*.md`
 
@@ -27,7 +27,7 @@ order: number        # Navigationsreihenfolge
 
 Seiten: home, was-wir-tun, about, perspektiven, kontakt, impressum, datenschutz
 
-### `perspektiven` — Blog/Artikel
+### `perspektiven` – Blog/Artikel
 
 Pfad: `src/content/perspektiven/*.md`
 
@@ -56,8 +56,8 @@ Slug = Dateiname (ohne .md). URL: `/perspektiven/[slug]/`
 
 ### Typografie
 
-- Body: `var(--font-sans)` — IBM Plex Sans, 16px, 400
-- Headings: `var(--font-serif)` — Fraunces, 600
+- Body: `var(--font-sans)` – IBM Plex Sans, 16px, 400
+- Headings: `var(--font-serif)` – Fraunces, 600
 - H1/H2: 20px, H3: 17px, H4: 14px
 - Hero-Titel: 48px, Fraunces, 400, Coral
 
