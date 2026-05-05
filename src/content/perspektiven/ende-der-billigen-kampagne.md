@@ -7,7 +7,7 @@ image: "/images/perspektiven/agentic-intent-drei-schichten.png"
 draft: false
 ---
 
-Meta hat angekündigt, bis Ende 2026 Kampagnen vollautomatisch zu fahren – Werbetreibende geben nur noch Ziel und Budget ein. Das klingt nach einer Zäsur. Es ist keine, sondern der bisher deutlichste Punkt auf einer Linie, die lange vorher begonnen hat. Die grossen Plattformen arbeiten seit Jahren daran, operative Aufgaben aus den Händen der Werbetreibenden zu nehmen: Google mit Performance Max, Meta mit Advantage+, alle grossen Walled Gardens mit zunehmend automatisierten Defaults. Was neu ist, ist nicht die Technik. Es ist die Umkehrung der Ökonomie.
+Meta hat angekündigt, bis Ende 2026 Kampagnen vollautomatisch zu fahren: Werbetreibende geben nur noch Ziel und Budget ein. Das klingt nach einer Zäsur. Es ist keine, sondern der bisher deutlichste Punkt auf einer Linie, die lange vorher begonnen hat. Die grossen Plattformen arbeiten seit Jahren daran, operative Aufgaben aus den Händen der Werbetreibenden zu nehmen: Google mit Performance Max, Meta mit Advantage+, alle grossen Walled Gardens mit zunehmend automatisierten Defaults. Was neu ist, ist nicht die Technik. Es ist die Umkehrung der Ökonomie.
 
 Fünfzehn Jahre lang war in der Werbebranche der Wert dort, wo die Arbeit war: im Kampagnensetup, im Yield-Management, in der Tool-Mastery. Wer die Plattformen kannte, wer wusste, wo man eine Zielgruppe verfeinert und wo man sie in Ruhe lässt, hatte einen realen Vorteil. Dieser Vorteil war teuer zu erwerben und schwer zu ersetzen. Ausführung war das Produkt.
 
@@ -27,7 +27,7 @@ Das war nicht Qualität. Das war Kompensation.
 
 Vor zehn Jahren sollte Programmatic Advertising genau diesen Aufwand wegautomatisieren. Versprochen wurde Entlastung. Geliefert hat es das Gegenteil: Die operative Komplexität wuchs. Heute sind mehr Leute damit beschäftigt, Programmatic-Systeme zu steuern und zu überwachen, als früher für das klassische Geschäft nötig waren.
 
-Trotzdem funktionierte das System weiter, als wäre nichts passiert. Weil Programmatic ein Nebenschauplatz blieb. Direkter Verkauf, Trading Agreements, klassischer Media-Einkauf – der Hauptteil der Marktdynamik lief weiterhin manuell und analog. Programmatic konnte kaschieren, was es freizulegen versprach. Die Strategie-Schwäche war unsichtbar, weil die operative Dichte sie überdeckte.
+Trotzdem funktionierte das System weiter, als wäre nichts passiert. Weil Programmatic ein Nebenschauplatz blieb. Direkter Verkauf, Trading Agreements, klassischer Media-Einkauf. Der Hauptteil der Marktdynamik lief weiterhin manuell und analog. Programmatic konnte kaschieren, was es freizulegen versprach. Die Strategie-Schwäche war unsichtbar, weil die operative Dichte sie überdeckte.
 
 ## Agentic läuft zweigleisig – und beide zielen auf die Automatisierung der Execution
 
@@ -41,19 +41,19 @@ Hier zählt: Beide Schienen nehmen Execution weg. Beide legen das alte System fr
 
 Und genau deshalb wird jetzt sichtbar, was Programmatic kaschieren konnte. Ohne operative Ablenkung bleibt die Frage übrig: Wusste eigentlich jemand genau, was die Kampagne erreichen soll?
 
-Die Konsequenz ist gleichzeitig scharf und tückisch. Früher war ein schlechtes Briefing sichtbar – schlechtes Creative, offensichtlicher Fehlschuss, irgendwer fängt es im Review. Mit Advantage+ und Performance Max ist ein schlechtes Briefing unsichtbar: Der Algorithmus optimiert treu auf das falsche Ziel. CPM sieht gut aus. Der langfristige Kundenwert erodiert. Niemand weiss warum.
+Die Konsequenz ist gleichzeitig scharf und tückisch. Früher war ein schlechtes Briefing sichtbar: schlechtes Creative, offensichtlicher Fehlschuss, irgendwer fängt es im Review. Mit Advantage+ und Performance Max ist ein schlechtes Briefing unsichtbar: Der Algorithmus optimiert treu auf das falsche Ziel. CPM sieht gut aus. Der langfristige Kundenwert erodiert. Niemand weiss warum.
 
 ## Was jetzt zählt
 
 Die Konsequenz ist nicht, dass die Plattformen gewinnen. Die Konsequenz ist, dass die Schicht unter der Strategie ersetzbar wird, egal über welche Schiene.
 
-Für Werbetreibende heisst das: Kampagnen-Setup, Bid-Management und A/B-Testing sind nicht mehr der Wertbeitrag. Der Campaign Manager wird zum AI Trainer – er steuert Inputs und Constraints, nicht mehr die Execution. Was zählt, ist die Fähigkeit, Ziele präzise zu formulieren, Erfolgskriterien sauber zu benennen und zu erkennen, wann der Algorithmus in die falsche Richtung optimiert.
+Für Werbetreibende heisst das: Kampagnen-Setup, Bid-Management und A/B-Testing sind nicht mehr der Wertbeitrag. Der Campaign Manager wird zum AI Trainer. Er steuert Inputs und Constraints, nicht mehr die Execution. Was zählt, ist die Fähigkeit, Ziele präzise zu formulieren, Erfolgskriterien sauber zu benennen und zu erkennen, wann der Algorithmus in die falsche Richtung optimiert.
 
-Für Agenturen steht dieselbe Verschiebung bevor, nur dramatischer: Wer sich über operative Exzellenz definiert, verliert seine Existenzgrundlage schneller, als die meisten Roadmaps reichen. Was bleibt, ist die Arbeit, die das System nicht leisten kann. KI kann dabei unterstützen – sie kann Varianten vorschlagen, Hypothesen kombinieren, Muster aus anderen Kampagnen anbieten. Was sie nicht kann: Zielklarheit erzeugen, wo keine ist. Wer unscharf in den Prompt geht, bekommt präzise skalierten Quatsch zurück.
+Für Agenturen steht dieselbe Verschiebung bevor, nur dramatischer: Wer sich über operative Exzellenz definiert, verliert seine Existenzgrundlage schneller, als die meisten Roadmaps reichen. Was bleibt, ist die Arbeit, die das System nicht leisten kann. KI kann dabei unterstützen: sie kann Varianten vorschlagen, Hypothesen kombinieren, Muster aus anderen Kampagnen anbieten. Was sie nicht kann: Zielklarheit erzeugen, wo keine ist. Wer unscharf in den Prompt geht, bekommt präzise skalierten Quatsch zurück.
 
-Das klingt nach einer klaren Empfehlung: Strategie aufwerten, Execution loslassen. In der Praxis ist es eine Identitätsfrage. Viele Werbeorganisationen wissen gar nicht mehr, wo die Execution aufhört und die Strategie anfängt – weil die Grenze nie gezogen werden musste.
+Das klingt nach einer klaren Empfehlung: Strategie aufwerten, Execution loslassen. In der Praxis ist es eine Identitätsfrage. Viele Werbeorganisationen wissen gar nicht mehr, wo die Execution aufhört und die Strategie anfängt, weil die Grenze nie gezogen werden musste.
 
-**Diese Serie auf fumu.ch:** Dieser Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind – und was das strukturelle Muster dahinter ist.
+**Diese Serie auf fumu.ch:** Dieser Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind und was das strukturelle Muster dahinter ist.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>
 

@@ -7,25 +7,25 @@ image: "/images/perspektiven/chatgpt-ads-screenshot.png"
 draft: false
 ---
 
-Jede grosse Plattform der letzten zwanzig Jahre hat irgendwann Werbung eingeführt. Nicht weil die Gründer es wollten, sondern weil die Ökonomie es verlangt. OpenAI ist keine Ausnahme – seit Februar 2026 zeigt ChatGPT Werbung. 900 Millionen wöchentlich aktive Nutzer, ein laufendes Beta-Programm, ein erster Ad-Tech-Partner. Ich hätte nicht erwartet, dass das so schnell geht.
+Jede grosse Plattform der letzten zwanzig Jahre hat irgendwann Werbung eingeführt. Nicht weil die Gründer es wollten, sondern weil die Ökonomie es verlangt. OpenAI ist keine Ausnahme: Seit Februar 2026 zeigt ChatGPT Werbung. 900 Millionen wöchentlich aktive Nutzer, ein laufendes Beta-Programm, ein erster Ad-Tech-Partner. Ich hätte nicht erwartet, dass das so schnell geht.
 
-Die interessantere Frage ist nicht, dass es passiert – sondern wie. Denn das Wie verrät, wohin sich der Kanal entwickelt.
+Die interessantere Frage ist nicht, dass es passiert, sondern wie. Denn das Wie verrät, wohin sich der Kanal entwickelt.
 
 ## Wie Werbung in ChatGPT funktioniert
 
 ![Sponsored Unit unterhalb der AI-Antwort (links) und Shopping-Karussell mit Direktinteraktion (rechts)](/images/perspektiven/chatgpt-ads-screenshot.png)
 
-Zwei Formate zeichnen sich ab. Textbasierte Sponsored Units erscheinen unterhalb der AI-Antwort – eingebettet in den Gesprächsfluss, nicht als Banner daneben. Shopping-Karusselle mit integriertem Checkout gehen einen Schritt weiter: vom Produktvorschlag zum Kauf, ohne die Plattform zu verlassen.
+Zwei Formate zeichnen sich ab. Textbasierte Sponsored Units erscheinen unterhalb der AI-Antwort, eingebettet in den Gesprächsfluss, nicht als Banner daneben. Shopping-Karusselle mit integriertem Checkout gehen einen Schritt weiter: vom Produktvorschlag zum Kauf, ohne die Plattform zu verlassen.
 
 Das Targeting ist das eigentlich Neue. OpenAI matcht Ads anhand des Gesprächsthemas, vergangener Chats und früherer Ad-Interaktionen. Was hier entsteht, ist ein Intent-Signal aus Chat-Historien – vergleichbar mit dem, was Google über Jahrzehnte mit Suchanfragen aufgebaut hat. Der Unterschied: Suchanfragen verraten, wonach jemand sucht. Chat-Historien verraten, wie jemand darüber nachdenkt. Ob sich das in bessere Conversion-Raten übersetzt, muss sich zeigen. Aber das Signal ist strukturell reicher.
 
-Noch ist der Kanal begrenzt: nur Free- und Go-Tier, nur USA, ohne kommunizierte Timeline für Europa. Und die Werbeformate werden sich weiterentwickeln – stärkere Personalisierung, engere Verzahnung mit Shopping, möglicherweise native Integration in ChatGPTs wachsende Plugin- und Agenten-Infrastruktur. Die Plattform ist im Werbemarkt noch am Anfang. Dass sie dort bleibt, ist unwahrscheinlich.
+Noch ist der Kanal begrenzt: nur Free- und Go-Tier, nur USA, ohne kommunizierte Timeline für Europa. Und die Werbeformate werden sich weiterentwickeln: stärkere Personalisierung, engere Verzahnung mit Shopping, möglicherweise native Integration in ChatGPTs wachsende Plugin- und Agenten-Infrastruktur. Die Plattform ist im Werbemarkt noch am Anfang. Dass sie dort bleibt, ist unwahrscheinlich.
 
 ## Was ein CPM von 60 Dollar über OpenAIs Strategie verrät
 
 Ein CPM von 60 Dollar – rund 53 Franken – sagt weniger über den Preis als über die Positionierung. OpenAI betritt den Werbemarkt nicht als Reichweitenkanal, sondern im oberen Segment, dort wo Premium-Publisher operieren. Schweizer Vermarkter listen Brutto-CPMs von 35 bis 80 Franken; netto, nach Pay-Faktoren und programmatischen Einkaufswegen, liegt der Markt deutlich tiefer. OpenAI preist sich über dem Netto-Niveau ein (zumindest im Launch-Pricing – erfahrungsgemäss sinken CPMs, sobald ein Kanal skaliert).
 
-Das Mindestbudget bestätigt die Positionierung: 200'000 Dollar für den Direktzugang, 50'000 bis 100'000 über den Ad-Tech-Partner Criteo. Das ist kein Self-Service-Kanal für KMU. Es ist ein Premium-Produkt für grosse Advertiser – mit Criteo als Brücke für den oberen Mittelstand (17'000 Advertiser, über 4 Milliarden Dollar jährlicher Ad-Spend).
+Das Mindestbudget bestätigt die Positionierung: 200'000 Dollar für den Direktzugang, 50'000 bis 100'000 über den Ad-Tech-Partner Criteo. Das ist kein Self-Service-Kanal für KMU. Es ist ein Premium-Produkt für grosse Advertiser, mit Criteo als Brücke für den oberen Mittelstand (17'000 Advertiser, über 4 Milliarden Dollar jährlicher Ad-Spend).
 
 ## Das Tempo
 
@@ -51,9 +51,9 @@ GenAI-Plattformen verschärfen diesen Trend, weil sie Nutzer von klassischen Web
 
 Direkt schalten können Schweizer Werbetreibende bei ChatGPT noch nicht. Die Timeline für Europa ist offen. Aber der US-Rollout liefert bereits Daten darüber, welche Formate funktionieren, wie das Targeting reagiert und was CPMs nach dem Launch-Hype tatsächlich kosten. Wer diese Lerndaten beobachtet und parallel die eigene First-Party-Datenstrategie schärft, ist bereit, wenn der Kanal öffnet. Sobald Criteo den Zugang für Europa ermöglicht: testen – nicht mit Jahresbudgets, aber mit einem kontrollierten Einstieg.
 
-Für Publisher ist die unmittelbare Bedrohung weniger gross als die Schlagzeilen suggerieren – aber die strukturelle ist grösser. ChatGPT kann heute nicht liefern, was Premium-Publisher können: kein redaktionelles Umfeld mit Glaubwürdigkeit, kein Schweizer Publikum, kein Attention-Nachweis, der belegt, dass jemand tatsächlich hingeschaut hat. Wer das belegen kann, hält ein Argument in der Hand, das CPM-Vergleiche nicht abbilden. Mittelfristig allerdings fliesst ein wachsender Teil der Werbegelder in Kanäle, die Publisher nicht kontrollieren. Direkte Beziehungen – Newsletter-Abonnenten, App-Nutzer, zahlende Leser – werden zur wichtigsten Absicherung.
+Für Publisher ist die unmittelbare Bedrohung weniger gross als die Schlagzeilen suggerieren, aber die strukturelle ist grösser. ChatGPT kann heute nicht liefern, was Premium-Publisher können: kein redaktionelles Umfeld mit Glaubwürdigkeit, kein Schweizer Publikum, kein Attention-Nachweis, der belegt, dass jemand tatsächlich hingeschaut hat. Wer das belegen kann, hält ein Argument in der Hand, das CPM-Vergleiche nicht abbilden. Mittelfristig allerdings fliesst ein wachsender Teil der Werbegelder in Kanäle, die Publisher nicht kontrollieren. Direkte Beziehungen – Newsletter-Abonnenten, App-Nutzer, zahlende Leser – werden zur wichtigsten Absicherung.
 
-**Diese Serie auf fumu.ch:** Dieser Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind – und was das strukturelle Muster dahinter ist.
+**Diese Serie auf fumu.ch:** Dieser Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind und was das strukturelle Muster dahinter ist.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>
 
