@@ -42,15 +42,6 @@ const formatDate = (date: Date) => {
   </article>
 </BaseLayout>
 
-<script>
-  document.querySelectorAll('a[href$=".pdf"]').forEach(link => {
-    link.addEventListener('click', () => {
-      const file = link.getAttribute('href')?.split('/').pop() ?? '';
-      window.plausible?.('Download', { props: { file } });
-    });
-  });
-</script>
-
 <style>
   .evans-section {
     display: grid;

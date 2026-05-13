@@ -4,7 +4,7 @@ description: "Datenschutzerklärung der fumu GmbH, Zürich"
 order: 8
 ---
 
-Stand: März 2026
+Stand: Mai 2026
 
 ## 1. Verantwortliche Stelle
 
@@ -20,11 +20,11 @@ Diese Datenschutzerklärung gilt für die Website fumu.ch. Wir behandeln deine D
 
 ### 2.1 Beim Besuch der Website
 
-Unser Hosting-Provider Netlify verarbeitet bei jedem Seitenaufruf technische Verbindungsdaten (IP-Adresse, Browsertyp, Zugriffszeitpunkt). Diese Daten werden in Server-Logfiles gespeichert und nach 30 Tagen gelöscht. Die Verarbeitung dient dem sicheren Betrieb der Website. Netlify betreibt Server in der EU und den USA. Grundlage ist unser berechtigtes Interesse am sicheren Betrieb (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. f DSGVO).
+Die Website wird über Netlify gehostet und über Cloudflare als Content Delivery Network (CDN) und Reverse-Proxy ausgeliefert. Bei jedem Seitenaufruf verarbeiten beide Anbieter technische Verbindungsdaten (IP-Adresse, Browsertyp, Zugriffszeitpunkt) zur sicheren Auslieferung der Inhalte und zur Abwehr von Angriffen. Diese Daten werden in Server-Logfiles gespeichert und nach maximal 30 Tagen gelöscht. Cloudflare betreibt ein globales Anycast-Netzwerk mit Knoten in der EU, der Schweiz und weltweit; Netlify betreibt Server in der EU und den USA. Grundlage ist unser berechtigtes Interesse am sicheren Betrieb (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. f DSGVO).
 
-### 2.2 Webanalyse mit Plausible
+### 2.2 Webanalyse mit Cloudflare Web Analytics
 
-Wir nutzen Plausible Analytics zur Auswertung der Website-Nutzung. Plausible setzt keine Cookies, greift nicht auf den Gerätespeicher zu und erstellt keine persönlichen Profile. Die Analyse funktioniert über einen tagesrotierenden Hash, der keine Rückschlüsse auf einzelne Personen zulässt. IP-Adressen werden nicht gespeichert. Alle Daten verbleiben auf EU-Infrastruktur (Hetzner, Deutschland). Eine Einwilligung ist nicht erforderlich, da kein Zugriff auf dein Endgerät erfolgt (Art. 45c FMG; Art. 5 Abs. 3 ePrivacy-Richtlinie). Grundlage ist unser berechtigtes Interesse an der Verbesserung unseres Angebots (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. f DSGVO).
+Wir nutzen Cloudflare Web Analytics zur Auswertung der Website-Nutzung. Cloudflare Web Analytics setzt keine Cookies, greift nicht auf den Gerätespeicher zu und erstellt keine persönlichen Profile. IP-Adressen werden nicht in identifizierbarer Form gespeichert, sondern ausschliesslich zur Aggregation von Statistiken kurzzeitig verarbeitet. Eine Einwilligung ist nicht erforderlich, da kein Zugriff auf dein Endgerät erfolgt (Art. 45c FMG; Art. 5 Abs. 3 ePrivacy-Richtlinie). Grundlage ist unser berechtigtes Interesse an der Verbesserung unseres Angebots (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. f DSGVO).
 
 ### 2.3 Kontaktaufnahme
 
@@ -32,25 +32,25 @@ Wenn du uns per E-Mail kontaktierst, verarbeiten wir die von dir mitgeteilten Da
 
 ### 2.4 Cookies
 
-Diese Website setzt keine Cookies.
+Diese Website setzt keine Tracking-Cookies. Im Rahmen des Bot- und Missbrauchsschutzes durch Cloudflare können technisch notwendige Cookies (z.B. `__cf_bm`) mit kurzer Lebensdauer gesetzt werden. Diese dienen ausschliesslich der Abwehr automatisierter Zugriffe.
 
 ## 3. Weitergabe an Dritte
 
 Wir geben personenbezogene Daten nur weiter, wenn dies für den Betrieb der Website technisch nötig ist:
 
 - **Netlify** (Hosting): Verbindungsdaten bei Seitenaufruf
-- **Plausible** (Webanalyse): anonymisierte Nutzungsstatistiken, keine personenbezogenen Daten
+- **Cloudflare** (CDN, Reverse-Proxy, Bot-Schutz, Web Analytics): Verbindungsdaten zur sicheren Auslieferung und aggregierte Nutzungsstatistiken
 
 Eine Weitergabe zu Werbezwecken oder an sonstige Dritte findet nicht statt.
 
 ## 4. Datenübermittlung ins Ausland
 
-Netlify betreibt ein globales CDN mit Servern in der EU und den USA. Die Übermittlung in die USA stützt sich auf das EU-U.S. Data Privacy Framework. Plausible verarbeitet alle Daten ausschliesslich in der EU (Deutschland).
+Netlify (USA) und Cloudflare (USA) betreiben global verteilte Infrastruktur. Die Übermittlung in die USA stützt sich auf das EU-U.S. Data Privacy Framework und – soweit erforderlich – auf Standardvertragsklauseln nach Art. 46 DSGVO.
 
 ## 5. Speicherdauer
 
-- Server-Logfiles (Netlify): 30 Tage
-- Plausible-Statistiken: aggregiert, ohne Personenbezug, unbefristet
+- Server-Logfiles (Netlify, Cloudflare): maximal 30 Tage
+- Cloudflare Web Analytics: aggregiert, ohne Personenbezug, bis zu 6 Monate
 - Kontaktanfragen: bis zur Erledigung, danach Löschung, sofern keine gesetzliche Aufbewahrungspflicht besteht
 
 ## 6. Deine Rechte
