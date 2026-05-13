@@ -1,6 +1,6 @@
 ---
 title: "Maschinen steuern die Werbemaschine"
-description: "Zwei Konsortien schreiben gerade Standards für Agentic Advertising. Mainstream wird sie ignorieren – aus genau dem Grund, aus dem heute keiner mehr nach IMAP fragt."
+description: "Agentic Advertising. Zwei Konsortien schreiben gerade Standards, der Mainstream wird sie ignorieren – aus genau dem Grund, aus dem heute keiner mehr nach IMAP fragt."
 date: 2026-05-03
 category: "KI & AdTech"
 image: "/images/perspektiven/maschinen-werbemaschine-hero.png"
