@@ -5,6 +5,8 @@
 /jochenwitte/                    /about/              301
 /author/jochen-wittefumu-ch/     /about/              301
 /author/*                        /about/              301
+/updates/                        /perspektiven/       301
+/angebot/                        /was-wir-tun/        301
 
 # WordPress-Taxonomien
 /tag/*                           /perspektiven/       301

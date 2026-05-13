@@ -1,6 +1,6 @@
 ---
-title: "Technologie in Wirkung übersetzen"
-description: "Strategie, Organisation, Prozesse und Technologie zusammenbringen – damit aus technologischem Potenzial echte Wirkung wird."
+title: "Strategieberatung für Digital Advertising und AI"
+description: "Unabhängige Strategieberatung für Digital Advertising, AdTech und AI-Integration im DACH-Raum. Von Jochen Witte, Zürich."
 order: 1
 ---
 
