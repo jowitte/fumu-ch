@@ -1,8 +1,46 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'fumu',
+  url: 'https://fumu.ch/was-wir-tun/',
+  description: 'Strategieberatung an der Schnittstelle von Strategie, Organisation, Prozessen und Technologie. Schwerpunkt: KI-Integration sowie Medien-, Marketing- und Werbe-Ökosystem.',
+  areaServed: { '@type': 'GeoShape', name: 'DACH' },
+  serviceType: [
+    'Strategieberatung',
+    'Digitale Transformation',
+    'KI-Strategie und KI-Integration',
+    'Tech-Strategie',
+    'Organisationsentwicklung',
+    'Prozess-Architektur',
+    'Datenstrategie',
+    'AdTech- und MarTech-Beratung',
+    'Programmatic-Strategie',
+    'Publisher-Beratung',
+  ],
+  provider: {
+    '@type': 'Organization',
+    name: 'fumu',
+    url: 'https://fumu.ch',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Service-Formate',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Strategische Begleitung (8–16 Wochen)' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Interim Leadership (6–18 Monate)' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sparring (laufend)' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'KI-Schulungen und Workshops (1–5 Tage)' } },
+    ],
+  },
+};
 ---
 
 <BaseLayout title="Was wir tun" description="Strategie, Organisation, Prozesse und Technologie zusammenbringen. Mit Schwerpunkt in Medien, Marketing und Werbetechnologie.">
+
+  <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />
 
   <section class="evans-page">
     <div class="container">

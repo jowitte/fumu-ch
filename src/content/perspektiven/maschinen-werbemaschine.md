@@ -3,7 +3,7 @@ title: "Maschinen steuern die Werbemaschine"
 description: "Agentic Advertising. Zwei Konsortien schreiben gerade Standards, der Mainstream wird sie ignorieren – aus genau dem Grund, aus dem heute keiner mehr nach IMAP fragt."
 date: 2026-05-03
 category: "KI & AdTech"
-image: "/images/perspektiven/maschinen-werbemaschine-hero.png"
+image: "/images/perspektiven/maschinen-werbemaschine-hero.webp"
 draft: false
 ---
 
@@ -15,7 +15,7 @@ Dieses Muster wiederholt sich in fast allem, was in den letzten 30 Jahren im off
 
 Das ist kein Pessimismus, sondern Mustererkennung.
 
-![Google und Meta als zwei separate Mega-Stores mit eigenen Welten – gegenüber drei Einzelhändler (PubMatic, Magnite, Yahoo) unter einem gemeinsamen "AdCP – Open Standard"-Banner. Die Plattformen brauchen kein Banner, weil sie ihren eigenen Standard sind.](/images/perspektiven/maschinen-werbemaschine-hero.png)
+![Google und Meta als zwei separate Mega-Stores mit eigenen Welten – gegenüber drei Einzelhändler (PubMatic, Magnite, Yahoo) unter einem gemeinsamen "AdCP – Open Standard"-Banner. Die Plattformen brauchen kein Banner, weil sie ihren eigenen Standard sind.](/images/perspektiven/maschinen-werbemaschine-hero.webp)
 
 ## Wer baut – und warum das ein Defensiv-Manöver ist
 

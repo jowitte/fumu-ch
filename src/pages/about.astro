@@ -1,8 +1,41 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jochen Witte',
+  url: 'https://fumu.ch/about/',
+  image: 'https://fumu.ch/images/jochen-witte.jpg',
+  jobTitle: 'Strategieberater für Digital Advertising, AdTech und KI',
+  description: 'Strategieberater an der Schnittstelle von Strategie, Organisation, Prozessen und Technologie. 20+ Jahre Digital. Startup-Gründer, Technologie-Chef in Medienhäusern, Strategieberater. Systemische Ausbildung.',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'fumu',
+    url: 'https://fumu.ch',
+  },
+  sameAs: ['https://www.linkedin.com/in/jochenwitte/'],
+  knowsAbout: [
+    'Digitale Transformation',
+    'Geschäftsmodell-Innovation',
+    'Tech-Strategie',
+    'Organisationsentwicklung',
+    'Prozess-Architektur',
+    'Datenstrategie',
+    'Künstliche Intelligenz',
+    'KI-Integration',
+    'AdTech',
+    'MarTech',
+    'Programmatic Advertising',
+    'Publisher-Strategie',
+  ],
+  knowsLanguage: ['de', 'en'],
+};
 ---
 
 <BaseLayout title="About" description="Wer wir sind und wie wir arbeiten. Startup-Erfahrung trifft strategische Disziplin und technisches Tiefenverständnis.">
+
+  <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
 
   <section class="evans-page">
     <div class="container">

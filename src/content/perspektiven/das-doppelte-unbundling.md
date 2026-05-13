@@ -3,7 +3,7 @@ title: "Das doppelte Unbundling"
 description: "Das zweite Unbundling. Was passiert mit der digitalen Werbung, wenn Nutzer aufhören, Websites zu besuchen? Nicht weil sie das Internet verlassen, sondern weil die Antwort jetzt direkt im Chat erscheint."
 date: 2026-03-27
 category: "Medien"
-image: "/images/perspektiven/drei-aeren-brand.png"
+image: "/images/perspektiven/drei-aeren-brand.webp"
 draft: false
 ---
 
@@ -31,7 +31,7 @@ Cloudflare misst das Verhältnis zwischen AI-Crawler-Anfragen und dem Traffic, d
 
 Das zweite Unbundling in harten Zahlen: Publisher verlieren erst die Werbekontrolle, dann die Inhaltskontrolle.
 
-![Das doppelte Unbundling – drei Ären der digitalen Werbung](/images/perspektiven/drei-aeren-brand.png)
+![Das doppelte Unbundling – drei Ären der digitalen Werbung](/images/perspektiven/drei-aeren-brand.webp)
 
 ## Fünf Trends, die daraus folgen
 

@@ -3,7 +3,7 @@ title: "99 Prozent Zero-Click"
 description: "24'000 Crawls pro Referral bei Anthropic – und das ist schon eine Verbesserung. Was die Cloudflare-Zahlen über das zweite Unbundling verraten."
 date: 2026-04-16
 category: "KI & AdTech"
-image: "/images/perspektiven/zero-click-crawl-to-refer.png"
+image: "/images/perspektiven/zero-click-crawl-to-refer.webp"
 draft: false
 ---
 
@@ -32,7 +32,7 @@ Cloudflare schützt und beschleunigt rund 20% aller Websites weltweit und sieht 
 - **OpenAI:** 1'276 zu 1
 - **Anthropic:** 23'951 zu 1
 
-![Crawl-zu-Referral-Verhältnis pro Plattform, Durchschnitt Q1 2026. Google, Perplexity und OpenAI auf der unteren Skala; Anthropic bricht die Y-Achse mit 23'951 zu 1.](/images/perspektiven/zero-click-crawl-to-refer.png)
+![Crawl-zu-Referral-Verhältnis pro Plattform, Durchschnitt Q1 2026. Google, Perplexity und OpenAI auf der unteren Skala; Anthropic bricht die Y-Achse mit 23'951 zu 1.](/images/perspektiven/zero-click-crawl-to-refer.webp)
 
 Die Verhältnisse bewegen sich, bei Anthropic in die richtige Richtung. Von 286'000 zu 1 im Januar 2025 über 38'100 im Juli auf knapp 12'000 im März 2026. Auslöser war Claudes Web-Suche mit klickbaren Quellen, seit Mai 2025 für alle Nutzer. Die Verbesserung um 96% in 14 Monaten klingt beeindruckend – bis man sie gegen Google hält: 12'000 zu 1 versus 5 zu 1. Das ist das Ende einer Verbesserung, nicht der Anfang einer Lösung. Perplexity verbessert sich ebenfalls stetig (von 195 auf 111). Und die Branchenunterschiede sind erheblich: Für Verlage und News-Sites misst Cloudflare bei Anthropic 2'500 zu 1 – deutlich besser als im Gesamtdurchschnitt. Google crawlt viel, generiert über die klassische Indexierung aber weiterhin den Grossteil seines Referral-Traffics. Genau dieses Gleichgewicht verschiebt sich.
 

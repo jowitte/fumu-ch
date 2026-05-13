@@ -3,7 +3,7 @@ title: "Das Ende der billigen Kampagne"
 description: "Eine Kampagne aufzusetzen kostet bald nichts mehr. Die falsche Kampagne aufzusetzen umso mehr."
 date: 2026-04-24
 category: "KI & AdTech"
-image: "/images/perspektiven/agentic-intent-drei-schichten.png"
+image: "/images/perspektiven/agentic-intent-drei-schichten.webp"
 draft: false
 ---
 
@@ -19,7 +19,7 @@ In der Praxis war ein Kampagnen-Briefing meistens eine Liste: Zielgruppe, KPIs, 
 
 Denn die eigentliche Übersetzungsarbeit fand anderswo statt. CMOs definieren Ziele in Umsatz, Marke, Marktanteil. Performance-Teams optimieren auf CPM, CPA, ROAS. Die Lücke dazwischen – das Übersetzen von Geschäftszielen in Kampagnenlogik – war jahrelang der eigentliche Kern der Arbeit. Sie passierte implizit, in den Köpfen erfahrener Marketer, oft ohne formales Briefing.
 
-![Drei Schichten der Kampagnenarbeit. Strategie, Briefing und Spezifikation sind nicht Teil der Agentic-Adoption. Verhandlungs-Tasks bleiben überwiegend menschlich (45–57%). Operative Tasks wandern zum Agenten (75–93%). Anteil der US-Mediaentscheider mit aktueller oder geplanter Agentic-AI-Nutzung pro Aufgabe. IAB 2026 Outlook Study, n=161, Brands und Agenturen.](/images/perspektiven/agentic-intent-drei-schichten.png)
+![Drei Schichten der Kampagnenarbeit. Strategie, Briefing und Spezifikation sind nicht Teil der Agentic-Adoption. Verhandlungs-Tasks bleiben überwiegend menschlich (45–57%). Operative Tasks wandern zum Agenten (75–93%). Anteil der US-Mediaentscheider mit aktueller oder geplanter Agentic-AI-Nutzung pro Aufgabe. IAB 2026 Outlook Study, n=161, Brands und Agenturen.](/images/perspektiven/agentic-intent-drei-schichten.webp)
 
 Das war nicht Qualität. Das war Kompensation.
 

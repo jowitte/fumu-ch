@@ -3,7 +3,7 @@ title: "60 Dollar für eine Chat-Antwort"
 description: "OpenAI zeigt Werbung in ChatGPT. Was das Pricing verrät, wie das Targeting funktioniert – und warum das Muster bekannt ist."
 date: 2026-04-10
 category: "KI & AdTech"
-image: "/images/perspektiven/chatgpt-ads-screenshot.png"
+image: "/images/perspektiven/chatgpt-ads-screenshot.webp"
 draft: false
 ---
 
@@ -13,7 +13,7 @@ Die interessantere Frage ist nicht, dass es passiert, sondern wie. Denn das Wie 
 
 ## Wie Werbung in ChatGPT funktioniert
 
-![Sponsored Unit unterhalb der AI-Antwort (links) und Shopping-Karussell mit Direktinteraktion (rechts)](/images/perspektiven/chatgpt-ads-screenshot.png)
+![Sponsored Unit unterhalb der AI-Antwort (links) und Shopping-Karussell mit Direktinteraktion (rechts)](/images/perspektiven/chatgpt-ads-screenshot.webp)
 
 Zwei Formate zeichnen sich ab. Textbasierte Sponsored Units erscheinen unterhalb der AI-Antwort, eingebettet in den Gesprächsfluss, nicht als Banner daneben. Shopping-Karusselle mit integriertem Checkout gehen einen Schritt weiter: vom Produktvorschlag zum Kauf, ohne die Plattform zu verlassen.
 

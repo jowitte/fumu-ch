@@ -5,5 +5,13 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   site: 'https://fumu.ch',
   output: 'static',
-  integrations: [sitemap(), mdx()],
+  integrations: [
+    sitemap({
+      serialize(item) {
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
+    }),
+    mdx(),
+  ],
 });
