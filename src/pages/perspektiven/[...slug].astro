@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { resolveAuthors, getAuthorUrl } from '../../content/authors';
 
 export async function getStaticPaths() {
   const posts = await getCollection('perspektiven', ({ data }) => !data.draft);
@@ -16,16 +17,25 @@ const { Content } = await render(post);
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
 };
+
+const postAuthors = resolveAuthors(post.data.authors);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} article={{ title: post.data.title, description: post.data.description, date: post.data.date, image: post.data.image, slug: post.id }}>
+<BaseLayout title={post.data.title} description={post.data.description} article={{ title: post.data.title, description: post.data.description, date: post.data.date, image: post.data.image, slug: post.id, authors: postAuthors }}>
   <article class="evans-page">
     <div class="container">
 
       <div class="evans-section">
         <div class="evans-label">
           <span class="post-date">{formatDate(post.data.date)}</span>
-          <span class="post-author">Jochen Witte</span>
+          <span class="post-author">
+            {postAuthors.map((author, i) => (
+              <>
+                {i > 0 && (i === postAuthors.length - 1 ? ' und ' : ', ')}
+                <a href={getAuthorUrl(author.slug)}>{author.name}</a>
+              </>
+            ))}
+          </span>
         </div>
         <div class="evans-content">
           <h1 class="post-title">{post.data.title}</h1>
@@ -77,6 +87,15 @@ const formatDate = (date: Date) => {
     margin-top: var(--space-xs);
     position: sticky;
     top: 96px;
+  }
+
+  .post-author a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post-author a:hover {
+    color: var(--color-coral);
   }
 
   .evans-content {
