@@ -1,5 +1,6 @@
 # fumu.ch – AI-Crawler explizit erlaubt
 User-agent: *
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Sitemap: https://fumu.ch/sitemap-index.xml
 
