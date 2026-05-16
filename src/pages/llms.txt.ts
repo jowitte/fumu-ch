@@ -1,4 +1,15 @@
-# fumu
+import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
+
+export const GET: APIRoute = async () => {
+  const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  const perspektivenList = posts
+    .map(p => `- [${p.data.title}](https://fumu.ch/perspektiven/${p.id}/): ${p.data.description}`)
+    .join('\n');
+
+  const body = `# fumu
 
 > fumu ist eine Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration. Wir beraten Verlage, Medienunternehmen, Werbevermarkter und Brands im DACH-Raum.
 
@@ -6,14 +17,16 @@
 
 fumu verbindet Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird. Gegründet von Jochen Witte, vereint fumu Startup-Erfahrung, strategische Disziplin (McKinsey) und technisches Tiefenverständnis.
 
+## Seiten
+
 - [Was wir tun](https://fumu.ch/was-wir-tun/): Strategieberatung, Technologie-Evaluation, Organisationsentwicklung, Interim Leadership
-- [About](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
+- [Über fumu](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
+- [Perspektiven](https://fumu.ch/perspektiven/): Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung
 - [Kontakt](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren
 
 ## Perspektiven (Blog)
 
-- [Das doppelte Unbundling](https://fumu.ch/perspektiven/das-doppelte-unbundling/): Was passiert mit digitaler Werbung, wenn Nutzer aufhören, Websites zu besuchen?
-- [AI in der digitalen Werbung – 5 Trends für 2026](https://fumu.ch/perspektiven/ai-trends-2026/): Wie KI die digitale Werbung verändert
+${perspektivenList}
 
 ## Kernthemen
 
@@ -28,3 +41,14 @@ fumu verbindet Strategie, Organisation und Technologie – damit aus technologis
 - Website: https://fumu.ch
 - E-Mail: hello@fumu.ch
 - Jochen Witte auf LinkedIn: https://linkedin.com/in/jochenwitte
+
+## Optional
+
+- [Impressum](https://fumu.ch/impressum/)
+- [Datenschutz](https://fumu.ch/datenschutz/)
+`;
+
+  return new Response(body, {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  });
+};

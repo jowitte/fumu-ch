@@ -30,6 +30,23 @@ const breadcrumbItems = [
   })),
 ];
 
+const isHome = pathSegments.length === 0;
+
+// WebSite JSON-LD (nur auf Homepage)
+const websiteLd = isHome ? {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'fumu',
+  url: siteUrl,
+  description: 'Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration im DACH-Raum.',
+  inLanguage: 'de-CH',
+  publisher: {
+    '@type': 'Organization',
+    name: 'fumu',
+    url: siteUrl,
+  },
+} : null;
+
 // Organization JSON-LD (auf jeder Seite)
 const organizationLd = {
   '@context': 'https://schema.org',
@@ -122,6 +139,7 @@ const ogType = article ? 'article' : 'website';
   <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/ibm-plex-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin />
   <script type="application/ld+json" set:html={JSON.stringify(organizationLd)} />
+  {websiteLd && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
   {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
   {articleLd && <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />}
 </head>
