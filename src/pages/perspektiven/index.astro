@@ -15,14 +15,12 @@ const formatDate = (date: Date) => {
   <section class="evans-page">
     <div class="container">
 
-      <h1>Perspektiven</h1>
-
       <p class="intro">Was sich verändert, warum es wichtig ist und was daraus folgt – Einordnungen aus der Praxis, wenn Strategie, Technologie und Organisation aufeinandertreffen.</p>
 
       <hr class="section-divider" />
       <div class="evans-section">
         <div class="evans-label">
-          <h2>Perspektiven</h2>
+          <h1>Perspektiven</h1>
         </div>
         <div class="evans-content">
           {posts.length > 0 ? (
@@ -75,7 +73,7 @@ const formatDate = (date: Date) => {
     justify-content: flex-end;
   }
 
-  .evans-label h2 {
+  .evans-label h1 {
     font-family: var(--font-sans);
     font-size: 16px;
     font-weight: 600;
@@ -156,7 +154,7 @@ const formatDate = (date: Date) => {
       padding: var(--space-lg) 0 0 0;
     }
 
-    .evans-label h2 {
+    .evans-label h1 {
       position: static;
     }
 
