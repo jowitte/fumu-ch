@@ -8,6 +8,22 @@ const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
 };
+
+const formatMonth = (date: Date) => {
+  const s = date.toLocaleDateString('de-CH', { year: 'numeric', month: 'long' });
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
+const groupedByMonth: { label: string; posts: typeof posts }[] = [];
+for (const post of posts) {
+  const label = formatMonth(post.data.date);
+  const last = groupedByMonth[groupedByMonth.length - 1];
+  if (last && last.label === label) {
+    last.posts.push(post);
+  } else {
+    groupedByMonth.push({ label, posts: [post] });
+  }
+}
 ---
 
 <BaseLayout title="Perspektiven" description="Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung.">
@@ -20,13 +36,13 @@ const formatDate = (date: Date) => {
       <p class="intro">Was sich verändert, warum es wichtig ist und was daraus folgt – Einordnungen aus der Praxis, wenn Strategie, Technologie und Organisation aufeinandertreffen.</p>
 
       <hr class="section-divider" />
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Mai 2026</h2>
-        </div>
-        <div class="evans-content">
-          {posts.length > 0 ? (
-            posts.map(post => (
+      {posts.length > 0 ? groupedByMonth.map(group => (
+        <div class="evans-section">
+          <div class="evans-label">
+            <h2>{group.label}</h2>
+          </div>
+          <div class="evans-content">
+            {group.posts.map(post => (
               <a href={`/perspektiven/${post.id}/`} class="post-item">
                 <span class="post-date">{formatDate(post.data.date)}</span>
                 <div class="post-body">
@@ -34,12 +50,19 @@ const formatDate = (date: Date) => {
                   <p class="post-excerpt">{post.data.description}</p>
                 </div>
               </a>
-            ))
-          ) : (
-            <p>Neue Perspektiven erscheinen in Kürze.</p>
-          )}
+            ))}
+          </div>
         </div>
-      </div>
+      )) : (
+        <div class="evans-section">
+          <div class="evans-label">
+            <h2>In Kürze</h2>
+          </div>
+          <div class="evans-content">
+            <p>Neue Perspektiven erscheinen in Kürze.</p>
+          </div>
+        </div>
+      )}
 
     </div>
   </section>
