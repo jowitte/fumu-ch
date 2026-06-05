@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { series as seriesRegistry } from '../../../data/series';
+
+const published = await getCollection('perspektiven', ({ data }) => !data.draft);
+
+const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
+  slug,
+  ...data,
+  count: published.filter(p => p.data.series === slug).length,
+}));
+---
+
+<BaseLayout title="Serien" description="Perspektiven-Serien von fumu – mehrteilige Analysen zu KI und Arbeit und zu den Verschiebungen der digitalen Werbung.">
+
+  <section class="evans-page">
+    <div class="container">
+
+      <h1>Serien</h1>
+
+      <p class="intro">Manche Themen tragen weiter als ein einzelner Post. Hier stehen die Serien – jede Folge lesbar für sich, zusammen ergeben sie das Argument.</p>
+
+      <hr class="section-divider" />
+      <div class="series-grid">
+        {seriesList.map(s => (
+          <a href={`/perspektiven/serien/${s.slug}/`} class="series-item">
+            <h2 class="series-name">{s.name}</h2>
+            <span class="series-count">{s.count} {s.count === 1 ? 'Teil' : 'Teile'}</span>
+            <p class="series-teaser">{s.teaser}</p>
+          </a>
+        ))}
+      </div>
+
+      <footer>
+        <a href="/perspektiven/" class="back-link">&larr; Alle Perspektiven</a>
+      </footer>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .intro {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text);
+    max-width: 720px;
+    margin: 0 0 var(--space-xl) 0;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--color-coral);
+    margin: var(--space-xl) 0 0 0;
+  }
+
+  .series-grid {
+    margin: var(--space-xl) 0;
+    max-width: var(--content-width);
+  }
+
+  .series-item {
+    display: block;
+    padding: var(--space-lg) 0;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .series-item:first-child {
+    padding-top: var(--space-md);
+  }
+
+  .series-item + .series-item {
+    border-top: 1px solid var(--color-neutral);
+  }
+
+  .series-item:hover .series-name {
+    color: var(--color-coral);
+  }
+
+  .series-item:hover {
+    text-decoration: none;
+  }
+
+  .series-name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-xs) 0;
+    transition: color 0.15s;
+  }
+
+  .series-count {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .series-teaser {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  footer {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-coral);
+    margin-bottom: var(--space-xl);
+  }
+
+  .back-link {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-coral);
+  }
+
+  .back-link:hover {
+    text-decoration: none;
+  }
+</style>

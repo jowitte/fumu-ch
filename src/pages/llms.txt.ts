@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { series as seriesRegistry } from '../data/series';
 
 export const GET: APIRoute = async () => {
   const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
@@ -7,6 +8,10 @@ export const GET: APIRoute = async () => {
 
   const perspektivenList = posts
     .map(p => `- [${p.data.title}](https://fumu.ch/perspektiven/${p.id}/): ${p.data.description}`)
+    .join('\n');
+
+  const serienList = Object.entries(seriesRegistry)
+    .map(([slug, data]) => `- [${data.name}](https://fumu.ch/perspektiven/serien/${slug}/): ${data.teaser}`)
     .join('\n');
 
   const body = `# fumu
@@ -23,6 +28,10 @@ fumu verbindet Strategie, Organisation und Technologie – damit aus technologis
 - [Über fumu](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
 - [Perspektiven](https://fumu.ch/perspektiven/): Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung
 - [Kontakt](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren
+
+## Serien
+
+${serienList}
 
 ## Perspektiven (Blog)
 

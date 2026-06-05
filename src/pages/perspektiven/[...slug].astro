@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { resolveAuthors, getAuthorUrl } from '../../content/authors';
+import { getSeries } from '../../data/series';
 
 export async function getStaticPaths() {
   const posts = await getCollection('perspektiven', ({ data }) => !data.draft);
@@ -19,6 +20,19 @@ const formatDate = (date: Date) => {
 };
 
 const postAuthors = resolveAuthors(post.data.authors);
+
+// Serien-Kontext: Hinweis oben + Vor/Zurück-Navigation am Ende.
+const seriesSlug = post.data.series;
+const seriesData = getSeries(seriesSlug);
+let prevPost: typeof post | null = null;
+let nextPost: typeof post | null = null;
+if (seriesSlug && seriesData) {
+  const seriesParts = (await getCollection('perspektiven', ({ data }) => !data.draft && data.series === seriesSlug))
+    .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
+  const idx = seriesParts.findIndex(p => p.id === post.id);
+  prevPost = idx > 0 ? seriesParts[idx - 1] : null;
+  nextPost = idx >= 0 && idx < seriesParts.length - 1 ? seriesParts[idx + 1] : null;
+}
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} article={{ title: post.data.title, description: post.data.description, date: post.data.date, image: post.data.image, slug: post.id, authors: postAuthors }}>
@@ -38,11 +52,32 @@ const postAuthors = resolveAuthors(post.data.authors);
           </span>
         </div>
         <div class="evans-content">
+          {seriesData && seriesSlug && (
+            <a href={`/perspektiven/serien/${seriesSlug}/`} class="series-hint">
+              Teil {post.data.seriesPart} der Serie <strong>{seriesData.name}</strong>
+            </a>
+          )}
           <h1 class="post-title">{post.data.title}</h1>
           <div class="post-body">
             <Content />
           </div>
           <footer>
+            {seriesData && (prevPost || nextPost) && (
+              <nav class="series-nav" aria-label={`Navigation innerhalb der Serie ${seriesData.name}`}>
+                {prevPost ? (
+                  <a href={`/perspektiven/${prevPost.id}/`} class="series-nav-link series-nav-prev">
+                    <span class="series-nav-dir">&larr; Vorheriger Teil</span>
+                    <span class="series-nav-title">{prevPost.data.title}</span>
+                  </a>
+                ) : <span class="series-nav-spacer"></span>}
+                {nextPost ? (
+                  <a href={`/perspektiven/${nextPost.id}/`} class="series-nav-link series-nav-next">
+                    <span class="series-nav-dir">Nächster Teil &rarr;</span>
+                    <span class="series-nav-title">{nextPost.data.title}</span>
+                  </a>
+                ) : <span class="series-nav-spacer"></span>}
+              </nav>
+            )}
             <a href="/perspektiven/" class="back-link">&larr; Alle Perspektiven</a>
           </footer>
         </div>
@@ -176,6 +211,64 @@ const postAuthors = resolveAuthors(post.data.authors);
     background: var(--color-coral);
     color: var(--color-white);
     text-decoration: none;
+  }
+
+  .series-hint {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-light);
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .series-hint strong {
+    font-weight: 600;
+    color: var(--color-coral);
+  }
+
+  .series-hint:hover strong {
+    text-decoration: underline;
+  }
+
+  .series-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .series-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .series-nav-next {
+    text-align: right;
+  }
+
+  .series-nav-dir {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+  }
+
+  .series-nav-title {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .series-nav-link:hover .series-nav-title {
+    color: var(--color-coral);
   }
 
   footer {

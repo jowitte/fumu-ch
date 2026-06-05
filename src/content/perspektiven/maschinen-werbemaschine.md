@@ -5,6 +5,8 @@ date: 2026-05-03
 category: "KI & AdTech"
 image: "/images/perspektiven/maschinen-werbemaschine-hero.webp"
 draft: false
+series: "ai-digitale-werbung"
+seriesPart: 5
 ---
 
 Ich gehöre zur schrumpfenden Minderheit, die Email weiterhin als offenen Standard lebt – IMAP und SMTP in einem klassischen Mail-Client, Hosting bei einem unabhängigen Provider statt einer der grossen Plattformen. Das ist zunehmend Schallplatten-Sammlung: charmant, aber nicht mehr Mainstream.
