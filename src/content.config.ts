@@ -20,6 +20,8 @@ const perspektiven = defineCollection({
     image: z.string().optional(),
     draft: z.boolean().default(false),
     authors: z.array(z.string()).default(['jochen-witte']),
+    series: z.string().optional(),
+    seriesPart: z.number().int().positive().optional(),
   }),
 });
 

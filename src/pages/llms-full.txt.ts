@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { series as seriesRegistry } from '../data/series';
 
 export const GET: APIRoute = async () => {
   const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
@@ -26,7 +27,7 @@ ${entry.body ?? ''}`;
 _${p.data.description}_
 
 URL: https://fumu.ch/perspektiven/${p.id}/
-Datum: ${p.data.date.toISOString().split('T')[0]}${p.data.category ? `\nKategorie: ${p.data.category}` : ''}
+Datum: ${p.data.date.toISOString().split('T')[0]}${p.data.category ? `\nKategorie: ${p.data.category}` : ''}${p.data.series && seriesRegistry[p.data.series] ? `\nSerie: ${seriesRegistry[p.data.series].name} (Teil ${p.data.seriesPart}) – https://fumu.ch/perspektiven/serien/${p.data.series}/` : ''}
 
 ${p.body ?? ''}`;
 

@@ -5,6 +5,8 @@ date: 2026-04-10
 category: "KI & AdTech"
 image: "/images/perspektiven/chatgpt-ads-screenshot.webp"
 draft: false
+series: "ai-digitale-werbung"
+seriesPart: 2
 ---
 
 Jede grosse Plattform der letzten zwanzig Jahre hat irgendwann Werbung eingeführt. Nicht weil die Gründer es wollten, sondern weil die Ökonomie es verlangt. OpenAI ist keine Ausnahme: Seit Februar 2026 zeigt ChatGPT Werbung. 900 Millionen wöchentlich aktive Nutzer, ein laufendes Beta-Programm, ein erster Ad-Tech-Partner. Ich hätte nicht erwartet, dass das so schnell geht.
