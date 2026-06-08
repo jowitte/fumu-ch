@@ -46,7 +46,7 @@ fumu.ch bekommt einen Newsletter über MailerLite (EU-Hosting, Double-Opt-in). E
 - **MailerLite-UI-Config macht Jochen:** Toggle «Double opt-in for API and integrations» aktivieren, DOI-Mail texten, Group für die Newsletter-Subscriber anlegen. Ohne den Toggle testet sich Schritt 6 nicht. Status zurück in die Vault-Story «fumu.ch Newsletter – Signup-Form».
 - **Netlify-Env-Vars (Jochen) – nötig, bevor Schritt 6 testbar ist:**
   - `MAILERLITE_API_TOKEN` = API-Token aus MailerLite (Integrations → API). Nur serverseitig, nie ins Repo.
-  - `MAILERLITE_GROUP_ID` = `189718879025497454` (von Jochen geliefert, 2026-06-08). Optional – fehlt sie, wird der Subscriber ohne Group angelegt.
+  - `MAILERLITE_GROUP_ID` = die Group-ID der Newsletter-Gruppe aus MailerLite (von Jochen geliefert, 2026-06-08; Wert nicht im Repo – steht nur in der Netlify-Env-Var). Optional – fehlt sie, wird der Subscriber ohne Group angelegt.
   Beide unter Netlify → Site configuration → Environment variables setzen, danach Redeploy.
 - Inhaltliche Fragen (Consent-Text, Datenschutz-Wortlaut) gehören in den Vault, nicht hier entscheiden.
 - Checkboxen beim Abarbeiten direkt in diesem File pflegen.
