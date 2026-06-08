@@ -84,6 +84,8 @@ Fast jede Seite existiert **doppelt** – als HTML für Menschen und als Quell-M
 
 Beide Welten werden über die Content Collections gespeist – die Markdown-Routen sind die Single Source of Truth für die Agent-Readiness-Schicht. Wer eine neue Seite anlegt, sollte die `.md`-Variante mitdenken.
 
+**Achtung Drift bei bespoke Seiten.** Einige `.astro`-Seiten laden die `pages`-Collection **nicht**, sondern hardcoden ihren Inhalt im eigenen Layout (z.B. `kontakt.astro`, `datenschutz.astro`, `impressum.astro` mit ihrem Ben-Evans-Raster). Bei solchen Seiten ist die Collection-`.md` (die `[slug].md.ts` serviert) ein **parallel von Hand gepflegtes** File, kein Derivat der gerenderten Seite. Folge: Wer den Text einer bespoke Seite ändert, muss die zugehörige `.md` im **selben Edit** nachziehen – sonst driften Menschen-Seite und Agent-Markdown auseinander (passiert 2026-06-08 auf der Kontaktseite: `.md` zeigte „30 Minuten / Lass uns sprechen", die Seite „25 Minuten Kennenlernen"). Warnsignal: Ich editiere sichtbaren Text in `kontakt.astro` / `datenschutz.astro` / `impressum.astro`, ohne die gleichnamige `.md` in `src/content/pages/` anzufassen – Stopp, Twin synchron halten. (Sauberere Dauerlösung – die bespoke Seiten aus der Collection speisen statt zu hardcoden – ist eine eigene Story.)
+
 ### Agent-/AI-Readiness-Schicht
 
 Bewusster Schwerpunkt des Projekts (siehe Git-Historie): die Site ist für AI-Crawler und Agents optimiert. Diese Teile hängen zusammen und sollten konsistent gepflegt werden:

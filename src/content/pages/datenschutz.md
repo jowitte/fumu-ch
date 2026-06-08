@@ -34,12 +34,21 @@ Wenn du uns per E-Mail kontaktierst, verarbeiten wir die von dir mitgeteilten Da
 
 Diese Website setzt keine Tracking-Cookies. Im Rahmen des Bot- und Missbrauchsschutzes durch Cloudflare können technisch notwendige Cookies (z.B. `__cf_bm`) mit kurzer Lebensdauer gesetzt werden. Diese dienen ausschliesslich der Abwehr automatisierter Zugriffe.
 
+### 2.5 Newsletter
+
+Auf fumu.ch kannst du dich für unseren Newsletter anmelden. Den Versand wickeln wir über MailerLite ab, einen Dienst der UAB «MailerLite» (Paupio g. 28, 11341 Vilnius, Litauen). MailerLite verarbeitet die Anmeldedaten ausschliesslich auf Servern innerhalb der EU (Deutschland und Niederlande).
+
+Für die Anmeldung verwenden wir das Double-Opt-in-Verfahren: Nach Eingabe deiner E-Mail-Adresse erhältst du eine Bestätigungsmail. Erst wenn du den darin enthaltenen Link anklickst, wird deine Adresse in den Verteiler aufgenommen. Gespeichert werden deine E-Mail-Adresse sowie zum Nachweis der Einwilligung der Zeitpunkt der Anmeldung und der Bestätigung. Eine Pflicht zur Angabe weiterer Daten besteht nicht.
+
+Rechtsgrundlage ist deine Einwilligung (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. a DSGVO). Du kannst den Newsletter jederzeit abbestellen – über den Abmeldelink am Ende jeder Newsletter-Mail oder per Nachricht an hello@fumu.ch. Mit der Abmeldung widerrufst du zugleich deine Einwilligung; die Rechtmässigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt.
+
 ## 3. Weitergabe an Dritte
 
 Wir geben personenbezogene Daten nur weiter, wenn dies für den Betrieb der Website technisch nötig ist:
 
 - **Netlify** (Hosting): Verbindungsdaten bei Seitenaufruf
 - **Cloudflare** (CDN, Reverse-Proxy, Bot-Schutz, Web Analytics): Verbindungsdaten zur sicheren Auslieferung und aggregierte Nutzungsstatistiken
+- **MailerLite** (Newsletter-Versand, nur bei Anmeldung): E-Mail-Adresse sowie Anmelde- und Bestätigungszeitpunkt
 
 Eine Weitergabe zu Werbezwecken oder an sonstige Dritte findet nicht statt.
 
@@ -52,6 +61,7 @@ Netlify (USA) und Cloudflare (USA) betreiben global verteilte Infrastruktur. Die
 - Server-Logfiles (Netlify, Cloudflare): maximal 30 Tage
 - Cloudflare Web Analytics: aggregiert, ohne Personenbezug, bis zu 6 Monate
 - Kontaktanfragen: bis zur Erledigung, danach Löschung, sofern keine gesetzliche Aufbewahrungspflicht besteht
+- Newsletter-Daten (MailerLite): bis zur Abmeldung bzw. zum Widerruf der Einwilligung
 
 ## 6. Deine Rechte
 

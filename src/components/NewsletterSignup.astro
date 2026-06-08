@@ -1,0 +1,243 @@
+---
+// Newsletter-Anmeldeform im fumu-Layout, postet an die serverseitige Edge
+// Function /api/newsletter-signup (kein MailerLite-Embed, kein Token im Browser).
+// Double-Opt-in: MailerLite verschickt nach dem Eintrag die Confirmation-Mail.
+//
+// Lebt auf der /newsletter-Seite; Post-Ende und Footer verlinken nur dorthin.
+// heading/lead sind optional – die Seite liefert den Kontext meist selbst.
+
+interface Props {
+  heading?: string;
+  lead?: string;
+}
+
+const { heading, lead } = Astro.props;
+const hasIntro = Boolean(heading || lead);
+---
+
+<section class="newsletter" aria-label="Newsletter-Anmeldung">
+  {hasIntro && (
+    <div class="newsletter-intro">
+      {heading && <h2 class="newsletter-heading">{heading}</h2>}
+      {lead && <p class="newsletter-lead">{lead}</p>}
+    </div>
+  )}
+
+  <form class="newsletter-form" method="post" action="/api/newsletter-signup" novalidate>
+    <label class="newsletter-label" for="nl-email">E-Mail-Adresse</label>
+    <div class="newsletter-controls">
+      <input
+        class="newsletter-input"
+        id="nl-email"
+        type="email"
+        name="email"
+        required
+        autocomplete="email"
+        placeholder="name@beispiel.ch"
+        inputmode="email"
+      />
+      <button class="newsletter-button" type="submit">Anmelden</button>
+    </div>
+
+    {/* Honeypot – für Menschen unsichtbar, von Bots gern ausgefüllt. */}
+    <div class="newsletter-hp" aria-hidden="true">
+      <label for="nl-website">Website (bitte leer lassen)</label>
+      <input id="nl-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <p class="newsletter-consent">
+      Mit der Anmeldung bestätigst du den Erhalt des Newsletters. Wir versenden über
+      MailerLite (EU-Hosting) und du erhältst zuerst eine Bestätigungsmail (Double-Opt-in).
+      Abmeldung jederzeit über den Link in jeder Mail. Details in der
+      <a href="/datenschutz/">Datenschutzerklärung</a>.
+    </p>
+
+    <p class="newsletter-feedback" role="status" aria-live="polite" hidden></p>
+  </form>
+</section>
+
+<style>
+  .newsletter {
+    max-width: var(--content-width);
+  }
+
+  .newsletter-heading {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .newsletter-lead {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .newsletter-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+
+  .newsletter-controls {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .newsletter-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    color: var(--color-text);
+    background: var(--color-white);
+    border: 1px solid var(--color-text-light);
+    padding: 0.6em 0.8em;
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-coral);
+  }
+
+  .newsletter-button {
+    flex: 0 0 auto;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--color-white);
+    background: var(--color-coral);
+    border: 1px solid var(--color-coral);
+    padding: 0.6em 1.4em;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .newsletter-button:hover {
+    opacity: 0.9;
+  }
+
+  .newsletter-button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  /* Honeypot komplett aus dem Blickfeld, ohne display:none (manche Bots meiden das). */
+  .newsletter-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .newsletter-consent {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    margin: var(--space-sm) 0 0 0;
+  }
+
+  .newsletter-consent a {
+    color: var(--color-coral);
+  }
+
+  .newsletter-consent a:hover {
+    text-decoration: underline;
+  }
+
+  .newsletter-feedback {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: var(--space-md) 0 0 0;
+  }
+
+  .newsletter-feedback[data-state='success'] {
+    color: var(--color-coral);
+    font-weight: 600;
+  }
+
+  .newsletter-feedback[data-state='error'] {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+</style>
+
+<script>
+  // Progressive Enhancement: ohne JS postet die Form klassisch an die Edge
+  // Function; mit JS bleibt der Nutzer auf der Seite und sieht Inline-Feedback.
+  const MESSAGES: Record<string, string> = {
+    success: 'Fast geschafft – bitte bestätige die Anmeldung über den Link in der E-Mail, die wir dir gerade geschickt haben.',
+    invalid_email: 'Diese E-Mail-Adresse sieht nicht gültig aus. Bitte prüfe sie und versuch es erneut.',
+    generic: 'Da ist etwas schiefgelaufen. Bitte versuch es später noch einmal oder schreib uns an hello@fumu.ch.',
+  };
+
+  function setFeedback(el: HTMLElement, state: 'success' | 'error', message: string) {
+    el.textContent = message;
+    el.dataset.state = state;
+    el.hidden = false;
+  }
+
+  document.querySelectorAll<HTMLFormElement>('.newsletter-form').forEach((form) => {
+    const feedback = form.querySelector<HTMLElement>('.newsletter-feedback');
+    const button = form.querySelector<HTMLButtonElement>('.newsletter-button');
+    const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!feedback || !button || !emailInput) return;
+
+      const website = (form.querySelector<HTMLInputElement>('input[name="website"]')?.value ?? '').trim();
+      const email = emailInput.value.trim();
+
+      if (!emailInput.checkValidity() || !email) {
+        setFeedback(feedback, 'error', MESSAGES.invalid_email);
+        emailInput.focus();
+        return;
+      }
+
+      button.disabled = true;
+      feedback.hidden = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ email, website }),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.ok) {
+          form.reset();
+          setFeedback(feedback, 'success', MESSAGES.success);
+          button.disabled = false;
+          return;
+        }
+
+        const key = typeof data.error === 'string' && data.error in MESSAGES ? data.error : 'generic';
+        setFeedback(feedback, 'error', MESSAGES[key]);
+      } catch {
+        setFeedback(feedback, 'error', MESSAGES.generic);
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+</script>

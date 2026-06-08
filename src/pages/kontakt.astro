@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 ---
 
-<BaseLayout title="Kontakt" description="Lass uns sprechen. Der erste Schritt zu einer erfolgreichen Zusammenarbeit.">
+<BaseLayout title="Kontakt & Newsletter" description="Lass uns sprechen – oder abonniere den fumu-Newsletter: Perspektiven darauf, wie aus Technologie Wirkung wird, gelegentlich per E-Mail.">
 
   <section class="evans-page">
     <div class="container">
 
-      <h1>Kontakt</h1>
+      <h1>Kontakt &amp; Newsletter</h1>
 
       <p class="intro">Du stehst vor einer strategischen oder technologischen Veränderung und suchst einen Sparringspartner, der Strategie, Organisation und Technologie zusammendenkt? Lass uns reden.</p>
 
@@ -36,6 +37,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="evans-item">
             <p>Konkrete Anfrage? Schreib uns direkt – wir antworten innerhalb von 24 Stunden.</p>
             <a href="mailto:hello@fumu.ch" class="cta-link">hello@fumu.ch</a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="evans-section" id="newsletter">
+        <div class="evans-label">
+          <h2>Newsletter</h2>
+        </div>
+        <div class="evans-content">
+          <div class="evans-item">
+            <p>Perspektiven darauf, wie aus Technologie Wirkung wird – gelegentlich, ohne Lärm, direkt in dein Postfach.</p>
+            <NewsletterSignup />
           </div>
         </div>
       </div>

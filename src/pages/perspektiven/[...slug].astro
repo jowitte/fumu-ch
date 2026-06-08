@@ -61,6 +61,10 @@ if (seriesSlug && seriesData) {
           <div class="post-body">
             <Content />
           </div>
+          <aside class="post-newsletter">
+            <p class="post-newsletter-text">Perspektiven wie diese – gelegentlich per E-Mail.</p>
+            <a href="/kontakt/#newsletter" class="post-newsletter-link">Newsletter abonnieren &rarr;</a>
+          </aside>
           <footer>
             {seriesData && (prevPost || nextPost) && (
               <nav class="series-nav" aria-label={`Navigation innerhalb der Serie ${seriesData.name}`}>
@@ -269,6 +273,38 @@ if (seriesSlug && seriesData) {
 
   .series-nav-link:hover .series-nav-title {
     color: var(--color-coral);
+  }
+
+  .post-newsletter {
+    max-width: var(--content-width);
+    margin-top: var(--space-xl);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-neutral);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .post-newsletter-text {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .post-newsletter-link {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--color-coral);
+    white-space: nowrap;
+  }
+
+  .post-newsletter-link:hover {
+    text-decoration: underline;
   }
 
   footer {

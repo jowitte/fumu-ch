@@ -27,7 +27,7 @@ fumu verbindet Strategie, Organisation und Technologie – damit aus technologis
 - [Was wir tun](https://fumu.ch/was-wir-tun/): Strategieberatung, Technologie-Evaluation, Organisationsentwicklung, Interim Leadership
 - [Über fumu](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
 - [Perspektiven](https://fumu.ch/perspektiven/): Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung
-- [Kontakt](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren
+- [Kontakt & Newsletter](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren – und Newsletter-Anmeldung (AdTech, MarTech, AI-Integration)
 
 ## Serien
 

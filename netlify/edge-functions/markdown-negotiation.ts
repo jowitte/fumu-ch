@@ -44,6 +44,7 @@ export default async (request: Request, context: Context) => {
 export const config: Config = {
   path: '/*',
   excludedPath: [
+    '/api/*',
     '/_astro/*',
     '/images/*',
     '/fonts/*',

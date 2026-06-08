@@ -4,6 +4,10 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="container">
+    <a href="/kontakt/#newsletter" class="footer-newsletter">
+      <span class="footer-newsletter-text">Perspektiven darauf, wie aus Technologie Wirkung wird – gelegentlich per E-Mail.</span>
+      <span class="footer-newsletter-cta">Newsletter abonnieren &rarr;</span>
+    </a>
     <div class="footer-content">
       <p>&copy; {year} fumu GmbH, Zürich</p>
       <nav class="footer-nav">
@@ -20,6 +24,35 @@ const year = new Date().getFullYear();
     border-top: 1px solid var(--color-coral);
     padding: var(--space-lg) 0;
     margin-top: var(--space-xl);
+  }
+
+  .footer-newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-coral);
+  }
+
+  .footer-newsletter-text {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text-light);
+  }
+
+  .footer-newsletter-cta {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-coral);
+    white-space: nowrap;
+  }
+
+  .footer-newsletter:hover .footer-newsletter-cta {
+    text-decoration: underline;
   }
 
   .footer-content {
