@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import remarkWikilinks from './src/plugins/remark-wikilinks.mjs';
 
 // Markdown-Bilder mit /public-Pfaden bekommen kein automatisches loading="lazy"
 // (nur astro:assets-Pipeline tut das). Dieses kleine rehype-Plugin setzt
@@ -54,7 +55,7 @@ export default defineConfig({
   site: 'https://fumu.ch',
   output: 'static',
   markdown: {
-    remarkPlugins: [remarkStripObsidianMarkers],
+    remarkPlugins: [remarkWikilinks, remarkStripObsidianMarkers],
     rehypePlugins: [rehypeImgLazy],
   },
   integrations: [
