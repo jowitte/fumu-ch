@@ -1,0 +1,9 @@
+[
+  {"input": "Deep Learning", "expected": "deep-learning"},
+  {"input": "Maschinelles Lernen (ML)", "expected": "maschinelles-lernen-ml"},
+  {"input": "Künstliche Intelligenz (KI, AI)", "expected": "künstliche-intelligenz-ki-ai"},
+  {"input": "KI-Voice / Voice Cloning", "expected": "ki-voice--voice-cloning"},
+  {"input": "Stable Diffusion / Midjourney / DALL-E", "expected": "stable-diffusion--midjourney--dall-e"},
+  {"input": "Content-Wasserzeichen / C2PA", "expected": "content-wasserzeichen--c2pa"},
+  {"input": "RAG (Retrieval-Augmented Generation)", "expected": "rag-retrieval-augmented-generation"}
+]
