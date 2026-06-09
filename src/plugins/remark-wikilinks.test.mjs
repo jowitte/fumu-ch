@@ -31,6 +31,9 @@ describe('remark-wikilinks', () => {
   it('anchor wikilink → internal link', () => {
     expect(run('Siehe [[#Deep Learning|hier]].')).toContain('[hier](#deep-learning)')
   })
+  it('anchor wikilink without alias uses heading text', () => {
+    expect(run('Siehe [[#Zweiter Abschnitt]].')).toContain('[Zweiter Abschnitt](#zweiter-abschnitt)')
+  })
   it('note wikilink → text', () => {
     const out = run('Siehe [[Notiz|Alias]] und [[Andere]].')
     expect(out).toContain('Alias')
