@@ -35,7 +35,7 @@ Verstärkt wird das durch die Brille, mit der klassische Organisationen auf KI s
 
 ## Serie KI und Arbeit
 
-Die Serie arbeitet sich vom Einzelnen zum System vor: von der Verdichtung der eigenen Arbeit über die Koordination in Teams bis zur Frage, warum Organisationen beim besseren Werkzeug stehen bleiben – und wie ein Unternehmen aussähe, das den Umbau ernst nimmt. Am Ende steht der Blick auf die Beratung selbst, die an derselben Stelle steht wie ihre Kunden. Es ist nach [AI in der digitalen Werbung](/perspektiven/das-doppelte-unbundling/) die zweite Perspektivenserie auf fumu.ch.
+Die Serie arbeitet sich vom Einzelnen zum System vor: von der [Verdichtung der eigenen Arbeit](/perspektiven/mehr-output-weniger-wert/) über die Koordination in Teams bis zur Frage, warum Organisationen beim besseren Werkzeug stehen bleiben – und wie ein Unternehmen aussähe, das den Umbau ernst nimmt. Am Ende steht der Blick auf die Beratung selbst, die an derselben Stelle steht wie ihre Kunden. Es ist nach [AI in der digitalen Werbung](/perspektiven/das-doppelte-unbundling/) die zweite Perspektivenserie auf fumu.ch.
 
 ## Wer designt das?
 
