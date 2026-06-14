@@ -39,4 +39,4 @@ Die Serie arbeitet sich vom Einzelnen zum System vor: von der Verdichtung der ei
 
 ## Wer designt das?
 
-Die Reorganisation findet statt – mit oder ohne Gestaltung. Jeder Prompt verschiebt ein Stück Arbeit, jede Woche verfestigt sich ein Muster, das niemand beschlossen hat. Die offene Frage ist nicht, ob sich Ihre Organisation verändert, sondern ob jemand die Veränderung gestaltet, bevor sie sich verfestigt. Wer trägt bei Ihnen die Erwartung, dass die gesparte Zeit sich füllt? Wer hat entschieden, dass der Produktmanager jetzt Code schreibt? Wenn die Antwort «niemand» lautet, haben Sie die unsichtbare Reorganisation gefunden.
+Die Reorganisation findet statt – mit oder ohne Gestaltung. Jeder Prompt verschiebt ein Stück Arbeit, jede Woche verfestigt sich ein Muster, das niemand beschlossen hat. Die offene Frage ist nicht, ob sich deine Organisation verändert, sondern ob jemand die Veränderung gestaltet, bevor sie sich verfestigt. Wer trägt bei dir die Erwartung, dass die gesparte Zeit sich füllt? Wer hat entschieden, dass der Produktmanager jetzt Code schreibt? Wenn die Antwort «niemand» lautet, hast du die unsichtbare Reorganisation gefunden.
