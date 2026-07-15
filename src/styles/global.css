@@ -125,17 +125,19 @@ body {
   background: var(--color-white);
 }
 
+/* fumu CI (2026-07-15): Serifen nur in H1, Coral durchgehend für Überschriften,
+   H2+ medium statt semibold — Coral trägt die Hierarchie, nicht das Gewicht */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--color-coral);
   line-height: 1.2;
   letter-spacing: 0.5px;
   margin-top: var(--space-lg);
   margin-bottom: var(--space-md);
 }
 
-h1 { font-size: 24px; }
+h1 { font-family: var(--font-serif); font-weight: 600; font-size: 24px; }
 h2 { font-size: 20px; }
 h3 { font-size: 17px; }
 h4 { font-size: 14px; }

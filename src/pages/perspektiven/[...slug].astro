@@ -142,11 +142,12 @@ if (seriesSlug && seriesData) {
     padding: 0 0 0 var(--space-lg);
   }
 
+  /* fumu CI (2026-07-15): Serifen nur in H1, Coral durchgehend für Überschriften */
   .post-title {
     font-family: var(--font-serif);
     font-size: 36px;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-coral);
     margin: 0 0 var(--space-lg) 0;
     line-height: 1.2;
     max-width: 720px;
@@ -157,9 +158,9 @@ if (seriesSlug && seriesData) {
   }
 
   .post-body :global(h2) {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: var(--space-xl);
     margin-bottom: var(--space-md);
   }
