@@ -64,12 +64,12 @@ Vom Vault erzeugt, hier read-only konsumiert. Struktur (Beispielwerte illustrati
 ## Schritte
 
 - [x] Voraussetzung prüfen: `src/data/ai-crawler-tracker.json` existiert im Repo (vom Vault-Pipeline-Lauf). Wenn nicht: im Vault einen `publish.py --output src/data/ai-crawler-tracker.json`-Lauf anstossen lassen (Rückkanal), nicht selbst Daten erfinden. *(Erledigt 2026-07-16: Snapshot 2026-07-13, 108 Sites × 20 Crawler.)*
-- [ ] `src/data/crawler-tracker.ts` – Loader mit TS-Interface (`meta/headline/by_category/by_crawler/trend/methodology`) und Runtime-Guard, der bei Strukturbruch `throw`t.
-- [ ] Chart-Komponenten (Build-Zeit-SVG/CSS): Kategorie-Balken, Crawler-Balken (Top-N), Trend-Linie. Barrierefrei, im fumu-CSS.
-- [ ] Seite/Route anlegen, Loader konsumieren, Headline + Snapshot-Datum + Methodik-Fussnote, erklärender Vorspann (Platzhalter bis Vault-Wortlaut da ist).
-- [ ] Navigation/`order` setzen (Arbeitstitel, final per Rückkanal).
-- [ ] `npm run build` grün, lokal `npm run preview` sichten.
-- [ ] Plan-Checkboxen pflegen, offene inhaltliche Punkte in den Rückkanal.
+- [x] `src/data/crawler-tracker.ts` – Loader mit TS-Interface (`meta/headline/by_category/by_crawler/trend/methodology`) und Runtime-Guard, der bei Strukturbruch `throw`t. *(Erledigt 2026-07-16: Zod via `astro/zod` (schon im Build-Graph); Guard verifiziert – JSON ohne `headline` bricht den Build. Exportiert auch die Serienfarben und den Vault-Vorspann.)*
+- [x] Chart-Komponenten (Build-Zeit-SVG/CSS): Kategorie-Balken, Crawler-Balken (Top-N), Trend-Linie. Barrierefrei, im fumu-CSS. *(Erledigt 2026-07-16: `src/components/charts/BlockShareBars.astro` – semantische Tabelle mit CSS-Balken; Kategorie-Balken in Entitätsfarben (gleiche Zuordnung wie Trend), Crawler-Balken alle 20 in Coral. `TrendChart.astro` – Build-Zeit-SVG mit echter Zeitachse, Legende und ausklappbarer Datentabelle. 5er-Palette aus den CI-Hues abgeleitet und mit dataviz-Validator geprüft (CVD/Kontrast/Chroma alle PASS). Kein Client-JS.)*
+- [x] Seite/Route anlegen, Loader konsumieren, Headline + Snapshot-Datum + Methodik-Fussnote, erklärender Vorspann (Platzhalter bis Vault-Wortlaut da ist). *(Erledigt 2026-07-16: `/ai-crawler-radar` mit finalem Vault-Vorspann, Dataset-JSON-LD. Markdown-Zwilling `ai-crawler-radar.md.ts` rendert direkt aus den Live-Daten (Tabellen) – bewusst nicht aus der Collection, damit Snapshot-Updates nie driften; `[slug].md.ts` nimmt die Seite dafür aus.)*
+- [x] Navigation/`order` setzen (Arbeitstitel, final per Rückkanal). *(Erledigt 2026-07-16: Name/Slug final per Rückkanal; Header-Nav am Ende, Collection-Eintrag `order: 7`, Impressum/Datenschutz auf 8/9 verschoben, llms.txt-Seitenliste ergänzt.)*
+- [x] `npm run build` grün, lokal `npm run preview` sichten. *(Erledigt 2026-07-16: Build grün, Seite im Browser gesichtet – Snapshot-Datum sichtbar, Charts ohne Kollisionen, Tabellen-Fallbacks funktionieren.)*
+- [x] Plan-Checkboxen pflegen, offene inhaltliche Punkte in den Rückkanal. *(Erledigt 2026-07-16: nichts Inhaltliches offen.)*
 
 ## Entscheidungen
 

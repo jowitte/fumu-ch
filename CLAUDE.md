@@ -175,6 +175,7 @@ Statische Seiten: Content in `src/content/pages/*.md`, Layout in `src/pages/*.as
 /about/                    → About (Autoren-Anker: /about/#<slug>)
 /perspektiven/             → Artikelübersicht
 /perspektiven/[slug]/      → Einzelartikel
+/ai-crawler-radar/         → AI-Crawler-Radar (Daten-Seite aus src/data/ai-crawler-tracker.json; .md-Variante rendert Live-Daten via ai-crawler-radar.md.ts)
 /kontakt/                  → Kontakt
 /impressum/                → Impressum
 /datenschutz/              → Datenschutz

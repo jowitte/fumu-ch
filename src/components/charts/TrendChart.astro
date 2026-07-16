@@ -1,0 +1,283 @@
+---
+// Trend der Block-Anteile je Kategorie über alle Snapshots.
+// Build-Zeit-SVG (Zeitachse echt skaliert, nicht Index-basiert), kein Client-JS.
+// Identität läuft über Legende + Serienfarbe (Farbe folgt der Kategorie,
+// gleiche Zuordnung wie in den Balken); die vollständigen Zahlen stehen in der
+// ausklappbaren Tabelle darunter.
+import { formatDate, formatShare, getCategoryColor } from '../../data/crawler-tracker';
+import type { CrawlerTracker } from '../../data/crawler-tracker';
+
+interface Props {
+  trend: CrawlerTracker['trend'];
+  categories: CrawlerTracker['by_category'];
+  title: string;
+}
+
+const { trend, categories, title } = Astro.props;
+
+const W = 720;
+const H = 300;
+const M = { top: 12, right: 20, bottom: 30, left: 48 };
+const plotW = W - M.left - M.right;
+const plotH = H - M.top - M.bottom;
+
+const toTime = (iso: string) => new Date(`${iso}T00:00:00Z`).getTime();
+const t0 = toTime(trend[0].date);
+const t1 = toTime(trend[trend.length - 1].date);
+const xOf = (iso: string) =>
+  M.left + (t1 === t0 ? 0 : ((toTime(iso) - t0) / (t1 - t0)) * plotW);
+
+const dataMax = Math.max(...trend.flatMap((s) => Object.values(s.by_category)));
+const yMax = Math.min(1, Math.max(0.2, Math.ceil(dataMax / 0.2) * 0.2));
+const yOf = (v: number) => M.top + plotH - (v / yMax) * plotH;
+
+const yTicks: number[] = [];
+for (let v = 0; v <= yMax + 1e-9; v += 0.2) yTicks.push(Math.round(v * 10) / 10);
+
+// X-Achse: vier Stützstellen über die Zeitspanne, auf echte Snapshot-Daten gelegt.
+const tickTargets = [0, 1 / 3, 2 / 3, 1].map((f) => t0 + f * (t1 - t0));
+const xTickDates = [
+  ...new Set(
+    tickTargets.map((target) =>
+      trend.reduce((best, s) =>
+        Math.abs(toTime(s.date) - target) < Math.abs(toTime(best.date) - target) ? s : best,
+      ).date,
+    ),
+  ),
+];
+const shortDate = (iso: string) => formatDate(iso).slice(0, 6); // «13.07.»
+
+const series = categories.map((c) => ({
+  category: c.category,
+  label: c.label,
+  color: getCategoryColor(c.category),
+  points: trend
+    .filter((s) => s.by_category[c.category] !== undefined)
+    .map((s) => ({ date: s.date, value: s.by_category[c.category] as number })),
+}));
+
+const pathOf = (points: { date: string; value: number }[]) =>
+  points
+    .map((p, i) => `${i === 0 ? 'M' : 'L'}${xOf(p.date).toFixed(1)},${yOf(p.value).toFixed(1)}`)
+    .join(' ');
+---
+
+<figure class="trend-chart">
+  <ul class="legend" aria-hidden="true">
+    {series.map((s) => (
+      <li>
+        <span class="swatch" style={`background:${s.color}`}></span>
+        {s.label}
+      </li>
+    ))}
+  </ul>
+
+  <svg
+    viewBox={`0 0 ${W} ${H}`}
+    role="img"
+    aria-label={`${title} – vollständige Zahlen in der Tabelle unterhalb der Grafik`}
+  >
+    {yTicks.map((v) => (
+      <g>
+        <line
+          x1={M.left}
+          y1={yOf(v).toFixed(1)}
+          x2={W - M.right}
+          y2={yOf(v).toFixed(1)}
+          class="gridline"
+        />
+        <text x={M.left - 8} y={yOf(v).toFixed(1)} class="tick tick-y">
+          {Math.round(v * 100)} %
+        </text>
+      </g>
+    ))}
+
+    {xTickDates.map((d) => (
+      <text x={xOf(d).toFixed(1)} y={H - 8} class="tick tick-x">
+        {shortDate(d)}
+      </text>
+    ))}
+
+    {series.map((s) => (
+      <g>
+        <path d={pathOf(s.points)} class="line" style={`stroke:${s.color}`}>
+          <title>{s.label}</title>
+        </path>
+        {s.points.length > 0 && (
+          <circle
+            cx={xOf(s.points[s.points.length - 1].date).toFixed(1)}
+            cy={yOf(s.points[s.points.length - 1].value).toFixed(1)}
+            r="4"
+            class="end-dot"
+            style={`fill:${s.color}`}
+          >
+            <title>
+              {`${s.label}: ${formatShare(s.points[s.points.length - 1].value)} am ${formatDate(s.points[s.points.length - 1].date)}`}
+            </title>
+          </circle>
+        )}
+      </g>
+    ))}
+  </svg>
+
+  <figcaption class="sr-only">{title}</figcaption>
+
+  <details class="data-table">
+    <summary>Daten als Tabelle</summary>
+    <div class="table-scroll">
+      <table>
+        <caption class="sr-only">{title}</caption>
+        <thead>
+          <tr>
+            <th scope="col">Snapshot</th>
+            {series.map((s) => (
+              <th scope="col">{s.label}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {trend.map((s) => (
+            <tr>
+              <th scope="row">{formatDate(s.date)}</th>
+              {series.map((cat) => (
+                <td>
+                  {s.by_category[cat.category] !== undefined
+                    ? formatShare(s.by_category[cat.category] as number)
+                    : '–'}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</figure>
+
+<style>
+  .trend-chart {
+    margin: 0;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .legend li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .gridline {
+    stroke: #e8e8e7;
+    stroke-width: 1;
+  }
+
+  .tick {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    fill: var(--color-text-light);
+  }
+
+  .tick-y {
+    text-anchor: end;
+    dominant-baseline: middle;
+  }
+
+  .tick-x {
+    text-anchor: middle;
+  }
+
+  .line {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .end-dot {
+    stroke: var(--color-white);
+    stroke-width: 2;
+  }
+
+  .data-table {
+    margin-top: var(--space-md);
+  }
+
+  .data-table summary {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text-light);
+    cursor: pointer;
+  }
+
+  .data-table summary:hover {
+    color: var(--color-coral);
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+    margin-top: var(--space-sm);
+  }
+
+  .data-table table {
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    min-width: 480px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: var(--space-xs) var(--space-md) var(--space-xs) 0;
+    text-align: left;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .data-table thead th {
+    font-weight: 500;
+    color: var(--color-text-light);
+    border-bottom: 1px solid #e8e8e7;
+  }
+
+  .data-table td {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlockShareBars from '../components/charts/BlockShareBars.astro';
+import TrendChart from '../components/charts/TrendChart.astro';
+import { tracker, intro, formatDate, getCategoryColor } from '../data/crawler-tracker';
+
+const description =
+  'Welche AI-Crawler lassen gut 100 Sites in der robots.txt zu? Snapshot und Verlauf der fumu-Erhebung – alle 14 Tage, Schwerpunkt Schweiz.';
+
+const categories = [...tracker.by_category].sort((a, b) => b.block_share - a.block_share);
+const crawlers = [...tracker.by_crawler].sort((a, b) => b.block_share - a.block_share);
+
+const categoryItems = categories.map((c) => ({
+  label: c.label,
+  share: c.block_share,
+  detail: `${c.site_count} Sites`,
+  color: getCategoryColor(c.category),
+}));
+
+const crawlerItems = crawlers.map((c) => ({
+  label: c.label,
+  share: c.block_share,
+  detail: `${c.blocked_sites} von ${tracker.meta.site_count} Sites`,
+}));
+
+const datasetLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'fumu AI-Crawler-Radar',
+  description,
+  url: 'https://fumu.ch/ai-crawler-radar/',
+  inLanguage: 'de-CH',
+  creator: { '@type': 'Organization', name: 'fumu', url: 'https://fumu.ch' },
+  dateModified: tracker.meta.snapshot_date,
+  temporalCoverage: `${tracker.trend[0].date}/${tracker.meta.snapshot_date}`,
+};
+---
+
+<BaseLayout title="AI-Crawler-Radar" description={description}>
+
+  <script type="application/ld+json" set:html={JSON.stringify(datasetLd)} />
+
+  <section class="radar-page">
+    <div class="container">
+      <div class="content">
+
+        <h1>AI-Crawler-Radar</h1>
+
+        <p class="snapshot-meta">
+          Snapshot vom <strong>{formatDate(tracker.meta.snapshot_date)}</strong> ·
+          {tracker.meta.site_count} Sites × {tracker.meta.crawler_count} Crawler ·
+          Erhebung alle {tracker.meta.cadence_days} Tage
+        </p>
+
+        <p class="radar-headline">{tracker.headline}</p>
+
+        <p class="intro">{intro}</p>
+
+        <hr class="section-divider" />
+
+        <h2>Block-Anteil nach Kategorie</h2>
+        <p class="section-lead">Anteil der Crawler-Site-Paare, die per robots.txt blockiert sind – je Site-Kategorie.</p>
+        <BlockShareBars items={categoryItems} caption="Block-Anteil nach Site-Kategorie" />
+
+        <hr class="section-divider" />
+
+        <h2>Block-Anteil nach Crawler</h2>
+        <p class="section-lead">Anteil der {tracker.meta.site_count} Sites, die den jeweiligen Crawler blockieren.</p>
+        <BlockShareBars items={crawlerItems} caption="Block-Anteil nach Crawler" monoLabels />
+
+        <hr class="section-divider" />
+
+        <h2>Verlauf</h2>
+        <p class="section-lead">Block-Anteil je Kategorie über die bisherigen Snapshots.</p>
+        <TrendChart
+          trend={tracker.trend}
+          categories={categories}
+          title="Verlauf des Block-Anteils je Kategorie seit April 2026"
+        />
+
+        <hr class="section-divider" />
+
+        <footer class="methodology">
+          <h2>Methodik</h2>
+          <ul>
+            {tracker.methodology.map((note) => (
+              <li>{note}</li>
+            ))}
+          </ul>
+        </footer>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .radar-page {
+    padding: var(--space-lg) 0 var(--space-xl) 0;
+  }
+
+  .snapshot-meta {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text-light);
+    letter-spacing: 0.4px;
+    margin-bottom: var(--space-md);
+  }
+
+  .radar-headline {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+
+  .intro {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--color-coral);
+    margin: var(--space-lg) 0;
+  }
+
+  .section-lead {
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-md);
+  }
+
+  .methodology ul {
+    padding-left: 1.25rem;
+  }
+
+  .methodology li {
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-sm);
+  }
+</style>

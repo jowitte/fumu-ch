@@ -1,7 +1,7 @@
 ---
 title: "Impressum"
 description: "Impressum der fumu GmbH, Zürich"
-order: 7
+order: 8
 ---
 
 ## Anschrift und Betreiber dieser Internetseiten

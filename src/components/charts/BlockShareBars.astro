@@ -1,0 +1,126 @@
+---
+// Horizontale Balkenliste für Block-Anteile (0..1), Build-Zeit-HTML/CSS ohne
+// Client-JS. Semantisch eine Tabelle – die Zahlen sind damit ohne Umweg als
+// Text zugänglich, der Balken ist reine Visualisierung obendrauf.
+// Balkenlänge = Anteil an 100 % (gleiche Skala in allen Instanzen der Seite).
+import { formatShare } from '../../data/crawler-tracker';
+
+interface Item {
+  label: string;
+  share: number;
+  detail?: string;
+  color?: string;
+}
+
+interface Props {
+  items: Item[];
+  caption: string;
+  monoLabels?: boolean;
+}
+
+const { items, caption, monoLabels = false } = Astro.props;
+---
+
+<table class:list={['share-bars', { 'mono-labels': monoLabels }]}>
+  <caption class="sr-only">{caption}</caption>
+  <thead class="sr-only">
+    <tr>
+      <th scope="col">Segment</th>
+      <th scope="col">Block-Anteil</th>
+    </tr>
+  </thead>
+  <tbody>
+    {items.map((item) => (
+      <tr>
+        <th scope="row">
+          <span class="label">{item.label}</span>
+          {item.detail && <span class="detail">{item.detail}</span>}
+        </th>
+        <td>
+          <div class="track">
+            <div
+              class="bar"
+              style={`width:${(item.share * 100).toFixed(2)}%;background:${item.color ?? 'var(--color-coral)'}`}
+            ></div>
+            <span class="value">{formatShare(item.share)}</span>
+          </div>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+<style>
+  .share-bars {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .share-bars th[scope='row'] {
+    width: 220px;
+    padding: var(--space-xs) var(--space-md) var(--space-xs) 0;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-text);
+    text-align: left;
+    vertical-align: middle;
+    line-height: 1.3;
+  }
+
+  .share-bars td {
+    padding: var(--space-xs) 0;
+    vertical-align: middle;
+  }
+
+  .mono-labels .label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  .detail {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-light);
+  }
+
+  .track {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .bar {
+    height: 16px;
+    min-width: 2px;
+    border-radius: 0 4px 4px 0;
+    flex-shrink: 0;
+  }
+
+  .value {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 768px) {
+    .share-bars th[scope='row'] {
+      width: 40%;
+      font-size: 13px;
+    }
+  }
+</style>

@@ -28,6 +28,7 @@ fumu verbindet Strategie, Organisation und Technologie – damit aus technologis
 - [Über fumu](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
 - [Perspektiven](https://fumu.ch/perspektiven/): Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung
 - [Kontakt & Newsletter](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren – und Newsletter-Anmeldung (AdTech, MarTech, AI-Integration)
+- [AI-Crawler-Radar](https://fumu.ch/ai-crawler-radar/): Welche AI-Crawler lassen gut 100 Sites in der robots.txt zu? Snapshot und Verlauf, alle 14 Tage erhoben – aktuelle Zahlen als Markdown unter https://fumu.ch/ai-crawler-radar.md
 
 ## Serien
 

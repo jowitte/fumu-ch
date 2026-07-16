@@ -1,7 +1,7 @@
 ---
 title: "Datenschutzerklärung"
 description: "Datenschutzerklärung der fumu GmbH, Zürich"
-order: 8
+order: 9
 ---
 
 Stand: Mai 2026
