@@ -347,11 +347,20 @@ if (seriesSlug && seriesData) {
     .evans-label {
       padding: var(--space-lg) 0 0 0;
       display: flex;
+      flex-direction: row;
+      align-items: center;
       gap: var(--space-md);
     }
 
     .post-date, .post-author {
       position: static;
+    }
+
+    /* Icon in der horizontalen Label-Zeile: klein, rechtsbündig */
+    .post-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 0 0 auto;
     }
 
     .evans-content {

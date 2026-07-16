@@ -227,9 +227,23 @@ const formatDate = (date: Date) => {
   }
 
   @media (max-width: 768px) {
-    .hero { padding: 8vh 0 6vh; }
+    .hero { padding: 6vh 0 4vh; }
     .hero-title { font-size: 32px; }
     .hero-sub { font-size: 18px; }
+
+    /* Hero stapelt: Text voll breit, Doodle kleiner darunter rechts */
+    .hero-grid {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .hero-icon {
+      width: 150px;
+      height: 150px;
+      margin: 0;
+      align-self: flex-end;
+    }
 
     .posts-grid {
       grid-template-columns: 1fr;
@@ -237,6 +251,7 @@ const formatDate = (date: Date) => {
 
     .posts-label {
       padding: var(--space-lg) 0 0 0;
+      justify-content: flex-start;
     }
 
     .posts-list {
@@ -245,13 +260,24 @@ const formatDate = (date: Date) => {
       padding-left: 0;
     }
 
+    /* Zeile als Grid: Datum oben, Text links, kleines Icon rechts */
     .post-row {
-      flex-direction: column;
-      gap: var(--space-xs);
+      display: grid;
+      grid-template-columns: 1fr 64px;
+      column-gap: var(--space-md);
+      row-gap: var(--space-xs);
+      align-items: start;
     }
 
     .post-date {
       width: auto;
+      grid-column: 1 / -1;
+    }
+
+    .post-row-icon {
+      width: 64px;
+      height: 64px;
+      align-self: start;
     }
   }
 </style>
