@@ -73,6 +73,8 @@ Additiv zum bestehenden Vertrag, alte Felder unverändert. Neue Felder (Beispiel
 
 - **Fraunces-Summary-Titel (entschieden 2026-07-16):** Der Plan verlangte Fraunces für die Summary-Zeilen der klappbaren Sections; die kuratierte CI-Runde vom 2026-07-15 hatte Serifen aber auf H1 beschränkt (H2+ sans). Entscheid: die neuere CI-Konvention gilt – Summary-Titel wie H2 (Sans, medium, Coral) in `CollapsibleSection.astro` umgesetzt.
 
-- **Methodik-Wortlaut:** ausführlicher Text (Abschnitte für `methodology_details`) wird im Vault geschrieben und per JSON geliefert – bis dahin Fallback auf die drei Kurzsätze.
-- **Lauf-Log-Backfill:** Sollen die bisherigen ~14 Snapshots rückwirkend `summary`-Texte bekommen (mechanisch aus den Diffs) oder startet das Log mit dem nächsten Lauf? Empfehlung Vault-Seite: mechanischer Backfill, kuratierte `commentary` nur nach vorne.
-- **Kuratierungs-Weg für `commentary`:** Vorschlag Vault-Seite – beim manuellen Tracker-Sheet-Update (`/robots-txt snap`) füllen, optional mit kurzer Themenfeld-Recherche; die launchd-Automatik bleibt rein mechanisch.
+Beantwortet 2026-07-16 aus dem Vault – das erweiterte JSON liegt (uncommitted) unter `src/data/ai-crawler-tracker.json`:
+
+- **Methodik-Wortlaut:** geliefert – vier Abschnitte (Erhebung, Status-Logik, Block-Anteil, Grenzen) in `methodology_details`.
+- **Lauf-Log-Backfill:** alle 14 bisherigen Snapshots haben `summary`-Texte – kuratiert aus den Vault-Logs, nicht nur mechanisch. `changes`/`sites_changed` sind beim Erst-Snapshot (2026-04-27) `null`.
+- **Kuratierungs-Weg für `commentary`:** entschieden wie vorgeschlagen – Pflege beim manuellen `/robots-txt snap` (Vault-Skill, Schritt 6), die launchd-Automatik publisht nur mechanische Summaries. `commentary` ist aktuell überall `null`.

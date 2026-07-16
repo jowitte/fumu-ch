@@ -57,8 +57,9 @@ const trackerSchema = z.object({
     .array(
       z.object({
         date: isoDate,
-        changes: z.number().int().nonnegative(),
-        sites_changed: z.number().int().nonnegative(),
+        // null beim Erst-Snapshot (2026-04-27): kein Diff-Vorgänger vorhanden.
+        changes: z.number().int().nonnegative().nullable(),
+        sites_changed: z.number().int().nonnegative().nullable(),
         summary: z.string().min(1),
         commentary: z.string().min(1).nullable(),
       }),
@@ -93,10 +94,25 @@ export type MonitoredSite = NonNullable<CrawlerTracker['sites']>[number];
 export const tracker: CrawlerTracker = trackerSchema.parse(raw);
 
 // Vorspann der Radar-Seite. Wortlaut aus der Vault-Story «Bot Analyzer»
-// (Rückkanal 2026-07-16) – hier nie umformulieren, nur aus dem Vault nachziehen.
-// Wird von der HTML-Seite und der .md-Route gemeinsam konsumiert.
-export const intro =
-  'fumu erhebt seit April 2026 alle 14 Tage, welche AI-Crawler die robots.txt von gut 100 Sites zulassen – Publisher mit und ohne Paywall, Plattformen, Brands und E-Commerce, Schwerpunkt Schweiz. Der Radar zeigt den jüngsten Snapshot und den Verlauf; robots.txt ist dabei Deklaration, nicht Crawl-Realität.';
+// (Rückkanal 2026-07-16, revidiert am selben Tag: erklärt das Warum und
+// verlinkt die Perspektiven) – hier nie umformulieren, nur aus dem Vault
+// nachziehen. Absätze mit Inline-Links im Markdown-Format; HTML-Seite
+// rendert via renderInlineLinks, die .md-Route nimmt sie roh.
+export const intro = [
+  "AI-Plattformen lesen das Web in industriellem Massstab, schicken aber kaum Besucher zurück – bei Anthropic kommen auf einen weitergeleiteten Leser rund 24'000 Crawls ([99 Prozent Zero-Click](/perspektiven/zero-click/)). Ob eine Site das mitmacht, deklariert sie in ihrer robots.txt: Dort steht, welche AI-Crawler sie zulässt – für Training, für Suche oder gar nicht.",
+  'Der Radar verfolgt diese Deklarationen. fumu erhebt seit April 2026 alle 14 Tage die robots.txt von gut 100 Sites – Publisher mit und ohne Paywall, Plattformen, Brands und E-Commerce, Schwerpunkt Schweiz – und wertet sie gegen 20 dokumentierte AI-Crawler aus. robots.txt ist dabei Deklaration, nicht Crawl-Realität; das strukturelle Muster hinter der Bewegung beschreibt [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/).',
+];
+
+// Markdown-Inline-Links ([Text](url)) zu <a> auflösen – mehr Markdown können
+// intro und Lauf-Summaries bewusst nicht (Vertrag mit tracker-content.yaml).
+// Escaped vorher HTML-Sonderzeichen, damit set:html gefahrlos bleibt.
+export function renderInlineLinks(text: string): string {
+  const escaped = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  return escaped.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>');
+}
 
 // Serienfarben für den Trend: Farbe folgt der Kategorie, nie dem Rang.
 // Palette aus den fumu-CI-Hues abgeleitet und mit dem dataviz-Validator
@@ -113,6 +129,16 @@ const FALLBACK_COLOR = '#666666';
 
 export function getCategoryColor(category: string): string {
   return categoryColors[category] ?? FALLBACK_COLOR;
+}
+
+// «10 Veränderungen auf 2 Sites» für einen Lauf-Log-Eintrag; null beim
+// Erst-Snapshot (kein Diff-Vorgänger) → null, Aufrufer lässt die Angabe weg.
+// Gemeinsam für HTML-Seite und Markdown-Zwilling, damit nichts driftet.
+export function describeRunChanges(run: Run): string | null {
+  if (run.changes === null) return null;
+  const changes = `${run.changes} ${run.changes === 1 ? 'Veränderung' : 'Veränderungen'}`;
+  if (run.sites_changed === null) return changes;
+  return `${changes} auf ${run.sites_changed} ${run.sites_changed === 1 ? 'Site' : 'Sites'}`;
 }
 
 // Anteil 0..1 → Schweizer Prozent-Schreibweise («53.3 %», ohne überflüssige Null).

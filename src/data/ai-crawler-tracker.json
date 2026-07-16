@@ -4,7 +4,7 @@
     "site_count": 108,
     "crawler_count": 20,
     "cadence_days": 14,
-    "generated_at": "2026-07-16T13:44:11.843624+02:00"
+    "generated_at": "2026-07-16T20:54:18.598127+02:00"
   },
   "headline": "Snapshot 2026-07-13: 10 Veränderungen auf 2 Sites.",
   "by_category": [
@@ -302,9 +302,777 @@
       }
     }
   ],
+  "runs": [
+    {
+      "date": "2026-07-13",
+      "changes": 10,
+      "sites_changed": 2,
+      "summary": "[Der Standard](https://derstandard.at/robots.txt) sperrt fünf Scraper- und Trainings-Crawler explizit und öffnet zugleich den OpenAI-Suchbot, dieselbe Trennlinie, die [WSJ](https://wsj.com/robots.txt) und [Reuters](https://reuters.com/robots.txt) im Mai gezogen haben. WSJ nimmt seine Juni-Öffnung teilweise zurück.",
+      "commentary": null
+    },
+    {
+      "date": "2026-07-06",
+      "changes": 21,
+      "sites_changed": 2,
+      "summary": "[LinkedIn](https://linkedin.com/robots.txt) stuft den Claude-Suchbot von gesperrt auf teilweise herunter – Zitierbarkeit ja, Trainingsmaterial nein.",
+      "commentary": null
+    },
+    {
+      "date": "2026-06-29",
+      "changes": 33,
+      "sites_changed": 4,
+      "summary": "[Heidi.News](https://heidi.news/robots.txt) und [Le Temps](https://letemps.ch/robots.txt) öffnen gezielt für OpenAIs Such- und Assistenz-Bots. [Temu](https://temu.com/robots.txt) pendelt zurück auf selektiv.",
+      "commentary": null
+    },
+    {
+      "date": "2026-06-22",
+      "changes": 9,
+      "sites_changed": 1,
+      "summary": "[Temu](https://temu.com/robots.txt) zieht seine selektiven Schranken zurück und steht durchgängig offen – E-Commerce setzt auf Reichweite, nicht auf Content-Schutz.",
+      "commentary": null
+    },
+    {
+      "date": "2026-06-15",
+      "changes": 1,
+      "sites_changed": 1,
+      "summary": "[Zeit](https://zeit.de/robots.txt) sperrt Googles Trainings-Crawler – eine einzelne Zelle, gezielte Ergänzung statt Strategiewechsel.",
+      "commentary": null
+    },
+    {
+      "date": "2026-06-08",
+      "changes": 18,
+      "sites_changed": 3,
+      "summary": "[Tagesschau](https://tagesschau.de/robots.txt) zieht die komplette AI-Crawler-Sperre zurück – der erste öffentlich-rechtliche Publisher im Sample, der vollständig öffnet. [WSJ](https://wsj.com/robots.txt) weitet seine Allow-Liste aus, [eBay](https://ebay.com/robots.txt) verschärft leicht.",
+      "commentary": null
+    },
+    {
+      "date": "2026-06-01",
+      "changes": 0,
+      "sites_changed": 0,
+      "summary": "Erstmals 20 Crawler in der Zeitreihe (u.a. Amazonbot, Mistral, Meta) – die neuen Spalten verdünnen die Block-Quoten optisch, auf dem alten Raster hat sich nichts bewegt.",
+      "commentary": null
+    },
+    {
+      "date": "2026-05-25",
+      "changes": 20,
+      "sites_changed": 3,
+      "summary": "[Bloomberg](https://bloomberg.com/robots.txt) geht den Gegenweg zu [WSJ](https://wsj.com/robots.txt) und [Reuters](https://reuters.com/robots.txt) und schliesst die letzten offenen Crawler-Lücken einzeln – die ganze explizite Bot-Reihe steht jetzt auf Sperre. [CNN](https://cnn.com/robots.txt) sperrt Claude-User nach.",
+      "commentary": null
+    },
+    {
+      "date": "2026-05-16",
+      "changes": 28,
+      "sites_changed": 2,
+      "summary": "[Reuters](https://reuters.com/robots.txt) folgt dem [WSJ](https://wsj.com/robots.txt)-Muster eine Woche später – Default zu, Ausnahmen für Such- und Zitier-Bots.",
+      "commentary": null
+    },
+    {
+      "date": "2026-05-11",
+      "changes": 14,
+      "sites_changed": 1,
+      "summary": "[WSJ](https://wsj.com/robots.txt) stellt als erstes Haus die Architektur um: weg von Sperren pro Crawler, hin zu global gesperrt mit kuratierten Ausnahmen für Suchbots.",
+      "commentary": null
+    },
+    {
+      "date": "2026-05-05",
+      "changes": 0,
+      "sites_changed": 0,
+      "summary": "Keine Veränderungen gegenüber dem Vor-Snapshot.",
+      "commentary": null
+    },
+    {
+      "date": "2026-05-04",
+      "changes": 0,
+      "sites_changed": 0,
+      "summary": "Keine Veränderungen bei erstmals stabilem Sample – robots.txt-Politik ist kein Tages-Phänomen, die 14-Tage-Kadenz hat die richtige Auflösung.",
+      "commentary": null
+    },
+    {
+      "date": "2026-04-29",
+      "changes": 15,
+      "sites_changed": 2,
+      "summary": "Sample auf 107 Sites erweitert und Plattformen als eigene Kategorie eingeführt – [Amazon](https://amazon.com/robots.txt) und [eBay](https://ebay.com/robots.txt) wandern dorthin. Kein Drift-Vergleich, die Basislinie entsteht.",
+      "commentary": null
+    },
+    {
+      "date": "2026-04-27",
+      "changes": null,
+      "sites_changed": null,
+      "summary": "Erst-Snapshot: 81 Sites × 14 Crawler.",
+      "commentary": null
+    }
+  ],
+  "sites": [
+    {
+      "name": "Adidas",
+      "domain": "adidas.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Allianz",
+      "domain": "allianz.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "BMW",
+      "domain": "bmw.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Bosch",
+      "domain": "bosch.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Carrefour",
+      "domain": "carrefour.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Coop",
+      "domain": "coop.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Deutsche Telekom",
+      "domain": "telekom.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "H&M",
+      "domain": "hm.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Helvetia",
+      "domain": "helvetia.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Hilti",
+      "domain": "hilti.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "IKEA",
+      "domain": "ikea.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Inditex",
+      "domain": "inditex.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "L'Oréal",
+      "domain": "loreal.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "LVMH",
+      "domain": "lvmh.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Lindt",
+      "domain": "lindt.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Lufthansa",
+      "domain": "lufthansa.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Mercedes-Benz",
+      "domain": "mercedes-benz.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Nestlé",
+      "domain": "nestle.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "On",
+      "domain": "on.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Porsche",
+      "domain": "porsche.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "PostFinance",
+      "domain": "postfinance.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Raiffeisen",
+      "domain": "raiffeisen.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Rolex",
+      "domain": "rolex.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "SAP",
+      "domain": "sap.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "SBB",
+      "domain": "sbb.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Shell",
+      "domain": "shell.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Siemens",
+      "domain": "siemens.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Sunrise",
+      "domain": "sunrise.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Swiss",
+      "domain": "swiss.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Swiss Life",
+      "domain": "swisslife.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Swisscom",
+      "domain": "swisscom.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "UBS",
+      "domain": "ubs.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Volkswagen",
+      "domain": "volkswagen.com",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "Zurich Insurance",
+      "domain": "zurich.ch",
+      "category": "brand",
+      "label": "Brands"
+    },
+    {
+      "name": "About You",
+      "domain": "aboutyou.de",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "AliExpress",
+      "domain": "aliexpress.com",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Brack",
+      "domain": "brack.ch",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Digitec",
+      "domain": "digitec.ch",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Galaxus",
+      "domain": "galaxus.ch",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Manor",
+      "domain": "manor.ch",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "MediaMarkt",
+      "domain": "mediamarkt.de",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Microspot",
+      "domain": "microspot.ch",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Migros",
+      "domain": "migros.ch",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Otto",
+      "domain": "otto.de",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Temu",
+      "domain": "temu.com",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Zalando",
+      "domain": "zalando.com",
+      "category": "ecommerce",
+      "label": "E-Commerce"
+    },
+    {
+      "name": "Amazon",
+      "domain": "amazon.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Amazon DE",
+      "domain": "amazon.de",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Instagram",
+      "domain": "instagram.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "LinkedIn",
+      "domain": "linkedin.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Medium",
+      "domain": "medium.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Pinterest",
+      "domain": "pinterest.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Quora",
+      "domain": "quora.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Reddit",
+      "domain": "reddit.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Stack Overflow",
+      "domain": "stackoverflow.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Substack",
+      "domain": "substack.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "TikTok",
+      "domain": "tiktok.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "Wikipedia",
+      "domain": "wikipedia.org",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "X",
+      "domain": "x.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "YouTube",
+      "domain": "youtube.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "eBay",
+      "domain": "ebay.com",
+      "category": "platform",
+      "label": "Plattformen"
+    },
+    {
+      "name": "20 Minuten",
+      "domain": "20min.ch",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "AP",
+      "domain": "apnews.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "BBC",
+      "domain": "bbc.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Bild",
+      "domain": "bild.de",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Blick",
+      "domain": "blick.ch",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "CNN",
+      "domain": "cnn.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Cash",
+      "domain": "cash.ch",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Focus",
+      "domain": "focus.de",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Fox News",
+      "domain": "foxnews.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Guardian",
+      "domain": "theguardian.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Independent",
+      "domain": "independent.co.uk",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Kurier",
+      "domain": "kurier.at",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "NBC News",
+      "domain": "nbcnews.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "NPR",
+      "domain": "npr.org",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Profil",
+      "domain": "profil.at",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "RTS",
+      "domain": "rts.ch",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Reuters",
+      "domain": "reuters.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "SRF",
+      "domain": "srf.ch",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Stern",
+      "domain": "stern.de",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "T-Online",
+      "domain": "t-online.de",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Tagesschau",
+      "domain": "tagesschau.de",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "USA Today",
+      "domain": "usatoday.com",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Watson",
+      "domain": "www.watson.ch",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "ZDF",
+      "domain": "zdf.de",
+      "category": "publisher_open",
+      "label": "Publisher (frei)"
+    },
+    {
+      "name": "Bloomberg",
+      "domain": "bloomberg.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Der Standard",
+      "domain": "derstandard.at",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Die Presse",
+      "domain": "diepresse.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "FAZ",
+      "domain": "faz.net",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "FT",
+      "domain": "ft.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Handelsblatt",
+      "domain": "handelsblatt.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Handelszeitung",
+      "domain": "handelszeitung.ch",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Heidi.News",
+      "domain": "heidi.news",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Le Temps",
+      "domain": "letemps.ch",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Manager Magazin",
+      "domain": "manager-magazin.de",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "NYT",
+      "domain": "nytimes.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "NZZ",
+      "domain": "nzz.ch",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Republik",
+      "domain": "republik.ch",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Spiegel",
+      "domain": "spiegel.de",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Süddeutsche",
+      "domain": "sueddeutsche.de",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Tages-Anzeiger",
+      "domain": "tagesanzeiger.ch",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "The Economist",
+      "domain": "economist.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "The Telegraph",
+      "domain": "telegraph.co.uk",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "The Times",
+      "domain": "thetimes.co.uk",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "WSJ",
+      "domain": "wsj.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Washington Post",
+      "domain": "washingtonpost.com",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Welt",
+      "domain": "welt.de",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    },
+    {
+      "name": "Zeit",
+      "domain": "zeit.de",
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher"
+    }
+  ],
   "methodology": [
     "ERROR-Zellen (Bot-Schutz-403/Timeout) sind nicht als Blockade gewertet – eigener Datenpunkt.",
     "Google-Agent ignoriert robots.txt laut Anbieter – DEFAULT heisst hier nicht 'wird durchgelassen'.",
     "robots.txt ist Deklaration, nicht Crawl-Realität (ChatGPT-User und Perplexity binden sich nicht)."
+  ],
+  "methodology_details": [
+    {
+      "title": "Erhebung",
+      "body": "Alle 14 Tage ruft der Analyzer die robots.txt von gut 100 Sites ab und wertet sie gegen 20 dokumentierte AI-Crawler aus – von OpenAI, Anthropic, Google, Meta, Apple, Amazon, Perplexity, Mistral, ByteDance und DuckDuckGo. Das Sample ist kuratiert, nicht repräsentativ: Publisher mit und ohne Paywall, Plattformen, Brands und E-Commerce, Schwerpunkt Schweiz, ergänzt um Titel aus Deutschland, Österreich, UK, USA und der EU. Die Abfrage läuft mit offen deklariertem User-Agent (fumu-Crawler)."
+    },
+    {
+      "title": "Status-Logik",
+      "body": "Jede Zelle Site × Crawler bekommt einen von sechs Status, ausgewertet nach RFC 9309: explizit gesperrt (BLOCK), explizit erlaubt (ALLOW), teilweise gesperrt (SELECTIVE), nicht erwähnt und damit implizit erlaubt (DEFAULT), nicht erwähnt, aber von einer globalen Sperre erfasst (DEFAULT_BLOCKED) – oder robots.txt nicht abrufbar (ERROR)."
+    },
+    {
+      "title": "Block-Anteil",
+      "body": "Der Block-Anteil zählt BLOCK und DEFAULT_BLOCKED, geteilt durch alle Zellen der Kategorie – einschliesslich ERROR. Nicht erreichbare Sites drücken den Anteil also leicht; sie erscheinen dafür als eigener Datenpunkt, statt stillschweigend als Blockade oder Erlaubnis gewertet zu werden."
+    },
+    {
+      "title": "Grenzen",
+      "body": "robots.txt ist Deklaration, nicht Crawl-Realität. ChatGPT-User bindet sich laut OpenAI-Dokumentation nicht mehr an robots.txt, Perplexity crawlt nachweislich daran vorbei, und Googles Agent ignoriert die Datei per Anbieter-Position – ein DEFAULT heisst dort nicht, dass der Crawler draussen bleibt. ERROR-Zellen stammen meist von Bot-Schutz (403/Timeout) und sind kein Policy-Signal."
+    }
   ]
 }

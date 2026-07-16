@@ -38,6 +38,8 @@ Cloudflare schützt und beschleunigt rund 20% aller Websites weltweit und sieht 
 
 Die Verhältnisse bewegen sich, bei Anthropic in die richtige Richtung. Von 286'000 zu 1 im Januar 2025 über 38'100 im Juli auf knapp 12'000 im März 2026. Auslöser war Claudes Web-Suche mit klickbaren Quellen, seit Mai 2025 für alle Nutzer. Die Verbesserung um 96% in 14 Monaten klingt beeindruckend – bis man sie gegen Google hält: 12'000 zu 1 versus 5 zu 1. Das ist das Ende einer Verbesserung, nicht der Anfang einer Lösung. Perplexity verbessert sich ebenfalls stetig (von 195 auf 111). Und die Branchenunterschiede sind erheblich: Für Verlage und News-Sites misst Cloudflare bei Anthropic 2'500 zu 1 – deutlich besser als im Gesamtdurchschnitt. Google crawlt viel, generiert über die klassische Indexierung aber weiterhin den Grossteil seines Referral-Traffics. Genau dieses Gleichgewicht verschiebt sich.
 
+Wie Publisher und Brands darauf reagieren, steht in ihrer robots.txt – dort entscheidet sich, welcher Crawler überhaupt hereingelassen wird. Wir erheben das alle 14 Tage über gut 100 Sites, Schwerpunkt Schweiz: [AI-Crawler-Radar](/ai-crawler-radar/).
+
 ## Was sich strukturell verschiebt
 
 Das ist nicht der erste Wechsel des Standards im Web. Yahoo verlor an Google, weil ein neuer Integrator auf einer neuen Ebene entstand – Suchqualität statt Verzeichnis. Heute läuft dieselbe Bewegung eine Stufe weiter: Antwort statt Linksammlung. Wer am Ende dominiert – OpenAI, Google mit AI Mode, Perplexity – ist offen. Google hat Distribution, Cashflow und 25 Jahre Index, und kannibalisiert sich lieber selbst, als das Feld zu räumen. Die Integrationsschicht selbst hat sich trotzdem bereits verschoben. Für Publisher ist das die relevante Bewegung, unabhängig vom Sieger.

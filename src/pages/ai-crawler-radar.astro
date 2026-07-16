@@ -1,16 +1,26 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import BlockShareBars from '../components/charts/BlockShareBars.astro';
-import TrendChart from '../components/charts/TrendChart.astro';
-import CollapsibleSection from '../components/CollapsibleSection.astro';
-import { tracker, intro, formatDate, getCategoryColor } from '../data/crawler-tracker';
-import type { Run } from '../data/crawler-tracker';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockShareBars from "../components/charts/BlockShareBars.astro";
+import TrendChart from "../components/charts/TrendChart.astro";
+import CollapsibleSection from "../components/CollapsibleSection.astro";
+import {
+  tracker,
+  intro,
+  formatDate,
+  getCategoryColor,
+  describeRunChanges,
+  renderInlineLinks,
+} from "../data/crawler-tracker";
 
 const description =
-  'Welche AI-Crawler lassen gut 100 Sites in der robots.txt zu? Snapshot und Verlauf der fumu-Erhebung – alle 14 Tage, Schwerpunkt Schweiz.';
+  "Welche AI-Crawler lassen gut 100 Sites in der robots.txt zu? Snapshot und Verlauf der fumu-Erhebung – alle 14 Tage, Schwerpunkt Schweiz.";
 
-const categories = [...tracker.by_category].sort((a, b) => b.block_share - a.block_share);
-const crawlers = [...tracker.by_crawler].sort((a, b) => b.block_share - a.block_share);
+const categories = [...tracker.by_category].sort(
+  (a, b) => b.block_share - a.block_share,
+);
+const crawlers = [...tracker.by_crawler].sort(
+  (a, b) => b.block_share - a.block_share,
+);
 
 const categoryItems = categories.map((c) => ({
   label: c.label,
@@ -26,13 +36,12 @@ const crawlerItems = crawlers.map((c) => ({
 }));
 
 // Lauf-Log: chronologisch absteigend, die jüngsten 6 offen, Rest klappbar.
-const runs = [...(tracker.runs ?? [])].sort((a, b) => b.date.localeCompare(a.date));
+const runs = [...(tracker.runs ?? [])].sort((a, b) =>
+  b.date.localeCompare(a.date),
+);
 const OPEN_RUNS = 6;
 const recentRuns = runs.slice(0, OPEN_RUNS);
 const olderRuns = runs.slice(OPEN_RUNS);
-
-const changeText = (run: Run) =>
-  `${run.changes} ${run.changes === 1 ? 'Veränderung' : 'Veränderungen'} auf ${run.sites_changed} ${run.sites_changed === 1 ? 'Site' : 'Sites'}`;
 
 // Site-Liste: nach Kategorie gruppiert, Reihenfolge wie die Kategorie-Balken.
 const sites = tracker.sites ?? [];
@@ -42,7 +51,7 @@ const siteGroups = categories
     category: c.category,
     sites: sites
       .filter((s) => s.category === c.category)
-      .sort((a, b) => a.name.localeCompare(b.name, 'de')),
+      .sort((a, b) => a.name.localeCompare(b.name, "de")),
   }))
   .filter((g) => g.sites.length > 0);
 // Sites mit Kategorien ausserhalb von by_category nicht still verschlucken.
@@ -50,35 +59,33 @@ const knownCategories = new Set(categories.map((c) => c.category));
 const otherSites = sites.filter((s) => !knownCategories.has(s.category));
 if (otherSites.length > 0) {
   siteGroups.push({
-    label: 'Weitere',
-    category: 'other',
-    sites: [...otherSites].sort((a, b) => a.name.localeCompare(b.name, 'de')),
+    label: "Weitere",
+    category: "other",
+    sites: [...otherSites].sort((a, b) => a.name.localeCompare(b.name, "de")),
   });
 }
 
 const methodologyDetails = tracker.methodology_details ?? [];
 
 const datasetLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Dataset',
-  name: 'fumu AI-Crawler-Radar',
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  name: "fumu AI-Crawler-Radar",
   description,
-  url: 'https://fumu.ch/ai-crawler-radar/',
-  inLanguage: 'de-CH',
-  creator: { '@type': 'Organization', name: 'fumu', url: 'https://fumu.ch' },
+  url: "https://fumu.ch/ai-crawler-radar/",
+  inLanguage: "de-CH",
+  creator: { "@type": "Organization", name: "fumu", url: "https://fumu.ch" },
   dateModified: tracker.meta.snapshot_date,
   temporalCoverage: `${tracker.trend[0].date}/${tracker.meta.snapshot_date}`,
 };
 ---
 
 <BaseLayout title="AI-Crawler-Radar" description={description}>
-
   <script type="application/ld+json" set:html={JSON.stringify(datasetLd)} />
 
   <section class="radar-page">
     <div class="container">
       <div class="content">
-
         <h1>AI-Crawler-Radar</h1>
 
         <p class="snapshot-meta">
@@ -87,98 +94,139 @@ const datasetLd = {
           Erhebung alle {tracker.meta.cadence_days} Tage
         </p>
 
-        <p class="radar-headline">{tracker.headline}</p>
-
-        <p class="intro">{intro}</p>
+        {
+          intro.map((paragraph) => (
+            <p class="intro" set:html={renderInlineLinks(paragraph)} />
+          ))
+        }
 
         <hr class="section-divider" />
 
         <h2>Verlauf</h2>
-        <p class="section-lead">Block-Anteil je Kategorie über die bisherigen Snapshots.</p>
+        <p class="section-lead">
+          Block-Anteil je Kategorie über die bisherigen Snapshots.
+        </p>
         <TrendChart
           trend={tracker.trend}
           categories={categories}
           title="Verlauf des Block-Anteils je Kategorie seit April 2026"
         />
 
-        {runs.length > 0 && (
-          <section class="run-log">
-            <hr class="section-divider" />
-            <h2>Lauf-Log</h2>
-            {recentRuns.map((run) => (
-              <article class="run">
-                <p class="run-meta">
-                  <strong>{formatDate(run.date)}</strong> · {changeText(run)}
-                </p>
-                <p class="run-summary">{run.summary}</p>
-                {run.commentary && <p class="run-commentary">{run.commentary}</p>}
-              </article>
-            ))}
-            {olderRuns.length > 0 && (
-              <details class="older-runs">
-                <summary>Ältere Läufe ({olderRuns.length})</summary>
-                {olderRuns.map((run) => (
-                  <article class="run">
-                    <p class="run-meta">
-                      <strong>{formatDate(run.date)}</strong> · {changeText(run)}
-                    </p>
-                    <p class="run-summary">{run.summary}</p>
-                    {run.commentary && <p class="run-commentary">{run.commentary}</p>}
-                  </article>
-                ))}
-              </details>
-            )}
-          </section>
-        )}
+        {
+          runs.length > 0 && (
+            <section class="run-log">
+              <hr class="section-divider" />
+              <h2>Aktualisierungen</h2>
+              {recentRuns.map((run) => (
+                <article class="run">
+                  <p class="run-meta">
+                    <strong>{formatDate(run.date)}</strong>
+                    {describeRunChanges(run) && (
+                      <> · {describeRunChanges(run)}</>
+                    )}
+                  </p>
+                  <p
+                    class="run-summary"
+                    set:html={renderInlineLinks(run.summary)}
+                  />
+                  {run.commentary && (
+                    <p
+                      class="run-commentary"
+                      set:html={renderInlineLinks(run.commentary)}
+                    />
+                  )}
+                </article>
+              ))}
+              {olderRuns.length > 0 && (
+                <details class="older-runs">
+                  <summary>Ältere Läufe ({olderRuns.length})</summary>
+                  {olderRuns.map((run) => (
+                    <article class="run">
+                      <p class="run-meta">
+                        <strong>{formatDate(run.date)}</strong>
+                        {describeRunChanges(run) && (
+                          <> · {describeRunChanges(run)}</>
+                        )}
+                      </p>
+                      <p class="run-summary">{run.summary}</p>
+                      {run.commentary && (
+                        <p class="run-commentary">{run.commentary}</p>
+                      )}
+                    </article>
+                  ))}
+                </details>
+              )}
+            </section>
+          )
+        }
 
         <div class="details-sections">
-
           <CollapsibleSection title="Block-Anteil nach Kategorie">
-            <p class="section-lead">Anteil der Crawler-Site-Paare, die per robots.txt blockiert sind – je Site-Kategorie.</p>
-            <BlockShareBars items={categoryItems} caption="Block-Anteil nach Site-Kategorie" />
+            <p class="section-lead">
+              Anteil der Crawler-Site-Paare, die per robots.txt blockiert sind –
+              je Site-Kategorie.
+            </p>
+            <BlockShareBars
+              items={categoryItems}
+              caption="Block-Anteil nach Site-Kategorie"
+            />
           </CollapsibleSection>
 
           <CollapsibleSection title="Block-Anteil nach Crawler">
-            <p class="section-lead">Anteil der {tracker.meta.site_count} Sites, die den jeweiligen Crawler blockieren.</p>
-            <BlockShareBars items={crawlerItems} caption="Block-Anteil nach Crawler" monoLabels />
+            <p class="section-lead">
+              Anteil der {tracker.meta.site_count} Sites, die den jeweiligen Crawler
+              blockieren.
+            </p>
+            <BlockShareBars
+              items={crawlerItems}
+              caption="Block-Anteil nach Crawler"
+              monoLabels
+            />
           </CollapsibleSection>
 
           <CollapsibleSection title="Methodik">
             <ul class="methodology-notes">
-              {tracker.methodology.map((note) => (
-                <li>{note}</li>
-              ))}
+              {tracker.methodology.map((note) => <li>{note}</li>)}
             </ul>
-            {methodologyDetails.map((section) => (
-              <section>
-                <h3>{section.title}</h3>
-                <p class="methodology-body">{section.body}</p>
-              </section>
-            ))}
+            {
+              methodologyDetails.map((section) => (
+                <section>
+                  <h3>{section.title}</h3>
+                  <p class="methodology-body">{section.body}</p>
+                </section>
+              ))
+            }
           </CollapsibleSection>
 
-          {siteGroups.length > 0 && (
-            <CollapsibleSection title="Gemonitorte Sites">
-              <p class="section-lead">Das volle Sample der Erhebung, gruppiert nach Kategorie.</p>
-              {siteGroups.map((group) => (
-                <section class="site-group">
-                  <h3>{group.label} <span class="site-count">({group.sites.length})</span></h3>
-                  <ul class="site-list">
-                    {group.sites.map((site) => (
-                      <li>{site.name} <span class="site-domain">{site.domain}</span></li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </CollapsibleSection>
-          )}
-
+          {
+            siteGroups.length > 0 && (
+              <CollapsibleSection title="Gemonitorte Sites">
+                <p class="section-lead">
+                  Das volle Sample der Erhebung, gruppiert nach Kategorie.
+                </p>
+                {siteGroups.map((group) => (
+                  <section class="site-group">
+                    <h3>
+                      {group.label}{" "}
+                      <span class="site-count">({group.sites.length})</span>
+                    </h3>
+                    <ul class="site-list">
+                      {group.sites.map((site) => (
+                        <li>
+                          {site.name}{" "}
+                          <span class="site-domain">{site.domain}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                ))}
+              </CollapsibleSection>
+            )
+          }
         </div>
-
       </div>
     </div>
   </section>
-
 </BaseLayout>
 
 <style>
@@ -194,19 +242,25 @@ const datasetLd = {
     margin-bottom: var(--space-md);
   }
 
-  .radar-headline {
-    font-family: var(--font-serif);
-    font-size: 20px;
+  .intro {
+    font-size: 16px;
     line-height: 1.6;
     color: var(--color-text);
     margin-bottom: var(--space-md);
   }
 
-  .intro {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin-bottom: var(--space-lg);
+  /* Inline-Links aus set:html (renderInlineLinks) – Konvention wie .post-body */
+  .intro :global(a),
+  .run-summary :global(a),
+  .run-commentary :global(a) {
+    color: var(--color-coral);
+    text-decoration: none;
+  }
+
+  .intro :global(a:hover),
+  .run-summary :global(a:hover),
+  .run-commentary :global(a:hover) {
+    text-decoration: underline;
   }
 
   .section-divider {

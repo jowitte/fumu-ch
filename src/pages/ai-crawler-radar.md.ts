@@ -4,7 +4,7 @@
 // bei jedem Snapshot nicht auseinanderdriften. [slug].md.ts nimmt diese
 // Seite deshalb aus. Abschnittsreihenfolge wie auf der HTML-Seite.
 import type { APIRoute } from 'astro';
-import { tracker, intro, formatDate, formatShare } from '../data/crawler-tracker';
+import { tracker, intro, formatDate, formatShare, describeRunChanges } from '../data/crawler-tracker';
 
 export const GET: APIRoute = async () => {
   const categories = [...tracker.by_category].sort((a, b) => b.block_share - a.block_share);
@@ -25,19 +25,20 @@ export const GET: APIRoute = async () => {
   const runs = [...(tracker.runs ?? [])].sort((a, b) => b.date.localeCompare(a.date));
   const runLog =
     runs.length > 0
-      ? `## Lauf-Log
+      ? `## Aktualisierungen
 
 ${runs
-  .map((run) => {
-    const lines = [
-      `### ${formatDate(run.date)} – ${run.changes} ${run.changes === 1 ? 'Veränderung' : 'Veränderungen'} auf ${run.sites_changed} ${run.sites_changed === 1 ? 'Site' : 'Sites'}`,
-      '',
-      run.summary,
-    ];
-    if (run.commentary) lines.push('', `Einordnung: ${run.commentary}`);
-    return lines.join('\n');
-  })
-  .join('\n\n')}
+        .map((run) => {
+          const changes = describeRunChanges(run);
+          const lines = [
+            `### ${formatDate(run.date)}${changes ? ` – ${changes}` : ''}`,
+            '',
+            run.summary,
+          ];
+          if (run.commentary) lines.push('', `Einordnung: ${run.commentary}`);
+          return lines.join('\n');
+        })
+        .join('\n\n')}
 
 `
       : '';
@@ -71,9 +72,7 @@ ${sites.map((s) => `| ${s.name} | ${s.domain} | ${s.label} |`).join('\n')}
 
 Snapshot vom ${formatDate(tracker.meta.snapshot_date)} · ${tracker.meta.site_count} Sites × ${tracker.meta.crawler_count} Crawler · Erhebung alle ${tracker.meta.cadence_days} Tage
 
-${tracker.headline}
-
-${intro}
+${intro.join('\n\n')}
 
 ## Verlauf (Block-Anteil je Kategorie)
 
