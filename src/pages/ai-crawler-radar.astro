@@ -158,9 +158,15 @@ const datasetLd = {
                           <> · {describeRunChanges(run)}</>
                         )}
                       </p>
-                      <p class="run-summary">{run.summary}</p>
+                      <p
+                        class="run-summary"
+                        set:html={renderInlineLinks(run.summary)}
+                      />
                       {run.commentary && (
-                        <p class="run-commentary">{run.commentary}</p>
+                        <p
+                          class="run-commentary"
+                          set:html={renderInlineLinks(run.commentary)}
+                        />
                       )}
                     </article>
                   ))}
