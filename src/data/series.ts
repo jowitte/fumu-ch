@@ -5,6 +5,9 @@
 export interface Series {
   name: string;
   teaser: string;
+  // Optionale Hinweis-Box unter dem Teaser der Serienseite.
+  // text trägt Markdown-Inline-Links, gerendert via renderInlineLinks.
+  callout?: { label: string; text: string };
 }
 
 export const series: Record<string, Series> = {
@@ -12,6 +15,10 @@ export const series: Record<string, Series> = {
     name: 'AI in der digitalen Werbung',
     teaser:
       'Was passiert mit der digitalen Werbung, wenn die Antwort direkt im Chat erscheint? Sechs Perspektiven zu den Verschiebungen des Jahres 2026 – vom zweiten Unbundling über Agentic Advertising bis zum Reset der Messung.',
+    callout: {
+      label: 'Live-Daten',
+      text: 'Der [AI-Crawler-Radar](/ai-crawler-radar/) misst alle 14 Tage, welche AI-Crawler gut 100 Sites in der robots.txt zulassen. Mit Schwerpunkt Schweiz.',
+    },
   },
   'ki-und-arbeit': {
     name: 'KI und Arbeit',

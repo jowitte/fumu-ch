@@ -1,17 +1,28 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { series as seriesRegistry } from '../../data/series';
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { series as seriesRegistry } from "../../data/series";
+import { renderInlineLinks } from "../../data/crawler-tracker";
 
-const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const posts = (
+  await getCollection("perspektiven", ({ data }) => !data.draft)
+).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const formatDate = (date: Date) => {
-  return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
+  return date
+    .toLocaleDateString("de-CH", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
+    .toUpperCase();
 };
 
 const formatMonth = (date: Date) => {
-  const s = date.toLocaleDateString('de-CH', { year: 'numeric', month: 'long' });
+  const s = date.toLocaleDateString("de-CH", {
+    year: "numeric",
+    month: "long",
+  });
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
@@ -25,56 +36,93 @@ for (const post of posts) {
     groupedByMonth.push({ label, posts: [post] });
   }
 }
+
+// Serien-Block: Anzahl publizierter Teile pro Serie aus den geladenen Posts.
+const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
+  slug,
+  ...data,
+  partCount: posts.filter((p) => p.data.series === slug).length,
+}));
 ---
 
-<BaseLayout title="Perspektiven" description="Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung.">
-
+<BaseLayout
+  title="Perspektiven"
+  description="Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung."
+>
   <section class="evans-page">
     <div class="container">
-
       <h1>Perspektiven</h1>
 
-      <p class="intro">Was sich verändert, warum es wichtig ist und was daraus folgt – Einordnungen aus der Praxis, wenn Strategie, Technologie und Organisation aufeinandertreffen.</p>
+      <p class="intro">
+        Was sich verändert, warum es wichtig ist und was daraus folgt.
+        Einordnungen aus der Praxis, wenn Strategie, Technologie und
+        Organisation aufeinandertreffen.
+      </p>
+
+      {
+        seriesList.map((s) => (
+          <aside class="series-callout">
+            <span class="callout-label">Serie · {s.partCount} Teile</span>
+            <h2 class="callout-title">
+              <a href={`/perspektiven/serien/${s.slug}/`}>{s.name}</a>
+            </h2>
+            <p class="callout-text">{s.teaser}</p>
+            {s.callout && (
+              <p
+                class="callout-text"
+                set:html={renderInlineLinks(s.callout.text)}
+              />
+            )}
+          </aside>
+        ))
+      }
 
       <hr class="section-divider" />
-      {posts.length > 0 ? groupedByMonth.map(group => (
-        <div class="evans-section">
-          <div class="evans-label">
-            <h2>{group.label}</h2>
-          </div>
-          <div class="evans-content">
-            {group.posts.map(post => (
-              <div class="post-entry">
-                <a href={`/perspektiven/${post.id}/`} class="post-item">
-                  <span class="post-date">{formatDate(post.data.date)}</span>
-                  <div class="post-body">
-                    <h3 class="post-title">{post.data.title}</h3>
-                    <p class="post-excerpt">{post.data.description}</p>
-                  </div>
-                </a>
-                {post.data.series && seriesRegistry[post.data.series] && (
-                  <a href={`/perspektiven/serien/${post.data.series}/`} class="series-tag">
-                    Serie: {seriesRegistry[post.data.series].name}
-                  </a>
-                )}
+      {
+        posts.length > 0 ? (
+          groupedByMonth.map((group) => (
+            <div class="evans-section">
+              <div class="evans-label">
+                <h2>{group.label}</h2>
               </div>
-            ))}
+              <div class="evans-content">
+                {group.posts.map((post) => (
+                  <div class="post-entry">
+                    <a href={`/perspektiven/${post.id}/`} class="post-item">
+                      <span class="post-date">
+                        {formatDate(post.data.date)}
+                      </span>
+                      <div class="post-body">
+                        <h3 class="post-title">{post.data.title}</h3>
+                        <p class="post-excerpt">{post.data.description}</p>
+                      </div>
+                    </a>
+                    {post.data.series && seriesRegistry[post.data.series] && (
+                      <a
+                        href={`/perspektiven/serien/${post.data.series}/`}
+                        class="series-tag"
+                      >
+                        Serie: {seriesRegistry[post.data.series].name}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        ) : (
+          <div class="evans-section">
+            <div class="evans-label">
+              <h2>In Kürze</h2>
+            </div>
+            <div class="evans-content">
+              <p>Neue Perspektiven erscheinen in Kürze.</p>
+            </div>
           </div>
-        </div>
-      )) : (
-        <div class="evans-section">
-          <div class="evans-label">
-            <h2>In Kürze</h2>
-          </div>
-          <div class="evans-content">
-            <p>Neue Perspektiven erscheinen in Kürze.</p>
-          </div>
-        </div>
-      )}
-
+        )
+      }
     </div>
   </section>
-
 </BaseLayout>
 
 <style>
@@ -85,6 +133,62 @@ for (const post of posts) {
     color: var(--color-text);
     max-width: 720px;
     margin: 0 0 var(--space-xl) 0;
+  }
+
+  .series-callout {
+    max-width: 720px;
+    background: var(--color-neutral);
+    border-left: 3px solid var(--color-coral);
+    padding: var(--space-md) var(--space-lg);
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .callout-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+  }
+
+  .callout-title {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .callout-title a {
+    color: var(--color-coral);
+    text-decoration: none;
+  }
+
+  .callout-title a:hover {
+    text-decoration: underline;
+  }
+
+  .callout-text {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .callout-text + .callout-text {
+    margin-top: var(--space-sm);
+  }
+
+  .callout-text :global(a) {
+    color: var(--color-coral);
+    text-decoration: none;
+  }
+
+  .callout-text :global(a:hover) {
+    text-decoration: underline;
   }
 
   .section-divider {

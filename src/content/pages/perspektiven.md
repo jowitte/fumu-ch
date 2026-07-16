@@ -6,6 +6,9 @@ order: 5
 
 ## Perspektiven
 
-Gedanken zu Technologie, Transformation und Organisationen.
+Was sich verändert, warum es wichtig ist und was daraus folgt – Einordnungen aus der Praxis, wenn Strategie, Technologie und Organisation aufeinandertreffen.
 
-Wir schreiben über Themen, die uns in unserer täglichen Arbeit beschäftigen: Wie Organisationen mit Technologie-Wandel umgehen. Wo KI echten Mehrwert schafft. Was bei Transformationsprojekten wirklich funktioniert.
+## Serien
+
+- [AI in der digitalen Werbung](https://fumu.ch/perspektiven/serien/ai-digitale-werbung/): Was passiert mit der digitalen Werbung, wenn die Antwort direkt im Chat erscheint? Sechs Perspektiven zu den Verschiebungen des Jahres 2026 – vom zweiten Unbundling über Agentic Advertising bis zum Reset der Messung. Der [AI-Crawler-Radar](https://fumu.ch/ai-crawler-radar/) misst dazu alle 14 Tage, welche AI-Crawler gut 100 Sites in der robots.txt zulassen.
+- [KI und Arbeit](https://fumu.ch/perspektiven/serien/ki-und-arbeit/): KI verändert Arbeit – aber kaum jemand gestaltet diese Veränderung aktiv. Sechs Perspektiven über eine Reorganisation, die ohne Architekt läuft: vom einzelnen Arbeitstag über Team und Organisation bis zum Unternehmen, das aus der Trennung von Voraussage und Entscheidung entsteht.

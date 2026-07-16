@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { series as seriesRegistry } from '../../../data/series';
+import { renderInlineLinks } from '../../../data/crawler-tracker';
 
 export async function getStaticPaths() {
   return Object.entries(seriesRegistry).map(([slug, data]) => ({
@@ -28,6 +29,13 @@ const formatDate = (date: Date) => {
       <h1>{seriesData.name}</h1>
 
       <p class="intro">{seriesData.teaser}</p>
+
+      {seriesData.callout && (
+        <aside class="series-callout">
+          <span class="callout-label">{seriesData.callout.label}</span>
+          <p class="callout-text" set:html={renderInlineLinks(seriesData.callout.text)} />
+        </aside>
+      )}
 
       <hr class="section-divider" />
       <div class="evans-section">
@@ -65,6 +73,42 @@ const formatDate = (date: Date) => {
     color: var(--color-text);
     max-width: 720px;
     margin: 0 0 var(--space-xl) 0;
+  }
+
+  .series-callout {
+    max-width: 720px;
+    background: var(--color-neutral);
+    border-left: 3px solid var(--color-coral);
+    padding: var(--space-md) var(--space-lg);
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  .callout-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+  }
+
+  .callout-text {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .callout-text :global(a) {
+    color: var(--color-coral);
+    text-decoration: none;
+  }
+
+  .callout-text :global(a:hover) {
+    text-decoration: underline;
   }
 
   .section-divider {

@@ -1,44 +1,53 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { series as seriesRegistry } from '../../../data/series';
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { series as seriesRegistry } from "../../../data/series";
 
-const published = await getCollection('perspektiven', ({ data }) => !data.draft);
+const published = await getCollection(
+  "perspektiven",
+  ({ data }) => !data.draft,
+);
 
 const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
   slug,
   ...data,
-  count: published.filter(p => p.data.series === slug).length,
+  count: published.filter((p) => p.data.series === slug).length,
 }));
 ---
 
-<BaseLayout title="Serien" description="Perspektiven-Serien von fumu – mehrteilige Analysen zu KI und Arbeit und zu den Verschiebungen der digitalen Werbung.">
-
+<BaseLayout
+  title="Serien"
+  description="Perspektiven-Serien von fumu. Mehrteilige Analysen zu KI und Arbeit und zu den Verschiebungen der digitalen Werbung."
+>
   <section class="evans-page">
     <div class="container">
-
       <h1>Serien</h1>
 
-      <p class="intro">Manche Themen tragen weiter als ein einzelner Post. Hier stehen die Serien – jede Folge lesbar für sich, zusammen ergeben sie das Argument.</p>
+      <p class="intro">
+        Manche Themen tragen weiter als ein einzelner Post. Hier stehen die
+        Serien – jede Folge lesbar für sich, zusammen ergeben sie das Argument.
+      </p>
 
       <hr class="section-divider" />
       <div class="series-grid">
-        {seriesList.map(s => (
-          <a href={`/perspektiven/serien/${s.slug}/`} class="series-item">
-            <h2 class="series-name">{s.name}</h2>
-            <span class="series-count">{s.count} {s.count === 1 ? 'Teil' : 'Teile'}</span>
-            <p class="series-teaser">{s.teaser}</p>
-          </a>
-        ))}
+        {
+          seriesList.map((s) => (
+            <a href={`/perspektiven/serien/${s.slug}/`} class="series-item">
+              <h2 class="series-name">{s.name}</h2>
+              <span class="series-count">
+                {s.count} {s.count === 1 ? "Teil" : "Teile"}
+              </span>
+              <p class="series-teaser">{s.teaser}</p>
+            </a>
+          ))
+        }
       </div>
 
       <footer>
         <a href="/perspektiven/" class="back-link">&larr; Alle Perspektiven</a>
       </footer>
-
     </div>
   </section>
-
 </BaseLayout>
 
 <style>

@@ -1,10 +1,29 @@
 ---
 import { getEntry, getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { releases } from '../data/updates';
 
 const page = await getEntry('pages', 'home');
 const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Update-Stream: Perspektiven und Releases gemischt, absteigend nach Datum.
+const updates = [
+  ...posts.map((post) => ({
+    date: post.data.date,
+    href: `/perspektiven/${post.id}/`,
+    title: post.data.title,
+    description: post.data.description,
+    tag: null as string | null,
+  })),
+  ...releases.map((r) => ({
+    date: new Date(r.date),
+    href: r.href,
+    title: r.title,
+    description: r.description,
+    tag: 'Release' as string | null,
+  })),
+].sort((a, b) => b.date.getTime() - a.date.getTime());
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
@@ -19,21 +38,24 @@ const formatDate = (date: Date) => {
     </div>
   </section>
 
-  {posts.length > 0 && (
+  {updates.length > 0 && (
     <section class="recent-posts">
       <div class="container">
         <hr class="section-divider" />
         <div class="posts-grid">
           <div class="posts-label">
-            <h2>Perspektiven</h2>
+            <h2>Updates</h2>
           </div>
           <div class="posts-list">
-            {posts.map(post => (
-              <a href={`/perspektiven/${post.id}/`} class="post-row">
-                <span class="post-date">{formatDate(post.data.date)}</span>
+            {updates.map(update => (
+              <a href={update.href} class="post-row">
+                <span class="post-date">{formatDate(update.date)}</span>
                 <div class="post-text">
-                  <span class="post-title">{post.data.title}</span>
-                  <span class="post-description">{post.data.description}</span>
+                  <span class="post-title">
+                    {update.tag && <span class="update-tag">{update.tag}</span>}
+                    {update.title}
+                  </span>
+                  <span class="post-description">{update.description}</span>
                 </div>
               </a>
             ))}
@@ -141,6 +163,20 @@ const formatDate = (date: Date) => {
     font-weight: 500;
     color: var(--color-coral);
     line-height: 1;
+  }
+
+  .update-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: var(--color-coral);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-right: var(--space-sm);
+    vertical-align: 2px;
   }
 
   .post-description {

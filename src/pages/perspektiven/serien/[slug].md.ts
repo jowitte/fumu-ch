@@ -20,10 +20,14 @@ export const GET: APIRoute = async ({ props }) => {
     .map(p => `- Teil ${p.data.seriesPart}: [${p.data.title}](https://fumu.ch/perspektiven/${p.id}/): ${p.data.description}`)
     .join('\n');
 
+  const callout = data.callout
+    ? `\n${data.callout.text.replace(/\]\(\//g, '](https://fumu.ch/')}\n`
+    : '';
+
   const body = `# ${data.name}
 
 _${data.teaser}_
-
+${callout}
 ## Teile
 
 ${partsList}
