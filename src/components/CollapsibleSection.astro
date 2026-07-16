@@ -1,0 +1,77 @@
+---
+// Klappbare Section auf Basis von nativem <details>/<summary> – hält die
+// No-Client-JS-Linie des AI-Crawler-Radars, ist crawlbar und nativ
+// fokussier-/bedienbar. Titel in Fraunces gemäss Iteration-2-Plan
+// (bewusste Abweichung von der H2-Sans-Regel, siehe Rückkanal im Plan).
+interface Props {
+  title: string;
+  open?: boolean;
+}
+
+const { title, open = false } = Astro.props;
+---
+
+<details class="collapsible" open={open}>
+  <summary>
+    <span class="chevron" aria-hidden="true"></span>
+    <span class="title">{title}</span>
+  </summary>
+  <div class="body">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .collapsible {
+    border-top: 1px solid var(--color-coral);
+    padding: var(--space-md) 0;
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 4px;
+  }
+
+  .title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-coral);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .chevron {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--color-coral);
+    border-bottom: 2px solid var(--color-coral);
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+
+  .collapsible[open] > summary .chevron {
+    transform: rotate(45deg);
+  }
+
+  summary:hover .title {
+    opacity: 0.85;
+  }
+
+  .body {
+    padding-top: var(--space-md);
+  }
+</style>

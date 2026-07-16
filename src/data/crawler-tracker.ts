@@ -50,11 +50,45 @@ const trackerSchema = z.object({
     )
     .min(1),
   methodology: z.array(z.string().min(1)).min(1),
+  // Iteration 2 (Plan 2026-07-16): additive, optionale Felder. Fehlen sie,
+  // rendert die Seite die betroffenen Sections nicht – der Kern-Vertrag
+  // oben bleibt hart, diese hier brechen den Build nicht.
+  runs: z
+    .array(
+      z.object({
+        date: isoDate,
+        changes: z.number().int().nonnegative(),
+        sites_changed: z.number().int().nonnegative(),
+        summary: z.string().min(1),
+        commentary: z.string().min(1).nullable(),
+      }),
+    )
+    .optional(),
+  sites: z
+    .array(
+      z.object({
+        name: z.string().min(1),
+        domain: z.string().min(1),
+        category: z.string().min(1),
+        label: z.string().min(1),
+      }),
+    )
+    .optional(),
+  methodology_details: z
+    .array(
+      z.object({
+        title: z.string().min(1),
+        body: z.string().min(1),
+      }),
+    )
+    .optional(),
 });
 
 export type CrawlerTracker = z.infer<typeof trackerSchema>;
 export type CategoryShare = CrawlerTracker['by_category'][number];
 export type CrawlerShare = CrawlerTracker['by_crawler'][number];
+export type Run = NonNullable<CrawlerTracker['runs']>[number];
+export type MonitoredSite = NonNullable<CrawlerTracker['sites']>[number];
 
 export const tracker: CrawlerTracker = trackerSchema.parse(raw);
 
