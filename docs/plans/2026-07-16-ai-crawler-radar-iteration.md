@@ -54,7 +54,7 @@ Additiv zum bestehenden Vertrag, alte Felder unverändert. Neue Felder (Beispiel
 
 ## Schritte
 
-- [x] `CollapsibleSection.astro` bauen (natives `<details>`, fumu-CSS, `open`-Prop). *(Erledigt 2026-07-16: Fraunces-Titel in Coral, CSS-Chevron, Fokus-Ring, `open`-Prop.)*
+- [x] `CollapsibleSection.astro` bauen (natives `<details>`, fumu-CSS, `open`-Prop). *(Erledigt 2026-07-16: Titel im H2-Stil (Sans, medium, Coral – CI-Regel «Serifen nur in H1», siehe Rückkanal), CSS-Chevron, Fokus-Ring, `open`-Prop.)*
 - [x] Seiten-Aufbau umstellen: Vorspann → Snapshot-Datum → Trend-Chart → Lauf-Log → klappbare Sections (Kategorie, Crawler, Methodik, Sites). *(Erledigt 2026-07-16.)*
 - [x] Loader/Guard um die optionalen Felder `runs`, `sites`, `methodology_details` erweitern (fehlend = Section weglassen, kein Build-Bruch). *(Erledigt 2026-07-16: additiv als `.optional()`; Kern-Vertrag unverändert hart.)*
 - [x] Lauf-Log-Rendering (jüngste 5–6 offen, Rest hinter «ältere Läufe»). *(Erledigt 2026-07-16: jüngste 6 offen, Rest in «Ältere Läufe (n)»-Details; `commentary` als abgesetzte Einordnung mit Coral-Linie, nur wenn nicht null.)*
@@ -71,7 +71,7 @@ Additiv zum bestehenden Vertrag, alte Felder unverändert. Neue Felder (Beispiel
 
 ## Rückkanal (zurück in die Vault-Story «Bot Analyzer»)
 
-- **Fraunces-Summary-Titel (zur Bestätigung):** Der Plan verlangt Fraunces für die Summary-Zeilen der klappbaren Sections; die kuratierte CI-Runde vom 2026-07-15 hatte Serifen aber auf H1 beschränkt (H2+ sans). Umgesetzt wie im Plan spezifiziert (Fraunces, Coral, 20px) – falls die H1-only-Regel gelten soll, ist es ein Einzeiler in `CollapsibleSection.astro`.
+- **Fraunces-Summary-Titel (entschieden 2026-07-16):** Der Plan verlangte Fraunces für die Summary-Zeilen der klappbaren Sections; die kuratierte CI-Runde vom 2026-07-15 hatte Serifen aber auf H1 beschränkt (H2+ sans). Entscheid: die neuere CI-Konvention gilt – Summary-Titel wie H2 (Sans, medium, Coral) in `CollapsibleSection.astro` umgesetzt.
 
 - **Methodik-Wortlaut:** ausführlicher Text (Abschnitte für `methodology_details`) wird im Vault geschrieben und per JSON geliefert – bis dahin Fallback auf die drei Kurzsätze.
 - **Lauf-Log-Backfill:** Sollen die bisherigen ~14 Snapshots rückwirkend `summary`-Texte bekommen (mechanisch aus den Diffs) oder startet das Log mit dem nächsten Lauf? Empfehlung Vault-Seite: mechanischer Backfill, kuratierte `commentary` nur nach vorne.

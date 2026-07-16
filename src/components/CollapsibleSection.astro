@@ -1,8 +1,8 @@
 ---
 // Klappbare Section auf Basis von nativem <details>/<summary> – hält die
 // No-Client-JS-Linie des AI-Crawler-Radars, ist crawlbar und nativ
-// fokussier-/bedienbar. Titel in Fraunces gemäss Iteration-2-Plan
-// (bewusste Abweichung von der H2-Sans-Regel, siehe Rückkanal im Plan).
+// fokussier-/bedienbar. Titel folgt der CI-Regel «Serifen nur in H1»
+// (Entscheid 2026-07-16): gestylt wie ein H2 – Sans, medium, Coral.
 interface Props {
   title: string;
   open?: boolean;
@@ -45,9 +45,9 @@ const { title, open = false } = Astro.props;
   }
 
   .title {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--color-coral);
     letter-spacing: 0.5px;
     line-height: 1.2;
