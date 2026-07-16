@@ -1,0 +1,310 @@
+{
+  "meta": {
+    "snapshot_date": "2026-07-13",
+    "site_count": 108,
+    "crawler_count": 20,
+    "cadence_days": 14,
+    "generated_at": "2026-07-16T13:44:11.843624+02:00"
+  },
+  "headline": "Snapshot 2026-07-13: 10 Veränderungen auf 2 Sites.",
+  "by_category": [
+    {
+      "category": "brand",
+      "label": "Brands",
+      "block_share": 0.0118,
+      "site_count": 34
+    },
+    {
+      "category": "ecommerce",
+      "label": "E-Commerce",
+      "block_share": 0.0125,
+      "site_count": 12
+    },
+    {
+      "category": "platform",
+      "label": "Plattformen",
+      "block_share": 0.58,
+      "site_count": 15
+    },
+    {
+      "category": "publisher_open",
+      "label": "Publisher (frei)",
+      "block_share": 0.2604,
+      "site_count": 24
+    },
+    {
+      "category": "publisher_paywall",
+      "label": "Paywall-Publisher",
+      "block_share": 0.5326,
+      "site_count": 23
+    }
+  ],
+  "by_crawler": [
+    {
+      "crawler_id": "ccbot",
+      "label": "ccbot",
+      "block_share": 0.3981,
+      "blocked_sites": 43
+    },
+    {
+      "crawler_id": "applebot_extended",
+      "label": "applebot_extended",
+      "block_share": 0.3889,
+      "blocked_sites": 42
+    },
+    {
+      "crawler_id": "bytespider",
+      "label": "bytespider",
+      "block_share": 0.3889,
+      "blocked_sites": 42
+    },
+    {
+      "crawler_id": "claudebot",
+      "label": "claudebot",
+      "block_share": 0.3704,
+      "blocked_sites": 40
+    },
+    {
+      "crawler_id": "gptbot",
+      "label": "gptbot",
+      "block_share": 0.3426,
+      "blocked_sites": 37
+    },
+    {
+      "crawler_id": "meta_external",
+      "label": "meta_external",
+      "block_share": 0.3426,
+      "blocked_sites": 37
+    },
+    {
+      "crawler_id": "perplexitybot",
+      "label": "perplexitybot",
+      "block_share": 0.3426,
+      "blocked_sites": 37
+    },
+    {
+      "crawler_id": "google_extended",
+      "label": "google_extended",
+      "block_share": 0.3056,
+      "blocked_sites": 33
+    },
+    {
+      "crawler_id": "amazonbot",
+      "label": "amazonbot",
+      "block_share": 0.25,
+      "blocked_sites": 27
+    },
+    {
+      "crawler_id": "chatgpt_user",
+      "label": "chatgpt_user",
+      "block_share": 0.2407,
+      "blocked_sites": 26
+    },
+    {
+      "crawler_id": "perplexity_user",
+      "label": "perplexity_user",
+      "block_share": 0.2315,
+      "blocked_sites": 25
+    },
+    {
+      "crawler_id": "mistralai_user",
+      "label": "mistralai_user",
+      "block_share": 0.2037,
+      "blocked_sites": 22
+    },
+    {
+      "crawler_id": "claude_searchbot",
+      "label": "claude_searchbot",
+      "block_share": 0.1944,
+      "blocked_sites": 21
+    },
+    {
+      "crawler_id": "claude_user",
+      "label": "claude_user",
+      "block_share": 0.1944,
+      "blocked_sites": 21
+    },
+    {
+      "crawler_id": "duckassistbot",
+      "label": "duckassistbot",
+      "block_share": 0.1944,
+      "blocked_sites": 21
+    },
+    {
+      "crawler_id": "meta_externalfetcher",
+      "label": "meta_externalfetcher",
+      "block_share": 0.1944,
+      "blocked_sites": 21
+    },
+    {
+      "crawler_id": "google_cloudvertexbot",
+      "label": "google_cloudvertexbot",
+      "block_share": 0.1852,
+      "blocked_sites": 20
+    },
+    {
+      "crawler_id": "oai_searchbot",
+      "label": "oai_searchbot",
+      "block_share": 0.1852,
+      "blocked_sites": 20
+    },
+    {
+      "crawler_id": "google_agent",
+      "label": "google_agent",
+      "block_share": 0.0926,
+      "blocked_sites": 10
+    },
+    {
+      "crawler_id": "mistralai_index",
+      "label": "mistralai_index",
+      "block_share": 0.0926,
+      "blocked_sites": 10
+    }
+  ],
+  "trend": [
+    {
+      "date": "2026-04-27",
+      "by_category": {
+        "brand": 0.0082,
+        "ecommerce": 0.1633,
+        "publisher_open": 0.1964,
+        "publisher_paywall": 0.5714
+      }
+    },
+    {
+      "date": "2026-04-29",
+      "by_category": {
+        "brand": 0.0082,
+        "ecommerce": 0.0065,
+        "platform": 0.7273,
+        "publisher_open": 0.3065,
+        "publisher_paywall": 0.5932
+      }
+    },
+    {
+      "date": "2026-05-04",
+      "by_category": {
+        "brand": 0.0082,
+        "ecommerce": 0.0065,
+        "platform": 0.7273,
+        "publisher_open": 0.3065,
+        "publisher_paywall": 0.5932
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "by_category": {
+        "brand": 0.0082,
+        "ecommerce": 0.0065,
+        "platform": 0.7273,
+        "publisher_open": 0.3065,
+        "publisher_paywall": 0.5932
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "by_category": {
+        "brand": 0.0082,
+        "ecommerce": 0.0065,
+        "platform": 0.7273,
+        "publisher_open": 0.3065,
+        "publisher_paywall": 0.6056
+      }
+    },
+    {
+      "date": "2026-05-16",
+      "by_category": {
+        "brand": 0.0082,
+        "ecommerce": 0.0065,
+        "platform": 0.7273,
+        "publisher_open": 0.3155,
+        "publisher_paywall": 0.6056
+      }
+    },
+    {
+      "date": "2026-05-25",
+      "by_category": {
+        "brand": 0.0082,
+        "ecommerce": 0.0065,
+        "platform": 0.7273,
+        "publisher_open": 0.3185,
+        "publisher_paywall": 0.6211
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "by_category": {
+        "brand": 0.0114,
+        "ecommerce": 0.0136,
+        "platform": 0.5833,
+        "publisher_open": 0.2812,
+        "publisher_paywall": 0.5304
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "by_category": {
+        "brand": 0.0114,
+        "ecommerce": 0.0136,
+        "platform": 0.5833,
+        "publisher_open": 0.2604,
+        "publisher_paywall": 0.5304
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "by_category": {
+        "brand": 0.0114,
+        "ecommerce": 0.0136,
+        "platform": 0.5833,
+        "publisher_open": 0.2604,
+        "publisher_paywall": 0.5326
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "by_category": {
+        "brand": 0.0114,
+        "ecommerce": 0.0136,
+        "platform": 0.5833,
+        "publisher_open": 0.2604,
+        "publisher_paywall": 0.5326
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "by_category": {
+        "brand": 0.0114,
+        "ecommerce": 0.0136,
+        "platform": 0.5833,
+        "publisher_open": 0.2604,
+        "publisher_paywall": 0.5239
+      }
+    },
+    {
+      "date": "2026-07-06",
+      "by_category": {
+        "brand": 0.0114,
+        "ecommerce": 0.0136,
+        "platform": 0.58,
+        "publisher_open": 0.2604,
+        "publisher_paywall": 0.5239
+      }
+    },
+    {
+      "date": "2026-07-13",
+      "by_category": {
+        "brand": 0.0118,
+        "ecommerce": 0.0125,
+        "platform": 0.58,
+        "publisher_open": 0.2604,
+        "publisher_paywall": 0.5326
+      }
+    }
+  ],
+  "methodology": [
+    "ERROR-Zellen (Bot-Schutz-403/Timeout) sind nicht als Blockade gewertet – eigener Datenpunkt.",
+    "Google-Agent ignoriert robots.txt laut Anbieter – DEFAULT heisst hier nicht 'wird durchgelassen'.",
+    "robots.txt ist Deklaration, nicht Crawl-Realität (ChatGPT-User und Perplexity binden sich nicht)."
+  ]
+}

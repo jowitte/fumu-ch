@@ -63,7 +63,7 @@ Vom Vault erzeugt, hier read-only konsumiert. Struktur (Beispielwerte illustrati
 
 ## Schritte
 
-- [ ] Voraussetzung prüfen: `src/data/ai-crawler-tracker.json` existiert im Repo (vom Vault-Pipeline-Lauf). Wenn nicht: im Vault einen `publish.py --output src/data/ai-crawler-tracker.json`-Lauf anstossen lassen (Rückkanal), nicht selbst Daten erfinden.
+- [x] Voraussetzung prüfen: `src/data/ai-crawler-tracker.json` existiert im Repo (vom Vault-Pipeline-Lauf). Wenn nicht: im Vault einen `publish.py --output src/data/ai-crawler-tracker.json`-Lauf anstossen lassen (Rückkanal), nicht selbst Daten erfinden. *(Erledigt 2026-07-16: Snapshot 2026-07-13, 108 Sites × 20 Crawler.)*
 - [ ] `src/data/crawler-tracker.ts` – Loader mit TS-Interface (`meta/headline/by_category/by_crawler/trend/methodology`) und Runtime-Guard, der bei Strukturbruch `throw`t.
 - [ ] Chart-Komponenten (Build-Zeit-SVG/CSS): Kategorie-Balken, Crawler-Balken (Top-N), Trend-Linie. Barrierefrei, im fumu-CSS.
 - [ ] Seite/Route anlegen, Loader konsumieren, Headline + Snapshot-Datum + Methodik-Fussnote, erklärender Vorspann (Platzhalter bis Vault-Wortlaut da ist).
@@ -79,6 +79,14 @@ Vom Vault erzeugt, hier read-only konsumiert. Struktur (Beispielwerte illustrati
 
 ## Rückkanal (zurück in die Vault-Story «Bot Analyzer»)
 
-- Finaler öffentlicher **Name und Slug** der Seite + Navigationsplatz (Arbeitstitel `AI-Crawler-Radar` / `/ai-crawler-radar`).
-- **Wortlaut** des erklärenden Vorspanns (ein, zwei Sätze) und ggf. der Methodik-Fussnote – Jochen-Stimme, kommt aus dem Vault.
-- Ob die kuratierte `block_share`-Definition (ERROR im Nenner, identisch zur internen Sicht) für die öffentliche Darstellung so bleibt oder eine besucherfreundlichere Variante (ERROR separat ausgewiesen) gewünscht ist.
+Beantwortet 2026-07-16 aus dem Vault:
+
+- **Name und Slug:** `AI-Crawler-Radar` / `/ai-crawler-radar` ist final. Navigationsplatz: als `pages`-Collection-Seite mit `order` ans Ende der bestehenden Navigation.
+- **Vorspann-Wortlaut** (Jochen-Stimme, wörtlich übernehmen):
+
+  > fumu erhebt seit April 2026 alle 14 Tage, welche AI-Crawler die robots.txt von gut 100 Sites zulassen – Publisher mit und ohne Paywall, Plattformen, Brands und E-Commerce, Schwerpunkt Schweiz. Der Radar zeigt den jüngsten Snapshot und den Verlauf; robots.txt ist dabei Deklaration, nicht Crawl-Realität.
+
+  Methodik-Fussnote: die drei Sätze aus `methodology` im JSON unverändert rendern.
+- **`block_share`-Definition bleibt** identisch zur internen Sicht (ERROR im Nenner). Eine zweite, besucherfreundlichere Zahlendefinition liefe intern/extern auseinander; die Methodik-Fussnote weist ERROR als eigenen Datenpunkt aus.
+
+Neu offen nach Umsetzung: nichts Inhaltliches erwartet – bei Fragen zurück in die Vault-Story.
