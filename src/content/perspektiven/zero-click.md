@@ -4,6 +4,7 @@ description: "24'000 Crawls pro Referral bei Anthropic – und das ist schon ein
 date: 2026-04-16
 category: "KI & AdTech"
 image: "/images/perspektiven/zero-click-crawl-to-refer.webp"
+icon: "/images/perspektiven/icons/zero-click.webp"
 draft: false
 series: "ai-digitale-werbung"
 seriesPart: 3

@@ -4,6 +4,7 @@ description: "Eine Kampagne aufzusetzen kostet bald nichts mehr. Die falsche Kam
 date: 2026-04-24
 category: "KI & AdTech"
 image: "/images/perspektiven/agentic-intent-drei-schichten.webp"
+icon: "/images/perspektiven/icons/ende-der-billigen-kampagne.webp"
 draft: false
 series: "ai-digitale-werbung"
 seriesPart: 4

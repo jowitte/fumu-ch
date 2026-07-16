@@ -86,13 +86,23 @@ const datasetLd = {
   <section class="radar-page">
     <div class="container">
       <div class="content">
-        <h1>AI-Crawler-Radar</h1>
+        <div class="radar-head">
+          <div>
+            <h1>AI-Crawler-Radar</h1>
 
-        <p class="snapshot-meta">
-          Snapshot vom <strong>{formatDate(tracker.meta.snapshot_date)}</strong> ·
-          {tracker.meta.site_count} Sites × {tracker.meta.crawler_count} Crawler ·
-          Erhebung alle {tracker.meta.cadence_days} Tage
-        </p>
+            <p class="snapshot-meta">
+              Snapshot vom <strong>{formatDate(tracker.meta.snapshot_date)}</strong> ·
+              {tracker.meta.site_count} Sites × {tracker.meta.crawler_count} Crawler ·
+              Erhebung alle {tracker.meta.cadence_days} Tage
+            </p>
+          </div>
+          <img
+            class="radar-head-icon"
+            src="/images/icons/ai-crawler-radar.webp"
+            alt=""
+            loading="lazy"
+          />
+        </div>
 
         {
           intro.map((paragraph) => (
@@ -240,6 +250,20 @@ const datasetLd = {
     color: var(--color-text-light);
     letter-spacing: 0.4px;
     margin-bottom: var(--space-md);
+  }
+
+  .radar-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+  }
+
+  .radar-head-icon {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .intro {

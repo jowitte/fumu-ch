@@ -4,6 +4,7 @@ description: "Acht Stunden Arbeit passen in zwei – und in die freie Zeit passe
 date: 2026-06-05
 category: "KI & Arbeit"
 image: "/images/perspektiven/unsichtbare-reorganisation-hero.webp"
+icon: "/images/perspektiven/icons/unsichtbare-reorganisation.webp"
 draft: false
 series: "ki-und-arbeit"
 seriesPart: 1

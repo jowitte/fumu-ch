@@ -4,6 +4,7 @@ description: "Verdichtungs-Paradox. KI macht den Einzelnen schneller – doch di
 date: 2026-06-14
 category: "KI & Arbeit"
 image: "/images/perspektiven/mehr-output-weniger-wert-trichter.webp"
+icon: "/images/perspektiven/icons/mehr-output-weniger-wert.webp"
 draft: false
 series: "ki-und-arbeit"
 seriesPart: 2

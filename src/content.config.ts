@@ -18,6 +18,8 @@ const perspektiven = defineCollection({
     date: z.coerce.date(),
     category: z.string().optional(),
     image: z.string().optional(),
+    // Doodle-Icon (fumu-icon-Stil) für die linke Label-Spalte der Artikelseite.
+    icon: z.string().optional(),
     draft: z.boolean().default(false),
     authors: z.array(z.string()).default(['jochen-witte']),
     series: z.string().optional(),

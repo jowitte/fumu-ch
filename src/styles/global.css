@@ -89,6 +89,10 @@
   --color-primary: #223A5E;
   --color-neutral: #F4F4F4;
   --color-white: #FFFFFF;
+  /* Warme Flächen-Palette (brand.yaml > colors: ivory/sage/lavender) */
+  --color-bg: #F0EEE6;
+  --color-sage: #C3CFC7;
+  --color-lavender: #C9C5DA;
   --color-text: #414141;
   --color-text-light: #666;
 
@@ -122,7 +126,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   letter-spacing: 0.4px;
-  background: var(--color-white);
+  background: var(--color-bg);
 }
 
 /* fumu CI (2026-07-15): Serifen nur in H1, Coral durchgehend für Überschriften,
@@ -137,10 +141,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--space-md);
 }
 
-h1 { font-family: var(--font-serif); font-weight: 600; font-size: 24px; }
-h2 { font-size: 20px; }
-h3 { font-size: 17px; }
-h4 { font-size: 14px; }
+h1 { font-family: var(--font-serif); font-weight: 400; font-size: 56px; line-height: 1.1; }
+h2 { font-size: 28px; }
+h3 { font-size: 22px; }
+h4 { font-size: 18px; }
+h5, h6 { font-size: 16px; }
 
 p {
   margin-bottom: var(--space-md);
@@ -247,5 +252,8 @@ li {
   :root {
     --space-xl: 2rem;
     --space-lg: 1.5rem;
+  }
+  h1 {
+    font-size: 36px;
   }
 }

@@ -4,6 +4,7 @@ description: "Werbewirkung messen. Wer schreibt die Zahlen, denen wir glauben â€
 date: 2026-05-14
 category: "KI & AdTech"
 image: "/images/perspektiven/alte-metriken-versagen-hero.webp"
+icon: "/images/perspektiven/icons/alte-metriken-versagen.webp"
 draft: false
 series: "ai-digitale-werbung"
 seriesPart: 6

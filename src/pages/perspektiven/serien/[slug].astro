@@ -26,9 +26,15 @@ const formatDate = (date: Date) => {
   <section class="evans-page">
     <div class="container">
 
-      <h1>{seriesData.name}</h1>
-
-      <p class="intro">{seriesData.teaser}</p>
+      <div class="series-head">
+        <div class="series-head-text">
+          <h1>{seriesData.name}</h1>
+          <p class="intro">{seriesData.teaser}</p>
+        </div>
+        {seriesData.icon && (
+          <img class="series-head-icon" src={seriesData.icon} alt="" loading="lazy" />
+        )}
+      </div>
 
       {seriesData.callout && (
         <aside class="series-callout">
@@ -66,6 +72,20 @@ const formatDate = (date: Date) => {
 </BaseLayout>
 
 <style>
+  .series-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+  }
+
+  .series-head-icon {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
   .intro {
     font-family: var(--font-sans);
     font-size: 20px;
@@ -76,7 +96,6 @@ const formatDate = (date: Date) => {
   }
 
   .series-callout {
-    max-width: 720px;
     background: var(--color-neutral);
     border-left: 3px solid var(--color-coral);
     padding: var(--space-md) var(--space-lg);

@@ -4,6 +4,7 @@ description: "Das zweite Unbundling. Was passiert mit der digitalen Werbung, wen
 date: 2026-03-27
 category: "Medien"
 image: "/images/perspektiven/drei-aeren-brand.webp"
+icon: "/images/perspektiven/icons/das-doppelte-unbundling.webp"
 draft: false
 series: "ai-digitale-werbung"
 seriesPart: 1

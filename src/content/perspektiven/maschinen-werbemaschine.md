@@ -4,6 +4,7 @@ description: "Agentic Advertising. Zwei Konsortien schreiben gerade Standards, d
 date: 2026-05-03
 category: "KI & AdTech"
 image: "/images/perspektiven/maschinen-werbemaschine-hero.webp"
+icon: "/images/perspektiven/icons/maschinen-werbemaschine.webp"
 draft: false
 series: "ai-digitale-werbung"
 seriesPart: 5

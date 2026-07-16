@@ -4,6 +4,7 @@ description: "OpenAI zeigt Werbung in ChatGPT. Was das Pricing verrät, wie das 
 date: 2026-04-10
 category: "KI & AdTech"
 image: "/images/perspektiven/chatgpt-ads-screenshot.webp"
+icon: "/images/perspektiven/icons/60-dollar-chat-antwort.webp"
 draft: false
 series: "ai-digitale-werbung"
 seriesPart: 2

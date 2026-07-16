@@ -8,6 +8,8 @@ export interface ReleaseUpdate {
   title: string;
   description: string;
   href: string;
+  // Doodle-Icon (fumu-icon-Stil), Pfad unter /public.
+  icon?: string;
 }
 
 export const releases: ReleaseUpdate[] = [
@@ -17,5 +19,6 @@ export const releases: ReleaseUpdate[] = [
     description:
       'Welche AI-Crawler lassen gut 100 Sites in der robots.txt zu? Snapshot und Verlauf der fumu-Erhebung, Schwerpunkt Schweiz.',
     href: '/ai-crawler-radar/',
+    icon: '/images/icons/ai-crawler-radar.webp',
   },
 ];

@@ -14,6 +14,7 @@ const updates = [
     href: `/perspektiven/${post.id}/`,
     title: post.data.title,
     description: post.data.description,
+    icon: post.data.icon,
     tag: null as string | null,
   })),
   ...releases.map((r) => ({
@@ -21,6 +22,7 @@ const updates = [
     href: r.href,
     title: r.title,
     description: r.description,
+    icon: r.icon,
     tag: 'Release' as string | null,
   })),
 ].sort((a, b) => b.date.getTime() - a.date.getTime());
@@ -32,9 +34,17 @@ const formatDate = (date: Date) => {
 
 <BaseLayout title={page.data.title} description={page.data.description}>
   <section class="hero">
-    <div class="container">
-      <h1 class="hero-title">Technologie in Wirkung übersetzen.</h1>
-      <p class="hero-sub">Wir verbinden Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird.</p>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1 class="hero-title">Technologie in Wirkung übersetzen.</h1>
+        <p class="hero-sub">Wir verbinden Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird.</p>
+      </div>
+      <img
+        class="hero-icon"
+        src="/images/icons/hero-wirkung.webp"
+        alt=""
+        fetchpriority="high"
+      />
     </div>
   </section>
 
@@ -57,6 +67,9 @@ const formatDate = (date: Date) => {
                   </span>
                   <span class="post-description">{update.description}</span>
                 </div>
+                {update.icon && (
+                  <img class="post-row-icon" src={update.icon} alt="" loading="lazy" />
+                )}
               </a>
             ))}
           </div>
@@ -69,6 +82,21 @@ const formatDate = (date: Date) => {
 <style>
   .hero {
     padding: 12vh 0 8vh;
+  }
+
+  .hero-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+  }
+
+  .hero-icon {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-right: var(--space-xl);
   }
   .hero-title {
     font-family: var(--font-serif);
@@ -134,6 +162,18 @@ const formatDate = (date: Date) => {
     gap: var(--space-lg);
     padding: 0 0 var(--space-xl) 0;
     text-decoration: none;
+  }
+
+  .post-text {
+    flex: 1;
+  }
+
+  .post-row-icon {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    flex-shrink: 0;
+    align-self: center;
   }
 
   .post-row:hover {

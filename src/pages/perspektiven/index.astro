@@ -61,17 +61,25 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
 
       {
         seriesList.map((s) => (
-          <aside class="series-callout">
-            <span class="callout-label">Serie · {s.partCount} Teile</span>
-            <h2 class="callout-title">
-              <a href={`/perspektiven/serien/${s.slug}/`}>{s.name}</a>
-            </h2>
-            <p class="callout-text">{s.teaser}</p>
-            {s.callout && (
-              <p
-                class="callout-text"
-                set:html={renderInlineLinks(s.callout.text)}
-              />
+          <aside class={`series-callout callout-${s.color}`}>
+            <div class="callout-body">
+              <span class="callout-label">Serie · {s.partCount} Teile</span>
+              <h2 class="callout-title">
+                <a href={`/perspektiven/serien/${s.slug}/`}>{s.name}</a>
+              </h2>
+              <p class="callout-text">{s.cardTeaser}</p>
+              {s.callout && (
+                <p
+                  class="callout-text"
+                  set:html={renderInlineLinks(s.callout.text)}
+                />
+              )}
+              <a class="callout-button" href={`/perspektiven/serien/${s.slug}/`}>
+                Zur Serie
+              </a>
+            </div>
+            {s.icon && (
+              <img class="callout-icon" src={s.icon} alt="" loading="lazy" />
             )}
           </aside>
         ))
@@ -136,11 +144,51 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
   }
 
   .series-callout {
-    max-width: 720px;
-    background: var(--color-neutral);
-    border-left: 3px solid var(--color-coral);
-    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    border-radius: 12px;
+    padding: var(--space-lg) var(--space-lg);
     margin: 0 0 var(--space-md) 0;
+  }
+
+  .callout-sage {
+    background: var(--color-sage);
+  }
+
+  .callout-lavender {
+    background: var(--color-lavender);
+  }
+
+  .callout-body {
+    max-width: 600px;
+  }
+
+  .callout-icon {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+    margin-right: var(--space-lg);
+  }
+
+  .callout-button {
+    display: inline-block;
+    margin-top: var(--space-md);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    border: 1px solid var(--color-text);
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .callout-button:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
   }
 
   .callout-label {
@@ -300,6 +348,17 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
     .intro {
       font-size: 18px;
       margin: 0 0 var(--space-lg) 0;
+    }
+
+    .series-callout {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .callout-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0;
     }
 
     .evans-section {
