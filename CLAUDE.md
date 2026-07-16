@@ -37,6 +37,10 @@ Push auf `main` → Netlify baut automatisch. Kein manueller Deploy nötig.
 
 Inhaltliche Planung passiert im Akasha-Vault; technische Umsetzungs-Pläne werden als self-contained Markdown-Files in `docs/plans/` übergeben (`YYYY-MM-DD-<thema>.md`). Bei Aufnahme: Plan lesen, Schritte abarbeiten, Checkboxen direkt im Plan-File pflegen, `npm run build` als Verifikation. Inhaltliche Fragen (Wortlaut, Naming, Reihenfolge) gehören in den Vault zurück, nicht im Plan entschieden. Abgeschlossene Pläne bleiben als Doku liegen.
 
+**Zweiter Schreiber:** Content-nahe Edits (Seitentext, Navigation, Verlinkung, Redirects, Daten-Files wie `src/data/ai-crawler-tracker.json`) kommen auch direkt aus der Akasha-Vault-Session – dort über den `/fumu-web`-Skill (seit 2026-07-16), der Eingangsritual und Betriebsregeln trägt: `git status` vor Schreibzugriff, Whitelist-Staging, Commit/Push nur auf Ansage. Uncommitted Änderungen im Working Tree können also vom Vault stammen – vor `git checkout`/`stash`/`reset` prüfen, nicht wegwerfen. Konvention: `Akasha-Vault > Aufwände/fumu Marketing/CLAUDE.md` > «Zusammenarbeit mit dem Website-Repo».
+
+**Dritter Schreiber:** Jochen editiert publizierte Perspektiven von Hand in VS Code (Repo als Workspace, `.vscode/` gitignored). Uncommitted Content-Änderungen können also auch daher stammen; Hintergrund ist der Perspektiven-Lebenszyklus (Repo-File als Master nach Publish, siehe Akasha-Vault `var/references/DOKUMENT-LEBENSZYKLUS.md` > Publizierte Perspektiven).
+
 ## Content Collections
 
 Schema-Definition: `src/content.config.ts` (Glob-Loader + Zod). Ändert man ein Feld dort, muss das Frontmatter aller Dateien der Collection nachgezogen werden, sonst bricht der Build.

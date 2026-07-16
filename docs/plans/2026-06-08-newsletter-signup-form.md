@@ -32,7 +32,7 @@ fumu.ch bekommt einen Newsletter über MailerLite (EU-Hosting, Double-Opt-in). E
 - [x] 3. Einbinden (final): Form ist ein Abschnitt auf `/kontakt` (`src/pages/kontakt.astro`, Anker `#newsletter`); Seite umbenannt zu «Kontakt & Newsletter» (auch `kontakt.md`-Zwilling und Haupt-Nav-Label in `Header.astro`). Post-Ende in `[...slug].astro` und Footer in `Footer.astro` verlinken auf `/kontakt/#newsletter`. `llms.txt`-Kontaktzeile angepasst (`llms-full.txt` zieht über die pages-Collection automatisch nach).
 - [x] 4. Newsletter-Passus in `datenschutz.md` ergänzen. → neuer Abschnitt 2.5, plus Einträge in Drittweitergabe (3) und Speicherdauer (5).
 - [x] 5. `npm run build` grün. → 18 Seiten, Build-Output verifiziert (Form auf Posts doppelt, sonst nur Footer; Script gebündelt).
-- [ ] 6. DOI-Flow end-to-end testen (setzt den MailerLite-Toggle **und** die Netlify-Env-Vars voraus, siehe Rückkanal): echte Test-Mail eintragen, Confirmation klicken, Subscriber erscheint in MailerLite als `confirmed`.
+- [x] 6. DOI-Flow end-to-end getestet (2026-06-08): Signup durchlaufen, Confirmation geklickt, Subscriber in MailerLite `confirmed`. Funktioniert.
 
 ## Entscheidungen
 
