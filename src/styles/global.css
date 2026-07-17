@@ -257,3 +257,35 @@ li {
     font-size: 36px;
   }
 }
+
+/* Doodle-Icons: einmaliges Einschwingen beim Seitenaufruf (fade + leichte Rotation) */
+@keyframes icon-settle {
+  from {
+    opacity: 0;
+    transform: rotate(-6deg) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+.hero-icon,
+.post-icon,
+.callout-icon,
+.series-icon,
+.series-head-icon,
+.radar-head-icon {
+  animation: icon-settle 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-icon,
+  .post-icon,
+  .callout-icon,
+  .series-icon,
+  .series-head-icon,
+  .radar-head-icon {
+    animation: none;
+  }
+}
