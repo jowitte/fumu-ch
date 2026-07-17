@@ -14,7 +14,6 @@ const updates = [
     href: `/perspektiven/${post.id}/`,
     title: post.data.title,
     description: post.data.description,
-    icon: post.data.icon,
     tag: null as string | null,
   })),
   ...releases.map((r) => ({
@@ -22,7 +21,6 @@ const updates = [
     href: r.href,
     title: r.title,
     description: r.description,
-    icon: r.icon,
     tag: 'Release' as string | null,
   })),
 ].sort((a, b) => b.date.getTime() - a.date.getTime());
@@ -67,9 +65,6 @@ const formatDate = (date: Date) => {
                   </span>
                   <span class="post-description">{update.description}</span>
                 </div>
-                {update.icon && (
-                  <img class="post-row-icon" src={update.icon} alt="" loading="lazy" />
-                )}
               </a>
             ))}
           </div>
@@ -168,14 +163,6 @@ const formatDate = (date: Date) => {
     flex: 1;
   }
 
-  .post-row-icon {
-    width: 72px;
-    height: 72px;
-    object-fit: contain;
-    flex-shrink: 0;
-    align-self: center;
-  }
-
   .post-row:hover {
     text-decoration: none;
     opacity: 0.8;
@@ -260,24 +247,16 @@ const formatDate = (date: Date) => {
       padding-left: 0;
     }
 
-    /* Zeile als Grid: Datum oben, Text links, kleines Icon rechts */
+    /* Zeile stapelt: Datum oben, Text darunter */
     .post-row {
       display: grid;
-      grid-template-columns: 1fr 64px;
-      column-gap: var(--space-md);
+      grid-template-columns: 1fr;
       row-gap: var(--space-xs);
       align-items: start;
     }
 
     .post-date {
       width: auto;
-      grid-column: 1 / -1;
-    }
-
-    .post-row-icon {
-      width: 64px;
-      height: 64px;
-      align-self: start;
     }
   }
 </style>
