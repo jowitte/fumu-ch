@@ -6,6 +6,7 @@
 // ausklappbaren Tabelle darunter.
 import { formatDate, formatShare, getCategoryColor } from '../../data/crawler-tracker';
 import type { CrawlerTracker } from '../../data/crawler-tracker';
+import { hash01 } from './sketch';
 
 interface Props {
   trend: CrawlerTracker['trend'];
@@ -17,7 +18,7 @@ const { trend, categories, title } = Astro.props;
 
 const W = 720;
 const H = 300;
-const M = { top: 12, right: 20, bottom: 30, left: 48 };
+const M = { top: 12, right: 140, bottom: 30, left: 48 };
 const plotW = W - M.left - M.right;
 const plotH = H - M.top - M.bottom;
 
@@ -60,6 +61,63 @@ const pathOf = (points: { date: string; value: number }[]) =>
   points
     .map((p, i) => `${i === 0 ? 'M' : 'L'}${xOf(p.date).toFixed(1)},${yOf(p.value).toFixed(1)}`)
     .join(' ');
+
+// Hand-gezeichneter Look: Segmente unterteilen und Zwischenpunkte senkrecht
+// zur Laufrichtung leicht versetzen. Die echten Datenpunkte (Segment-Enden)
+// bleiben exakt – nur die Strecke dazwischen zittert.
+const SKETCH_AMP = 2.0;
+const SKETCH_STEP = 22;
+const sketchPath = (key: string, points: { date: string; value: number }[]) => {
+  if (points.length < 2) return pathOf(points);
+  const pts = points.map((p) => [xOf(p.date), yOf(p.value)] as const);
+  const out = [`M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`];
+  for (let i = 1; i < pts.length; i++) {
+    const [x0, y0] = pts[i - 1];
+    const [x1, y1] = pts[i];
+    const dx = x1 - x0;
+    const dy = y1 - y0;
+    const len = Math.hypot(dx, dy) || 1;
+    const n = Math.max(1, Math.round(len / SKETCH_STEP));
+    for (let k = 1; k <= n; k++) {
+      const t = k / n;
+      let x = x0 + dx * t;
+      let y = y0 + dy * t;
+      if (k < n) {
+        const r = (hash01(`${key}:${i}:${k}`) - 0.5) * 2 * SKETCH_AMP;
+        x += (-dy / len) * r;
+        y += (dx / len) * r;
+      }
+      out.push(`L${x.toFixed(1)},${y.toFixed(1)}`);
+    }
+  }
+  return out.join(' ');
+};
+
+// Direkte End-Labels: gewünschte Position = Linien-Ende, dann Kollisionen
+// auflösen (min. Abstand, unten geklemmt), damit auch die 0-%-Serien lesbar
+// getrennt stehen. Identität trägt der Farb-Bullet, der Text bleibt Ink.
+const LABEL_GAP = 15;
+// Unterkante über der Datums-Zeile halten, sonst kollidiert das unterste
+// Label mit dem letzten X-Tick.
+const LABEL_Y_MAX = H - M.bottom + 8;
+const endLabels = series
+  .filter((s) => s.points.length > 0)
+  .map((s) => {
+    const last = s.points[s.points.length - 1];
+    return { label: s.label, color: s.color, x: xOf(last.date), y: yOf(last.value) };
+  })
+  .sort((a, b) => a.y - b.y);
+for (let i = 1; i < endLabels.length; i++) {
+  if (endLabels[i].y - endLabels[i - 1].y < LABEL_GAP)
+    endLabels[i].y = endLabels[i - 1].y + LABEL_GAP;
+}
+if (endLabels.length > 0 && endLabels[endLabels.length - 1].y > LABEL_Y_MAX) {
+  endLabels[endLabels.length - 1].y = LABEL_Y_MAX;
+  for (let i = endLabels.length - 2; i >= 0; i--) {
+    if (endLabels[i + 1].y - endLabels[i].y < LABEL_GAP)
+      endLabels[i].y = endLabels[i + 1].y - LABEL_GAP;
+  }
+}
 ---
 
 <figure class="trend-chart">
@@ -100,7 +158,7 @@ const pathOf = (points: { date: string; value: number }[]) =>
 
     {series.map((s) => (
       <g>
-        <path d={pathOf(s.points)} class="line" style={`stroke:${s.color}`}>
+        <path d={sketchPath(s.category, s.points)} class="line" style={`stroke:${s.color}`}>
           <title>{s.label}</title>
         </path>
         {s.points.length > 0 && (
@@ -116,6 +174,15 @@ const pathOf = (points: { date: string; value: number }[]) =>
             </title>
           </circle>
         )}
+      </g>
+    ))}
+
+    {endLabels.map((l) => (
+      <g class="end-label" aria-hidden="true">
+        <circle cx={(l.x + 12).toFixed(1)} cy={l.y.toFixed(1)} r="3" style={`fill:${l.color}`} />
+        <text x={(l.x + 19).toFixed(1)} y={l.y.toFixed(1)} class="end-label-text">
+          {l.label}
+        </text>
       </g>
     ))}
   </svg>
@@ -220,8 +287,21 @@ const pathOf = (points: { date: string; value: number }[]) =>
   }
 
   .end-dot {
-    stroke: var(--color-white);
+    stroke: var(--color-bg);
     stroke-width: 2;
+  }
+
+  .end-label-text {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    fill: var(--color-text);
+    dominant-baseline: middle;
+  }
+
+  @media (max-width: 640px) {
+    .end-label {
+      display: none;
+    }
   }
 
   .data-table {

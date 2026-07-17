@@ -4,7 +4,7 @@
     "site_count": 108,
     "crawler_count": 20,
     "cadence_days": 14,
-    "generated_at": "2026-07-16T20:54:18.598127+02:00"
+    "generated_at": "2026-07-17T18:23:56.286630+02:00"
   },
   "headline": "Snapshot 2026-07-13: 10 Veränderungen auf 2 Sites.",
   "by_category": [
@@ -44,121 +44,181 @@
       "crawler_id": "ccbot",
       "label": "ccbot",
       "block_share": 0.3981,
-      "blocked_sites": 43
+      "blocked_sites": 43,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "Common Crawl"
     },
     {
       "crawler_id": "applebot_extended",
       "label": "applebot_extended",
       "block_share": 0.3889,
-      "blocked_sites": 42
+      "blocked_sites": 42,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "Apple"
     },
     {
       "crawler_id": "bytespider",
       "label": "bytespider",
       "block_share": 0.3889,
-      "blocked_sites": 42
+      "blocked_sites": 42,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "ByteDance"
     },
     {
       "crawler_id": "claudebot",
       "label": "claudebot",
       "block_share": 0.3704,
-      "blocked_sites": 40
+      "blocked_sites": 40,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "Anthropic"
     },
     {
       "crawler_id": "gptbot",
       "label": "gptbot",
       "block_share": 0.3426,
-      "blocked_sites": 37
+      "blocked_sites": 37,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "OpenAI"
     },
     {
       "crawler_id": "meta_external",
       "label": "meta_external",
       "block_share": 0.3426,
-      "blocked_sites": 37
+      "blocked_sites": 37,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "Meta"
     },
     {
       "crawler_id": "perplexitybot",
       "label": "perplexitybot",
       "block_share": 0.3426,
-      "blocked_sites": 37
+      "blocked_sites": 37,
+      "bot_category": "scraper",
+      "honors_robots": false,
+      "provider": "Perplexity"
     },
     {
       "crawler_id": "google_extended",
       "label": "google_extended",
       "block_share": 0.3056,
-      "blocked_sites": 33
+      "blocked_sites": 33,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "Google"
     },
     {
       "crawler_id": "amazonbot",
       "label": "amazonbot",
       "block_share": 0.25,
-      "blocked_sites": 27
+      "blocked_sites": 27,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "Amazon"
     },
     {
       "crawler_id": "chatgpt_user",
       "label": "chatgpt_user",
       "block_share": 0.2407,
-      "blocked_sites": 26
+      "blocked_sites": 26,
+      "bot_category": "assistant",
+      "honors_robots": false,
+      "provider": "OpenAI"
     },
     {
       "crawler_id": "perplexity_user",
       "label": "perplexity_user",
       "block_share": 0.2315,
-      "blocked_sites": 25
+      "blocked_sites": 25,
+      "bot_category": "assistant",
+      "honors_robots": false,
+      "provider": "Perplexity"
     },
     {
       "crawler_id": "mistralai_user",
       "label": "mistralai_user",
       "block_share": 0.2037,
-      "blocked_sites": 22
+      "blocked_sites": 22,
+      "bot_category": "assistant",
+      "honors_robots": true,
+      "provider": "Mistral AI"
     },
     {
       "crawler_id": "claude_searchbot",
       "label": "claude_searchbot",
       "block_share": 0.1944,
-      "blocked_sites": 21
+      "blocked_sites": 21,
+      "bot_category": "search",
+      "honors_robots": true,
+      "provider": "Anthropic"
     },
     {
       "crawler_id": "claude_user",
       "label": "claude_user",
       "block_share": 0.1944,
-      "blocked_sites": 21
+      "blocked_sites": 21,
+      "bot_category": "assistant",
+      "honors_robots": true,
+      "provider": "Anthropic"
     },
     {
       "crawler_id": "duckassistbot",
       "label": "duckassistbot",
       "block_share": 0.1944,
-      "blocked_sites": 21
+      "blocked_sites": 21,
+      "bot_category": "search",
+      "honors_robots": true,
+      "provider": "DuckDuckGo"
     },
     {
       "crawler_id": "meta_externalfetcher",
       "label": "meta_externalfetcher",
       "block_share": 0.1944,
-      "blocked_sites": 21
+      "blocked_sites": 21,
+      "bot_category": "assistant",
+      "honors_robots": true,
+      "provider": "Meta"
     },
     {
       "crawler_id": "google_cloudvertexbot",
       "label": "google_cloudvertexbot",
       "block_share": 0.1852,
-      "blocked_sites": 20
+      "blocked_sites": 20,
+      "bot_category": "agent",
+      "honors_robots": true,
+      "provider": "Google"
     },
     {
       "crawler_id": "oai_searchbot",
       "label": "oai_searchbot",
       "block_share": 0.1852,
-      "blocked_sites": 20
+      "blocked_sites": 20,
+      "bot_category": "search",
+      "honors_robots": true,
+      "provider": "OpenAI"
     },
     {
       "crawler_id": "google_agent",
       "label": "google_agent",
       "block_share": 0.0926,
-      "blocked_sites": 10
+      "blocked_sites": 10,
+      "bot_category": "agent",
+      "honors_robots": false,
+      "provider": "Google"
     },
     {
       "crawler_id": "mistralai_index",
       "label": "mistralai_index",
       "block_share": 0.0926,
-      "blocked_sites": 10
+      "blocked_sites": 10,
+      "bot_category": "search",
+      "honors_robots": true,
+      "provider": "Mistral AI"
     }
   ],
   "trend": [

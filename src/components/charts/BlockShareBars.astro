@@ -4,22 +4,68 @@
 // Text zugänglich, der Balken ist reine Visualisierung obendrauf.
 // Balkenlänge = Anteil an 100 % (gleiche Skala in allen Instanzen der Seite).
 import { formatShare } from '../../data/crawler-tracker';
+import { hash01 } from './sketch';
 
 interface Item {
   label: string;
   share: number;
   detail?: string;
   color?: string;
+  /** Typ-Charakterisierung ([[Typen von KI Bots]]), z.B. "Trainings-Scraper (OpenAI)" */
+  sub?: string;
+  /** Ein-Satz-Erklärung des Typs, als Tooltip auf der sub-Zeile */
+  subTitle?: string;
+  /** Fussnoten-Marker hinter dem Label (z.B. "†" für robots.txt-Verweigerer) */
+  marker?: string;
+  /** Tooltip auf dem Marker */
+  markerTitle?: string;
 }
 
 interface Props {
   items: Item[];
   caption: string;
   monoLabels?: boolean;
+  /** Optionale Farb-Legende über den Balken (z.B. Bot-Typen) */
+  legend?: { label: string; color: string }[];
 }
 
-const { items, caption, monoLabels = false } = Astro.props;
+const { items, caption, monoLabels = false, legend = [] } = Astro.props;
+
+// Hand-gezeichnete Balken-Silhouette: Ober- und Unterkante zittern leicht,
+// linke Kante bleibt an der Baseline. Die viewBox wird pro Balken non-uniform
+// gestreckt (width in %), der Jitter liegt deshalb nur auf der y-Achse –
+// die Amplitude bleibt so über alle Balkenlängen konstant. Deterministisch
+// pro Label gehasht (kein Math.random, Build bleibt bytegleich).
+const BAR_W = 200;
+const BAR_H = 16;
+const BAR_AMP = 0.9;
+const BAR_SEGS = 8;
+const sketchBar = (seed: string): string => {
+  const jy = (k: string) => (hash01(`${seed}:${k}`) - 0.5) * 2 * BAR_AMP;
+  const top = 1.2;
+  const bottom = BAR_H - 1.2;
+  const step = BAR_W / BAR_SEGS;
+  const d = [`M0,${(top + jy('t0')).toFixed(2)}`];
+  for (let i = 1; i <= BAR_SEGS; i++)
+    d.push(`L${(step * i).toFixed(1)},${(top + jy(`t${i}`)).toFixed(2)}`);
+  for (let i = BAR_SEGS; i >= 0; i--)
+    d.push(`L${(step * i).toFixed(1)},${(bottom + jy(`b${i}`)).toFixed(2)}`);
+  return `${d.join(' ')} Z`;
+};
 ---
+
+{
+  legend.length > 0 && (
+    <ul class="legend" aria-hidden="true">
+      {legend.map((l) => (
+        <li>
+          <span class="swatch" style={`background:${l.color}`} />
+          {l.label}
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 <table class:list={['share-bars', { 'mono-labels': monoLabels }]}>
   <caption class="sr-only">{caption}</caption>
@@ -33,15 +79,32 @@ const { items, caption, monoLabels = false } = Astro.props;
     {items.map((item) => (
       <tr>
         <th scope="row">
-          <span class="label">{item.label}</span>
+          <span class="label">
+            {item.label}
+            {item.marker && (
+              <sup class="marker" title={item.markerTitle}>
+                {item.marker}
+              </sup>
+            )}
+          </span>
+          {item.sub && (
+            <span class="sub" title={item.subTitle}>
+              {item.sub}
+            </span>
+          )}
           {item.detail && <span class="detail">{item.detail}</span>}
         </th>
         <td>
           <div class="track">
-            <div
+            <svg
               class="bar"
-              style={`width:${(item.share * 100).toFixed(2)}%;background:${item.color ?? 'var(--color-coral)'}`}
-            ></div>
+              style={`width:${(item.share * 100).toFixed(2)}%`}
+              viewBox={`0 0 ${BAR_W} ${BAR_H}`}
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d={sketchBar(item.label)} style={`fill:${item.color ?? 'var(--color-coral)'}`} />
+            </svg>
             <span class="value">{formatShare(item.share)}</span>
           </div>
         </td>
@@ -78,6 +141,44 @@ const { items, caption, monoLabels = false } = Astro.props;
     font-size: 13px;
   }
 
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .legend li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .marker {
+    color: var(--color-text-light);
+    cursor: help;
+  }
+
+  .sub {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--color-text);
+  }
+
   .detail {
     display: block;
     font-size: 12px;
@@ -91,9 +192,9 @@ const { items, caption, monoLabels = false } = Astro.props;
   }
 
   .bar {
+    display: block;
     height: 16px;
-    min-width: 2px;
-    border-radius: 0 4px 4px 0;
+    min-width: 3px;
     flex-shrink: 0;
   }
 

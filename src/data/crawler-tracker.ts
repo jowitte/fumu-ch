@@ -36,6 +36,12 @@ const trackerSchema = z.object({
         label: z.string().min(1),
         block_share: share,
         blocked_sites: z.number().int().nonnegative(),
+        // Additive Typ-Metadaten (publish.py ab 2026-07-17): Vier-Typen-
+        // Taxonomie aus crawlers.yaml. Optional, damit ältere JSON-Stände
+        // den Build nicht brechen.
+        bot_category: z.string().min(1).optional(),
+        honors_robots: z.boolean().optional(),
+        provider: z.string().min(1).nullable().optional(),
       }),
     )
     .min(1),
@@ -115,14 +121,16 @@ export function renderInlineLinks(text: string): string {
 }
 
 // Serienfarben für den Trend: Farbe folgt der Kategorie, nie dem Rang.
-// Palette aus den fumu-CI-Hues abgeleitet und mit dem dataviz-Validator
-// geprüft (Lightness-Band, Chroma, CVD-Separation, Kontrast – alle PASS).
+// Slots 1–5 der Brand-Kategorien-Palette (Akasha-Vault:
+// var/templates/marken/fumu/brand.yaml > colors.categorical), dataviz-validiert
+// gegen die ivory-Fläche #F0EEE6 (Lightness-Band, Chroma, CVD-Separation,
+// Kontrast ≥3:1 – alle PASS). Bei Änderung dort ändern und hier nachziehen.
 export const categoryColors: Record<string, string> = {
   platform: '#C44540',
-  publisher_paywall: '#2F63AC',
-  publisher_open: '#B07430',
-  ecommerce: '#6B5EA7',
-  brand: '#1F8A67',
+  publisher_paywall: '#29579A',
+  publisher_open: '#AB7302',
+  ecommerce: '#674698',
+  brand: '#4D8B50',
 };
 
 const FALLBACK_COLOR = '#666666';
@@ -130,6 +138,35 @@ const FALLBACK_COLOR = '#666666';
 export function getCategoryColor(category: string): string {
   return categoryColors[category] ?? FALLBACK_COLOR;
 }
+
+// Kurz-Charakterisierung je Bot-Typ – Vier-Typen-Taxonomie aus dem
+// Akasha-Vault ([[Typen von KI Bots]], gespiegelt in crawlers.yaml der
+// robots-txt-Pipeline). bot_category liefert das Tracker-JSON.
+export const botTypeLabels: Record<string, string> = {
+  scraper: 'Trainings-Scraper',
+  assistant: 'KI-Assistent',
+  search: 'Such-Crawler',
+  agent: 'KI-Agent',
+};
+
+// Typ-Farben: eigenes all-pairs-validiertes Quartett aus den fumu-Hues
+// (sortierte Balken – jedes Typ-Paar kann benachbart sein; die 6er-Palette
+// in brand.yaml ist nur für Nachbar-Reihenfolge geprüft). dataviz-Validator
+// gegen ivory #F0EEE6, --pairs all: alle Checks PASS, einzig Teal↔Purpur
+// deutan 7.3 im Floor-Band – legal, weil jede Zeile ihr Text-Label trägt.
+export const botTypeColors: Record<string, string> = {
+  scraper: '#C44540',
+  assistant: '#235193',
+  search: '#079696',
+  agent: '#8569B4',
+};
+
+export const botTypeDescriptions: Record<string, string> = {
+  scraper: 'Extrahiert Inhalte grossflächig als Trainingsmaterial für KI-Modelle.',
+  assistant: 'Holt einzelne Seiten in Echtzeit, wenn ein Nutzer eine Frage stellt.',
+  search: 'Indexiert Inhalte, um sie in KI-Antworten als Quelle zitieren zu können.',
+  agent: 'Handelt im Auftrag des Nutzers – springt session-artig über mehrere Seiten.',
+};
 
 // «10 Veränderungen auf 2 Sites» für einen Lauf-Log-Eintrag; null beim
 // Erst-Snapshot (kein Diff-Vorgänger) → null, Aufrufer lässt die Angabe weg.

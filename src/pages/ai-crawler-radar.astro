@@ -10,6 +10,9 @@ import {
   getCategoryColor,
   describeRunChanges,
   renderInlineLinks,
+  botTypeLabels,
+  botTypeDescriptions,
+  botTypeColors,
 } from "../data/crawler-tracker";
 
 const description =
@@ -33,7 +36,22 @@ const crawlerItems = crawlers.map((c) => ({
   label: c.label,
   share: c.block_share,
   detail: `${c.blocked_sites} von ${tracker.meta.site_count} Sites`,
+  color: c.bot_category ? botTypeColors[c.bot_category] : undefined,
+  sub: c.bot_category
+    ? `${botTypeLabels[c.bot_category] ?? c.bot_category}${c.provider ? ` (${c.provider})` : ""}`
+    : undefined,
+  subTitle: c.bot_category ? botTypeDescriptions[c.bot_category] : undefined,
+  marker: c.honors_robots === false ? "†" : undefined,
+  markerTitle:
+    c.honors_robots === false
+      ? "Bindet sich nicht an robots.txt – die Blockade bleibt Deklaration."
+      : undefined,
 }));
+
+// Legende nur für Typen, die im aktuellen Snapshot vorkommen.
+const crawlerLegend = Object.entries(botTypeLabels)
+  .filter(([type]) => crawlers.some((c) => c.bot_category === type))
+  .map(([type, label]) => ({ label, color: botTypeColors[type] }));
 
 // Lauf-Log: chronologisch absteigend, die jüngsten 6 offen, Rest klappbar.
 const runs = [...(tracker.runs ?? [])].sort((a, b) =>
@@ -197,7 +215,13 @@ const datasetLd = {
               items={crawlerItems}
               caption="Block-Anteil nach Crawler"
               monoLabels
+              legend={crawlerLegend}
             />
+            <p class="chart-footnote">
+              † Bindet sich nicht an robots.txt (Anbieter-Doku bzw.
+              Cloudflare-Forensik) – die Blockade bleibt Deklaration ohne
+              Durchsetzung.
+            </p>
           </CollapsibleSection>
 
           <CollapsibleSection title="Methodik">
@@ -303,6 +327,12 @@ const datasetLd = {
     font-size: 14px;
     color: var(--color-text-light);
     margin-bottom: var(--space-md);
+  }
+
+  .chart-footnote {
+    font-size: 12px;
+    color: var(--color-text-light);
+    margin-top: var(--space-md);
   }
 
   .run {

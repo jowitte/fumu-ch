@@ -121,11 +121,16 @@ Zwei eigene Plugins verarbeiten jedes Markdown vor dem Render:
 | Variable | Hex | Verwendung |
 |----------|-----|------------|
 | `--color-coral` | #C44540 | Primärfarbe (Logo, CTAs, Linien, Headlines, Links) |
-| `--color-primary` | #223A5E | Tertiär (komplexe Charts, dunkle Akzente) |
+| `--color-primary` | #223A5E | Tertiär (dunkle Akzente) |
+| `--color-bg` | #F0EEE6 | Seitenhintergrund (ivory, warme Flächen-Palette) |
+| `--color-sage` | #C3CFC7 | Karten-Pastell |
+| `--color-lavender` | #C9C5DA | Karten-Pastell |
 | `--color-text` | #414141 | Fliesstext |
 | `--color-text-light` | #666 | Sekundärtext |
 | `--color-neutral` | #F4F4F4 | Hintergrund-Akzent |
-| `--color-white` | #FFFFFF | Seitenhintergrund |
+| `--color-white` | #FFFFFF | Buttons-/Kontrast-Flächen |
+
+**Chart-Serienfarben** kommen nicht aus dieser Tabelle, sondern aus der Brand-Kategorien-Palette (Akasha-Vault: `var/templates/marken/fumu/brand.yaml` > `colors.categorical`, dataviz-validiert gegen ivory) – kanonische Kopie in `src/data/crawler-tracker.ts` > `categoryColors`. Keine ad-hoc Hexwerte in Chart-Komponenten.
 
 ### Typografie
 
