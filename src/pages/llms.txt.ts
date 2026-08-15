@@ -16,7 +16,7 @@ export const GET: APIRoute = async () => {
 
   const body = `# fumu
 
-> fumu übersetzt Technologie in Wirkung – Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem. Wir beraten Verlage, Vermarkter, Agenturen und Marken in der Schweiz und Europa.
+> fumu übersetzt Technologie in Wirkung – Beratung für KI-Transformation in Medien, Marketing und Werbung. Wir beraten Verlage, Vermarkter, Agenturen und Marken in der Schweiz und Europa.
 
 ## Über uns
 

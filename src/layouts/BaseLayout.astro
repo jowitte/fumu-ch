@@ -22,7 +22,7 @@ interface Props {
   };
 }
 
-const { title, description = 'Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem', article } = Astro.props;
+const { title, description = 'Beratung für KI-Transformation in Medien, Marketing und Werbung', article } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://fumu.ch';
 
@@ -46,7 +46,7 @@ const websiteLd = isHome ? {
   '@type': 'WebSite',
   name: 'fumu',
   url: siteUrl,
-  description: 'Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem. Schwerpunkt Schweiz, Radius Europa.',
+  description: 'Beratung für KI-Transformation in Medien, Marketing und Werbung. Schwerpunkt Schweiz, Radius Europa.',
   inLanguage: 'de-CH',
   publisher: {
     '@type': 'Organization',
@@ -62,9 +62,9 @@ const organizationLd = {
   name: 'fumu',
   url: siteUrl,
   logo: `${siteUrl}/favicon-32x32.png`,
-  description: 'Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem',
+  description: 'Beratung für KI-Transformation in Medien, Marketing und Werbung',
   email: 'hello@fumu.ch',
-  foundingDate: '2024',
+  foundingDate: '2025',
   founder: {
     '@type': 'Person',
     '@id': `${siteUrl}/#jochen-witte`,

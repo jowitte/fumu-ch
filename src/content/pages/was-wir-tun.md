@@ -1,6 +1,6 @@
 ---
 title: "Was wir tun"
-description: "Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem: Strategie, Organisation, Prozesse und Technologie – bis in die Umsetzung."
+description: "Beratung für KI-Transformation in Medien, Marketing und Werbung: Strategie, Organisation, Prozesse und Technologie – bis in die Umsetzung."
 order: 2
 ---
 
@@ -30,7 +30,7 @@ Künstliche Intelligenz verändert gerade ganze Branchen. Wir helfen Organisatio
 
 ## Wo wir arbeiten
 
-Unser Schwerpunkt liegt im Medien-, Marketing- und Werbe-Ökosystem. Publisher, Agenturen, Vermarkter und Technologie-Anbieter stehen vor massiven Umbrüchen: KI verändert Produktion und Reichweite, Datenschutz limitiert die Vermarktung, neue Plattformen entstehen. Wir kennen die Akteure, die Technologie und die Dynamiken dieses Marktes.
+Unser Schwerpunkt liegt in Medien, Marketing und Werbung. Publisher, Agenturen, Vermarkter und Technologie-Anbieter stehen vor massiven Umbrüchen: KI verändert Produktion und Reichweite, Datenschutz limitiert die Vermarktung, neue Plattformen entstehen. Wir kennen die Akteure, die Technologie und die Dynamiken dieses Marktes.
 
 ## Referenzen
 
