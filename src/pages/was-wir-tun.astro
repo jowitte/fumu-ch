@@ -6,12 +6,14 @@ const serviceLd = {
   '@type': 'ProfessionalService',
   name: 'fumu',
   url: 'https://fumu.ch/was-wir-tun/',
-  description: 'Strategieberatung an der Schnittstelle von Strategie, Organisation, Prozessen und Technologie. Schwerpunkt: KI-Integration sowie Medien-, Marketing- und Werbe-Ökosystem.',
+  description: 'Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem – an der Schnittstelle von Strategie, Organisation, Prozessen und Technologie, bis in die Umsetzung.',
   areaServed: { '@type': 'GeoShape', name: 'DACH' },
   serviceType: [
+    'KI-Transformation',
     'Strategieberatung',
     'Digitale Transformation',
     'KI-Strategie und KI-Integration',
+    'KI-Implementierung',
     'Tech-Strategie',
     'Organisationsentwicklung',
     'Prozess-Architektur',
@@ -33,12 +35,13 @@ const serviceLd = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Interim Leadership (6–18 Monate)' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Sparring (laufend)' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'KI-Schulungen und Workshops (1–5 Tage)' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'KI-Implementierung (nach Vorhaben)' } },
     ],
   },
 };
 ---
 
-<BaseLayout title="Was wir tun" description="Strategie, Organisation, Prozesse und Technologie zusammenbringen. Mit Schwerpunkt in Medien, Marketing und Werbetechnologie.">
+<BaseLayout title="Was wir tun" description="Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem: Strategie, Organisation, Prozesse und Technologie – bis in die Umsetzung.">
 
   <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />
 
@@ -89,7 +92,7 @@ const serviceLd = {
           <div class="evans-item">
             <span class="evans-tag">KI</span>
             <h3>Künstliche Intelligenz</h3>
-            <p>Isolierte KI-Anwendungen bringen wenig. Die eigentliche Wirkung entsteht, wenn Geschäftsprozesse und Organisation mitgedacht werden. Wir begleiten den Schritt von der Point Solution zur systemischen Verankerung – in Strategie, Abläufen und Strukturen.</p>
+            <p>Isolierte KI-Anwendungen bringen wenig. Die eigentliche Wirkung entsteht, wenn Geschäftsprozesse und Organisation mitgedacht werden. Wir begleiten den Schritt von der Point Solution zur systemischen Verankerung – in Strategie, Abläufen und Strukturen. Und wir setzen um: KI-Implementierung gehört zum Angebot, nicht nur die Beratung dazu.</p>
           </div>
           <div class="evans-item">
             <span class="evans-tag">Domäne</span>
@@ -177,7 +180,7 @@ const serviceLd = {
 
   .evans-item p {
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--color-text);
     margin: 0;

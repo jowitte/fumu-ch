@@ -1,6 +1,6 @@
 ---
 title: "Was wir tun"
-description: "Strategie, Organisation, Prozesse und Technologie zusammenbringen. Mit Schwerpunkt in Medien, Marketing und Werbetechnologie."
+description: "Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem: Strategie, Organisation, Prozesse und Technologie – bis in die Umsetzung."
 order: 2
 ---
 
@@ -26,7 +26,7 @@ Technisches Tiefenverständnis einbringen – nicht als Selbstzweck, sondern als
 
 ## Aktueller Schwerpunkt: KI
 
-Künstliche Intelligenz verändert gerade ganze Branchen. Wir helfen Organisationen, die richtigen Anwendungsfälle zu identifizieren, Piloten aufzusetzen und KI-Strategien in den laufenden Betrieb zu überführen – pragmatisch und ohne Hype.
+Künstliche Intelligenz verändert gerade ganze Branchen. Wir helfen Organisationen, die richtigen Anwendungsfälle zu identifizieren, Piloten aufzusetzen und KI-Strategien in den laufenden Betrieb zu überführen – pragmatisch und ohne Hype. KI-Implementierung heisst dabei umsetzen, nicht nur beraten.
 
 ## Wo wir arbeiten
 

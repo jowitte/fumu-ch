@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'fumu – Perspektiven',
-    description: 'Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung. Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration im DACH-Raum.',
+    description: 'Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung. Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem.',
     site: context.site ?? 'https://fumu.ch',
     items: posts.map(post => ({
       title: post.data.title,

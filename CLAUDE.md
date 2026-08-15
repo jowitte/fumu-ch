@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # fumu.ch Website
 
-Astro-basierte statische Website für fumu – Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration im DACH-Raum. fumu übersetzt Technologie in Wirkung: Strategie, Organisation, Prozesse und Technologie für das Medien- und Werbe-Ökosystem.
+Astro-basierte statische Website für fumu – Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem. fumu übersetzt Technologie in Wirkung: Strategie, Organisation, Prozesse und Technologie, bis in die Umsetzung.
 
 ## Stack
 

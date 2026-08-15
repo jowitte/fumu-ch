@@ -16,7 +16,7 @@ export const GET: APIRoute = async () => {
 
   const body = `# fumu
 
-> fumu ist eine Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration. Wir beraten Verlage, Medienunternehmen, Werbevermarkter und Brands im DACH-Raum.
+> fumu übersetzt Technologie in Wirkung – Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem. Wir beraten Verlage, Vermarkter, Agenturen und Marken in der Schweiz und Europa.
 
 ## Über uns
 
@@ -40,10 +40,10 @@ ${perspektivenList}
 
 ## Kernthemen
 
-- Digitale Werbung und Programmatic Advertising
-- AdTech/MarTech-Ökosystem und Konsolidierung
-- AI-Integration in Marketing und Werbung
-- Geschäftsmodell-Transformation für Medienunternehmen
+- KI-Transformation in Strategie, Organisation, Prozessen und Technologie
+- KI-Implementierung: umsetzen, nicht nur beraten
+- Digitale Werbung, AdTech/MarTech und Programmatic Advertising
+- Geschäftsmodell-Transformation für Medienunternehmen und Vermarkter
 - Datenstrategie und First-Party-Data
 
 ## Kontakt

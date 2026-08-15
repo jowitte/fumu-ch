@@ -22,7 +22,7 @@ interface Props {
   };
 }
 
-const { title, description = 'Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration', article } = Astro.props;
+const { title, description = 'Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem', article } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://fumu.ch';
 
@@ -46,7 +46,7 @@ const websiteLd = isHome ? {
   '@type': 'WebSite',
   name: 'fumu',
   url: siteUrl,
-  description: 'Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration im DACH-Raum.',
+  description: 'Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem. Schwerpunkt Schweiz, Radius Europa.',
   inLanguage: 'de-CH',
   publisher: {
     '@type': 'Organization',
@@ -62,7 +62,7 @@ const organizationLd = {
   name: 'fumu',
   url: siteUrl,
   logo: `${siteUrl}/favicon-32x32.png`,
-  description: 'Strategieberatung für Digital Advertising, AdTech/MarTech und AI-Integration',
+  description: 'Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem',
   email: 'hello@fumu.ch',
   foundingDate: '2024',
   founder: {
@@ -73,7 +73,7 @@ const organizationLd = {
     sameAs: ['https://linkedin.com/in/jochenwitte'],
   },
   areaServed: { '@type': 'GeoShape', name: 'DACH' },
-  knowsAbout: ['Digital Advertising', 'AdTech', 'MarTech', 'AI Integration', 'Programmatic Advertising'],
+  knowsAbout: ['KI-Transformation', 'Künstliche Intelligenz', 'Digital Advertising', 'AdTech', 'MarTech', 'Programmatic Advertising'],
 };
 
 // BreadcrumbList JSON-LD (auf allen Seiten ausser Home)

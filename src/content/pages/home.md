@@ -1,6 +1,6 @@
 ---
-title: "Strategieberatung für Digital Advertising und AI"
-description: "Unabhängige Strategieberatung für Digital Advertising, AdTech und AI-Integration im DACH-Raum. Von Jochen Witte, Zürich."
+title: "Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem"
+description: "Beratung für KI-Transformation im Medien-, Marketing- und Werbe-Ökosystem. Für Verlage, Vermarkter, Agenturen und Marken in der Schweiz und Europa."
 order: 1
 ---
 
