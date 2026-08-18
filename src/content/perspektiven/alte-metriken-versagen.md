@@ -7,7 +7,6 @@ image: "/images/perspektiven/alte-metriken-versagen-hero.webp"
 icon: "/images/perspektiven/icons/alte-metriken-versagen.webp"
 draft: false
 series: "ai-digitale-werbung"
-seriesPart: 6
 ---
 
 Eine starke Marke generiert 79% ihres Traffics organisch und 3% über Meta-Ads. Das Meta-Pixel sieht trotzdem 100% des Nutzerverhaltens und liefert es an die Plattform zurück. Meta nutzt diese Daten, um ihre Targeting-Modelle zu verbessern, und verkauft diese Modelle danach über ihre Werbeprodukte an Konkurrenzmarken: Die Marke zahlt für ihre eigene Demontage. Im Dashboard sieht alles grün aus. Dieses Beispiel trifft den Kern dessen, was in der Werbe-Messung seit langer Zeit passiert.

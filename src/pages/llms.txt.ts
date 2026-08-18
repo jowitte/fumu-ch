@@ -11,7 +11,7 @@ export const GET: APIRoute = async () => {
     .join('\n');
 
   const serienList = Object.entries(seriesRegistry)
-    .map(([slug, data]) => `- [${data.name}](https://fumu.ch/perspektiven/serien/${slug}/): ${data.teaser}`)
+    .map(([slug, data]) => `- [${data.name}](https://fumu.ch/perspektiven/themen/${slug}/): ${data.teaser}`)
     .join('\n');
 
   const body = `# fumu
@@ -30,7 +30,7 @@ fumu verbindet Strategie, Organisation und Technologie – damit aus technologis
 - [Kontakt & Newsletter](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren – und Newsletter-Anmeldung (AdTech, MarTech, AI-Integration)
 - [AI-Crawler-Radar](https://fumu.ch/ai-crawler-radar/): Welche AI-Crawler lassen gut 100 Sites in der robots.txt zu? Snapshot und Verlauf, alle 14 Tage erhoben – aktuelle Zahlen als Markdown unter https://fumu.ch/ai-crawler-radar.md
 
-## Serien
+## Themen
 
 ${serienList}
 

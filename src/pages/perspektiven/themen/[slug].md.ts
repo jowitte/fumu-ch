@@ -13,11 +13,13 @@ export const GET: APIRoute = async ({ props }) => {
   const slug = props.slug as string;
   const data = seriesRegistry[slug];
 
+  // Offener Themenbereich: neueste Perspektive zuerst; Teil-Labels nur bei
+  // erzähltem Bogen (seriesPart gesetzt).
   const parts = (await getCollection('perspektiven', ({ data }) => !data.draft && data.series === slug))
-    .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   const partsList = parts
-    .map(p => `- Teil ${p.data.seriesPart}: [${p.data.title}](https://fumu.ch/perspektiven/${p.id}/): ${p.data.description}`)
+    .map(p => `- ${p.data.seriesPart ? `Teil ${p.data.seriesPart}: ` : ''}[${p.data.title}](https://fumu.ch/perspektiven/${p.id}/): ${p.data.description}`)
     .join('\n');
 
   const callout = data.callout
@@ -28,7 +30,7 @@ export const GET: APIRoute = async ({ props }) => {
 
 _${data.teaser}_
 ${callout}
-## Teile
+## Perspektiven
 
 ${partsList}
 `;

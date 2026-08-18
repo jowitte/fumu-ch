@@ -16,27 +16,28 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
 ---
 
 <BaseLayout
-  title="Serien"
-  description="Perspektiven-Serien von fumu. Mehrteilige Analysen zu KI und Arbeit und zu den Verschiebungen der digitalen Werbung."
+  title="Themen"
+  description="Themenbereiche der fumu-Perspektiven: KI und Arbeit, AI in der digitalen Werbung, AI in den Medien."
 >
   <section class="evans-page">
     <div class="container">
-      <h1>Serien</h1>
+      <h1>Themen</h1>
 
       <p class="intro">
         Manche Themen tragen weiter als ein einzelner Post. Hier stehen die
-        Serien – jede Folge lesbar für sich, zusammen ergeben sie das Argument.
+        Themenbereiche – jede Perspektive lesbar für sich, zusammen ergeben
+        sie das Argument.
       </p>
 
       <hr class="section-divider" />
       <div class="series-grid">
         {
           seriesList.map((s) => (
-            <a href={`/perspektiven/serien/${s.slug}/`} class="series-item">
+            <a href={`/perspektiven/themen/${s.slug}/`} class="series-item">
               <div class="series-text">
                 <h2 class="series-name">{s.name}</h2>
                 <span class="series-count">
-                  {s.count} {s.count === 1 ? "Teil" : "Teile"}
+                  {s.count} {s.count === 1 ? "Perspektive" : "Perspektiven"}
                 </span>
                 <p class="series-teaser">{s.teaser}</p>
               </div>

@@ -7,7 +7,6 @@ image: "/images/perspektiven/zero-click-crawl-to-refer.webp"
 icon: "/images/perspektiven/icons/zero-click.webp"
 draft: false
 series: "ai-digitale-werbung"
-seriesPart: 3
 ---
 
 Knapp 24'000 mal crawlt ein Anthropic-Bot eine Website für einen Besucher, der an den Publisher zurückgeschickt wird. Durchschnitt erstes Quartal 2026, Cloudflare Radar. Vor einem Jahr waren es 286'000 – die Richtung stimmt, die Grössenordnung nicht. Wenn ich eine Zahl nennen müsste, die erklärt, was gerade passiert, wäre es diese.

@@ -27,7 +27,7 @@ ${entry.body ?? ''}`;
 _${p.data.description}_
 
 URL: https://fumu.ch/perspektiven/${p.id}/
-Datum: ${p.data.date.toISOString().split('T')[0]}${p.data.category ? `\nKategorie: ${p.data.category}` : ''}${p.data.series && seriesRegistry[p.data.series] ? `\nSerie: ${seriesRegistry[p.data.series].name} (Teil ${p.data.seriesPart}) – https://fumu.ch/perspektiven/serien/${p.data.series}/` : ''}
+Datum: ${p.data.date.toISOString().split('T')[0]}${p.data.category ? `\nKategorie: ${p.data.category}` : ''}${p.data.series && seriesRegistry[p.data.series] ? `\nThema: ${seriesRegistry[p.data.series].name}${p.data.seriesPart ? ` (Teil ${p.data.seriesPart})` : ''} – https://fumu.ch/perspektiven/themen/${p.data.series}/` : ''}
 
 ${p.body ?? ''}`;
 

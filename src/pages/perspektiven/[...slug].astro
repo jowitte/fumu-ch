@@ -21,13 +21,14 @@ const formatDate = (date: Date) => {
 
 const postAuthors = resolveAuthors(post.data.authors);
 
-// Serien-Kontext: Hinweis oben + Vor/Zurück-Navigation am Ende.
+// Themen-Kontext: Hinweis oben + Fussnavigation am Ende. Vor/Zurück nur bei
+// erzähltem Bogen (seriesPart gesetzt), sonst nur «Mehr aus diesem Thema».
 const seriesSlug = post.data.series;
 const seriesData = getSeries(seriesSlug);
 let prevPost: typeof post | null = null;
 let nextPost: typeof post | null = null;
-if (seriesSlug && seriesData) {
-  const seriesParts = (await getCollection('perspektiven', ({ data }) => !data.draft && data.series === seriesSlug))
+if (seriesSlug && seriesData && post.data.seriesPart) {
+  const seriesParts = (await getCollection('perspektiven', ({ data }) => !data.draft && data.series === seriesSlug && data.seriesPart != null))
     .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
   const idx = seriesParts.findIndex(p => p.id === post.id);
   prevPost = idx > 0 ? seriesParts[idx - 1] : null;
@@ -56,8 +57,10 @@ if (seriesSlug && seriesData) {
         </div>
         <div class="evans-content">
           {seriesData && seriesSlug && (
-            <a href={`/perspektiven/serien/${seriesSlug}/`} class="series-hint">
-              Teil {post.data.seriesPart} der Serie <strong>{seriesData.name}</strong>
+            <a href={`/perspektiven/themen/${seriesSlug}/`} class="series-hint">
+              {post.data.seriesPart
+                ? <>Teil {post.data.seriesPart} im Thema <strong>{seriesData.name}</strong></>
+                : <>Aus dem Thema <strong>{seriesData.name}</strong></>}
             </a>
           )}
           <h1 class="post-title">{post.data.title}</h1>
@@ -70,7 +73,7 @@ if (seriesSlug && seriesData) {
           </aside>
           <footer>
             {seriesData && (prevPost || nextPost) && (
-              <nav class="series-nav" aria-label={`Navigation innerhalb der Serie ${seriesData.name}`}>
+              <nav class="series-nav" aria-label={`Navigation innerhalb des Themas ${seriesData.name}`}>
                 {prevPost ? (
                   <a href={`/perspektiven/${prevPost.id}/`} class="series-nav-link series-nav-prev">
                     <span class="series-nav-dir">&larr; Vorheriger Teil</span>
@@ -84,6 +87,11 @@ if (seriesSlug && seriesData) {
                   </a>
                 ) : <span class="series-nav-spacer"></span>}
               </nav>
+            )}
+            {seriesData && seriesSlug && (
+              <a href={`/perspektiven/themen/${seriesSlug}/`} class="series-more">
+                Mehr aus dem Thema <strong>{seriesData.name}</strong> &rarr;
+              </a>
             )}
             <a href="/perspektiven/" class="back-link">&larr; Alle Perspektiven</a>
           </footer>
@@ -287,6 +295,25 @@ if (seriesSlug && seriesData) {
 
   .series-nav-link:hover .series-nav-title {
     color: var(--color-coral);
+  }
+
+  .series-more {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+
+  .series-more strong {
+    font-weight: 600;
+    color: var(--color-coral);
+  }
+
+  .series-more:hover strong {
+    text-decoration: underline;
   }
 
   .post-newsletter {

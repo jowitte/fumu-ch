@@ -3,6 +3,7 @@ title: "Wenn robots.txt zur Vertragsklausel wird"
 description: "SRF und RTS sperren Trainings-Crawler aus, die NZZ hält alles zu, 20 Minuten lässt alles rein – was die robots.txt über die AI-Strategie der Verlage verrät."
 date: 2026-08-18
 category: "KI & AdTech"
+series: "ai-medien"
 image: "/images/perspektiven/robots-txt-vertragsklausel-heatmap.webp"
 icon: "/images/perspektiven/icons/robots-txt-vertragsklausel.webp"
 draft: false

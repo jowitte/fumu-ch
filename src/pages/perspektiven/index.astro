@@ -37,11 +37,10 @@ for (const post of posts) {
   }
 }
 
-// Serien-Block: Anzahl publizierter Teile pro Serie aus den geladenen Posts.
+// Themen-Block aus der Registry.
 const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
   slug,
   ...data,
-  partCount: posts.filter((p) => p.data.series === slug).length,
 }));
 ---
 
@@ -63,9 +62,8 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
         seriesList.map((s) => (
           <aside class={`series-callout callout-${s.color}`}>
             <div class="callout-body">
-              <span class="callout-label">Serie · {s.partCount} Teile</span>
               <h2 class="callout-title">
-                <a href={`/perspektiven/serien/${s.slug}/`}>{s.name}</a>
+                <a href={`/perspektiven/themen/${s.slug}/`}>{s.name}</a>
               </h2>
               <p class="callout-text">{s.cardTeaser}</p>
               {s.callout && (
@@ -74,8 +72,8 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
                   set:html={renderInlineLinks(s.callout.text)}
                 />
               )}
-              <a class="callout-button" href={`/perspektiven/serien/${s.slug}/`}>
-                Zur Serie
+              <a class="callout-button" href={`/perspektiven/themen/${s.slug}/`}>
+                Zum Thema
               </a>
             </div>
             {s.icon && (
@@ -107,10 +105,10 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
                     </a>
                     {post.data.series && seriesRegistry[post.data.series] && (
                       <a
-                        href={`/perspektiven/serien/${post.data.series}/`}
+                        href={`/perspektiven/themen/${post.data.series}/`}
                         class="series-tag"
                       >
-                        Serie: {seriesRegistry[post.data.series].name}
+                        Thema: {seriesRegistry[post.data.series].name}
                       </a>
                     )}
                   </div>
@@ -161,6 +159,10 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
     background: var(--color-lavender);
   }
 
+  .callout-sand {
+    background: var(--color-sand);
+  }
+
   .callout-body {
     max-width: 600px;
   }
@@ -191,22 +193,11 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
     color: var(--color-bg);
   }
 
-  .callout-label {
-    display: block;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-coral);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: var(--space-xs);
-  }
-
   .callout-title {
     font-family: var(--font-sans);
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 500;
-    margin: 0 0 var(--space-xs) 0;
+    margin: 0 0 var(--space-sm) 0;
   }
 
   .callout-title a {

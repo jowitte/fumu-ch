@@ -1,3 +1,7 @@
+# Themenbereich-Umbau (2026-08): Serien -> Themen
+/perspektiven/serien/            /perspektiven/themen/         301
+/perspektiven/serien/*           /perspektiven/themen/:splat   301
+
 # 301 Redirects: WordPress -> Astro Migration (2026-03)
 # Kann entfernt werden, sobald Google die alten URLs deindexiert hat.
 

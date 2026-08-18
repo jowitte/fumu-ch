@@ -13,8 +13,10 @@ export async function getStaticPaths() {
 
 const { slug, seriesData } = Astro.props;
 
+// Offener Themenbereich: neueste Perspektive zuerst. Teil-Labels (seriesPart)
+// markieren nur die Lesereihenfolge eines erzählten Bogens, nicht die Sortierung.
 const parts = (await getCollection('perspektiven', ({ data }) => !data.draft && data.series === slug))
-  .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
@@ -46,15 +48,17 @@ const formatDate = (date: Date) => {
       <hr class="section-divider" />
       <div class="evans-section">
         <div class="evans-label">
-          <h2>Teile</h2>
+          <h2>Perspektiven</h2>
         </div>
         <div class="evans-content">
           {parts.map(post => (
             <a href={`/perspektiven/${post.id}/`} class="post-item">
-              <span class="part-no">Teil {post.data.seriesPart}</span>
+              <span class="post-date">{formatDate(post.data.date)}</span>
               <div class="post-body">
+                {post.data.seriesPart && (
+                  <span class="part-no">Teil {post.data.seriesPart}</span>
+                )}
                 <h3 class="post-title">{post.data.title}</h3>
-                <span class="post-date">{formatDate(post.data.date)}</span>
                 <p class="post-excerpt">{post.data.description}</p>
               </div>
             </a>
@@ -189,13 +193,23 @@ const formatDate = (date: Date) => {
     text-decoration: none;
   }
 
+  .post-date {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-light);
+    letter-spacing: 0.5px;
+    padding-top: 4px;
+  }
+
   .part-no {
     font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 600;
     color: var(--color-coral);
     letter-spacing: 0.5px;
-    padding-top: 4px;
+    display: block;
+    margin-bottom: var(--space-xs);
   }
 
   .post-title {
@@ -206,16 +220,6 @@ const formatDate = (date: Date) => {
     line-height: 1.2;
     margin: 0 0 var(--space-xs) 0;
     transition: color 0.15s;
-  }
-
-  .post-date {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    letter-spacing: 0.5px;
-    display: block;
-    margin-bottom: var(--space-sm);
   }
 
   .post-excerpt {

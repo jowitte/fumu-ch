@@ -7,7 +7,6 @@ image: "/images/perspektiven/drei-aeren-brand.webp"
 icon: "/images/perspektiven/icons/das-doppelte-unbundling.webp"
 draft: false
 series: "ai-digitale-werbung"
-seriesPart: 1
 ---
 
 Was passiert mit der digitalen Werbung, wenn Nutzer aufhören, Websites zu besuchen? Nicht weil sie das Internet verlassen, sondern weil die Antwort jetzt direkt im Chat erscheint. Kein Klick. Kein Pageview. Kein Banner.

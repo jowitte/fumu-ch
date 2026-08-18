@@ -7,7 +7,6 @@ image: "/images/perspektiven/agentic-intent-drei-schichten.webp"
 icon: "/images/perspektiven/icons/ende-der-billigen-kampagne.webp"
 draft: false
 series: "ai-digitale-werbung"
-seriesPart: 4
 ---
 
 Meta hat angekündigt, bis Ende 2026 Kampagnen vollautomatisch zu fahren: Werbetreibende geben nur noch Ziel und Budget ein. Das klingt nach einer Zäsur. Es ist keine, sondern der bisher deutlichste Punkt auf einer Linie, die lange vorher begonnen hat. Die grossen Plattformen arbeiten seit Jahren daran, operative Aufgaben aus den Händen der Werbetreibenden zu nehmen: Google mit Performance Max, Meta mit Advantage+, alle grossen Walled Gardens mit zunehmend automatisierten Defaults. Was neu ist, ist nicht die Technik. Es ist die Umkehrung der Ökonomie.
