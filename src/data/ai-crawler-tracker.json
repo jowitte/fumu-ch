@@ -4,9 +4,9 @@
     "site_count": 108,
     "crawler_count": 20,
     "cadence_days": 14,
-    "generated_at": "2026-08-17T09:01:06.961968+02:00"
+    "generated_at": "2026-08-18T09:47:12.091016+02:00"
   },
-  "headline": "Snapshot 2026-08-17: 1920 Veränderungen auf 96 Sites.",
+  "headline": "Snapshot 2026-08-17: 53 Veränderungen auf 9 Sites.",
   "by_category": [
     {
       "category": "brand",
@@ -362,26 +362,6 @@
       }
     },
     {
-      "date": "2026-07-20",
-      "by_category": {
-        "brand": 0.0,
-        "ecommerce": 0.0,
-        "platform": 0.0,
-        "publisher_open": 0.0,
-        "publisher_paywall": 0.0
-      }
-    },
-    {
-      "date": "2026-08-03",
-      "by_category": {
-        "brand": 0.0,
-        "ecommerce": 0.0,
-        "platform": 0.0,
-        "publisher_open": 0.0,
-        "publisher_paywall": 0.0
-      }
-    },
-    {
       "date": "2026-08-17",
       "by_category": {
         "brand": 0.0118,
@@ -395,23 +375,9 @@
   "runs": [
     {
       "date": "2026-08-17",
-      "changes": 1920,
-      "sites_changed": 96,
-      "summary": "1920 Veränderungen auf 96 Sites (20 Minuten, AP, About You, u.a.).",
-      "commentary": null
-    },
-    {
-      "date": "2026-08-03",
-      "changes": 0,
-      "sites_changed": 0,
-      "summary": "Keine Veränderungen gegenüber dem Vor-Snapshot.",
-      "commentary": null
-    },
-    {
-      "date": "2026-07-20",
-      "changes": 1920,
-      "sites_changed": 96,
-      "summary": "1920 Veränderungen auf 96 Sites (20 Minuten, AP, About You, u.a.).",
+      "changes": 53,
+      "sites_changed": 9,
+      "summary": "53 Veränderungen auf 9 Sites (LinkedIn, RTS, SRF, u.a.).",
       "commentary": null
     },
     {

@@ -122,7 +122,7 @@ Zwei eigene Plugins verarbeiten jedes Markdown vor dem Render:
 |----------|-----|------------|
 | `--color-coral` | #C44540 | Primärfarbe (Logo, CTAs, Linien, Headlines, Links) |
 | `--color-primary` | #223A5E | Tertiär (dunkle Akzente) |
-| `--color-bg` | #F0EEE6 | Seitenhintergrund (ivory, warme Flächen-Palette) |
+| `--color-bg` | #FBFAF7 | Seitenhintergrund (helles warmes Off-White) |
 | `--color-sage` | #C3CFC7 | Karten-Pastell |
 | `--color-lavender` | #C9C5DA | Karten-Pastell |
 | `--color-text` | #414141 | Fliesstext |
@@ -134,10 +134,10 @@ Zwei eigene Plugins verarbeiten jedes Markdown vor dem Render:
 
 ### Typografie
 
-- Body: `var(--font-sans)` – IBM Plex Sans, 16px, 400
+- Body: `var(--font-sans)` – IBM Plex Sans, 16px, 400; echter Italic-Schnitt gehostet (`ibm-plex-sans-italic-*.woff2`, nur weight 400 – Bold-Kursiv ist bewusst nicht dabei). Verwendungsregel für Kursiv: Akasha-Vault `Aufwände/FUMU/CLAUDE.md` > Schreibstile > Kursiv.
 - Headings: `var(--font-serif)` – Fraunces, 600
-- H1/H2: 20px, H3: 17px, H4: 14px
-- Hero-Titel: 48px, Fraunces, 400, Coral
+- H1: 56px (Fraunces, 400), H2: 28px, H3: 22px, H4: 18px, H5/H6: 16px – H2+ in IBM Plex Sans, 500, Coral
+- Hero-Titel: eigene Grösse in `index.astro`, Fraunces, 400, Coral
 
 ### Spacing
 

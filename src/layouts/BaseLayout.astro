@@ -156,7 +156,7 @@ const ogType = article ? 'article' : 'website';
   {article && <meta property="article:published_time" content={article.date.toISOString().split('T')[0]} />}
   {article && articleAuthors.map(a => <meta property="article:author" content={a.name} />)}
   <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/ibm-plex-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
   <script type="application/ld+json" set:html={JSON.stringify(organizationLd)} />
   {websiteLd && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
   {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
