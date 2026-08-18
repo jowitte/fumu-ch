@@ -134,7 +134,7 @@ Zwei eigene Plugins verarbeiten jedes Markdown vor dem Render:
 
 ### Typografie
 
-- Body: `var(--font-sans)` – IBM Plex Sans, 16px, 400; echter Italic-Schnitt gehostet (`ibm-plex-sans-italic-*.woff2`, nur weight 400 – Bold-Kursiv ist bewusst nicht dabei). Verwendungsregel für Kursiv: Akasha-Vault `Aufwände/FUMU/CLAUDE.md` > Schreibstile > Kursiv.
+- Body: `var(--font-sans)` – IBM Plex Sans, 16px, 400; echter Italic-Schnitt gehostet (`ibm-plex-sans-italic-*.woff2`, nur weight 400 – Bold-Kursiv ist bewusst nicht dabei). Verwendungsregel für Auszeichnungen: Akasha-Vault `var/references/STILREGELN.md` > Auszeichnungen.
 - Headings: `var(--font-serif)` – Fraunces, 600
 - H1: 56px (Fraunces, 400), H2: 28px, H3: 22px, H4: 18px, H5/H6: 16px – H2+ in IBM Plex Sans, 500, Coral
 - Hero-Titel: eigene Grösse in `index.astro`, Fraunces, 400, Coral
