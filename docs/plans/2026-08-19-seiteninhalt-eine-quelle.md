@@ -73,7 +73,7 @@ Für Frontmatter-Felder, die die Collection heute liefert (`title`, `description
 - [x] Gegenprobe: `/about/`, `/about.md` und `/llms-full.txt` vor und nach dem Umbau vergleichen – der sichtbare Text muss identisch sein
 - [x] `was-wir-tun` überführen (gleiches Muster, nur `item`-Typen)
 - [x] `kontakt` überführen (Sonderfall `component: 'newsletter'`)
-- [ ] Build grün, lokales Review, Deploy
+- [x] Build grün, lokales Review, Deploy (Commit 143ffca, live geprüft: HTML, .md und llms-full.txt für alle drei Seiten)
 
 ## Beobachtungen aus der Umsetzung
 
