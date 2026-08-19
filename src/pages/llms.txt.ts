@@ -20,7 +20,7 @@ export const GET: APIRoute = async () => {
 
 ## Über uns
 
-fumu verbindet Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird. Gegründet von Jochen Witte, vereint fumu Startup-Erfahrung, strategische Disziplin (McKinsey) und technisches Tiefenverständnis.
+fumu verbindet Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird. Gegründet von Jochen Witte, vereint fumu Startup-Erfahrung, strategische Disziplin und technisches Tiefenverständnis.
 
 ## Seiten
 
