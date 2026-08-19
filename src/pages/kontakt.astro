@@ -1,59 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NewsletterSignup from '../components/NewsletterSignup.astro';
+import EvansSection from '../components/EvansSection.astro';
+import { kontakt } from '../data/pages/kontakt';
 ---
 
-<BaseLayout title="Kontakt & Newsletter" description="Lass uns sprechen – oder abonniere den fumu-Newsletter: Perspektiven darauf, wie aus Technologie Wirkung wird, gelegentlich per E-Mail.">
+<BaseLayout title={kontakt.title} description={kontakt.description}>
 
   <section class="evans-page">
     <div class="container">
 
-      <h1>Kontakt &amp; Newsletter</h1>
+      <h1>{kontakt.title}</h1>
 
-      <p class="intro">Du stehst vor einer strategischen oder technologischen Veränderung und suchst einen Sparringspartner, der Strategie, Organisation und Technologie zusammendenkt? Lass uns reden.</p>
+      <p class="intro">{kontakt.intro}</p>
 
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Termin</h2>
-        </div>
-        <div class="evans-content">
-          <div class="evans-item">
-            <h3>25 Minuten Kennenlernen</h3>
-            <p>Kein Pitch, kein Verkaufsgespräch – wir schauen gemeinsam, ob und wie wir helfen können.</p>
-            <a href="https://fantastical.app/jowitte/25min-video" class="cta-link" target="_blank" rel="noopener">Termin vereinbaren &rarr;</a>
-          </div>
-        </div>
-      </div>
-
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>E-Mail</h2>
-        </div>
-        <div class="evans-content">
-          <div class="evans-item">
-            <p>Konkrete Anfrage? Schreib uns direkt – wir antworten innerhalb von 24 Stunden.</p>
-            <a href="mailto:hello@fumu.ch" class="cta-link">hello@fumu.ch</a>
-          </div>
-        </div>
-      </div>
-
-      <hr class="section-divider" />
-
-      <div class="evans-section" id="newsletter">
-        <div class="evans-label">
-          <h2>Newsletter</h2>
-        </div>
-        <div class="evans-content">
-          <div class="evans-item">
-            <p>Perspektiven darauf, wie aus Technologie Wirkung wird – gelegentlich, ohne Lärm, direkt in dein Postfach.</p>
-            <NewsletterSignup />
-          </div>
-        </div>
-      </div>
+      {kontakt.sections.map(section => (
+        <>
+          <hr class="section-divider" />
+          <EvansSection section={section} sticky={false} />
+        </>
+      ))}
 
     </div>
   </section>
@@ -76,77 +41,7 @@ import NewsletterSignup from '../components/NewsletterSignup.astro';
     margin: 0;
   }
 
-  .evans-section {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 0;
-    margin: var(--space-xl) 0;
-  }
-
-  .evans-label {
-    padding: 0 var(--space-lg) 0 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .evans-label h2 {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0;
-  }
-
-  .evans-content {
-    border-left: 1px solid var(--color-coral);
-    padding: 0 0 0 var(--space-lg);
-  }
-
-  .evans-item h3 {
-    font-family: var(--font-sans);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0 0 var(--space-sm) 0;
-  }
-
-  .evans-item p {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0 0 var(--space-md) 0;
-    max-width: 600px;
-  }
-
-  .cta-link {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-coral);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .cta-link:hover {
-    text-decoration: none;
-  }
-
   @media (max-width: 768px) {
-    .evans-section {
-      grid-template-columns: 1fr;
-    }
-
-    .evans-label {
-      padding: var(--space-lg) 0 0 0;
-    }
-
-    .evans-content {
-      border-left: none;
-      border-top: 1px solid var(--color-coral);
-      padding: var(--space-md) 0 0 0;
-    }
-
     .intro {
       font-size: 18px;
       margin: 0 0 var(--space-lg) 0;

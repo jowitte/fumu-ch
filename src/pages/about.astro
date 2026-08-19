@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EvansSection from '../components/EvansSection.astro';
+import { about } from '../data/pages/about';
 
 const personLd = {
   '@context': 'https://schema.org',
@@ -34,140 +36,23 @@ const personLd = {
 };
 ---
 
-<BaseLayout title="Über fumu" description="Wer wir sind und wie wir arbeiten. Startup-Erfahrung trifft strategische Disziplin und technisches Tiefenverständnis.">
+<BaseLayout title={about.title} description={about.description}>
 
   <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
 
   <section class="evans-page">
     <div class="container">
 
-      <h1>Über fumu</h1>
+      <h1>{about.title}</h1>
 
-      <p class="intro">Startup-Erfahrung trifft strategische Disziplin. Wir denken in Zusammenhängen, nicht in Silos – und übersetzen zwischen Technik, Organisation und Business.</p>
+      <p class="intro">{about.intro}</p>
 
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Gründer</h2>
-        </div>
-        <div class="evans-content">
-          <div class="person" id="jochen-witte">
-            <img src="/images/jochen-witte.jpg" alt="Jochen Witte" class="person-img" loading="lazy" decoding="async" />
-            <div class="person-info">
-              <h3>Jochen Witte</h3>
-              <span class="evans-tag">Strategie & Umsetzungsbegleitung</span>
-              <p>20+ Jahre Digital – Startup-Gründer, Technologie-Chef in Medienhäusern, Strategieberater und AdTech-Experte. Systemische Ausbildung. Konzeption, Projektsteuerung, Sparring.</p>
-              <a href="https://www.linkedin.com/in/jochenwitte/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
-          </div>
-          <div class="testimonial">
-            <blockquote>
-              <p>&laquo;Seit OneLog im Werbemarkt tätig ist, begleitet uns Jochen – als einer der wenigen, die die Medien- und Werbebranche und die Technologie dahinter gleichermassen verstehen. Er arbeitet ausgesprochen analytisch, bringt komplexe Sachverhalte schnell auf den Punkt und treibt Themen aus eigenem Antrieb voran. In einer Allianz von vier Medienhäusern ist er der Externe, dem alle vertrauen.&raquo;</p>
-              <cite>Silvano Oeschger, CEO OneLog AG</cite>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Netzwerk</h2>
-        </div>
-        <div class="evans-content">
-          <div class="person" id="stefan-ropte">
-            <img src="/images/stefan-ropte.png" alt="Stefan Ropte" class="person-img" loading="lazy" decoding="async" />
-            <div class="person-info">
-              <h3>Stefan Ropte</h3>
-              <span class="evans-tag">Requirements & Umsetzung</span>
-              <p>20+ Jahre IT/AdTech/MarTech – ADvendio MD, ProSiebenSat.1. Requirements Engineering, Vendor-Evaluation, Pilotierung. Business Requirements, Evaluationsmatrix, Prototypen.</p>
-              <a href="https://www.linkedin.com/in/stefan-ropte-08b7044a/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
-          </div>
-          <div class="person" id="lukas-goeroeg">
-            <img src="/images/lukas-goeroeg.png" alt="Lukas Görög" class="person-img" loading="lazy" decoding="async" />
-            <div class="person-info">
-              <h3>Lukas Görög</h3>
-              <span class="evans-tag">KI Akademie</span>
-              <p>KI-Strategie und Befähigung für Organisationen. <a href="https://akademie-ki.ch" target="_blank" rel="noopener">Schulungen, Workshops und Begleitung</a> auf dem Weg zur systematischen KI-Nutzung.</p>
-              <a href="https://www.linkedin.com/in/lukasgorog/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
-          </div>
-          <div class="person" id="daniel-tschudi">
-            <img src="/images/daniel-tschudi.png" alt="Daniel Tschudi" class="person-img" loading="lazy" decoding="async" />
-            <div class="person-info">
-              <h3>Daniel Tschudi</h3>
-              <span class="evans-tag">Transformation & EdTech</span>
-              <p>Organisationsentwicklung und agile Transformation. Studiengangsleiter und Dozent an mehreren Schulen. EdTech-Initiativen für den Schweizer Bildungsmarkt – Timeline Education, <a href="https://marketing-hub.online" target="_blank" rel="noopener">marketing-hub.online</a> und <a href="https://hfexamplanner.com" target="_blank" rel="noopener">hfexamplanner.com</a>.</p>
-              <a href="https://www.linkedin.com/in/daniel-tschudi-a2954125/" class="linkedin-link" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Wie wir arbeiten</h2>
-        </div>
-        <div class="evans-content">
-          <div class="evans-item">
-            <h3>Zuhören, bevor wir raten</h3>
-            <p>Jede Organisation ist anders. Wir verstehen zuerst, bevor wir empfehlen.</p>
-          </div>
-          <div class="evans-item">
-            <h3>Herausfordern – konstruktiv</h3>
-            <p>Wir sagen, was wir denken. Auch wenn es unbequem ist.</p>
-          </div>
-          <div class="evans-item">
-            <h3>Verantwortung übernehmen</h3>
-            <p>Wir stehen zu unseren Empfehlungen und begleiten die Umsetzung.</p>
-          </div>
-          <div class="evans-item">
-            <h3>Transparent arbeiten</h3>
-            <p>Keine Black Box. Unsere Arbeit ist nachvollziehbar.</p>
-          </div>
-          <div class="testimonial">
-            <blockquote>
-              <p>&laquo;Jochen hat uns während unseres Strategieprozesses mit klarer Struktur, proaktiver Kommunikation und fundierter Analyse unterstützt. Seine pragmatische Vorgehensweise war bestens auf unsere Bedürfnisse abgestimmt – besonders überzeugend war seine Fähigkeit, externe Beraterperspektive mit praxisnaher Begleitung zu verbinden.&raquo;</p>
-              <cite>Bettina Schoch &amp; Marcel Wehrle, emonitor AG</cite>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Typische Formate</h2>
-        </div>
-        <div class="evans-content">
-          <div class="evans-item">
-            <span class="evans-tag">8–16 Wochen</span>
-            <h3>Strategische Begleitung</h3>
-            <p>Strukturierte Analyse, Optionenbewertung und Entscheidungsvorlage – von der ersten Hypothese bis zur boardreifen Empfehlung.</p>
-          </div>
-          <div class="evans-item">
-            <span class="evans-tag">6–18 Monate</span>
-            <h3>Interim Leadership</h3>
-            <p>Operative Verantwortung für Transformationsprojekte übernehmen – Strukturen aufbauen, Teams befähigen, Ergebnisse liefern.</p>
-          </div>
-          <div class="evans-item">
-            <span class="evans-tag">Laufend</span>
-            <h3>Sparring</h3>
-            <p>Regelmässiger Austausch auf Augenhöhe für Entscheider – Ideen testen, blinde Flecken aufdecken, Prioritäten schärfen.</p>
-          </div>
-          <div class="evans-item">
-            <span class="evans-tag">1–5 Tage</span>
-            <h3>KI-Schulungen & Workshops</h3>
-            <p>Praxisnahe Befähigung für Teams und Führungskräfte – von der ersten KI-Orientierung bis zur strategischen Integration. In Kooperation mit der Akademie KI.</p>
-          </div>
-        </div>
-      </div>
+      {about.sections.map(section => (
+        <>
+          <hr class="section-divider" />
+          <EvansSection section={section} />
+        </>
+      ))}
 
     </div>
   </section>
@@ -190,178 +75,10 @@ const personLd = {
     margin: 0;
   }
 
-  .evans-section {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 0;
-    margin: var(--space-xl) 0;
-  }
-
-  .evans-label {
-    padding: 0 var(--space-lg) 0 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .evans-label h2 {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0;
-    position: sticky;
-    top: 80px;
-  }
-
-  .evans-content {
-    border-left: 1px solid var(--color-coral);
-    padding: 0 0 0 var(--space-lg);
-  }
-
-  .person {
-    display: flex;
-    gap: var(--space-lg);
-    align-items: flex-start;
-    margin-bottom: var(--space-xl);
-  }
-
-  .person:last-child {
-    margin-bottom: 0;
-  }
-
-  .person-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .person-info {
-    flex: 1;
-  }
-
-  .person-info h3 {
-    font-family: var(--font-sans);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0 0 var(--space-xs) 0;
-  }
-
-  .person-info p {
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: var(--space-sm) 0 0 0;
-    max-width: 600px;
-  }
-
-
-  .testimonial blockquote {
-    margin: 0;
-    max-width: 720px;
-  }
-
-  .testimonial p {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-style: italic;
-    line-height: 1.7;
-    color: var(--color-text);
-    margin: 0 0 var(--space-md) 0;
-  }
-
-  .testimonial cite {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    font-style: normal;
-    color: var(--color-text-light);
-  }
-
-  .linkedin-link {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-coral);
-    display: inline-block;
-    margin-top: var(--space-sm);
-  }
-
-  .linkedin-link:hover {
-    text-decoration: none;
-  }
-
-  .evans-tag {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: block;
-    margin-bottom: var(--space-xs);
-  }
-
-  .evans-item {
-    margin-bottom: var(--space-xl);
-  }
-
-  .evans-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .evans-item h3 {
-    font-family: var(--font-sans);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0 0 var(--space-sm) 0;
-  }
-
-  .evans-item p {
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
-    max-width: 600px;
-  }
-
   @media (max-width: 768px) {
-    .evans-section {
-      grid-template-columns: 1fr;
-    }
-
-    .evans-label {
-      padding: var(--space-lg) 0 0 0;
-    }
-
-    .evans-label h2 {
-      position: static;
-    }
-
-    .evans-content {
-      border-left: none;
-      border-top: 1px solid var(--color-coral);
-      padding: var(--space-md) 0 0 0;
-    }
-
     .intro {
       font-size: 18px;
       margin: 0 0 var(--space-lg) 0;
-    }
-
-    .person {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .person-info p {
-      max-width: none;
     }
   }
 </style>

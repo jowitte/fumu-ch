@@ -1,25 +1,24 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { series as seriesRegistry } from '../data/series';
+import { resolvePages } from '../data/pages';
 
 export const GET: APIRoute = async () => {
   const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-  const pages = (await getCollection('pages')).sort(
-    (a, b) => a.data.order - b.data.order,
-  );
+  const pages = await resolvePages();
 
   const pageUrl = (id: string) =>
     id === 'home' ? 'https://fumu.ch/' : `https://fumu.ch/${id}/`;
 
-  const renderPage = (entry: (typeof pages)[number]) =>
-    `## ${entry.data.title}
+  const renderPage = (page: (typeof pages)[number]) =>
+    `## ${page.title}
 
-_${entry.data.description}_
+_${page.description}_
 
-URL: ${pageUrl(entry.id)}
+URL: ${pageUrl(page.id)}
 
-${entry.body ?? ''}`;
+${page.body}`;
 
   const renderPost = (p: (typeof posts)[number]) =>
     `## ${p.data.title}

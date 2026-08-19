@@ -1,0 +1,266 @@
+---
+import NewsletterSignup from './NewsletterSignup.astro';
+import type { Rich, Section } from '../data/pages/types';
+
+interface Props {
+  section: Section;
+  /** Label-Spalte mitlaufen lassen (about, was-wir-tun) – auf /kontakt/ steht sie still. */
+  sticky?: boolean;
+}
+
+const { section, sticky = true } = Astro.props;
+
+/** Rich-Text in Segmente zerlegen, damit Links ohne Markdown-Parsing entstehen. */
+const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
+---
+
+<div class="evans-section" id={section.id}>
+  <div class="evans-label">
+    <h2 class:list={[{ sticky }]}>{section.label}</h2>
+  </div>
+  <div class="evans-content">
+    {section.items.map(item => {
+      if (item.kind === 'person') {
+        return (
+          <div class="person" id={item.anchor}>
+            <img src={item.image} alt={item.name} class="person-img" loading="lazy" decoding="async" />
+            <div class="person-info">
+              <h3>{item.name}</h3>
+              <span class="evans-tag">{item.tag}</span>
+              <p>
+                {parts(item.body).map(part =>
+                  typeof part === 'string'
+                    ? part
+                    : <a href={part.href} target={part.external ? '_blank' : undefined} rel={part.external ? 'noopener' : undefined}>{part.label}</a>
+                )}
+              </p>
+              {item.links.map(l => (
+                <a href={l.href} class="linkedin-link" target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>{l.label}</a>
+              ))}
+            </div>
+          </div>
+        );
+      }
+
+      if (item.kind === 'quote') {
+        return (
+          <div class="testimonial">
+            <blockquote>
+              <p>&laquo;{item.text}&raquo;</p>
+              <cite>{item.cite}</cite>
+            </blockquote>
+          </div>
+        );
+      }
+
+      return (
+        <div class="evans-item">
+          {item.tag && <span class="evans-tag">{item.tag}</span>}
+          {item.title && <h3>{item.title}</h3>}
+          <p>
+            {parts(item.body).map(part =>
+              typeof part === 'string'
+                ? part
+                : <a href={part.href} target={part.external ? '_blank' : undefined} rel={part.external ? 'noopener' : undefined}>{part.label}</a>
+            )}
+          </p>
+          {item.cta && (
+            <a href={item.cta.href} class="cta-link" target={item.cta.external ? '_blank' : undefined} rel={item.cta.external ? 'noopener' : undefined}>
+              {item.cta.label}{item.cta.arrow && <> &rarr;</>}
+            </a>
+          )}
+          {item.component?.name === 'newsletter' && <NewsletterSignup />}
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  .evans-section {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    margin: var(--space-xl) 0;
+  }
+
+  .evans-label {
+    padding: 0 var(--space-lg) 0 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .evans-label h2 {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-coral);
+    margin: 0;
+  }
+
+  .evans-label h2.sticky {
+    position: sticky;
+    top: 80px;
+  }
+
+  .evans-content {
+    border-left: 1px solid var(--color-coral);
+    padding: 0 0 0 var(--space-lg);
+  }
+
+  .evans-item {
+    margin-bottom: var(--space-xl);
+  }
+
+  .evans-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .evans-tag {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .evans-item h3 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-coral);
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  .evans-item p {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
+    max-width: 600px;
+  }
+
+  .cta-link {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-coral);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-top: var(--space-md);
+  }
+
+  .cta-link:hover {
+    text-decoration: none;
+  }
+
+  .person {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+  }
+
+  .person:last-child {
+    margin-bottom: 0;
+  }
+
+  .person-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .person-info {
+    flex: 1;
+  }
+
+  .person-info h3 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-coral);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .person-info p {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: var(--space-sm) 0 0 0;
+    max-width: 600px;
+  }
+
+  .linkedin-link {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-coral);
+    display: inline-block;
+    margin-top: var(--space-sm);
+  }
+
+  .linkedin-link:hover {
+    text-decoration: none;
+  }
+
+  .testimonial blockquote {
+    margin: 0;
+    max-width: 720px;
+  }
+
+  .testimonial p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .testimonial cite {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 768px) {
+    .evans-section {
+      grid-template-columns: 1fr;
+    }
+
+    .evans-label {
+      padding: var(--space-lg) 0 0 0;
+    }
+
+    .evans-label h2.sticky {
+      position: static;
+    }
+
+    .evans-content {
+      border-left: none;
+      border-top: 1px solid var(--color-coral);
+      padding: var(--space-md) 0 0 0;
+    }
+
+    .person {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .person-info p {
+      max-width: none;
+    }
+  }
+</style>

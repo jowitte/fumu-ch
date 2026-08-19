@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EvansSection from '../components/EvansSection.astro';
+import { wasWirTun } from '../data/pages/was-wir-tun';
 
 const serviceLd = {
   '@context': 'https://schema.org',
@@ -41,66 +43,23 @@ const serviceLd = {
 };
 ---
 
-<BaseLayout title="Was wir tun" description="Beratung für KI-Transformation in Medien, Marketing und Werbung: Strategie, Organisation, Prozesse und Technologie – bis in die Umsetzung.">
+<BaseLayout title={wasWirTun.title} description={wasWirTun.description}>
 
   <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />
 
   <section class="evans-page">
     <div class="container">
 
-      <h1>Was wir tun</h1>
+      <h1>{wasWirTun.title}</h1>
 
-      <p class="intro">Technologie allein verändert nichts. Neue Tools, Plattformen und Algorithmen entfalten erst dann Wirkung, wenn Strategie, Organisation und Prozesse mitspielen. Genau dort arbeiten wir.</p>
+      <p class="intro">{wasWirTun.intro}</p>
 
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Unser Ansatz</h2>
-        </div>
-        <div class="evans-content">
-          <div class="evans-item">
-            <span class="evans-tag">Strategie</span>
-            <h3>Klarheit schaffen</h3>
-            <p>Optionen entwickeln, Entscheidungsgrundlagen schaffen, Prioritäten setzen. Nicht Frameworks, sondern Klarheit – was zuerst, was gar nicht, und warum.</p>
-          </div>
-          <div class="evans-item">
-            <span class="evans-tag">Organisation</span>
-            <h3>Strukturen anpassen</h3>
-            <p>Strukturen, Rollen und Kompetenzen so anpassen, dass neue Strategien auch umgesetzt werden. Technologie scheitert selten an der Technik, fast immer an der Organisation.</p>
-          </div>
-          <div class="evans-item">
-            <span class="evans-tag">Prozesse</span>
-            <h3>Abläufe neu denken</h3>
-            <p>Bestehende Abläufe verstehen, Brüche identifizieren, neue Verfahren einführen. Vom Audit bis zum laufenden Betrieb.</p>
-          </div>
-          <div class="evans-item">
-            <span class="evans-tag">Technologie</span>
-            <h3>Technik als Hebel</h3>
-            <p>Technisches Tiefenverständnis einbringen – nicht als Selbstzweck, sondern als Hebel. Wir bewerten Architekturen, begleiten Implementierungen und übersetzen zwischen Technik und Business.</p>
-          </div>
-        </div>
-      </div>
-
-      <hr class="section-divider" />
-
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Schwerpunkt</h2>
-        </div>
-        <div class="evans-content">
-          <div class="evans-item">
-            <span class="evans-tag">KI</span>
-            <h3>Künstliche Intelligenz</h3>
-            <p>Isolierte KI-Anwendungen bringen wenig. Die eigentliche Wirkung entsteht, wenn Geschäftsprozesse und Organisation mitgedacht werden. Wir begleiten den Schritt von der Point Solution zur systemischen Verankerung – in Strategie, Abläufen und Strukturen. Und wir setzen um: KI-Implementierung gehört zum Angebot, nicht nur die Beratung dazu.</p>
-          </div>
-          <div class="evans-item">
-            <span class="evans-tag">Domäne</span>
-            <h3>Medien, Marketing und Werbung</h3>
-            <p>Unser Schwerpunkt liegt in Medien, Marketing und Werbung. Publisher, Agenturen, Vermarkter und Technologie-Anbieter stehen vor massiven Umbrüchen. Wir kennen die Akteure, die Technologie und die Dynamiken dieses Marktes.</p>
-          </div>
-        </div>
-      </div>
+      {wasWirTun.sections.map(section => (
+        <>
+          <hr class="section-divider" />
+          <EvansSection section={section} />
+        </>
+      ))}
 
     </div>
   </section>
@@ -123,89 +82,7 @@ const serviceLd = {
     margin: 0;
   }
 
-  .evans-section {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 0;
-    margin: var(--space-xl) 0;
-  }
-
-  .evans-label {
-    padding: 0 var(--space-lg) 0 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .evans-label h2 {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0;
-    position: sticky;
-    top: 80px;
-  }
-
-  .evans-content {
-    border-left: 1px solid var(--color-coral);
-    padding: 0 0 0 var(--space-lg);
-  }
-
-  .evans-item {
-    margin-bottom: var(--space-xl);
-  }
-
-  .evans-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .evans-tag {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: block;
-    margin-bottom: var(--space-xs);
-  }
-
-  .evans-item h3 {
-    font-family: var(--font-sans);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0 0 var(--space-sm) 0;
-  }
-
-  .evans-item p {
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
-    max-width: 600px;
-  }
-
   @media (max-width: 768px) {
-    .evans-section {
-      grid-template-columns: 1fr;
-    }
-
-    .evans-label {
-      padding: var(--space-lg) 0 0 0;
-    }
-
-    .evans-label h2 {
-      position: static;
-    }
-
-    .evans-content {
-      border-left: none;
-      border-top: 1px solid var(--color-coral);
-      padding: var(--space-md) 0 0 0;
-    }
-
     .intro {
       font-size: 18px;
       margin: 0 0 var(--space-lg) 0;
