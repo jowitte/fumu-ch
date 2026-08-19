@@ -54,5 +54,38 @@ export const wasWirTun: PageContent = {
         },
       ],
     },
+    {
+      label: 'Referenzen',
+      items: [
+        {
+          kind: 'logos',
+          // Nur Kunden mit dokumentierter Freigabe für Namensnennung und Logo.
+          // Weitere Freigaben laufen über die Vault-Story «Kunden-Einwilligungen
+          // für Logos und Zitate einholen».
+          entries: [
+            {
+              name: 'OneLog',
+              image: '/images/kundenlogos/onelog.webp',
+              note: 'Aufbau und strategische Begleitung des Joint Ventures der führenden Schweizer Medienhäuser für digitale Werbeinfrastruktur.',
+            },
+            {
+              name: 'IAB Switzerland',
+              image: '/images/kundenlogos/iab.webp',
+              note: 'Leitung der Arbeitsgruppe Data & AI, branchenweites KI-Maturity-Assessment.',
+            },
+            {
+              name: 'emonitor',
+              image: '/images/kundenlogos/emonitor.webp',
+              note: 'Strategieprozess für ein PropTech-Scale-up.',
+            },
+            {
+              name: 'HWZ',
+              image: '/images/kundenlogos/hwz.webp',
+              note: 'Dozent für Agile Leadership und digitale Transformation.',
+            },
+          ],
+        },
+      ],
+    },
   ],
 };

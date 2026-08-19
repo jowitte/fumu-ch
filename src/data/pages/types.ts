@@ -53,7 +53,17 @@ export type QuoteItem = {
   cite: string;
 };
 
-export type Item = TextItem | PersonItem | QuoteItem;
+/**
+ * Referenz-Logos als Reihe. `note` beschreibt das Engagement – im HTML als
+ * Untertitel der Reihe, im Markdown-Kanal als Liste hinter dem Namen.
+ * Nur Kunden mit dokumentierter Freigabe für Namensnennung und Logo.
+ */
+export type LogosItem = {
+  kind: 'logos';
+  entries: Array<{ name: string; image: string; note: string }>;
+};
+
+export type Item = TextItem | PersonItem | QuoteItem | LogosItem;
 
 export type Section = {
   /** Text der Coral-Label-Spalte, im Markdown die H2. */

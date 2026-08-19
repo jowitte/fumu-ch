@@ -42,6 +42,19 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
         );
       }
 
+      if (item.kind === 'logos') {
+        return (
+          <div class="logos">
+            {item.entries.map(entry => (
+              <figure class="logo">
+                <img src={entry.image} alt={`Logo ${entry.name}`} loading="lazy" decoding="async" />
+                <figcaption>{entry.note}</figcaption>
+              </figure>
+            ))}
+          </div>
+        );
+      }
+
       if (item.kind === 'quote') {
         return (
           <div class="testimonial">
@@ -212,6 +225,34 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
     text-decoration: none;
   }
 
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    max-width: 640px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .logo img {
+    max-height: 40px;
+    max-width: 160px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .logo figcaption {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    margin-top: var(--space-sm);
+  }
+
   .testimonial blockquote {
     margin: 0;
     max-width: 720px;
@@ -261,6 +302,10 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
 
     .person-info p {
       max-width: none;
+    }
+
+    .logos {
+      grid-template-columns: 1fr;
     }
   }
 </style>

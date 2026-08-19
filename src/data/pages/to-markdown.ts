@@ -33,6 +33,9 @@ const itemToMarkdown = (item: Item): string => {
 
     case 'quote':
       return `«${item.text}»\n\n— ${item.cite}`;
+
+    case 'logos':
+      return item.entries.map(e => `- **${e.name}** – ${e.note}`).join('\n');
   }
 };
 
@@ -79,6 +82,9 @@ export const textFragments = (page: PageContent): string[] => {
           break;
         case 'quote':
           fragments.push(item.text, item.cite);
+          break;
+        case 'logos':
+          for (const e of item.entries) fragments.push(e.name, e.note);
           break;
       }
     }
