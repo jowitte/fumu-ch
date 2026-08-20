@@ -10,8 +10,9 @@ Astro-basierte statische Website für fumu – Beratung für KI-Transformation i
 
 | Komponente | Wahl | Details |
 |------------|------|---------|
-| Framework | Astro 6 (Static) | `output: 'static'`, kein JS-Framework |
-| Integrations | `@astrojs/mdx`, `@astrojs/rss`, `@astrojs/sitemap` | MDX-Support, RSS-Feed, Sitemap mit `lastmod` |
+| Framework | Astro 7 (Static) | `output: 'static'`, kein JS-Framework, Node >= 22.12 |
+| Markdown | `@astrojs/markdown-remark` (`processor: unified()`) | Astro 7 rendert per Default mit Sätteri; die eigenen remark/rehype-Plugins verlangen unified |
+| Integrations | `@astrojs/rss`, `@astrojs/sitemap` | RSS-Feed, Sitemap mit `lastmod` |
 | Hosting | Netlify Free | Auto-Deploy via GitHub (`origin: jowitte/fumu-ch`), native Forms, Node 22 |
 | Fonts | Fraunces + IBM Plex | Headings (Fraunces), Body (IBM Plex Sans), Mono (IBM Plex Mono); self-hosted woff2 in `public/fonts/` |
 | CSS | Custom Properties | Kein Framework, reines CSS in `src/styles/global.css` |
@@ -27,7 +28,7 @@ npm run build    # Production Build → dist/
 npm run preview  # Preview des Builds
 ```
 
-Keine Tests, kein Linter konfiguriert. `npm run build` ist die Verifikation – es prüft Zod-Schemas, TypeScript (strict) und generiert alle dynamischen Routen. Vor jedem Commit, der Content oder Routen berührt: `npm run build` muss grün durchlaufen.
+Kein Linter konfiguriert. Verifikation ist `npm run build` – es prüft Zod-Schemas, TypeScript (strict) und generiert alle dynamischen Routen – plus `npx vitest run` für die beiden Unit-Test-Files (`src/plugins/remark-wikilinks.test.mjs`, `src/data/pages/to-markdown.test.ts`). Vor jedem Commit, der Content oder Routen berührt: `npm run build` muss grün durchlaufen.
 
 ## Deploy
 
@@ -104,7 +105,11 @@ Beim Ändern dieser Schicht: Konsistenz wahren (neue Page → in `.md`-Route, ll
 
 ### Markdown-Pipeline (`astro.config.mjs`)
 
-Zwei eigene Plugins verarbeiten jedes Markdown vor dem Render:
+Astro 7 rendert Markdown per Default mit **Sätteri**, das keine remark/rehype-Plugins kennt. Weil die drei Plugins unten tragend sind, läuft die Pipeline über `markdown.processor: unified({ remarkPlugins, rehypePlugins })` aus `@astrojs/markdown-remark` weiter auf unified. Wer den Prozessor umstellt, verliert Wikilink-Auflösung, Marker-Stripping und Lazy-Images auf einen Schlag.
+
+Drei eigene Plugins verarbeiten jedes Markdown vor dem Render:
+
+- `remarkWikilinks` (remark, `src/plugins/remark-wikilinks.mjs`) – löst `[[…]]` auf: Anker-Wikilinks werden zu internen Links, Notiz-Wikilinks zu Klartext.
 
 - `remarkStripObsidianMarkers` (remark) – entfernt `%% … %%`-Inline-Kommentare (Obsidian-Kommentare, `@dieter`/`@jochen`-Mentions) und Legacy-`[!dieter]`/`[!jochen]`-Dialog-Blockquotes aus dem AST. **Belt-and-Suspenders**: Pendant zu `dialog_filter.py` im Akasha-Vault; die primäre Bereinigung passiert im `/fumu-web`-Skill beim Transform, das Plugin fängt Drift ab.
 - `rehypeImgLazy` (rehype) – setzt `loading="lazy"` + `decoding="async"` auf alle `<img>` im Markdown-Output (Astro tut das nur für die `astro:assets`-Pipeline, nicht für `/public`-Pfade).

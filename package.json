@@ -17,7 +17,7 @@
     "mdast-util-find-and-replace": "^3.0.2"
   },
   "devDependencies": {
-    "@netlify/edge-functions": "^3.0.6",
+    "@netlify/edge-functions": "^4.0.0",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "unified": "^11.0.5",
