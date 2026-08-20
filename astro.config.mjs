@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import remarkWikilinks from './src/plugins/remark-wikilinks.mjs';
 
@@ -53,9 +54,14 @@ function remarkStripObsidianMarkers() {
 export default defineConfig({
   site: 'https://fumu.ch',
   output: 'static',
+  // Astro 7 rendert Markdown per Default mit Sätteri, das keine remark/rehype-
+  // Plugins kennt. Die drei Plugins oben sind hier tragend (Wikilink-Auflösung,
+  // Marker-Stripping, Lazy-Images), deshalb bleibt die Pipeline auf unified.
   markdown: {
-    remarkPlugins: [remarkWikilinks, remarkStripObsidianMarkers],
-    rehypePlugins: [rehypeImgLazy],
+    processor: unified({
+      remarkPlugins: [remarkWikilinks, remarkStripObsidianMarkers],
+      rehypePlugins: [rehypeImgLazy],
+    }),
   },
   integrations: [
     sitemap({
