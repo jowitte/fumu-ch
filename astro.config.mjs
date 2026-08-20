@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import mdx from '@astrojs/mdx';
 import remarkWikilinks from './src/plugins/remark-wikilinks.mjs';
 
 // Markdown-Bilder mit /public-Pfaden bekommen kein automatisches loading="lazy"
@@ -65,6 +64,5 @@ export default defineConfig({
         return item;
       },
     }),
-    mdx(),
   ],
 });
