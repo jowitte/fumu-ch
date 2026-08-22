@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import remarkWikilinks from './src/plugins/remark-wikilinks.mjs';
+// Marker-Stripping für den HTML-Pfad. Die String-Variante daneben bedient die
+// Markdown-Zwillinge, die den rohen Body servieren – siehe das Modul.
+import remarkStripObsidianMarkers from './src/plugins/obsidian-markers.mjs';
 
 // Markdown-Bilder mit /public-Pfaden bekommen kein automatisches loading="lazy"
 // (nur astro:assets-Pipeline tut das). Dieses kleine rehype-Plugin setzt
@@ -19,36 +22,6 @@ function rehypeImgLazy() {
     };
     visit(tree);
   };
-}
-
-// Vault-interne Marker (Obsidian-Kommentare und Legacy-Dialog-Callouts)
-// gehören nirgends in den publizierten HTML-Output. Pendant zu
-// .claude/lib/publish/scripts/dialog_filter.py im Akasha-Vault – Belt-and-Suspenders
-// falls der Pre-Build-Check im /fumu-web-Skill durchrutscht.
-function remarkStripObsidianMarkers() {
-  const INLINE_COMMENT = /%%[\s\S]*?%%/g;
-  const LEGACY_DIALOG_CALLOUT = /^\s*\[!(?:dieter|jochen)\][-+]?/;
-
-  const isLegacyDialogBlockquote = (node) => {
-    if (node.type !== 'blockquote') return false;
-    const first = node.children?.[0];
-    if (first?.type !== 'paragraph') return false;
-    const firstText = first.children?.[0];
-    return firstText?.type === 'text' && LEGACY_DIALOG_CALLOUT.test(firstText.value);
-  };
-
-  const walk = (node) => {
-    if (!node.children) return;
-    node.children = node.children.filter((child) => !isLegacyDialogBlockquote(child));
-    for (const child of node.children) {
-      if (child.type === 'text' && typeof child.value === 'string') {
-        child.value = child.value.replace(INLINE_COMMENT, '');
-      }
-      walk(child);
-    }
-  };
-
-  return (tree) => walk(tree);
 }
 
 export default defineConfig({

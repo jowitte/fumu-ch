@@ -4,6 +4,7 @@ import { kontakt } from './kontakt';
 import { wasWirTun } from './was-wir-tun';
 import { toMarkdown } from './to-markdown';
 import type { PageContent } from './types';
+import { stripObsidianMarkers } from '../../plugins/obsidian-markers.mjs';
 
 /**
  * Seiten, deren Inhalt aus strukturierten Daten kommt – HTML und Markdown
@@ -42,7 +43,7 @@ export const resolvePages = async (): Promise<ResolvedPage[]> => {
       title: entry.data.title,
       description: entry.data.description,
       order: entry.data.order,
-      body: entry.body ?? '',
+      body: stripObsidianMarkers(entry.body ?? ''),
     }));
 
   const fromData: ResolvedPage[] = Object.entries(dataPages).map(([id, page]) => ({

@@ -1,5 +1,6 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
+import { stripObsidianMarkers } from '../../plugins/obsidian-markers.mjs';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('perspektiven', ({ data }) => !data.draft);
@@ -23,7 +24,7 @@ _${description}_
 
 ${meta.join('\n')}
 
-${entry.body ?? ''}`;
+${stripObsidianMarkers(entry.body ?? '')}`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
