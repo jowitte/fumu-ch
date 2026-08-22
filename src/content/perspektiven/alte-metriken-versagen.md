@@ -9,11 +9,11 @@ draft: false
 series: "ai-digitale-werbung"
 ---
 
-Eine starke Marke generiert 79% ihres Traffics organisch und 3% über Meta-Ads. Das Meta-Pixel sieht trotzdem 100% des Nutzerverhaltens und liefert es an die Plattform zurück. Meta nutzt diese Daten, um ihre Targeting-Modelle zu verbessern, und verkauft diese Modelle danach über ihre Werbeprodukte an Konkurrenzmarken: Die Marke zahlt für ihre eigene Demontage. Im Dashboard sieht alles grün aus. Dieses Beispiel trifft den Kern dessen, was in der Werbe-Messung seit langer Zeit passiert.
+Eine starke Marke generiert ca. 80% ihres Traffics organisch und nur 3% über Meta-Ads. Über das Meta-Pixel wird jedoch das gesamte Nutzerverhalten der Marke an die Meta-Plattform zurückgespielt. Meta nutzt diese Daten, um Targeting-Modelle zu verbessern, und verkauft diese Modelle danach über ihre Werbeprodukte an Konkurrenzmarken: Die Marke zahlt für ihre eigene Demontage respektive die Optimierungsmöglichkeiten der Konkurrenz. Dieses Beispiel trifft den Kern dessen, was in der Werbe-Messung seit langer Zeit passiert.
 
 ## Vier Trends haben die Messung überholt
 
-Mit den vier vorangegangenen Trends hat sich strukturell verschoben, was Werbe-Messung überhaupt erfassen kann. Last-Click ist da nur das auffälligste Beispiel.
+Mit den [vier vorangegangenen Trends](/perspektiven/themen/ai-digitale-werbung/) hat sich strukturell verschoben, was Werbe-Messung überhaupt erfassen kann. Last-Click ist da nur das auffälligste Beispiel.
 
 Reichweite wandert in KI-Antworten, die kein klassisches Tracking erlauben. Werbung läuft in Chat-Interfaces, in denen MRC-Viewability nicht definiert ist – kein DOM, keine Scroll-Tiefe. Conversion-Pixel funktionieren auch hier (ChatGPT Ads erlauben das via CAPI), aber sie messen den Klick, nicht die Wirkung dazwischen. Agenten kaufen Werbeflächen, ohne dass die Briefing-Qualität sichtbar bleibt. Konsumenten verschwinden hinter Einkaufs-Agenten, ohne Click-Pfad, ohne Pixel-Anker.
 
