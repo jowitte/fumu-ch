@@ -110,8 +110,12 @@
   --color-primary: #223A5E;
   --color-neutral: #F4F4F4;
   --color-white: #FFFFFF;
-  /* Warme Flächen-Palette (brand.yaml > colors: ivory/sage/lavender) */
-  --color-bg: #FBFAF7;
+  /* Warme Flächen-Palette (brand.yaml > colors: ivory/sage/lavender).
+     2026-08-25 von #FBFAF7 auf den ivory-Wert gezogen: Die Angebots- und
+     Produktblätter laufen auf demselben Grund, und Blatt und Bildschirm
+     liegen beim Kunden nebeneinander. Der Kommentar behauptete die
+     brand.yaml-Herkunft schon vorher, der Wert wich aber ab. */
+  --color-bg: #F7F5EF;
   --color-sage: #C3CFC7;
   --color-lavender: #C9C5DA;
   --color-sand: #D4CBB8;
