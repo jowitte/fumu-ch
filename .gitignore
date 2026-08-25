@@ -6,6 +6,12 @@ dist/
 # Local Netlify folder
 .netlify
 
+# Deno-Lock der lokalen Netlify-CLI: entsteht beim `netlify dev`, wenn Deno die
+# Edge-Function-Bootstraps cached. Das Projekt wird von npm gesteuert (keine
+# deno.json), Netlify baut die Edge Functions in eigener Umgebung – die Datei
+# hat keinen Einfluss auf den Deploy und veraltet gegen package.json.
+deno.lock
+
 # Editor-Konfiguration (lokal)
 .vscode/
 .obsidian/
