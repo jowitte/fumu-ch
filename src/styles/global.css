@@ -116,6 +116,10 @@
      liegen beim Kunden nebeneinander. Der Kommentar behauptete die
      brand.yaml-Herkunft schon vorher, der Wert wich aber ab. */
   --color-bg: #F7F5EF;
+  /* Die drei Themenfarben, fest vergeben in src/data/series.ts > color:
+     sage = AI in der digitalen Werbung, lavender = KI und Arbeit,
+     sand = AI in den Medien. Gleiche Helligkeit, damit die Serien-Callouts
+     gleich schwer wirken. Werte kommen aus brand.yaml > colors. */
   --color-sage: #C3CFC7;
   --color-lavender: #C9C5DA;
   --color-sand: #D4CBB8;
