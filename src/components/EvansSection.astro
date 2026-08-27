@@ -225,10 +225,14 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
     text-decoration: none;
   }
 
+  /* Der untere Abstand trennt die Logo-Reihe von einem folgenden Zitat in
+     derselben Sektion – ohne ihn liest sich das Testimonial als Bildunterschrift
+     des letzten Logos. */
   .logos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
     max-width: 640px;
   }
 
@@ -236,9 +240,13 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
     margin: 0;
   }
 
+  /* Der Breiten-Deckel bestimmt bei langen Wortmarken die Höhe: bei 160px
+     landete mediatonic (6:1) auf 26px, während HWZ (2.8:1) die vollen 40px
+     bekam. 190px hebt die breiten Marken auf eine vergleichbare Höhe, ohne
+     die 200px-Spalte des Grids zu sprengen. */
   .logo img {
     max-height: 40px;
-    max-width: 160px;
+    max-width: 190px;
     width: auto;
     height: auto;
     object-fit: contain;

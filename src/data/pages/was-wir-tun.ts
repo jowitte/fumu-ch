@@ -69,6 +69,11 @@ export const wasWirTun: PageContent = {
               note: 'Aufbau und strategische Begleitung des Joint Ventures der führenden Schweizer Medienhäuser für digitale Werbeinfrastruktur.',
             },
             {
+              name: 'mediatonic',
+              image: '/images/kundenlogos/mediatonic.webp',
+              note: 'Prozesse und Technologie-Setup einer unabhängigen Mediaagentur, Bestandsaufnahme und Roadmap.',
+            },
+            {
               name: 'IAB Switzerland',
               image: '/images/kundenlogos/iab.webp',
               note: 'Leitung der Arbeitsgruppe Data & AI, branchenweites KI-Maturity-Assessment.',
@@ -84,6 +89,11 @@ export const wasWirTun: PageContent = {
               note: 'Dozent für Agile Leadership und digitale Transformation.',
             },
           ],
+        },
+        {
+          kind: 'quote',
+          text: 'Jochen kennt Medien und Werbung aus der Praxis und versteht, wie eine Agentur organisatorisch tickt. Er hat uns gezeigt, wo unsere Prozesse klemmen, und spricht dabei dieselbe Sprache wie wir. Er analysiert gründlich und packt danach mit an: Die Massnahmen sind mit dem Team in den Workshops entstanden, nicht in einem Bericht. Sie waren sehr zufrieden, und ich bin es auch.',
+          cite: 'Christian-Kumar Meier, CEO und Partner bei mediatonic',
         },
       ],
     },
