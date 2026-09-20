@@ -101,15 +101,13 @@ runs:
       eine einzelne Zelle, gezielte Ergänzung statt Strategiewechsel.
   "2026-06-22":
     summary: >-
-      [Temu](https://temu.com/robots.txt) zieht seine selektiven Schranken
-      zurück und steht durchgängig offen – E-Commerce setzt auf Reichweite,
-      nicht auf Content-Schutz.
+      Keine Policy-Bewegung. Die gezählten Veränderungen stammen von einer
+      Site, deren robots.txt in dieser Runde nicht abrufbar war.
   "2026-06-29":
     summary: >-
       [Heidi.News](https://heidi.news/robots.txt) und
       [Le Temps](https://letemps.ch/robots.txt) öffnen gezielt für OpenAIs
-      Such- und Assistenz-Bots. [Temu](https://temu.com/robots.txt) pendelt
-      zurück auf selektiv.
+      Such- und Assistenz-Bots.
   "2026-07-06":
     summary: >-
       [LinkedIn](https://linkedin.com/robots.txt) stuft den Claude-Suchbot
@@ -123,3 +121,11 @@ runs:
       [WSJ](https://wsj.com/robots.txt) und
       [Reuters](https://reuters.com/robots.txt) im Mai gezogen haben.
       WSJ nimmt seine Juni-Öffnung teilweise zurück.
+  "2026-08-17":
+    summary: >-
+      [SRF](https://srf.ch/robots.txt) und [RTS](https://rts.ch/robots.txt)
+      sperren erstmals acht Scraper- und Trainings-Crawler, darunter GPTBot
+      und ClaudeBot. [Spiegel](https://spiegel.de/robots.txt) und Manager
+      Magazin ziehen vier weitere Bots zu, der
+      [Economist](https://economist.com/robots.txt) die Claude-Familie und
+      den OpenAI-Suchbot.

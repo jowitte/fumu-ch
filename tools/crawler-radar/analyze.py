@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import json
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -43,6 +44,7 @@ from typing import Optional
 
 import urllib.request
 import urllib.error
+import urllib.parse
 
 import yaml
 
@@ -76,13 +78,51 @@ class RobotsBlock:
     allow: list[str] = field(default_factory=list)
 
 
+def read_response(
+    raw: bytes, content_encoding: Optional[str], final_url: str
+) -> tuple[Optional[str], Optional[str]]:
+    """Liest den Body einer 200-Antwort als robots.txt.
+
+    Returns (text, reason). Status 200 heisst nicht, dass eine robots.txt kam:
+    - gzip-Body (auch unangefragt) wird entpackt.
+    - HTML nach einem Redirect weg von /robots.txt (Startseite, 404-Seite):
+      die Datei fehlt, das gilt wie ein 404 → leerer Text.
+    - HTML an der robots.txt-Adresse selbst (Captcha, JS-Challenge): kein
+      Signal → (None, Grund), die Site landet als ERROR statt als DEFAULT.
+    """
+    if (content_encoding or "").lower() == "gzip" or raw[:2] == b"\x1f\x8b":
+        try:
+            raw = gzip.decompress(raw)
+        except (OSError, EOFError) as exc:
+            return None, f"gzip nicht lesbar: {exc}"
+
+    text = None
+    for enc in ("utf-8", "latin-1"):
+        try:
+            text = raw.decode(enc)
+            break
+        except UnicodeDecodeError:
+            continue
+    if text is None:
+        text = raw.decode("utf-8", errors="replace")
+
+    head = text.lstrip("﻿ \t\r\n")[:200].lower()
+    if head.startswith(("<!doctype", "<html", "<head", "<body", "<script")):
+        path = urllib.parse.urlsplit(final_url).path.rstrip("/").lower()
+        if path.endswith("/robots.txt"):
+            return None, "HTML statt robots.txt (Bot-Schutz)"
+        return "", None
+    return text, None
+
+
 def fetch_robots(url_host: str) -> tuple[Optional[str], Optional[str]]:
     """Lädt robots.txt von https://<host>/robots.txt.
 
     Returns (text, error). Fallback http nur wenn https scheitert.
     Probiert für jede Domain auch www.-Subdomain als Fallback (manche Sites
     haben dort die "echte" robots.txt). 404 wird als leerer Text behandelt
-    (kein robots.txt = alles erlaubt per RFC 9309).
+    (kein robots.txt = alles erlaubt per RFC 9309). Den Body prüft
+    read_response – eine Captcha-Seite mit Status 200 ist keine robots.txt.
     """
     last_error = None
     candidates = [url_host]
@@ -102,13 +142,20 @@ def fetch_robots(url_host: str) -> tuple[Optional[str], Optional[str]]:
                         if resp.status == 404:
                             saw_404 = True
                         continue
-                    raw = resp.read()
-                    for enc in ("utf-8", "latin-1"):
-                        try:
-                            return raw.decode(enc), None
-                        except UnicodeDecodeError:
-                            continue
-                    return raw.decode("utf-8", errors="replace"), None
+                    text, reason = read_response(
+                        resp.read(),
+                        resp.headers.get("Content-Encoding"),
+                        resp.geturl(),
+                    )
+                    if text is None:
+                        last_error = f"{scheme}://{host}: {reason}"
+                        continue
+                    if text == "" and resp.geturl() != url:
+                        # Redirect weg von robots.txt – wie 404, aber der
+                        # www.-Kandidat darf noch eine echte Datei liefern.
+                        saw_404 = True
+                        continue
+                    return text, None
             except urllib.error.HTTPError as exc:
                 if exc.code == 404:
                     saw_404 = True

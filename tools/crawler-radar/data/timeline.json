@@ -207009,7 +207009,7 @@
     "crawler_id":"amazonbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207021,7 +207021,7 @@
     "crawler_id":"applebot_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207033,7 +207033,7 @@
     "crawler_id":"bytespider",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207045,7 +207045,7 @@
     "crawler_id":"ccbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207057,7 +207057,7 @@
     "crawler_id":"chatgpt_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207069,7 +207069,7 @@
     "crawler_id":"claude_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207081,7 +207081,7 @@
     "crawler_id":"claude_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207093,7 +207093,7 @@
     "crawler_id":"claudebot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207105,7 +207105,7 @@
     "crawler_id":"duckassistbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207117,7 +207117,7 @@
     "crawler_id":"google_agent",
     "bot_category":"agent",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207129,7 +207129,7 @@
     "crawler_id":"google_cloudvertexbot",
     "bot_category":"agent",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207141,7 +207141,7 @@
     "crawler_id":"google_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207153,7 +207153,7 @@
     "crawler_id":"gptbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207165,7 +207165,7 @@
     "crawler_id":"meta_external",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207177,7 +207177,7 @@
     "crawler_id":"meta_externalfetcher",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207189,7 +207189,7 @@
     "crawler_id":"mistralai_index",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207201,7 +207201,7 @@
     "crawler_id":"mistralai_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207213,7 +207213,7 @@
     "crawler_id":"oai_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207225,7 +207225,7 @@
     "crawler_id":"perplexity_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -207237,7 +207237,7 @@
     "crawler_id":"perplexitybot",
     "bot_category":"scraper",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-06-22",
@@ -312129,7 +312129,7 @@
     "crawler_id":"amazonbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312141,7 +312141,7 @@
     "crawler_id":"applebot_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312153,7 +312153,7 @@
     "crawler_id":"bytespider",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312165,7 +312165,7 @@
     "crawler_id":"ccbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312177,7 +312177,7 @@
     "crawler_id":"chatgpt_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312189,7 +312189,7 @@
     "crawler_id":"claude_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312201,7 +312201,7 @@
     "crawler_id":"claude_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312213,7 +312213,7 @@
     "crawler_id":"claudebot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312225,7 +312225,7 @@
     "crawler_id":"duckassistbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312237,7 +312237,7 @@
     "crawler_id":"google_agent",
     "bot_category":"agent",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312249,7 +312249,7 @@
     "crawler_id":"google_cloudvertexbot",
     "bot_category":"agent",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312261,7 +312261,7 @@
     "crawler_id":"google_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312273,7 +312273,7 @@
     "crawler_id":"gptbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312285,7 +312285,7 @@
     "crawler_id":"meta_external",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312297,7 +312297,7 @@
     "crawler_id":"meta_externalfetcher",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312309,7 +312309,7 @@
     "crawler_id":"mistralai_index",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312321,7 +312321,7 @@
     "crawler_id":"mistralai_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312333,7 +312333,7 @@
     "crawler_id":"oai_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312345,7 +312345,7 @@
     "crawler_id":"perplexity_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -312357,7 +312357,7 @@
     "crawler_id":"perplexitybot",
     "bot_category":"scraper",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-17",
@@ -338049,7 +338049,7 @@
     "crawler_id":"amazonbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338061,7 +338061,7 @@
     "crawler_id":"applebot_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338073,7 +338073,7 @@
     "crawler_id":"bytespider",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338085,7 +338085,7 @@
     "crawler_id":"ccbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338097,7 +338097,7 @@
     "crawler_id":"chatgpt_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338109,7 +338109,7 @@
     "crawler_id":"claude_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338121,7 +338121,7 @@
     "crawler_id":"claude_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338133,7 +338133,7 @@
     "crawler_id":"claudebot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338145,7 +338145,7 @@
     "crawler_id":"duckassistbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338157,7 +338157,7 @@
     "crawler_id":"google_agent",
     "bot_category":"agent",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338169,7 +338169,7 @@
     "crawler_id":"google_cloudvertexbot",
     "bot_category":"agent",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338181,7 +338181,7 @@
     "crawler_id":"google_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338193,7 +338193,7 @@
     "crawler_id":"gptbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338205,7 +338205,7 @@
     "crawler_id":"meta_external",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338217,7 +338217,7 @@
     "crawler_id":"meta_externalfetcher",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338229,7 +338229,7 @@
     "crawler_id":"mistralai_index",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338241,7 +338241,7 @@
     "crawler_id":"mistralai_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338253,7 +338253,7 @@
     "crawler_id":"oai_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338265,7 +338265,7 @@
     "crawler_id":"perplexity_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -338277,7 +338277,7 @@
     "crawler_id":"perplexitybot",
     "bot_category":"scraper",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-08-31",
@@ -363969,7 +363969,7 @@
     "crawler_id":"amazonbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -363981,7 +363981,7 @@
     "crawler_id":"applebot_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -363993,7 +363993,7 @@
     "crawler_id":"bytespider",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364005,7 +364005,7 @@
     "crawler_id":"ccbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364017,7 +364017,7 @@
     "crawler_id":"chatgpt_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364029,7 +364029,7 @@
     "crawler_id":"claude_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364041,7 +364041,7 @@
     "crawler_id":"claude_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364053,7 +364053,7 @@
     "crawler_id":"claudebot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364065,7 +364065,7 @@
     "crawler_id":"duckassistbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364077,7 +364077,7 @@
     "crawler_id":"google_agent",
     "bot_category":"agent",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364089,7 +364089,7 @@
     "crawler_id":"google_cloudvertexbot",
     "bot_category":"agent",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364101,7 +364101,7 @@
     "crawler_id":"google_extended",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364113,7 +364113,7 @@
     "crawler_id":"gptbot",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364125,7 +364125,7 @@
     "crawler_id":"meta_external",
     "bot_category":"scraper",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364137,7 +364137,7 @@
     "crawler_id":"meta_externalfetcher",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364149,7 +364149,7 @@
     "crawler_id":"mistralai_index",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364161,7 +364161,7 @@
     "crawler_id":"mistralai_user",
     "bot_category":"assistant",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364173,7 +364173,7 @@
     "crawler_id":"oai_searchbot",
     "bot_category":"search",
     "honors_robots":true,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364185,7 +364185,7 @@
     "crawler_id":"perplexity_user",
     "bot_category":"assistant",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",
@@ -364197,7 +364197,7 @@
     "crawler_id":"perplexitybot",
     "bot_category":"scraper",
     "honors_robots":false,
-    "status":"DEFAULT"
+    "status":"ERROR"
   },
   {
     "date":"2026-09-14",

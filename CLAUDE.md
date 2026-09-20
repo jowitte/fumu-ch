@@ -128,7 +128,7 @@ Erhebung, Snapshots und Publish des Radars liegen seit 2026-09-20 in diesem Repo
 - Kette: `analyze.py` (robots.txt der 108 Sites aus `sample.yaml` holen → `data/snapshot-YYYY-MM-DD.{json,csv}`) → `timeline.py` (`data/timeline.{csv,json}`) → `diff.py` (`data/diff-YYYY-MM-DD.md`) → `publish.py` (Tracker-JSON; Default-Output ist das Repo-JSON, `--output -` schreibt nach stdout). `query.py` ist die Ad-hoc-Aggregation, auf der `publish.py` aufbaut.
 - `run.sh [--force] [--sample PATH]` ist der Cron-Wrapper: Wochen-Gate (nur gerade ISO-Wochen, `--force` überspringt), `git pull --rebase`, Kette, ein Commit mit Whitelist-Staging, Push fail-soft. Log über `RADAR_LOG`, Default `tools/crawler-radar/cron.log` (gitignored). Exit 0 = veröffentlicht/übersprungen, 1 = Setup oder Pull gescheitert, 2 = Lauf verworfen.
 - **Guard:** `publish.py` blockiert bei über 30 Prozent ERROR-Zellen oder unplausibel dünnem Snapshot. `run.sh` verwirft dann die Dateien des Laufs (`git restore` + `git clean`, beschränkt auf `data/` und das Tracker-JSON) – ein ausgefallener Lauf hinterlässt keinen Snapshot statt einer Null-Delle in der Zeitreihe. `data/archive/` belegt die zwei DNS-Ausfälle vom Juli/August 2026.
-- Setup und Tests: `tools/crawler-radar/setup.sh` (venv + `requirements.txt`), dann `cd tools/crawler-radar && .venv/bin/python -m pytest -q` (32 Tests).
+- Setup und Tests: `tools/crawler-radar/setup.sh` (venv + `requirements.txt`), dann `cd tools/crawler-radar && .venv/bin/python -m pytest -q` (39 Tests).
 - **Nicht ändern ohne Rückmeldung in den Vault:** CLI-Argumente `--timeline`, `--presets`, `--data-dir` und die Spalten von `timeline.csv` – daran hängen `render.py` und der `/robots-txt`-Skill im Vault, die diese Daten lesend nutzen.
 
 ## Design-System

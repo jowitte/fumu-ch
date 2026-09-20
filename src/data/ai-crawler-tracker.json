@@ -4,7 +4,7 @@
     "site_count": 108,
     "crawler_count": 20,
     "cadence_days": 14,
-    "generated_at": "2026-09-14T09:01:06.457094+02:00"
+    "generated_at": "2026-09-20T18:46:49.007975+02:00"
   },
   "headline": "Snapshot 2026-09-14: 7 Veränderungen auf 3 Sites.",
   "by_category": [
@@ -411,7 +411,7 @@
       "date": "2026-08-17",
       "changes": 53,
       "sites_changed": 9,
-      "summary": "53 Veränderungen auf 9 Sites (LinkedIn, RTS, SRF, u.a.).",
+      "summary": "[SRF](https://srf.ch/robots.txt) und [RTS](https://rts.ch/robots.txt) sperren erstmals acht Scraper- und Trainings-Crawler, darunter GPTBot und ClaudeBot. [Spiegel](https://spiegel.de/robots.txt) und Manager Magazin ziehen vier weitere Bots zu, der [Economist](https://economist.com/robots.txt) die Claude-Familie und den OpenAI-Suchbot.",
       "commentary": null
     },
     {
@@ -430,16 +430,16 @@
     },
     {
       "date": "2026-06-29",
-      "changes": 33,
+      "changes": 44,
       "sites_changed": 4,
-      "summary": "[Heidi.News](https://heidi.news/robots.txt) und [Le Temps](https://letemps.ch/robots.txt) öffnen gezielt für OpenAIs Such- und Assistenz-Bots. [Temu](https://temu.com/robots.txt) pendelt zurück auf selektiv.",
+      "summary": "[Heidi.News](https://heidi.news/robots.txt) und [Le Temps](https://letemps.ch/robots.txt) öffnen gezielt für OpenAIs Such- und Assistenz-Bots.",
       "commentary": null
     },
     {
       "date": "2026-06-22",
-      "changes": 9,
+      "changes": 20,
       "sites_changed": 1,
-      "summary": "[Temu](https://temu.com/robots.txt) zieht seine selektiven Schranken zurück und steht durchgängig offen – E-Commerce setzt auf Reichweite, nicht auf Content-Schutz.",
+      "summary": "Keine Policy-Bewegung. Die gezählten Veränderungen stammen von einer Site, deren robots.txt in dieser Runde nicht abrufbar war.",
       "commentary": null
     },
     {
