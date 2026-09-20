@@ -1,0 +1,647 @@
+{
+  "generated_at": "2026-04-27",
+  "user_agent": "AIX26-Keynote-Research/1.0 (+research only; respect robots)",
+  "crawlers": [
+    {
+      "id": "gptbot",
+      "user_agent": "GPTBot",
+      "purpose": "training",
+      "provider": "OpenAI",
+      "label": "GPTBot"
+    },
+    {
+      "id": "chatgpt_user",
+      "user_agent": "ChatGPT-User",
+      "purpose": "ondemand",
+      "provider": "OpenAI",
+      "label": "ChatGPT-User"
+    },
+    {
+      "id": "oai_searchbot",
+      "user_agent": "OAI-SearchBot",
+      "purpose": "search",
+      "provider": "OpenAI",
+      "label": "OAI-SearchBot"
+    },
+    {
+      "id": "google_extended",
+      "user_agent": "Google-Extended",
+      "purpose": "training",
+      "provider": "Google",
+      "label": "Google-Extended"
+    },
+    {
+      "id": "claudebot",
+      "user_agent": "ClaudeBot",
+      "purpose": "training",
+      "provider": "Anthropic",
+      "label": "ClaudeBot"
+    },
+    {
+      "id": "perplexitybot",
+      "user_agent": "PerplexityBot",
+      "purpose": "search",
+      "provider": "Perplexity",
+      "label": "PerplexityBot"
+    },
+    {
+      "id": "bytespider",
+      "user_agent": "Bytespider",
+      "purpose": "training",
+      "provider": "ByteDance",
+      "label": "Bytespider"
+    },
+    {
+      "id": "meta_external",
+      "user_agent": "Meta-ExternalAgent",
+      "purpose": "multi",
+      "provider": "Meta",
+      "label": "Meta-ExternalAgent"
+    },
+    {
+      "id": "ccbot",
+      "user_agent": "CCBot",
+      "purpose": "training",
+      "provider": "Common Crawl",
+      "label": "CCBot"
+    }
+  ],
+  "rows": [
+    {
+      "market": "CH",
+      "name": "NZZ",
+      "url": "nzz.ch",
+      "error": null,
+      "robots_size": 2546,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Tages-Anzeiger",
+      "url": "tagesanzeiger.ch",
+      "error": null,
+      "robots_size": 1468,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "20 Minuten",
+      "url": "20min.ch",
+      "error": null,
+      "robots_size": 3337,
+      "results": {
+        "gptbot": "SELECTIVE",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "SELECTIVE",
+        "google_extended": "SELECTIVE",
+        "claudebot": "SELECTIVE",
+        "perplexitybot": "SELECTIVE",
+        "bytespider": "SELECTIVE",
+        "meta_external": "SELECTIVE",
+        "ccbot": "SELECTIVE"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Blick",
+      "url": "blick.ch",
+      "error": null,
+      "robots_size": 1422,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "ALLOW",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Watson",
+      "url": "www.watson.ch",
+      "error": null,
+      "robots_size": 601,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "SRF",
+      "url": "srf.ch",
+      "error": null,
+      "robots_size": 798,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Le Temps",
+      "url": "letemps.ch",
+      "error": null,
+      "robots_size": 3556,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Republik",
+      "url": "republik.ch",
+      "error": null,
+      "robots_size": 1453,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Heidi.News",
+      "url": "heidi.news",
+      "error": null,
+      "robots_size": 3556,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Handelszeitung",
+      "url": "handelszeitung.ch",
+      "error": null,
+      "robots_size": 0,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "Cash",
+      "url": "cash.ch",
+      "error": null,
+      "robots_size": 1199,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "CH",
+      "name": "RTS",
+      "url": "rts.ch",
+      "error": null,
+      "robots_size": 614,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "Spiegel",
+      "url": "spiegel.de",
+      "error": null,
+      "robots_size": 2617,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "DEFAULT",
+        "claudebot": "BLOCK",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "Zeit",
+      "url": "zeit.de",
+      "error": null,
+      "robots_size": 1521,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "FAZ",
+      "url": "faz.net",
+      "error": null,
+      "robots_size": 3362,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "Süddeutsche",
+      "url": "sueddeutsche.de",
+      "error": null,
+      "robots_size": 2432,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "Welt",
+      "url": "welt.de",
+      "error": null,
+      "robots_size": 3578,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "Bild",
+      "url": "bild.de",
+      "error": null,
+      "robots_size": 3183,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "DEFAULT",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "Handelsblatt",
+      "url": "handelsblatt.com",
+      "error": null,
+      "robots_size": 1728,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "DE",
+      "name": "Manager Magazin",
+      "url": "manager-magazin.de",
+      "error": null,
+      "robots_size": 2308,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "SELECTIVE",
+        "claudebot": "BLOCK",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "AT",
+      "name": "Der Standard",
+      "url": "derstandard.at",
+      "error": null,
+      "robots_size": 732,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "AT",
+      "name": "Die Presse",
+      "url": "diepresse.com",
+      "error": null,
+      "robots_size": 1740,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "DEFAULT",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "AT",
+      "name": "Kurier",
+      "url": "kurier.at",
+      "error": null,
+      "robots_size": 320,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "AT",
+      "name": "Profil",
+      "url": "profil.at",
+      "error": null,
+      "robots_size": 256,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "DEFAULT",
+        "bytespider": "DEFAULT",
+        "meta_external": "DEFAULT",
+        "ccbot": "DEFAULT"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "NYT",
+      "url": "nytimes.com",
+      "error": null,
+      "robots_size": 8150,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "Washington Post",
+      "url": "washingtonpost.com",
+      "error": null,
+      "robots_size": 5468,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "Guardian",
+      "url": "theguardian.com",
+      "error": null,
+      "robots_size": 2844,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "DEFAULT",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "BBC",
+      "url": "bbc.com",
+      "error": null,
+      "robots_size": 5218,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "BLOCK",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "Reuters",
+      "url": "reuters.com",
+      "error": null,
+      "robots_size": 2610,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "Bloomberg",
+      "url": "bloomberg.com",
+      "error": null,
+      "robots_size": 6035,
+      "results": {
+        "gptbot": "BLOCK",
+        "chatgpt_user": "BLOCK",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "DEFAULT",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "FT",
+      "url": "ft.com",
+      "error": null,
+      "robots_size": 1557,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    },
+    {
+      "market": "US_UK",
+      "name": "WSJ",
+      "url": "wsj.com",
+      "error": null,
+      "robots_size": 4369,
+      "results": {
+        "gptbot": "DEFAULT",
+        "chatgpt_user": "DEFAULT",
+        "oai_searchbot": "DEFAULT",
+        "google_extended": "BLOCK",
+        "claudebot": "BLOCK",
+        "perplexitybot": "BLOCK",
+        "bytespider": "BLOCK",
+        "meta_external": "BLOCK",
+        "ccbot": "BLOCK"
+      }
+    }
+  ]
+}

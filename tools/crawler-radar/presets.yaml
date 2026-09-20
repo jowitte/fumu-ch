@@ -1,0 +1,77 @@
+# Benannte Sichten auf timeline.csv. Jeder Preset hat zwei Teile:
+#   query:  Filter, Group-By, Metrik — wird von query.py gelesen
+#   render: Vega-Lite-Encoding (Type, x/y/color/facet) — wird von render.py gelesen
+#
+# Aufruf:
+#   .venv/bin/python3 query.py  --preset <name>            # Daten als CSV auf stdout
+#   .venv/bin/python3 render.py --preset <name>            # Daten + Render in einem Lauf
+#
+# Filter-Syntax:
+#   "feld=wert"                      Einzelwert
+#   "feld=wert1|wert2"               Disjunktion
+#   "date=latest"                    Spezialfall: jüngstes Datum aus timeline.csv
+#   Mehrere Filter durch Komma: "category=brand,region=CH"
+
+keynote_heatmap:
+  description: "Komplette Site × Crawler Heatmap, gegliedert nach Site-Kategorie"
+  query:
+    filter: "date=latest"
+    group_by: "category,name,crawler_id"
+    metric: status
+  render:
+    type: heatmap
+    x: crawler_id
+    y: name
+    color: status
+    facet: category
+    title: "AI-Crawler-Policies in robots.txt — wer wird reingelassen, wer nicht"
+
+aggregated_block_quote:
+  description: "Sperrquote pro Site-Kategorie × Bot-Typ (kondensierte Übersicht)"
+  query:
+    filter: "date=latest"
+    group_by: "category,bot_category"
+    metric: block_share
+  render:
+    type: heatmap
+    x: bot_category
+    y: category
+    color: block_share
+    title: "Sperrquote pro Site-Kategorie und Bot-Typ"
+
+timeline_by_category:
+  description: "Sperrquote über Zeit, eine Linie pro Site-Kategorie"
+  query:
+    group_by: "date,category"
+    metric: block_share
+  render:
+    type: line
+    x: date
+    y: block_share
+    color: category
+    title: "Sperrungs-Verlauf nach Site-Kategorie"
+
+timeline_by_bot_category:
+  description: "Sperrquote über Zeit, eine Linie pro Bot-Typ"
+  query:
+    group_by: "date,bot_category"
+    metric: block_share
+  render:
+    type: line
+    x: date
+    y: block_share
+    color: bot_category
+    title: "Sperrungs-Verlauf nach Bot-Typ"
+
+ch_brands_block_quote:
+  description: "CH-Brands: Sperrquote pro Branche × Bot-Typ"
+  query:
+    filter: "category=brand,region=CH,date=latest"
+    group_by: "subcategory,bot_category"
+    metric: block_share
+  render:
+    type: heatmap
+    x: bot_category
+    y: subcategory
+    color: block_share
+    title: "Sperrquote bei Schweizer Brands"

@@ -1,0 +1,1936 @@
+# Robots-Diff 2026-07-20 vs. 2026-07-13
+
+**Vergleich:** 2160 überlappende Zellen, 1920 Veränderungen.
+
+## Neu nicht erreichbar
+
+- **Helvetia** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Helvetia** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Hilti** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Lindt** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Nestlé** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **On** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **PostFinance** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Raiffeisen** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Rolex** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Sunrise** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Swiss** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Swiss Life** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Swisscom** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **UBS** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Zurich Insurance** (brand/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Allianz** (brand/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Bosch** (brand/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Deutsche Telekom** (brand/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Lufthansa** (brand/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Porsche** (brand/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **SAP** (brand/DE) × amazonbot: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × ccbot: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × claude_searchbot: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × claude_user: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × claudebot: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × google_extended: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × gptbot: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **SAP** (brand/DE) × mistralai_user: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × perplexity_user: `SELECTIVE` → `ERROR`
+- **SAP** (brand/DE) × perplexitybot: `SELECTIVE` → `ERROR`
+- **Siemens** (brand/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Siemens** (brand/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Volkswagen** (brand/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × amazonbot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × applebot_extended: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × bytespider: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × ccbot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × claude_user: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × claudebot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × duckassistbot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × google_agent: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × google_extended: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × gptbot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × meta_external: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × mistralai_index: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × mistralai_user: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × perplexity_user: `DEFAULT` → `ERROR`
+- **Carrefour** (brand/EU) × perplexitybot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × amazonbot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × applebot_extended: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × bytespider: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × ccbot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × chatgpt_user: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × claude_searchbot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × claude_user: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × claudebot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × duckassistbot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × google_agent: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × google_extended: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × gptbot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × meta_external: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × mistralai_index: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × mistralai_user: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × oai_searchbot: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × perplexity_user: `DEFAULT` → `ERROR`
+- **IKEA** (brand/EU) × perplexitybot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × amazonbot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × applebot_extended: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × bytespider: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × ccbot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × claude_user: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × claudebot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × duckassistbot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × google_agent: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × google_extended: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × gptbot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × meta_external: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × mistralai_index: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × mistralai_user: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × perplexity_user: `DEFAULT` → `ERROR`
+- **Inditex** (brand/EU) × perplexitybot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × amazonbot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × applebot_extended: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × bytespider: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × ccbot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × chatgpt_user: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × claude_searchbot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × claude_user: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × claudebot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × duckassistbot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × google_agent: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × google_extended: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × gptbot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × meta_external: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × mistralai_index: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × mistralai_user: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × oai_searchbot: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × perplexity_user: `DEFAULT` → `ERROR`
+- **L'Oréal** (brand/EU) × perplexitybot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × amazonbot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × applebot_extended: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × bytespider: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × ccbot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × chatgpt_user: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × claude_searchbot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × claude_user: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × claudebot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × duckassistbot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × google_agent: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × google_extended: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × gptbot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × meta_external: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × mistralai_index: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × mistralai_user: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × oai_searchbot: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × perplexity_user: `DEFAULT` → `ERROR`
+- **LVMH** (brand/EU) × perplexitybot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × amazonbot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × applebot_extended: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × bytespider: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × ccbot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × claude_user: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × claudebot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × duckassistbot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × google_agent: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × google_extended: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × gptbot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × meta_external: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × mistralai_index: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × mistralai_user: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × perplexity_user: `DEFAULT` → `ERROR`
+- **Shell** (brand/EU) × perplexitybot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Manor** (ecommerce/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Microspot** (ecommerce/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Migros** (ecommerce/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × bytespider: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × ccbot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × claude_user: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × claudebot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × google_agent: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × google_extended: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × gptbot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × meta_external: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **About You** (ecommerce/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × amazonbot: `BLOCK` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × applebot_extended: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × bytespider: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × ccbot: `BLOCK` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × chatgpt_user: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × claude_searchbot: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × claude_user: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × claudebot: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × google_agent: `DEFAULT` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × google_cloudvertexbot: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × google_extended: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × gptbot: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × meta_external: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × meta_externalfetcher: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × mistralai_user: `BLOCK` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × oai_searchbot: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × perplexity_user: `ALLOW` → `ERROR`
+- **MediaMarkt** (ecommerce/DE) × perplexitybot: `ALLOW` → `ERROR`
+- **Otto** (ecommerce/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **Otto** (ecommerce/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × gptbot: `SELECTIVE` → `ERROR`
+- **Otto** (ecommerce/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Otto** (ecommerce/DE) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **Otto** (ecommerce/DE) × perplexity_user: `SELECTIVE` → `ERROR`
+- **Otto** (ecommerce/DE) × perplexitybot: `SELECTIVE` → `ERROR`
+- **Zalando** (ecommerce/EU) × amazonbot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × applebot_extended: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × bytespider: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × ccbot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × claude_user: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × claudebot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × duckassistbot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × google_agent: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × google_extended: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × gptbot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × meta_external: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × mistralai_index: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × mistralai_user: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × perplexity_user: `DEFAULT` → `ERROR`
+- **Zalando** (ecommerce/EU) × perplexitybot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × amazonbot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × applebot_extended: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × bytespider: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × ccbot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × chatgpt_user: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × claude_searchbot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × claude_user: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × claudebot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × duckassistbot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × google_agent: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × google_extended: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × gptbot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × meta_external: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × mistralai_index: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × mistralai_user: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × oai_searchbot: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × perplexity_user: `DEFAULT` → `ERROR`
+- **AliExpress** (ecommerce/Global) × perplexitybot: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × amazonbot: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × applebot_extended: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × bytespider: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × ccbot: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × claude_searchbot: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × claude_user: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × claudebot: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × duckassistbot: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × google_agent: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × google_extended: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × gptbot: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × meta_external: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × mistralai_index: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × mistralai_user: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **Temu** (ecommerce/Global) × perplexity_user: `DEFAULT` → `ERROR`
+- **Temu** (ecommerce/Global) × perplexitybot: `SELECTIVE` → `ERROR`
+- **Amazon DE** (platform/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Amazon DE** (platform/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Amazon DE** (platform/DE) × bytespider: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × ccbot: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × chatgpt_user: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × claude_searchbot: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × claude_user: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × claudebot: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × duckassistbot: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Amazon DE** (platform/DE) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × google_extended: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × gptbot: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × meta_external: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Amazon DE** (platform/DE) × mistralai_user: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × oai_searchbot: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × perplexity_user: `BLOCK` → `ERROR`
+- **Amazon DE** (platform/DE) × perplexitybot: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × amazonbot: `DEFAULT` → `ERROR`
+- **TikTok** (platform/Global) × applebot_extended: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × bytespider: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × ccbot: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × chatgpt_user: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × claude_searchbot: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × claude_user: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × claudebot: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × duckassistbot: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × google_agent: `DEFAULT` → `ERROR`
+- **TikTok** (platform/Global) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **TikTok** (platform/Global) × google_extended: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × gptbot: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × meta_external: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **TikTok** (platform/Global) × mistralai_index: `DEFAULT` → `ERROR`
+- **TikTok** (platform/Global) × mistralai_user: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × oai_searchbot: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × perplexity_user: `BLOCK` → `ERROR`
+- **TikTok** (platform/Global) × perplexitybot: `BLOCK` → `ERROR`
+- **Wikipedia** (platform/Global) × amazonbot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × applebot_extended: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × bytespider: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × ccbot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × claude_user: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × claudebot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × duckassistbot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × google_agent: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × google_extended: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × gptbot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × meta_external: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × mistralai_index: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × mistralai_user: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × perplexity_user: `DEFAULT` → `ERROR`
+- **Wikipedia** (platform/Global) × perplexitybot: `DEFAULT` → `ERROR`
+- **Amazon** (platform/US) × amazonbot: `DEFAULT` → `ERROR`
+- **Amazon** (platform/US) × applebot_extended: `DEFAULT` → `ERROR`
+- **Amazon** (platform/US) × bytespider: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × ccbot: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × claude_user: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × claudebot: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × duckassistbot: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × google_agent: `DEFAULT` → `ERROR`
+- **Amazon** (platform/US) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × google_extended: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × gptbot: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × meta_external: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **Amazon** (platform/US) × mistralai_user: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × oai_searchbot: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × perplexity_user: `BLOCK` → `ERROR`
+- **Amazon** (platform/US) × perplexitybot: `BLOCK` → `ERROR`
+- **Instagram** (platform/US) × amazonbot: `BLOCK` → `ERROR`
+- **Instagram** (platform/US) × applebot_extended: `BLOCK` → `ERROR`
+- **Instagram** (platform/US) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × chatgpt_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × claude_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × claude_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × claudebot: `BLOCK` → `ERROR`
+- **Instagram** (platform/US) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × google_extended: `BLOCK` → `ERROR`
+- **Instagram** (platform/US) × gptbot: `BLOCK` → `ERROR`
+- **Instagram** (platform/US) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × oai_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Instagram** (platform/US) × perplexitybot: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × amazonbot: `DEFAULT_BLOCKED` → `ERROR`
+- **LinkedIn** (platform/US) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **LinkedIn** (platform/US) × bytespider: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × ccbot: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × claude_searchbot: `SELECTIVE` → `ERROR`
+- **LinkedIn** (platform/US) × claude_user: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × claudebot: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × duckassistbot: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **LinkedIn** (platform/US) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × google_extended: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × gptbot: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × meta_external: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **LinkedIn** (platform/US) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **LinkedIn** (platform/US) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **LinkedIn** (platform/US) × perplexity_user: `BLOCK` → `ERROR`
+- **LinkedIn** (platform/US) × perplexitybot: `BLOCK` → `ERROR`
+- **Medium** (platform/US) × amazonbot: `BLOCK` → `ERROR`
+- **Medium** (platform/US) × applebot_extended: `BLOCK` → `ERROR`
+- **Medium** (platform/US) × bytespider: `BLOCK` → `ERROR`
+- **Medium** (platform/US) × ccbot: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × claude_user: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × claudebot: `BLOCK` → `ERROR`
+- **Medium** (platform/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × google_agent: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × google_extended: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × gptbot: `BLOCK` → `ERROR`
+- **Medium** (platform/US) × meta_external: `BLOCK` → `ERROR`
+- **Medium** (platform/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **Medium** (platform/US) × perplexitybot: `DEFAULT` → `ERROR`
+- **Pinterest** (platform/US) × amazonbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × chatgpt_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × claude_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × claude_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × claudebot: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × duckassistbot: `SELECTIVE` → `ERROR`
+- **Pinterest** (platform/US) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × google_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × gptbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × meta_externalfetcher: `SELECTIVE` → `ERROR`
+- **Pinterest** (platform/US) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × oai_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Pinterest** (platform/US) × perplexitybot: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × amazonbot: `SELECTIVE` → `ERROR`
+- **Quora** (platform/US) × applebot_extended: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × bytespider: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × claude_user: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × claudebot: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × google_extended: `SELECTIVE` → `ERROR`
+- **Quora** (platform/US) × gptbot: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × oai_searchbot: `BLOCK` → `ERROR`
+- **Quora** (platform/US) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Quora** (platform/US) × perplexitybot: `BLOCK` → `ERROR`
+- **Reddit** (platform/US) × amazonbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × chatgpt_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × claude_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × claude_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × claudebot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × google_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × gptbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × oai_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Reddit** (platform/US) × perplexitybot: `DEFAULT_BLOCKED` → `ERROR`
+- **Substack** (platform/US) × amazonbot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × applebot_extended: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × bytespider: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × ccbot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × claude_user: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × claudebot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × google_agent: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × google_extended: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × gptbot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × meta_external: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **Substack** (platform/US) × perplexitybot: `DEFAULT` → `ERROR`
+- **X** (platform/US) × amazonbot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × chatgpt_user: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × claude_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × claude_user: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × claudebot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × google_extended: `SELECTIVE` → `ERROR`
+- **X** (platform/US) × gptbot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × oai_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **X** (platform/US) × perplexitybot: `DEFAULT_BLOCKED` → `ERROR`
+- **YouTube** (platform/US) × amazonbot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × applebot_extended: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × bytespider: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × ccbot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × chatgpt_user: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × claude_searchbot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × claude_user: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × claudebot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × google_agent: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × google_extended: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × gptbot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × meta_external: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × oai_searchbot: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **YouTube** (platform/US) × perplexitybot: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × amazonbot: `BLOCK` → `ERROR`
+- **eBay** (platform/US) × applebot_extended: `BLOCK` → `ERROR`
+- **eBay** (platform/US) × bytespider: `BLOCK` → `ERROR`
+- **eBay** (platform/US) × ccbot: `BLOCK` → `ERROR`
+- **eBay** (platform/US) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **eBay** (platform/US) × claude_searchbot: `SELECTIVE` → `ERROR`
+- **eBay** (platform/US) × claude_user: `SELECTIVE` → `ERROR`
+- **eBay** (platform/US) × claudebot: `BLOCK` → `ERROR`
+- **eBay** (platform/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × google_agent: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × google_extended: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × gptbot: `BLOCK` → `ERROR`
+- **eBay** (platform/US) × meta_external: `BLOCK` → `ERROR`
+- **eBay** (platform/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **eBay** (platform/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **eBay** (platform/US) × perplexitybot: `BLOCK` → `ERROR`
+- **Kurier** (publisher_open/AT) × amazonbot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × applebot_extended: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × bytespider: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × ccbot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × claude_user: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × claudebot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × duckassistbot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × google_agent: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × google_extended: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × gptbot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × meta_external: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × mistralai_index: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × mistralai_user: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × perplexity_user: `DEFAULT` → `ERROR`
+- **Kurier** (publisher_open/AT) × perplexitybot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × amazonbot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × applebot_extended: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × bytespider: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × ccbot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × claude_user: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × claudebot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × duckassistbot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × google_agent: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × google_extended: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × gptbot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × meta_external: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × mistralai_index: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × mistralai_user: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × perplexity_user: `DEFAULT` → `ERROR`
+- **Profil** (publisher_open/AT) × perplexitybot: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × amazonbot: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × applebot_extended: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × bytespider: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × ccbot: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × claude_user: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × claudebot: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × google_agent: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × google_cloudvertexbot: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × google_extended: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × gptbot: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × meta_external: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × meta_externalfetcher: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **20 Minuten** (publisher_open/CH) × perplexitybot: `SELECTIVE` → `ERROR`
+- **Blick** (publisher_open/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × claudebot: `ALLOW` → `ERROR`
+- **Blick** (publisher_open/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Blick** (publisher_open/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Cash** (publisher_open/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × bytespider: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × ccbot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × claude_user: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × claudebot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × google_agent: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × google_extended: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × gptbot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × meta_external: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **RTS** (publisher_open/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × bytespider: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × ccbot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × claude_user: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × claudebot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × google_agent: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × google_extended: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × gptbot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × meta_external: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **SRF** (publisher_open/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Watson** (publisher_open/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Bild** (publisher_open/DE) × bytespider: `BLOCK` → `ERROR`
+- **Bild** (publisher_open/DE) × ccbot: `BLOCK` → `ERROR`
+- **Bild** (publisher_open/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × duckassistbot: `BLOCK` → `ERROR`
+- **Bild** (publisher_open/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × mistralai_user: `BLOCK` → `ERROR`
+- **Bild** (publisher_open/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Bild** (publisher_open/DE) × perplexity_user: `BLOCK` → `ERROR`
+- **Bild** (publisher_open/DE) × perplexitybot: `BLOCK` → `ERROR`
+- **Stern** (publisher_open/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Stern** (publisher_open/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × ccbot: `BLOCK` → `ERROR`
+- **Stern** (publisher_open/DE) × chatgpt_user: `BLOCK` → `ERROR`
+- **Stern** (publisher_open/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × google_extended: `BLOCK` → `ERROR`
+- **Stern** (publisher_open/DE) × gptbot: `BLOCK` → `ERROR`
+- **Stern** (publisher_open/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Stern** (publisher_open/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **T-Online** (publisher_open/DE) × bytespider: `BLOCK` → `ERROR`
+- **T-Online** (publisher_open/DE) × ccbot: `BLOCK` → `ERROR`
+- **T-Online** (publisher_open/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × claude_user: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × claudebot: `BLOCK` → `ERROR`
+- **T-Online** (publisher_open/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × google_agent: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × google_extended: `BLOCK` → `ERROR`
+- **T-Online** (publisher_open/DE) × gptbot: `BLOCK` → `ERROR`
+- **T-Online** (publisher_open/DE) × meta_external: `BLOCK` → `ERROR`
+- **T-Online** (publisher_open/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **T-Online** (publisher_open/DE) × perplexitybot: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × bytespider: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × ccbot: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × claudebot: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × google_extended: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × gptbot: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × meta_external: `BLOCK` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Tagesschau** (publisher_open/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × bytespider: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × ccbot: `SELECTIVE` → `ERROR`
+- **ZDF** (publisher_open/DE) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **ZDF** (publisher_open/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × claude_user: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × claudebot: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × google_agent: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × google_extended: `SELECTIVE` → `ERROR`
+- **ZDF** (publisher_open/DE) × gptbot: `SELECTIVE` → `ERROR`
+- **ZDF** (publisher_open/DE) × meta_external: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **ZDF** (publisher_open/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × amazonbot: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × applebot_extended: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × bytespider: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × ccbot: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × chatgpt_user: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × claude_searchbot: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × claude_user: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × claudebot: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × duckassistbot: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × google_agent: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × google_extended: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × gptbot: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × meta_external: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × mistralai_index: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × mistralai_user: `DEFAULT` → `ERROR`
+- **BBC** (publisher_open/UK) × oai_searchbot: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × perplexity_user: `BLOCK` → `ERROR`
+- **BBC** (publisher_open/UK) × perplexitybot: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × amazonbot: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × applebot_extended: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × bytespider: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × ccbot: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × claude_searchbot: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × claude_user: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × claudebot: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × duckassistbot: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × google_agent: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × google_extended: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × gptbot: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × meta_external: `BLOCK` → `ERROR`
+- **Guardian** (publisher_open/UK) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × mistralai_index: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × mistralai_user: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × perplexity_user: `DEFAULT` → `ERROR`
+- **Guardian** (publisher_open/UK) × perplexitybot: `BLOCK` → `ERROR`
+- **Independent** (publisher_open/UK) × amazonbot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × applebot_extended: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × bytespider: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × ccbot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × claude_user: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × claudebot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × duckassistbot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × google_agent: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × google_extended: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × gptbot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × meta_external: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × mistralai_index: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × mistralai_user: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × perplexity_user: `DEFAULT` → `ERROR`
+- **Independent** (publisher_open/UK) × perplexitybot: `DEFAULT` → `ERROR`
+- **Reuters** (publisher_open/UK) × amazonbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **Reuters** (publisher_open/UK) × claude_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × claude_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × claudebot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × google_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × gptbot: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **Reuters** (publisher_open/UK) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **Reuters** (publisher_open/UK) × perplexitybot: `DEFAULT_BLOCKED` → `ERROR`
+- **AP** (publisher_open/US) × amazonbot: `BLOCK` → `ERROR`
+- **AP** (publisher_open/US) × applebot_extended: `BLOCK` → `ERROR`
+- **AP** (publisher_open/US) × bytespider: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × ccbot: `BLOCK` → `ERROR`
+- **AP** (publisher_open/US) × chatgpt_user: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **AP** (publisher_open/US) × claude_user: `BLOCK` → `ERROR`
+- **AP** (publisher_open/US) × claudebot: `BLOCK` → `ERROR`
+- **AP** (publisher_open/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × google_agent: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × google_extended: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × gptbot: `BLOCK` → `ERROR`
+- **AP** (publisher_open/US) × meta_external: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × oai_searchbot: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **AP** (publisher_open/US) × perplexitybot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × amazonbot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × applebot_extended: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × bytespider: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × ccbot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × claude_user: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × claudebot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × duckassistbot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × google_agent: `DEFAULT` → `ERROR`
+- **CNN** (publisher_open/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **CNN** (publisher_open/US) × google_extended: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × gptbot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × meta_external: `DEFAULT` → `ERROR`
+- **CNN** (publisher_open/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **CNN** (publisher_open/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **CNN** (publisher_open/US) × mistralai_user: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × oai_searchbot: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × perplexity_user: `BLOCK` → `ERROR`
+- **CNN** (publisher_open/US) × perplexitybot: `BLOCK` → `ERROR`
+- **Fox News** (publisher_open/US) × amazonbot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × applebot_extended: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × bytespider: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × ccbot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × claude_user: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × claudebot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × google_agent: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × google_extended: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × gptbot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × meta_external: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **Fox News** (publisher_open/US) × perplexitybot: `DEFAULT` → `ERROR`
+- **NBC News** (publisher_open/US) × amazonbot: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × applebot_extended: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × bytespider: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × ccbot: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × claude_user: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × claudebot: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **NBC News** (publisher_open/US) × google_agent: `DEFAULT` → `ERROR`
+- **NBC News** (publisher_open/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **NBC News** (publisher_open/US) × google_extended: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × gptbot: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × meta_external: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **NBC News** (publisher_open/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **NBC News** (publisher_open/US) × mistralai_user: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × oai_searchbot: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × perplexity_user: `BLOCK` → `ERROR`
+- **NBC News** (publisher_open/US) × perplexitybot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × amazonbot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × applebot_extended: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × bytespider: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × ccbot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × claude_user: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × claudebot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × duckassistbot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × google_agent: `DEFAULT` → `ERROR`
+- **USA Today** (publisher_open/US) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × google_extended: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × gptbot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × meta_external: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **USA Today** (publisher_open/US) × mistralai_user: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × oai_searchbot: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × perplexity_user: `BLOCK` → `ERROR`
+- **USA Today** (publisher_open/US) × perplexitybot: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × amazonbot: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × applebot_extended: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × bytespider: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × ccbot: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × chatgpt_user: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × claude_user: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × claudebot: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × duckassistbot: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × google_agent: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × google_extended: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × gptbot: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × meta_external: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × mistralai_index: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × mistralai_user: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × perplexity_user: `BLOCK` → `ERROR`
+- **Der Standard** (publisher_paywall/AT) × perplexitybot: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × amazonbot: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × applebot_extended: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × bytespider: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × ccbot: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × chatgpt_user: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × claude_user: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × claudebot: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × duckassistbot: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × google_agent: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × google_extended: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × gptbot: `BLOCK` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × meta_external: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × mistralai_index: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × mistralai_user: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × perplexity_user: `DEFAULT` → `ERROR`
+- **Die Presse** (publisher_paywall/AT) × perplexitybot: `BLOCK` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × amazonbot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × applebot_extended: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × bytespider: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × ccbot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × claudebot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × google_extended: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × gptbot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × meta_external: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Handelszeitung** (publisher_paywall/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × amazonbot: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × applebot_extended: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × bytespider: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × ccbot: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × claudebot: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × google_extended: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × gptbot: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × meta_external: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Heidi.News** (publisher_paywall/CH) × perplexitybot: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × amazonbot: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × applebot_extended: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × bytespider: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × ccbot: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × claudebot: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × google_extended: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × gptbot: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × meta_external: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Le Temps** (publisher_paywall/CH) × perplexitybot: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × amazonbot: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × applebot_extended: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × bytespider: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × ccbot: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × chatgpt_user: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × claude_user: `DEFAULT` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × claudebot: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × google_agent: `DEFAULT` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × google_extended: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × gptbot: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × meta_external: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × mistralai_user: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × oai_searchbot: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × perplexity_user: `BLOCK` → `ERROR`
+- **NZZ** (publisher_paywall/CH) × perplexitybot: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × amazonbot: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × applebot_extended: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × bytespider: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × ccbot: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × claudebot: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × google_extended: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × gptbot: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × meta_external: `BLOCK` → `ERROR`
+- **Republik** (publisher_paywall/CH) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Republik** (publisher_paywall/CH) × perplexitybot: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × amazonbot: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × applebot_extended: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × bytespider: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × ccbot: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × chatgpt_user: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × claude_user: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × claudebot: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × duckassistbot: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × google_agent: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × google_extended: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × gptbot: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × meta_external: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × mistralai_index: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × mistralai_user: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × oai_searchbot: `BLOCK` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × perplexity_user: `DEFAULT` → `ERROR`
+- **Tages-Anzeiger** (publisher_paywall/CH) × perplexitybot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × amazonbot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × bytespider: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × ccbot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × chatgpt_user: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × claude_searchbot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × claude_user: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × claudebot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × duckassistbot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × google_agent: `DEFAULT` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × google_extended: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × gptbot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × meta_external: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × mistralai_user: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × oai_searchbot: `BLOCK` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **FAZ** (publisher_paywall/DE) × perplexitybot: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × amazonbot: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × bytespider: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × ccbot: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × claude_searchbot: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × claudebot: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × google_extended: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × gptbot: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × meta_external: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × mistralai_user: `BLOCK` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Handelsblatt** (publisher_paywall/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × bytespider: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × ccbot: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × chatgpt_user: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × claudebot: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × google_extended: `SELECTIVE` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × gptbot: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × meta_external: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × oai_searchbot: `BLOCK` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Manager Magazin** (publisher_paywall/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × bytespider: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × ccbot: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × chatgpt_user: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × claudebot: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × gptbot: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × meta_external: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × oai_searchbot: `BLOCK` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Spiegel** (publisher_paywall/DE) × perplexitybot: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × amazonbot: `SELECTIVE` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × applebot_extended: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × bytespider: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × ccbot: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × chatgpt_user: `BLOCK` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × claudebot: `BLOCK` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × google_extended: `BLOCK` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × gptbot: `BLOCK` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × perplexity_user: `DEFAULT` → `ERROR`
+- **Süddeutsche** (publisher_paywall/DE) × perplexitybot: `BLOCK` → `ERROR`
+- **Welt** (publisher_paywall/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Welt** (publisher_paywall/DE) × bytespider: `BLOCK` → `ERROR`
+- **Welt** (publisher_paywall/DE) × ccbot: `BLOCK` → `ERROR`
+- **Welt** (publisher_paywall/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × claudebot: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × duckassistbot: `BLOCK` → `ERROR`
+- **Welt** (publisher_paywall/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × google_extended: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × gptbot: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × meta_external: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × mistralai_user: `BLOCK` → `ERROR`
+- **Welt** (publisher_paywall/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Welt** (publisher_paywall/DE) × perplexity_user: `BLOCK` → `ERROR`
+- **Welt** (publisher_paywall/DE) × perplexitybot: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × amazonbot: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × applebot_extended: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × bytespider: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × ccbot: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × claude_user: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × claudebot: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × duckassistbot: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × google_agent: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × google_extended: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × gptbot: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × meta_external: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × mistralai_index: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × mistralai_user: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × perplexity_user: `BLOCK` → `ERROR`
+- **Zeit** (publisher_paywall/DE) × perplexitybot: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × amazonbot: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × applebot_extended: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × bytespider: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × ccbot: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × chatgpt_user: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × claude_searchbot: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × claude_user: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × claudebot: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × duckassistbot: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × google_agent: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × google_extended: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × gptbot: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × meta_external: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × mistralai_index: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × mistralai_user: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × oai_searchbot: `DEFAULT` → `ERROR`
+- **FT** (publisher_paywall/UK) × perplexity_user: `BLOCK` → `ERROR`
+- **FT** (publisher_paywall/UK) × perplexitybot: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × amazonbot: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × applebot_extended: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × bytespider: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × ccbot: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × chatgpt_user: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × claude_searchbot: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × claude_user: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × claudebot: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × duckassistbot: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × google_agent: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × google_extended: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × gptbot: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × meta_external: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × meta_externalfetcher: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × mistralai_index: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × mistralai_user: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × oai_searchbot: `DEFAULT` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × perplexity_user: `BLOCK` → `ERROR`
+- **The Economist** (publisher_paywall/UK) × perplexitybot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × amazonbot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × applebot_extended: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × bytespider: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × ccbot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × chatgpt_user: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × claude_searchbot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × claude_user: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × claudebot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × duckassistbot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × google_agent: `DEFAULT` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × google_extended: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × gptbot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × meta_external: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × mistralai_index: `DEFAULT` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × mistralai_user: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × oai_searchbot: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × perplexity_user: `BLOCK` → `ERROR`
+- **The Telegraph** (publisher_paywall/UK) × perplexitybot: `BLOCK` → `ERROR`
+- **The Times** (publisher_paywall/UK) × amazonbot: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **The Times** (publisher_paywall/UK) × claude_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × claude_user: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × claudebot: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × google_cloudvertexbot: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × google_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × gptbot: `SELECTIVE` → `ERROR`
+- **The Times** (publisher_paywall/UK) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **The Times** (publisher_paywall/UK) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **The Times** (publisher_paywall/UK) × perplexitybot: `DEFAULT_BLOCKED` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × amazonbot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × applebot_extended: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × bytespider: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × ccbot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × claude_user: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × claudebot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × duckassistbot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × google_agent: `DEFAULT` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × google_extended: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × gptbot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × meta_external: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × oai_searchbot: `BLOCK` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **Bloomberg** (publisher_paywall/US) × perplexitybot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × amazonbot: `SELECTIVE` → `ERROR`
+- **NYT** (publisher_paywall/US) × applebot_extended: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × bytespider: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × ccbot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × chatgpt_user: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × claude_searchbot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × claude_user: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × claudebot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × duckassistbot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × google_agent: `DEFAULT` → `ERROR`
+- **NYT** (publisher_paywall/US) × google_cloudvertexbot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × google_extended: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × gptbot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × meta_external: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **NYT** (publisher_paywall/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **NYT** (publisher_paywall/US) × oai_searchbot: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × perplexity_user: `BLOCK` → `ERROR`
+- **NYT** (publisher_paywall/US) × perplexitybot: `BLOCK` → `ERROR`
+- **WSJ** (publisher_paywall/US) × amazonbot: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × applebot_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × bytespider: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × ccbot: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × chatgpt_user: `SELECTIVE` → `ERROR`
+- **WSJ** (publisher_paywall/US) × claude_searchbot: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × claude_user: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × claudebot: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × duckassistbot: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × google_agent: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × google_cloudvertexbot: `SELECTIVE` → `ERROR`
+- **WSJ** (publisher_paywall/US) × google_extended: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × gptbot: `SELECTIVE` → `ERROR`
+- **WSJ** (publisher_paywall/US) × meta_external: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × meta_externalfetcher: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × mistralai_index: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × mistralai_user: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × oai_searchbot: `SELECTIVE` → `ERROR`
+- **WSJ** (publisher_paywall/US) × perplexity_user: `DEFAULT_BLOCKED` → `ERROR`
+- **WSJ** (publisher_paywall/US) × perplexitybot: `DEFAULT_BLOCKED` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × amazonbot: `BLOCK` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × applebot_extended: `BLOCK` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × bytespider: `BLOCK` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × ccbot: `BLOCK` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × chatgpt_user: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × claude_searchbot: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × claude_user: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × claudebot: `BLOCK` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × duckassistbot: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × google_agent: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × google_cloudvertexbot: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × google_extended: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × gptbot: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × meta_external: `BLOCK` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × meta_externalfetcher: `BLOCK` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × mistralai_index: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × mistralai_user: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × oai_searchbot: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × perplexity_user: `DEFAULT` → `ERROR`
+- **Washington Post** (publisher_paywall/US) × perplexitybot: `BLOCK` → `ERROR`
+
+## Aggregat
+
+| Kategorie | Block-Quote alt | Block-Quote neu | Δ |
+|---|---|---|---|
+| brand | 1% | 0% | ↓ -1 |
+| ecommerce | 1% | 0% | ↓ -1 |
+| platform | 58% | 0% | ↓ -58 |
+| publisher_open | 26% | 0% | ↓ -26 |
+| publisher_paywall | 53% | 0% | ↓ -53 |

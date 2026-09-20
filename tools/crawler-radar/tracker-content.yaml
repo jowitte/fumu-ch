@@ -1,0 +1,125 @@
+# Kuratierte Content-Schicht für das Tracker-JSON (AI-Crawler-Radar auf fumu.ch).
+#
+# publish.py merged diese Datei in den mechanischen Payload:
+#   methodology_details  → 1:1 ins JSON (klappbare Methodik-Section)
+#   runs.<datum>.summary → ersetzt das mechanische Lauf-Summary
+#   runs.<datum>.commentary → optionale Einordnung zum Themenfeld (Default: keine)
+#
+# Läufe ohne Eintrag bekommen das mechanische Summary aus dem Diff
+# («N Veränderungen auf M Sites (…)»). Zahlen (changes, sites_changed)
+# bleiben immer mechanisch – hier wird nur Text kuratiert.
+# Pflege: beim manuellen /robots-txt snap (siehe SKILL.md).
+
+methodology_details:
+  - title: Erhebung
+    body: >-
+      Alle 14 Tage ruft der Analyzer die robots.txt von gut 100 Sites ab und
+      wertet sie gegen 20 dokumentierte AI-Crawler aus – von OpenAI, Anthropic,
+      Google, Meta, Apple, Amazon, Perplexity, Mistral, ByteDance und DuckDuckGo.
+      Das Sample ist kuratiert, nicht repräsentativ: Publisher mit und ohne
+      Paywall, Plattformen, Brands und E-Commerce, Schwerpunkt Schweiz, ergänzt
+      um Titel aus Deutschland, Österreich, UK, USA und der EU. Die Abfrage
+      läuft mit offen deklariertem User-Agent (fumu-Crawler).
+
+  - title: Status-Logik
+    body: >-
+      Jede Zelle Site × Crawler bekommt einen von sechs Status, ausgewertet
+      nach RFC 9309: explizit gesperrt (BLOCK), explizit erlaubt (ALLOW),
+      teilweise gesperrt (SELECTIVE), nicht erwähnt und damit implizit erlaubt
+      (DEFAULT), nicht erwähnt, aber von einer globalen Sperre erfasst
+      (DEFAULT_BLOCKED) – oder robots.txt nicht abrufbar (ERROR).
+
+  - title: Block-Anteil
+    body: >-
+      Der Block-Anteil zählt BLOCK und DEFAULT_BLOCKED, geteilt durch alle
+      Zellen der Kategorie – einschliesslich ERROR. Nicht erreichbare Sites
+      drücken den Anteil also leicht; sie erscheinen dafür als eigener
+      Datenpunkt, statt stillschweigend als Blockade oder Erlaubnis gewertet
+      zu werden.
+
+  - title: Grenzen
+    body: >-
+      robots.txt ist Deklaration, nicht Crawl-Realität. ChatGPT-User bindet
+      sich laut OpenAI-Dokumentation nicht mehr an robots.txt, Perplexity
+      crawlt nachweislich daran vorbei, und Googles Agent ignoriert die Datei
+      per Anbieter-Position – ein DEFAULT heisst dort nicht, dass der Crawler
+      draussen bleibt. ERROR-Zellen stammen meist von Bot-Schutz
+      (403/Timeout) und sind kein Policy-Signal.
+
+# Konvention: erwähnte Site-Namen als Markdown-Link auf die jeweilige
+# robots.txt setzen (das Artefakt, von dem der Satz spricht) – erste
+# Erwähnung pro Eintrag. Das Frontend rendert die Links inline.
+#
+# Keine technischen Ausfälle im Lauf-Log (Jochen, 2026-07-16): Bot-Schutz-
+# Flackern, ERROR-Übergänge und Erholungen («X ist wieder erreichbar») sind
+# kein Policy-Signal (siehe Methodik > Grenzen) und gehören nicht in die
+# Summaries – nur echte robots.txt-Entscheidungen der Sites.
+runs:
+  "2026-04-29":
+    summary: >-
+      Sample auf 107 Sites erweitert und Plattformen als eigene Kategorie
+      eingeführt – [Amazon](https://amazon.com/robots.txt) und
+      [eBay](https://ebay.com/robots.txt) wandern dorthin.
+      Kein Drift-Vergleich, die Basislinie entsteht.
+  "2026-05-04":
+    summary: >-
+      Keine Veränderungen bei erstmals stabilem Sample – robots.txt-Politik
+      ist kein Tages-Phänomen, die 14-Tage-Kadenz hat die richtige Auflösung.
+  "2026-05-11":
+    summary: >-
+      [WSJ](https://wsj.com/robots.txt) stellt als erstes Haus die
+      Architektur um: weg von Sperren pro Crawler, hin zu global gesperrt
+      mit kuratierten Ausnahmen für Suchbots.
+  "2026-05-16":
+    summary: >-
+      [Reuters](https://reuters.com/robots.txt) folgt dem
+      [WSJ](https://wsj.com/robots.txt)-Muster eine Woche später –
+      Default zu, Ausnahmen für Such- und Zitier-Bots.
+  "2026-05-25":
+    summary: >-
+      [Bloomberg](https://bloomberg.com/robots.txt) geht den Gegenweg zu
+      [WSJ](https://wsj.com/robots.txt) und
+      [Reuters](https://reuters.com/robots.txt) und schliesst die letzten
+      offenen Crawler-Lücken einzeln – die ganze explizite Bot-Reihe steht
+      jetzt auf Sperre. [CNN](https://cnn.com/robots.txt) sperrt
+      Claude-User nach.
+  "2026-06-01":
+    summary: >-
+      Erstmals 20 Crawler in der Zeitreihe (u.a. Amazonbot, Mistral, Meta) –
+      die neuen Spalten verdünnen die Block-Quoten optisch, auf dem alten
+      Raster hat sich nichts bewegt.
+  "2026-06-08":
+    summary: >-
+      [Tagesschau](https://tagesschau.de/robots.txt) zieht die komplette
+      AI-Crawler-Sperre zurück – der erste öffentlich-rechtliche Publisher im
+      Sample, der vollständig öffnet. [WSJ](https://wsj.com/robots.txt)
+      weitet seine Allow-Liste aus,
+      [eBay](https://ebay.com/robots.txt) verschärft leicht.
+  "2026-06-15":
+    summary: >-
+      [Zeit](https://zeit.de/robots.txt) sperrt Googles Trainings-Crawler –
+      eine einzelne Zelle, gezielte Ergänzung statt Strategiewechsel.
+  "2026-06-22":
+    summary: >-
+      [Temu](https://temu.com/robots.txt) zieht seine selektiven Schranken
+      zurück und steht durchgängig offen – E-Commerce setzt auf Reichweite,
+      nicht auf Content-Schutz.
+  "2026-06-29":
+    summary: >-
+      [Heidi.News](https://heidi.news/robots.txt) und
+      [Le Temps](https://letemps.ch/robots.txt) öffnen gezielt für OpenAIs
+      Such- und Assistenz-Bots. [Temu](https://temu.com/robots.txt) pendelt
+      zurück auf selektiv.
+  "2026-07-06":
+    summary: >-
+      [LinkedIn](https://linkedin.com/robots.txt) stuft den Claude-Suchbot
+      von gesperrt auf teilweise herunter – Zitierbarkeit ja,
+      Trainingsmaterial nein.
+  "2026-07-13":
+    summary: >-
+      [Der Standard](https://derstandard.at/robots.txt) sperrt fünf
+      Scraper- und Trainings-Crawler explizit und öffnet zugleich den
+      OpenAI-Suchbot, dieselbe Trennlinie, die
+      [WSJ](https://wsj.com/robots.txt) und
+      [Reuters](https://reuters.com/robots.txt) im Mai gezogen haben.
+      WSJ nimmt seine Juni-Öffnung teilweise zurück.

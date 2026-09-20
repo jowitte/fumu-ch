@@ -28,7 +28,7 @@ npm run build    # Production Build → dist/
 npm run preview  # Preview des Builds
 ```
 
-Kein Linter konfiguriert. Verifikation ist `npm run build` – es prüft Zod-Schemas, TypeScript (strict) und generiert alle dynamischen Routen – plus `npx vitest run` für die beiden Unit-Test-Files (`src/plugins/remark-wikilinks.test.mjs`, `src/data/pages/to-markdown.test.ts`). Vor jedem Commit, der Content oder Routen berührt: `npm run build` muss grün durchlaufen.
+Kein Linter konfiguriert. Verifikation ist `npm run build` – es prüft Zod-Schemas, TypeScript (strict) und generiert alle dynamischen Routen – plus `npx vitest run` für die drei Unit-Test-Files (`src/plugins/remark-wikilinks.test.mjs`, `src/plugins/obsidian-markers.test.mjs`, `src/data/pages/to-markdown.test.ts`). Vor jedem Commit, der Content oder Routen berührt: `npm run build` muss grün durchlaufen. Die Radar-Pipeline unter `tools/crawler-radar/` hat eigene Python-Tests (siehe Architektur > AI-Crawler-Radar-Pipeline).
 
 ## Deploy
 
@@ -41,6 +41,8 @@ Inhaltliche Planung passiert im Akasha-Vault; technische Umsetzungs-Pläne werde
 **Zweiter Schreiber:** Content-nahe Edits (Seitentext, Navigation, Verlinkung, Redirects, Daten-Files wie `src/data/ai-crawler-tracker.json`) kommen auch direkt aus der Akasha-Vault-Session – dort über den `/fumu-web`-Skill (seit 2026-07-16), der Eingangsritual und Betriebsregeln trägt: `git status` vor Schreibzugriff, Whitelist-Staging, Commit/Push nur auf Ansage. Uncommitted Änderungen im Working Tree können also vom Vault stammen – vor `git checkout`/`stash`/`reset` prüfen, nicht wegwerfen. Konvention: `Akasha-Vault > Aufwände/fumu Marketing/CLAUDE.md` > «Zusammenarbeit mit dem Website-Repo».
 
 **Dritter Schreiber:** Jochen editiert publizierte Perspektiven von Hand in VS Code (Repo als Workspace, `.vscode/` gitignored). Uncommitted Content-Änderungen können also auch daher stammen; Hintergrund ist der Perspektiven-Lebenszyklus (Repo-File als Master nach Publish, siehe Akasha-Vault `var/references/DOKUMENT-LEBENSZYKLUS.md` > Publizierte Perspektiven).
+
+**Vierter Schreiber:** Ein Cron-Job auf dem Server `akasha-cloud` fährt alle 14 Tage `tools/crawler-radar/run.sh` aus einem eigenen Klon und committet und pusht von ausserhalb – genau `tools/crawler-radar/data/` und `src/data/ai-crawler-tracker.json`, Message `data: AI-Crawler-Tracker-Snapshot YYYY-MM-DD`. Vor Arbeit an diesen Pfaden `git pull`, und dort keine uncommitteten Änderungen liegen lassen. Die kuratierten Lauf-Texte (`tools/crawler-radar/tracker-content.yaml`) pflegt weiter die Vault-Session. Bis der Server-Cron eingerichtet ist, committet übergangsweise noch der launchd-Job auf Jochens Mac das Tracker-JSON.
 
 ## Content Collections
 
@@ -118,6 +120,16 @@ Drei eigene Plugins verarbeiten jedes Markdown vor dem Render:
 
 - `src/pages/rss.xml.ts` – RSS-Feed der veröffentlichten Perspektiven.
 - `public/_redirects` – 301/404-Redirects aus der WordPress→Astro-Migration (alte `/author/*`, `/tag/*`, `/category/*`, `/wp-*`-URLs). Beim Umbenennen/Entfernen von URLs hier nachziehen.
+
+### AI-Crawler-Radar-Pipeline (`tools/crawler-radar/`)
+
+Erhebung, Snapshots und Publish des Radars liegen seit 2026-09-20 in diesem Repo (vorher Python-Lib im Akasha-Vault, Plan: `docs/plans/2026-09-20-crawler-radar-pipeline-ins-repo.md`). `tools/` liegt ausserhalb von `src/` und `public/` und berührt den Astro-Build nicht; die Site liest nur das Ergebnis `src/data/ai-crawler-tracker.json`.
+
+- Kette: `analyze.py` (robots.txt der 108 Sites aus `sample.yaml` holen → `data/snapshot-YYYY-MM-DD.{json,csv}`) → `timeline.py` (`data/timeline.{csv,json}`) → `diff.py` (`data/diff-YYYY-MM-DD.md`) → `publish.py` (Tracker-JSON; Default-Output ist das Repo-JSON, `--output -` schreibt nach stdout). `query.py` ist die Ad-hoc-Aggregation, auf der `publish.py` aufbaut.
+- `run.sh [--force] [--sample PATH]` ist der Cron-Wrapper: Wochen-Gate (nur gerade ISO-Wochen, `--force` überspringt), `git pull --rebase`, Kette, ein Commit mit Whitelist-Staging, Push fail-soft. Log über `RADAR_LOG`, Default `tools/crawler-radar/cron.log` (gitignored). Exit 0 = veröffentlicht/übersprungen, 1 = Setup oder Pull gescheitert, 2 = Lauf verworfen.
+- **Guard:** `publish.py` blockiert bei über 30 Prozent ERROR-Zellen oder unplausibel dünnem Snapshot. `run.sh` verwirft dann die Dateien des Laufs (`git restore` + `git clean`, beschränkt auf `data/` und das Tracker-JSON) – ein ausgefallener Lauf hinterlässt keinen Snapshot statt einer Null-Delle in der Zeitreihe. `data/archive/` belegt die zwei DNS-Ausfälle vom Juli/August 2026.
+- Setup und Tests: `tools/crawler-radar/setup.sh` (venv + `requirements.txt`), dann `cd tools/crawler-radar && .venv/bin/python -m pytest -q` (32 Tests).
+- **Nicht ändern ohne Rückmeldung in den Vault:** CLI-Argumente `--timeline`, `--presets`, `--data-dir` und die Spalten von `timeline.csv` – daran hängen `render.py` und der `/robots-txt`-Skill im Vault, die diese Daten lesend nutzen.
 
 ## Design-System
 

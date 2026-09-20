@@ -1,0 +1,183 @@
+# AI-Crawler User-Agents für die Policy-Analyse.
+# Stand: 2026-04. Quellen: Anbieter-Dokumentation, nohacks.co/blog/ai-user-agents-landscape-2026,
+#                          almcorp.com/blog/anthropic-claude-bots-robots-txt-strategy.
+#
+# Format:
+#   id            kurz, eindeutig (snake_case)
+#   user_agent    exakter Pattern, case-insensitive matching gegen robots.txt
+#   bot_category  scraper | assistant | search | agent (gemäss [[Typen von KI Bots]])
+#                 - scraper:   Training-Daten-Extraktion
+#                 - assistant: punktuelle Nutzerantwort, real-time Fetch
+#                 - search:    Indexierung für Zitate / RAG / KI-Search
+#                 - agent:     handelnd, session-übergreifend, mehrere Seiten
+#   purpose       legacy-Feld (training/search/ondemand/multi) — bleibt bis Migration komplett
+#   provider      Anbieter
+#   label         für Heatmap-Achsen
+#   honors_robots true/false — Google-Agent ignoriert robots.txt (Datenpunkt für Analyse)
+
+- id: gptbot
+  user_agent: GPTBot
+  bot_category: scraper
+  purpose: training
+  provider: OpenAI
+  label: GPTBot
+  honors_robots: true
+
+- id: chatgpt_user
+  user_agent: ChatGPT-User
+  bot_category: assistant
+  purpose: ondemand
+  provider: OpenAI
+  label: ChatGPT-User
+  honors_robots: false  # OpenAI-Doku-Revision 2025-12-09: robots.txt gilt nur für GPTBot/OAI-SearchBot, ChatGPT-User als user-initiierter Browser-Proxy behandelt
+
+- id: oai_searchbot
+  user_agent: OAI-SearchBot
+  bot_category: search
+  purpose: search
+  provider: OpenAI
+  label: OAI-SearchBot
+  honors_robots: true
+
+- id: google_extended
+  user_agent: Google-Extended
+  bot_category: scraper
+  purpose: training
+  provider: Google
+  label: Google-Extended
+  honors_robots: true
+
+- id: google_agent
+  user_agent: Google-Agent
+  bot_category: agent
+  purpose: agent
+  provider: Google
+  label: Google-Agent
+  honors_robots: false  # Google macht keine robots.txt-Garantie für Agent-Fetches
+
+- id: claudebot
+  user_agent: ClaudeBot
+  bot_category: scraper
+  purpose: training
+  provider: Anthropic
+  label: ClaudeBot
+  honors_robots: true
+
+- id: claude_user
+  user_agent: Claude-User
+  bot_category: assistant
+  purpose: ondemand
+  provider: Anthropic
+  label: Claude-User
+  honors_robots: true
+
+- id: claude_searchbot
+  user_agent: Claude-SearchBot
+  bot_category: search
+  purpose: search
+  provider: Anthropic
+  label: Claude-SearchBot
+  honors_robots: true
+
+- id: perplexitybot
+  user_agent: PerplexityBot
+  bot_category: scraper  # 2026 als Scraper klassifiziert (vorher search)
+  purpose: training
+  provider: Perplexity
+  label: PerplexityBot
+  honors_robots: false  # Cloudflare-Forensik 2025-08-04: Stealth-Crawler, robots.txt-Bypass; Perplexity bestätigt Nicht-Bindung selbst
+
+- id: perplexity_user
+  user_agent: Perplexity-User
+  bot_category: assistant
+  purpose: ondemand
+  provider: Perplexity
+  label: Perplexity-User
+  honors_robots: false  # Cloudflare-Forensik 2025-08-04: gleiche Quelle wie PerplexityBot, robots.txt-Bypass dokumentiert
+
+- id: bytespider
+  user_agent: Bytespider
+  bot_category: scraper
+  purpose: training
+  provider: ByteDance
+  label: Bytespider
+  honors_robots: true
+
+- id: meta_external
+  user_agent: Meta-ExternalAgent
+  bot_category: scraper
+  purpose: training
+  provider: Meta
+  label: Meta-ExternalAgent
+  honors_robots: true
+
+- id: ccbot
+  user_agent: CCBot
+  bot_category: scraper
+  purpose: training
+  provider: Common Crawl
+  label: CCBot
+  honors_robots: true
+
+- id: applebot_extended
+  user_agent: Applebot-Extended
+  bot_category: scraper
+  purpose: training
+  provider: Apple
+  label: Applebot-Extended
+  honors_robots: true
+
+# === Ergänzungen 2026-05-25 (Schnitt-Marker: neue Spalten erst ab Snapshot 2026-05-25+, keine Historie davor) ===
+
+- id: meta_externalfetcher
+  user_agent: Meta-ExternalFetcher
+  bot_category: assistant
+  purpose: ondemand
+  provider: Meta
+  label: Meta-ExternalFetcher
+  honors_robots: true  # on-demand-Fetcher für WhatsApp/Instagram-AI, separat vom Trainings-Crawler Meta-ExternalAgent
+
+- id: mistralai_user
+  user_agent: MistralAI-User
+  bot_category: assistant
+  purpose: ondemand
+  provider: Mistral AI
+  label: MistralAI-User
+  honors_robots: true  # Le-Chat on-demand-Fetcher, docs.mistral.ai/robots (Stand 2026-02)
+
+- id: mistralai_index
+  user_agent: MistralAI-Index
+  bot_category: search
+  purpose: search
+  provider: Mistral AI
+  label: MistralAI-Index
+  honors_robots: true  # Mistral-Such-Index-Crawler, docs.mistral.ai/robots
+
+- id: duckassistbot
+  user_agent: DuckAssistBot
+  bot_category: search
+  purpose: search
+  provider: DuckDuckGo
+  label: DuckAssistBot
+  honors_robots: true  # DuckDuckGo AI-Assist, robots.txt mit ~72h-Delay nach Änderung
+
+- id: google_cloudvertexbot
+  user_agent: Google-CloudVertexBot
+  bot_category: agent
+  purpose: agent
+  provider: Google
+  label: Google-CloudVertexBot
+  honors_robots: true  # Vertex-AI-Agent-Crawls auf Owner-Anfrage, getrennt von Google-Extended (Training) und Google-Agent
+
+- id: amazonbot
+  user_agent: Amazonbot
+  bot_category: scraper
+  purpose: training
+  provider: Amazon
+  label: Amazonbot
+  honors_robots: true  # Amazon-Haupt-Crawler, kann für KI-Modelltraining genutzt werden (Amazon Dev Portal)
+
+# OAI-Operator (OpenAI Operator-Agent) ergänzen, sobald User-Agent-String öffentlich
+# dokumentiert ist. Per Mai 2026 weiterhin keine offizielle robots.txt-Token-Definition publiziert
+# (Operator wurde Juli 2025 in "ChatGPT Agent" überführt, Token bleibt undokumentiert).
+# cohere-training-data-crawler: nur Community-Quellen, keine Cohere-Primärdoku — warten.

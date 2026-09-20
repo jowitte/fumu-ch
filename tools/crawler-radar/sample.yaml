@@ -1,0 +1,151 @@
+# Site-Sample für AI-Crawler-Policy-Analyse.
+#
+# Struktur: top-level Schlüssel = category, darunter Liste von Sites.
+# Felder pro Site:
+#   name         Anzeigename (kurz, lesbar)
+#   url          Hostname ohne Schema, ohne trailing slash
+#   region       CH | DE | AT | EU | US | UK | Global
+#                  EU      = Europa ausser CH/DE/AT/UK
+#                  Global  = international / nicht-westlich (z.B. AliExpress, Temu)
+#   subcategory  optional, primär für Brands (retail, fmcg, telco, banking,
+#                insurance, automotive, energy, transport, fashion, luxury,
+#                industrial, software, hospitality)
+#
+# Stand: 2026-04-27. Erster Vorschlag für Brands/ECommerce — User editiert.
+
+# === Publisher mit Paywall ===
+# Premium-Inhalte mehrheitlich hinter Bezahlschranke.
+publisher_paywall:
+  - {name: NZZ, url: nzz.ch, region: CH}
+  - {name: Tages-Anzeiger, url: tagesanzeiger.ch, region: CH}
+  - {name: Le Temps, url: letemps.ch, region: CH}
+  - {name: Republik, url: republik.ch, region: CH}
+  - {name: Heidi.News, url: heidi.news, region: CH}
+  - {name: Handelszeitung, url: handelszeitung.ch, region: CH}
+  - {name: Spiegel, url: spiegel.de, region: DE}
+  - {name: Zeit, url: zeit.de, region: DE}
+  - {name: FAZ, url: faz.net, region: DE}
+  - {name: Süddeutsche, url: sueddeutsche.de, region: DE}
+  - {name: Welt, url: welt.de, region: DE}
+  - {name: Handelsblatt, url: handelsblatt.com, region: DE}
+  - {name: Manager Magazin, url: manager-magazin.de, region: DE}
+  - {name: Der Standard, url: derstandard.at, region: AT}
+  - {name: Die Presse, url: diepresse.com, region: AT}
+  - {name: NYT, url: nytimes.com, region: US}
+  - {name: Washington Post, url: washingtonpost.com, region: US}
+  - {name: FT, url: ft.com, region: UK}
+  - {name: WSJ, url: wsj.com, region: US}
+  - {name: Bloomberg, url: bloomberg.com, region: US}
+  - {name: The Times, url: thetimes.co.uk, region: UK}
+  - {name: The Telegraph, url: telegraph.co.uk, region: UK}
+  - {name: The Economist, url: economist.com, region: UK}
+
+# === Publisher ohne Paywall (Reichweite) ===
+# Werbe- oder ÖR-finanziert, Inhalte überwiegend frei.
+publisher_open:
+  - {name: 20 Minuten, url: 20min.ch, region: CH}
+  - {name: Blick, url: blick.ch, region: CH}
+  - {name: Watson, url: www.watson.ch, region: CH}
+  - {name: SRF, url: srf.ch, region: CH}
+  - {name: Cash, url: cash.ch, region: CH}
+  - {name: RTS, url: rts.ch, region: CH}
+  - {name: Bild, url: bild.de, region: DE}
+  - {name: Tagesschau, url: tagesschau.de, region: DE}
+  - {name: ZDF, url: zdf.de, region: DE}
+  - {name: Stern, url: stern.de, region: DE}
+  - {name: Focus, url: focus.de, region: DE}
+  - {name: T-Online, url: t-online.de, region: DE}
+  - {name: Kurier, url: kurier.at, region: AT}
+  - {name: Profil, url: profil.at, region: AT}
+  - {name: BBC, url: bbc.com, region: UK}
+  - {name: Guardian, url: theguardian.com, region: UK}
+  - {name: Reuters, url: reuters.com, region: UK}
+  - {name: Independent, url: independent.co.uk, region: UK}
+  - {name: CNN, url: cnn.com, region: US}
+  - {name: USA Today, url: usatoday.com, region: US}
+  - {name: Fox News, url: foxnews.com, region: US}
+  - {name: NBC News, url: nbcnews.com, region: US}
+  - {name: NPR, url: npr.org, region: US}
+  - {name: AP, url: apnews.com, region: US}
+
+# === Brands ===
+# Konsumentenmarken / B2C und B2B-Brands. Subcategory zeigt Branche.
+brand:
+  # Schweiz
+  - {name: Coop, url: coop.ch, region: CH, subcategory: retail}
+  - {name: Swisscom, url: swisscom.ch, region: CH, subcategory: telco}
+  - {name: Sunrise, url: sunrise.ch, region: CH, subcategory: telco}
+  - {name: UBS, url: ubs.com, region: CH, subcategory: banking}
+  - {name: Raiffeisen, url: raiffeisen.ch, region: CH, subcategory: banking}
+  - {name: PostFinance, url: postfinance.ch, region: CH, subcategory: banking}
+  - {name: Zurich Insurance, url: zurich.ch, region: CH, subcategory: insurance}
+  - {name: Swiss Life, url: swisslife.ch, region: CH, subcategory: insurance}
+  - {name: Helvetia, url: helvetia.ch, region: CH, subcategory: insurance}
+  - {name: SBB, url: sbb.ch, region: CH, subcategory: transport}
+  - {name: Swiss, url: swiss.com, region: CH, subcategory: transport}
+  - {name: Nestlé, url: nestle.com, region: CH, subcategory: fmcg}
+  - {name: Lindt, url: lindt.com, region: CH, subcategory: fmcg}
+  - {name: Rolex, url: rolex.com, region: CH, subcategory: luxury}
+  - {name: Hilti, url: hilti.com, region: CH, subcategory: industrial}
+  - {name: "On", url: on.com, region: CH, subcategory: fashion}
+
+  # Europa
+  - {name: BMW, url: bmw.com, region: DE, subcategory: automotive}
+  - {name: Mercedes-Benz, url: mercedes-benz.com, region: DE, subcategory: automotive}
+  - {name: Volkswagen, url: volkswagen.com, region: DE, subcategory: automotive}
+  - {name: Porsche, url: porsche.com, region: DE, subcategory: automotive}
+  - {name: Siemens, url: siemens.com, region: DE, subcategory: industrial}
+  - {name: Bosch, url: bosch.com, region: DE, subcategory: industrial}
+  - {name: SAP, url: sap.com, region: DE, subcategory: software}
+  - {name: Deutsche Telekom, url: telekom.com, region: DE, subcategory: telco}
+  - {name: Allianz, url: allianz.com, region: DE, subcategory: insurance}
+  - {name: Lufthansa, url: lufthansa.com, region: DE, subcategory: transport}
+  - {name: Adidas, url: adidas.com, region: DE, subcategory: fashion}
+  - {name: LVMH, url: lvmh.com, region: EU, subcategory: luxury}
+  - {name: L'Oréal, url: loreal.com, region: EU, subcategory: fmcg}
+  - {name: Carrefour, url: carrefour.com, region: EU, subcategory: retail}
+  - {name: IKEA, url: ikea.com, region: EU, subcategory: retail}
+  - {name: H&M, url: hm.com, region: EU, subcategory: fashion}
+  - {name: Inditex, url: inditex.com, region: EU, subcategory: fashion}
+  - {name: Shell, url: shell.com, region: EU, subcategory: energy}
+
+# === ECommerce / Online-Händler ===
+# Reine ECommerce-Player und ECommerce-Arme grosser Retailer.
+ecommerce:
+  # Schweiz
+  - {name: Migros, url: migros.ch, region: CH, subcategory: retail}
+  - {name: Galaxus, url: galaxus.ch, region: CH}
+  - {name: Digitec, url: digitec.ch, region: CH}
+  - {name: Brack, url: brack.ch, region: CH}
+  - {name: Microspot, url: microspot.ch, region: CH}
+  - {name: Manor, url: manor.ch, region: CH}
+
+  # Europa
+  - {name: Zalando, url: zalando.com, region: EU}
+  - {name: MediaMarkt, url: mediamarkt.de, region: DE}
+  - {name: Otto, url: otto.de, region: DE}
+  - {name: About You, url: aboutyou.de, region: DE}
+
+  # Global / US / UK
+  - {name: AliExpress, url: aliexpress.com, region: Global}
+  - {name: Temu, url: temu.com, region: Global}
+
+# === Plattformen ===
+# UGC / Multi-Sided-Markets mit eigener KI-Lizenz-Strategie.
+platform:
+  - {name: Reddit, url: reddit.com, region: US}
+  - {name: YouTube, url: youtube.com, region: US}
+  - {name: Instagram, url: instagram.com, region: US}
+  - {name: TikTok, url: tiktok.com, region: Global}
+  - {name: X, url: x.com, region: US}
+  - {name: LinkedIn, url: linkedin.com, region: US}
+  - {name: Wikipedia, url: wikipedia.org, region: Global}
+  - {name: Pinterest, url: pinterest.com, region: US}
+  - {name: Amazon, url: amazon.com, region: US}
+  - {name: Amazon DE, url: amazon.de, region: DE}
+  - {name: eBay, url: ebay.com, region: US}
+  # Ergänzung 2026-05-25: UGC/Content-Plattformen mit eigener KI-Lizenz-Strategie (vervollständigt die Plattform/Lizenz-Story neben Reddit)
+  - {name: Stack Overflow, url: stackoverflow.com, region: US}
+  - {name: Medium, url: medium.com, region: US}
+  - {name: Substack, url: substack.com, region: US}
+  - {name: Quora, url: quora.com, region: US}

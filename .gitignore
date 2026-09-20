@@ -12,6 +12,13 @@ dist/
 # hat keinen Einfluss auf den Deploy und veraltet gegen package.json.
 deno.lock
 
+# AI-Crawler-Radar-Pipeline (tools/crawler-radar): venv, Python-Caches und das
+# Log des Cron-Wrappers sind lokal; Snapshots und Timeline werden committet.
+tools/crawler-radar/.venv/
+__pycache__/
+.pytest_cache/
+tools/crawler-radar/cron.log
+
 # Editor-Konfiguration (lokal)
 .vscode/
 .obsidian/
