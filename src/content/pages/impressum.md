@@ -6,8 +6,8 @@ order: 8
 
 ## Anschrift und Betreiber dieser Internetseiten
 
-fumu GmbH
-Rebbergstrasse 43
+fumu GmbH\
+Rebbergstrasse 43\
 CH-8049 Zürich
 
 Email: hello@fumu.ch

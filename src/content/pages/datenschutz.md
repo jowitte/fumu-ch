@@ -8,10 +8,10 @@ Stand: Mai 2026
 
 ## 1. Verantwortliche Stelle
 
-fumu GmbH
-Rebbergstrasse 43
-CH-8049 Zürich
-hello@fumu.ch
+fumu GmbH\
+Rebbergstrasse 43\
+CH-8049 Zürich\
+hello@fumu.ch\
 +41 76 488 56 45
 
 Diese Datenschutzerklärung gilt für die Website fumu.ch. Wir behandeln deine Daten vertraulich und entsprechend dem Schweizer Bundesgesetz über den Datenschutz (DSG) und – soweit anwendbar – der Datenschutz-Grundverordnung (DSGVO) der EU.
