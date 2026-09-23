@@ -2,6 +2,7 @@
 title: "99 Prozent Zero-Click"
 description: "24'000 Crawls pro Referral bei Anthropic – und das ist schon eine Verbesserung. Was die Cloudflare-Zahlen über das zweite Unbundling verraten."
 date: 2026-04-16
+updated: 2026-08-26
 category: "KI & AdTech"
 image: "/images/perspektiven/zero-click-crawl-to-refer.webp"
 icon: "/images/perspektiven/icons/zero-click.webp"

@@ -3,9 +3,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { series as seriesRegistry } from "../../data/series";
 import { renderInlineLinks } from "../../data/crawler-tracker";
+import { isPublished } from "../../lib/published";
 
 const posts = (
-  await getCollection("perspektiven", ({ data }) => !data.draft)
+  await getCollection("perspektiven", isPublished)
 ).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const formatDate = (date: Date) => {

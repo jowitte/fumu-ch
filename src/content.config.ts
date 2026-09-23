@@ -15,7 +15,11 @@ const perspektiven = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    // `date` ist der Publikationstermin, auch in der Zukunft (geplantes
+    // Publizieren, src/lib/published.ts). `updated` nur bei echter
+    // Überarbeitung setzen; es ändert die Sortierung nicht.
     date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
     category: z.string().optional(),
     image: z.string().optional(),
     // Doodle-Icon (fumu-icon-Stil) für die linke Label-Spalte der Artikelseite.

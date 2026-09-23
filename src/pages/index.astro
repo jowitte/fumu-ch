@@ -2,9 +2,10 @@
 import { getEntry, getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { releases } from '../data/updates';
+import { isPublished } from '../lib/published';
 
 const page = await getEntry('pages', 'home');
-const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
+const posts = (await getCollection('perspektiven', isPublished))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // Update-Stream: Perspektiven und Releases gemischt, absteigend nach Datum.

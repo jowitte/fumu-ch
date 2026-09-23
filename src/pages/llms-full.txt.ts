@@ -3,9 +3,10 @@ import { getCollection } from 'astro:content';
 import { series as seriesRegistry } from '../data/series';
 import { resolvePages } from '../data/pages';
 import { stripObsidianMarkers } from '../plugins/obsidian-markers.mjs';
+import { isPublished } from '../lib/published';
 
 export const GET: APIRoute = async () => {
-  const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
+  const posts = (await getCollection('perspektiven', isPublished))
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   const pages = await resolvePages();
 

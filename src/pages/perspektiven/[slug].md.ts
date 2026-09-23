@@ -1,9 +1,10 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import { stripObsidianMarkers } from '../../plugins/obsidian-markers.mjs';
+import { isPublished } from '../../lib/published';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getCollection('perspektiven', ({ data }) => !data.draft);
+  const posts = await getCollection('perspektiven', isPublished);
   return posts.map((p) => ({
     params: { slug: p.id },
     props: { entry: p },

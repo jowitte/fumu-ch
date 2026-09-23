@@ -1,9 +1,10 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { series as seriesRegistry } from '../data/series';
+import { isPublished } from '../lib/published';
 
 export const GET: APIRoute = async () => {
-  const posts = (await getCollection('perspektiven', ({ data }) => !data.draft))
+  const posts = (await getCollection('perspektiven', isPublished))
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   const perspektivenList = posts

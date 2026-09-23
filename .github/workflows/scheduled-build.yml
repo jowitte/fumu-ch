@@ -1,0 +1,13 @@
+# Täglicher Netlify-Build, damit Perspektiven mit `date` in der Zukunft am
+# Stichtag von selbst erscheinen (src/lib/published.ts). Netlify baut sonst nur
+# bei Push. Secret NETLIFY_BUILD_HOOK = Build-Hook «scheduled-publish» der Site.
+name: Scheduled build
+on:
+  schedule:
+    - cron: '0 4 * * *'   # 04:00 UTC = 06:00 CEST / 05:00 CET
+  workflow_dispatch:
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK }}"

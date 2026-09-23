@@ -3,9 +3,10 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { resolveAuthors, getAuthorUrl } from '../../content/authors';
 import { getSeries } from '../../data/series';
+import { isPublished, isScheduled } from '../../lib/published';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('perspektiven', ({ data }) => !data.draft);
+  const posts = await getCollection('perspektiven', isPublished);
   return posts.map(post => ({
     params: { slug: post.id },
     props: { post },
@@ -21,6 +22,9 @@ const formatDate = (date: Date) => {
 
 const postAuthors = resolveAuthors(post.data.authors);
 
+// Geplantes Stück: nur der Dev-Server zeigt es (Lokal-Review), der Build nie.
+const scheduled = import.meta.env.DEV && isScheduled(post);
+
 // Themen-Kontext: Hinweis oben + Fussnavigation am Ende. Vor/Zurück nur bei
 // erzähltem Bogen (seriesPart gesetzt), sonst nur «Mehr aus diesem Thema».
 const seriesSlug = post.data.series;
@@ -28,7 +32,7 @@ const seriesData = getSeries(seriesSlug);
 let prevPost: typeof post | null = null;
 let nextPost: typeof post | null = null;
 if (seriesSlug && seriesData && post.data.seriesPart) {
-  const seriesParts = (await getCollection('perspektiven', ({ data }) => !data.draft && data.series === seriesSlug && data.seriesPart != null))
+  const seriesParts = (await getCollection('perspektiven', (entry) => isPublished(entry) && entry.data.series === seriesSlug && entry.data.seriesPart != null))
     .sort((a, b) => (a.data.seriesPart ?? 0) - (b.data.seriesPart ?? 0));
   const idx = seriesParts.findIndex(p => p.id === post.id);
   prevPost = idx > 0 ? seriesParts[idx - 1] : null;
@@ -36,13 +40,16 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
 }
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} article={{ title: post.data.title, description: post.data.description, date: post.data.date, image: post.data.image, slug: post.id, authors: postAuthors }}>
+<BaseLayout title={post.data.title} description={post.data.description} article={{ title: post.data.title, description: post.data.description, date: post.data.date, updated: post.data.updated, image: post.data.image, slug: post.id, authors: postAuthors }}>
   <article class="evans-page">
     <div class="container">
 
       <div class="evans-section">
-        <div class="evans-label">
+        <div class:list={["evans-label", { "has-updated": !!post.data.updated }]}>
           <span class="post-date">{formatDate(post.data.date)}</span>
+          {post.data.updated && (
+            <span class="post-updated">Überarbeitet {formatDate(post.data.updated)}</span>
+          )}
           <span class="post-author">
             {postAuthors.map((author, i) => (
               <>
@@ -56,6 +63,9 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
           )}
         </div>
         <div class="evans-content">
+          {scheduled && (
+            <p class="scheduled-hint">Geplant für {formatDate(post.data.date)}, nur lokal sichtbar</p>
+          )}
           {seriesData && seriesSlug && (
             <a href={`/perspektiven/themen/${seriesSlug}/`} class="series-hint">
               {post.data.seriesPart
@@ -135,6 +145,20 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
     top: 80px;
   }
 
+  /* Überarbeitungsdatum: gleiche Stimme wie das Datum, eine Zeile darunter;
+     der Autor rückt dann um eine Zeile nach. */
+  .post-updated {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-light);
+    letter-spacing: 0.5px;
+    display: block;
+    margin-top: 2px;
+    position: sticky;
+    top: 96px;
+  }
+
   .post-author {
     font-family: var(--font-sans);
     font-size: 13px;
@@ -144,6 +168,10 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
     margin-top: var(--space-xs);
     position: sticky;
     top: 96px;
+  }
+
+  .has-updated .post-author {
+    top: 114px;
   }
 
   .post-author a {
@@ -237,6 +265,15 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
     background: var(--color-coral);
     color: var(--color-white);
     text-decoration: none;
+  }
+
+  .scheduled-hint {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-coral);
+    letter-spacing: 0.3px;
+    margin: 0 0 var(--space-sm);
   }
 
   .series-hint {
@@ -379,7 +416,7 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
       gap: var(--space-md);
     }
 
-    .post-date, .post-author {
+    .post-date, .post-updated, .post-author {
       position: static;
     }
 

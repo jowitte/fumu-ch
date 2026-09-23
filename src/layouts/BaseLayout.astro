@@ -16,6 +16,7 @@ interface Props {
     title: string;
     description: string;
     date: Date;
+    updated?: Date;
     authors?: ArticleAuthor[];
     image?: string;
     slug: string;
@@ -107,6 +108,7 @@ const articleLd = article ? {
   headline: article.title,
   description: article.description,
   datePublished: article.date.toISOString(),
+  dateModified: (article.updated ?? article.date).toISOString(),
   author: articleAuthorLd.length === 1 ? articleAuthorLd[0] : articleAuthorLd,
   publisher: {
     '@type': 'Organization',

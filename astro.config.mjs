@@ -5,6 +5,7 @@ import remarkWikilinks from './src/plugins/remark-wikilinks.mjs';
 // Marker-Stripping für den HTML-Pfad. Die String-Variante daneben bedient die
 // Markdown-Zwillinge, die den rohen Body servieren – siehe das Modul.
 import remarkStripObsidianMarkers from './src/plugins/obsidian-markers.mjs';
+import { perspektivenLastmod } from './src/lib/sitemap-lastmod.mjs';
 
 // Markdown-Bilder mit /public-Pfaden bekommen kein automatisches loading="lazy"
 // (nur astro:assets-Pipeline tut das). Dieses kleine rehype-Plugin setzt
@@ -37,9 +38,14 @@ export default defineConfig({
     }),
   },
   integrations: [
+    // lastmod nur für Perspektiven, aus dem Frontmatter (updated, sonst date).
+    // Das Build-Datum als lastmod meldete bei jedem Build jede Seite als
+    // geändert – mit dem täglichen Build (geplantes Publizieren) jeden Tag.
+    // Alle übrigen Seiten tragen lieber kein lastmod als ein falsches.
     sitemap({
       serialize(item) {
-        item.lastmod = new Date().toISOString();
+        const lastmod = perspektivenLastmod(item.url);
+        if (lastmod) item.lastmod = lastmod;
         return item;
       },
     }),

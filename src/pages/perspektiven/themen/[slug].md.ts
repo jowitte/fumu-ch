@@ -1,6 +1,7 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import { series as seriesRegistry } from '../../../data/series';
+import { isPublished } from '../../../lib/published';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return Object.keys(seriesRegistry).map((slug) => ({
@@ -15,7 +16,7 @@ export const GET: APIRoute = async ({ props }) => {
 
   // Offener Themenbereich: neueste Perspektive zuerst; Teil-Labels nur bei
   // erzähltem Bogen (seriesPart gesetzt).
-  const parts = (await getCollection('perspektiven', ({ data }) => !data.draft && data.series === slug))
+  const parts = (await getCollection('perspektiven', (entry) => isPublished(entry) && entry.data.series === slug))
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   const partsList = parts

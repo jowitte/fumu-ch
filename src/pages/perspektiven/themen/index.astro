@@ -2,10 +2,11 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { series as seriesRegistry } from "../../../data/series";
+import { isPublished } from "../../../lib/published";
 
 const published = await getCollection(
   "perspektiven",
-  ({ data }) => !data.draft,
+  isPublished,
 );
 
 const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
