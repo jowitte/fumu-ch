@@ -67,14 +67,15 @@ Pfad: `src/content/perspektiven/*.md`
 ```yaml
 title: string                       # Artikeltitel
 description: string                  # Meta-Description / Teaser
-date: date                          # Publikationsdatum (YYYY-MM-DD), via z.coerce.date()
+date: date                          # Publikationstermin (YYYY-MM-DD), darf in der Zukunft liegen
+updated: date?                      # Überarbeitungsdatum, nur bei echter Überarbeitung; ändert die Sortierung nicht
 category: string?                   # z.B. "KI & AdTech"
 image: string?                      # optionales Header-/OG-Bild
 draft: boolean (false)              # true = wird nicht gebaut
 authors: string[] (['jochen-witte']) # Autor-Slugs, siehe Autoren-System
 ```
 
-Slug = Dateiname (ohne `.md`). URL: `/perspektiven/[slug]/`. `draft: true` schliesst den Artikel aus Build, Listing, RSS und llms.txt aus.
+Slug = Dateiname (ohne `.md`). URL: `/perspektiven/[slug]/`. Sichtbar ist ein Artikel, wenn `draft: false` **und** `date` erreicht ist (`src/lib/published.ts`, an allen Filter-Stellen; neue Ausgaben nutzen `isPublished`, nie `!data.draft`). Ein künftiges `date` hält den Artikel aus Build, Listing, Themenseiten, RSS, llms.txt und Sitemap heraus; der Dev-Server zeigt ihn mit Hinweis. Ein GitHub-Actions-Cron (`.github/workflows/scheduled-build.yml`, 04:00 UTC) stösst über den Netlify-Build-Hook `scheduled-publish` (Secret `NETLIFY_BUILD_HOOK`) den täglichen Build an, damit der Termin ohne Push greift. `updated` erscheint in der Label-Spalte, als `dateModified` im Article-Markup und als Sitemap-`lastmod` (`src/lib/sitemap-lastmod.mjs`); alle übrigen Seiten tragen kein `lastmod`.
 
 ### Autoren-System
 
