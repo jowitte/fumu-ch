@@ -7,7 +7,6 @@ image: "/images/perspektiven/mehr-output-weniger-wert-trichter.webp"
 icon: "/images/perspektiven/icons/mehr-output-weniger-wert.webp"
 draft: false
 series: "ki-und-arbeit"
-seriesPart: 2
 ---
 
 «Macht KI meine Leute effizienter?» Der einzelne Mitarbeiter wird messbar schneller – ob die Organisation davon etwas hat, ist eine andere Frage. Dazwischen liegt ein ungesteuerter Mechanismus: Die gesparte Zeit kommt nicht als Freiraum zurück, sondern sie füllt sich sofort wieder von selbst.

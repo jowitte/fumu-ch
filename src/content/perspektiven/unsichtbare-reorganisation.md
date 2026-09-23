@@ -7,7 +7,6 @@ image: "/images/perspektiven/unsichtbare-reorganisation-hero.webp"
 icon: "/images/perspektiven/icons/unsichtbare-reorganisation.webp"
 draft: false
 series: "ki-und-arbeit"
-seriesPart: 1
 ---
 
 «I got the eight hours to two hours, but now I can get 20 hours of work.» Mike Manos, Technologie-Chef des Datenkonzerns Dun & Bradstreet, beschreibt [gegenüber Fortune](https://fortune.com/2026/03/10/ai-productivity-workers-workday-efficiency), was KI aus seinem Arbeitstag gemacht hat: Acht Stunden Arbeit passen jetzt in zwei – und in die frei gewordene Zeit passen zwanzig Stunden neue Arbeit. Die gesparte Zeit kommt nicht als Freiraum zurück. Sie füllt sich, sofort und ohne dass jemand es anordnet.
