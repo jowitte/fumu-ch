@@ -3,7 +3,7 @@ title: "Das doppelte Unbundling"
 description: "Das zweite Unbundling. Was passiert mit der digitalen Werbung, wenn Nutzer aufhören, Websites zu besuchen? Nicht weil sie das Internet verlassen, sondern weil die Antwort jetzt direkt im Chat erscheint."
 date: 2026-03-27
 category: "Medien"
-image: "/images/perspektiven/drei-aeren-brand.webp"
+image: "/images/perspektiven/das-doppelte-unbundling-drei-aeren.webp"
 icon: "/images/perspektiven/icons/das-doppelte-unbundling.webp"
 updated: 2026-09-26
 draft: false
@@ -28,7 +28,7 @@ AI Overviews erscheinen bei [rund 60% aller US-Suchanfragen](https://xponent21.c
 
 Cloudflare misst das Verhältnis zwischen AI-Crawler-Anfragen und dem Traffic, den diese Plattformen an Websites zurückschicken. Im ersten Quartal 2026 crawlte Anthropic [knapp 24'000 Seiten](https://seomator.com/blog/crawl-to-refer-ratio-ai-crawlers-llm-bots) pro Besucher, den die Plattform an Publisher zurückschickte. Bei OpenAI waren es 1'276 zu 1, bei Perplexity 111 zu 1 und bei Google 5 zu 1.
 
-![Das doppelte Unbundling: drei Ären der digitalen Werbung](/images/perspektiven/drei-aeren-brand.webp)
+![Drei Ären der digitalen Werbung. Print: Der Publisher bündelt Werbung, Inhalte und Distribution und erreicht den Leser direkt. Internet: Der Publisher liefert Inhalte, Ad Networks liefern Werbung, beides trifft sich auf der Website. AI: Der Publisher liefert nur noch Quelldaten, AI-Plattformen bringen Inhalte und Werbung zum Nutzer.](/images/perspektiven/das-doppelte-unbundling-drei-aeren.svg)
 
 ## Fünf Trends, die daraus folgen
 

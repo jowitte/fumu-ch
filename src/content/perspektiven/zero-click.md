@@ -30,14 +30,11 @@ Repräsentativ ist das nicht, und die Autoren sagen es selbst: 69 Kunden derselb
 
 ## Was Cloudflare sieht
 
-Cloudflare schützt rund 20% aller Websites weltweit und sieht deshalb, wer crawlt und wer im Gegenzug Traffic zurückschickt. Jeder Crawl ist eine Seite, die gelesen, verarbeitet und in eine Antwort eingebaut wird, ohne dass der Leser je beim Ursprung landet. [Durchschnitt Q1 2026](https://seomator.com/blog/crawl-to-refer-ratio-ai-crawlers-llm-bots):
+Cloudflare schützt rund 20% aller Websites weltweit und sieht deshalb, wer crawlt und wer im Gegenzug Traffic zurückschickt. Jeder Crawl ist eine Seite, die gelesen, verarbeitet und in eine Antwort eingebaut wird, ohne dass der Leser je beim Ursprung landet.
 
-- **Google:** 5 gecrawlte Seiten pro Referral
-- **Perplexity:** 111 zu 1
-- **OpenAI:** 1'276 zu 1
-- **Anthropic:** 23'951 zu 1
+![Gecrawlte Seiten pro zurückgeschicktem Besucher nach AI-Plattform, Durchschnitt Q1 2026, logarithmische Skala: Google 5, Perplexity 111, OpenAI 1'276, Anthropic 23'951.](/images/perspektiven/zero-click-crawl-to-refer.svg)
 
-![Crawl-zu-Referral-Verhältnis pro Plattform, Durchschnitt Q1 2026. Google, Perplexity und OpenAI auf der unteren Skala; Anthropic bricht die Y-Achse mit 23'951 zu 1.](/images/perspektiven/zero-click-crawl-to-refer.webp)
+*Quelle: Cloudflare Radar, ausgewertet von [SEOmator](https://seomator.com/blog/crawl-to-refer-ratio-ai-crawlers-llm-bots), Durchschnitt Q1 2026.*
 
 Bei Anthropic bewegt sich das Verhältnis in die richtige Richtung: von 286'000 zu 1 im Januar 2025 auf knapp 12'000 im März 2026, dem letzten Monat des Quartals. Auslöser war Claudes Web-Suche mit klickbaren Quellen, seit Mai 2025 für alle Nutzer. 96% Verbesserung in 14 Monaten, und immer noch 12'000 zu 1 gegen Googles 5 zu 1. Für Verlage und News-Sites misst Cloudflare bei Anthropic [2'500 zu 1](https://blog.cloudflare.com/ai-crawler-traffic-by-purpose-and-industry/), deutlich besser als im Schnitt. Google crawlt viel, generiert über die klassische Indexierung aber weiterhin den Grossteil seines Referral-Traffics.
 
