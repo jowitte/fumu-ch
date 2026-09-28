@@ -1,12 +1,12 @@
 {
   "meta": {
-    "snapshot_date": "2026-09-14",
+    "snapshot_date": "2026-09-28",
     "site_count": 108,
     "crawler_count": 20,
     "cadence_days": 14,
-    "generated_at": "2026-09-20T18:46:49.007975+02:00"
+    "generated_at": "2026-09-28T09:02:08.632497+02:00"
   },
-  "headline": "Snapshot 2026-09-14: 7 Veränderungen auf 3 Sites.",
+  "headline": "Snapshot 2026-09-28: 80 Veränderungen auf 4 Sites.",
   "by_category": [
     {
       "category": "brand",
@@ -23,7 +23,7 @@
     {
       "category": "platform",
       "label": "Plattformen",
-      "block_share": 0.5133,
+      "block_share": 0.5733,
       "site_count": 15
     },
     {
@@ -43,8 +43,8 @@
     {
       "crawler_id": "applebot_extended",
       "label": "applebot_extended",
-      "block_share": 0.4074,
-      "blocked_sites": 44,
+      "block_share": 0.4167,
+      "blocked_sites": 45,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Apple"
@@ -52,8 +52,8 @@
     {
       "crawler_id": "bytespider",
       "label": "bytespider",
-      "block_share": 0.4074,
-      "blocked_sites": 44,
+      "block_share": 0.4167,
+      "blocked_sites": 45,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "ByteDance"
@@ -61,8 +61,8 @@
     {
       "crawler_id": "ccbot",
       "label": "ccbot",
-      "block_share": 0.4074,
-      "blocked_sites": 44,
+      "block_share": 0.4167,
+      "blocked_sites": 45,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Common Crawl"
@@ -70,8 +70,8 @@
     {
       "crawler_id": "claudebot",
       "label": "claudebot",
-      "block_share": 0.3981,
-      "blocked_sites": 43,
+      "block_share": 0.4074,
+      "blocked_sites": 44,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Anthropic"
@@ -79,8 +79,8 @@
     {
       "crawler_id": "gptbot",
       "label": "gptbot",
-      "block_share": 0.3611,
-      "blocked_sites": 39,
+      "block_share": 0.3704,
+      "blocked_sites": 40,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "OpenAI"
@@ -88,8 +88,8 @@
     {
       "crawler_id": "meta_external",
       "label": "meta_external",
-      "block_share": 0.3426,
-      "blocked_sites": 37,
+      "block_share": 0.3519,
+      "blocked_sites": 38,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Meta"
@@ -97,8 +97,8 @@
     {
       "crawler_id": "perplexitybot",
       "label": "perplexitybot",
-      "block_share": 0.3333,
-      "blocked_sites": 36,
+      "block_share": 0.3426,
+      "blocked_sites": 37,
       "bot_category": "scraper",
       "honors_robots": false,
       "provider": "Perplexity"
@@ -106,8 +106,8 @@
     {
       "crawler_id": "google_extended",
       "label": "google_extended",
-      "block_share": 0.3056,
-      "blocked_sites": 33,
+      "block_share": 0.3148,
+      "blocked_sites": 34,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Google"
@@ -115,8 +115,8 @@
     {
       "crawler_id": "amazonbot",
       "label": "amazonbot",
-      "block_share": 0.2963,
-      "blocked_sites": 32,
+      "block_share": 0.3056,
+      "blocked_sites": 33,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Amazon"
@@ -124,11 +124,20 @@
     {
       "crawler_id": "chatgpt_user",
       "label": "chatgpt_user",
+      "block_share": 0.2407,
+      "blocked_sites": 26,
+      "bot_category": "assistant",
+      "honors_robots": false,
+      "provider": "OpenAI"
+    },
+    {
+      "crawler_id": "perplexity_user",
+      "label": "perplexity_user",
       "block_share": 0.2315,
       "blocked_sites": 25,
       "bot_category": "assistant",
       "honors_robots": false,
-      "provider": "OpenAI"
+      "provider": "Perplexity"
     },
     {
       "crawler_id": "claude_searchbot",
@@ -140,19 +149,10 @@
       "provider": "Anthropic"
     },
     {
-      "crawler_id": "perplexity_user",
-      "label": "perplexity_user",
-      "block_share": 0.2222,
-      "blocked_sites": 24,
-      "bot_category": "assistant",
-      "honors_robots": false,
-      "provider": "Perplexity"
-    },
-    {
       "crawler_id": "claude_user",
       "label": "claude_user",
-      "block_share": 0.213,
-      "blocked_sites": 23,
+      "block_share": 0.2222,
+      "blocked_sites": 24,
       "bot_category": "assistant",
       "honors_robots": true,
       "provider": "Anthropic"
@@ -160,11 +160,20 @@
     {
       "crawler_id": "mistralai_user",
       "label": "mistralai_user",
-      "block_share": 0.213,
-      "blocked_sites": 23,
+      "block_share": 0.2222,
+      "blocked_sites": 24,
       "bot_category": "assistant",
       "honors_robots": true,
       "provider": "Mistral AI"
+    },
+    {
+      "crawler_id": "duckassistbot",
+      "label": "duckassistbot",
+      "block_share": 0.1944,
+      "blocked_sites": 21,
+      "bot_category": "search",
+      "honors_robots": true,
+      "provider": "DuckDuckGo"
     },
     {
       "crawler_id": "oai_searchbot",
@@ -176,19 +185,10 @@
       "provider": "OpenAI"
     },
     {
-      "crawler_id": "duckassistbot",
-      "label": "duckassistbot",
-      "block_share": 0.1852,
-      "blocked_sites": 20,
-      "bot_category": "search",
-      "honors_robots": true,
-      "provider": "DuckDuckGo"
-    },
-    {
       "crawler_id": "google_cloudvertexbot",
       "label": "google_cloudvertexbot",
-      "block_share": 0.1759,
-      "blocked_sites": 19,
+      "block_share": 0.1852,
+      "blocked_sites": 20,
       "bot_category": "agent",
       "honors_robots": true,
       "provider": "Google"
@@ -196,8 +196,8 @@
     {
       "crawler_id": "meta_externalfetcher",
       "label": "meta_externalfetcher",
-      "block_share": 0.1759,
-      "blocked_sites": 19,
+      "block_share": 0.1852,
+      "blocked_sites": 20,
       "bot_category": "assistant",
       "honors_robots": true,
       "provider": "Meta"
@@ -205,8 +205,8 @@
     {
       "crawler_id": "google_agent",
       "label": "google_agent",
-      "block_share": 0.0926,
-      "blocked_sites": 10,
+      "block_share": 0.1019,
+      "blocked_sites": 11,
       "bot_category": "agent",
       "honors_robots": false,
       "provider": "Google"
@@ -214,8 +214,8 @@
     {
       "crawler_id": "mistralai_index",
       "label": "mistralai_index",
-      "block_share": 0.0833,
-      "blocked_sites": 9,
+      "block_share": 0.0926,
+      "blocked_sites": 10,
       "bot_category": "search",
       "honors_robots": true,
       "provider": "Mistral AI"
@@ -390,9 +390,26 @@
         "publisher_open": 0.2958,
         "publisher_paywall": 0.5587
       }
+    },
+    {
+      "date": "2026-09-28",
+      "by_category": {
+        "brand": 0.0118,
+        "ecommerce": 0.0333,
+        "platform": 0.5733,
+        "publisher_open": 0.2958,
+        "publisher_paywall": 0.5587
+      }
     }
   ],
   "runs": [
+    {
+      "date": "2026-09-28",
+      "changes": 80,
+      "sites_changed": 4,
+      "summary": "80 Veränderungen auf 4 Sites (Allianz, LinkedIn, Shell, u.a.).",
+      "commentary": null
+    },
     {
       "date": "2026-09-14",
       "changes": 7,
