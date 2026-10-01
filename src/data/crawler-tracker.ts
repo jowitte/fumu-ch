@@ -105,7 +105,7 @@ export const tracker: CrawlerTracker = trackerSchema.parse(raw);
 // nachziehen. Absätze mit Inline-Links im Markdown-Format; HTML-Seite
 // rendert via renderInlineLinks, die .md-Route nimmt sie roh.
 export const intro = [
-  "AI-Plattformen lesen das Web in industriellem Massstab, schicken aber kaum Besucher zurück – bei Anthropic kommen auf einen weitergeleiteten Leser rund 24'000 Crawls ([99 Prozent Zero-Click](/perspektiven/zero-click/)). Ob eine Site das mitmacht, deklariert sie in ihrer robots.txt: Dort steht, welche AI-Crawler sie zulässt – für Training, für Suche oder gar nicht.",
+  "AI-Plattformen lesen das Web in industriellem Massstab, schicken aber kaum Besucher zurück – bei Anthropic kamen im ersten Quartal 2026 auf einen weitergeleiteten Leser rund 24'000 Crawls ([93 Prozent Zero-Click](/perspektiven/zero-click/)). Ob eine Site das mitmacht, deklariert sie in ihrer robots.txt: Dort steht, welche AI-Crawler sie zulässt – für Training, für Suche oder gar nicht.",
   'Der Radar verfolgt diese Deklarationen. fumu erhebt seit April 2026 alle 14 Tage die robots.txt von gut 100 Sites – Publisher mit und ohne Paywall, Plattformen, Brands und E-Commerce, Schwerpunkt Schweiz – und wertet sie gegen 20 dokumentierte AI-Crawler aus. robots.txt ist dabei Deklaration, nicht Crawl-Realität; das strukturelle Muster hinter der Bewegung beschreibt [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/).',
 ];
 
