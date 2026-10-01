@@ -60,6 +60,6 @@ Robuster ist der Aufbau direkter Beziehungen. Newsletter-Abonnenten, App-Nutzer,
 
 Content-Licensing bleibt der Sonderfall: Reddit hat Datenlizenzen an Google, OpenAI und weitere Abnehmer verkauft, keine davon exklusiv, und kommt damit auf [rund 5 bis 6% des Umsatzes](https://www.cnbc.com/2026/07/30/reddit-rddt-q2-2026-earnings-report.html), trotz zwei Jahrzehnten einzigartiger nutzergenerierter Inhalte. Für Schweizer Publisher ohne globale Reichweite taugt Licensing höchstens als Versuch.
 
-**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind und welches Muster dahinter steht.
+**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort beschreibe ich das Muster, das die fünf Trends verbindet.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>

@@ -75,6 +75,6 @@ Im DACH-Markt fehlt diese Wende bisher. Der Markt muss sich noch finden und ist 
 
 Offen ist, ob die Werbebranche im Mainstream aus dem Komfort der Walled Gardens herausfindet, solange der nächste Klick auf Performance Max funktioniert. Das Email-Muster legt eine eher zurückhaltende Antwort nahe: Solche Entscheidungen fallen nicht in den Komitees, sondern dort, wo der Mainstream den nächsten Klick setzt.
 
-**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind und welches Muster dahinter steht.
+**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort beschreibe ich das Muster, das die fünf Trends verbindet.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>

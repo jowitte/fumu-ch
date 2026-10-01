@@ -69,6 +69,6 @@ Die Werbeindustrie sucht gerade eine neue Sprache für Werbewirkung, und drei La
 
 Die Branche hat zwischen 1914 und den 1930er-Jahren rund zwanzig Jahre gebraucht, um sich auf einen gemeinsamen Massstab für Auflagen zu einigen. Beim AI-Inventar fliesst das Geld schon heute, gezählt nur von den Plattformen selbst.
 
-**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind und welches Muster dahinter steht.
+**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort beschreibe ich das Muster, das die fünf Trends verbindet.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>

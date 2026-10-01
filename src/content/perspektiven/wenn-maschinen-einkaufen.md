@@ -49,6 +49,6 @@ Für Publisher werden Testberichte, Reviews und redaktionelle Einordnungen zu Qu
 
 Wer Retail-Media-Budgets für 2027 plant, muss einkalkulieren, dass ein wachsender Teil der Kaufentscheidungen fällt, bevor der Nutzer je den Shop betritt. Amazon hat darauf schon geantwortet und verkauft die Werbung im eigenen Agenten.
 
-**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind und welches Muster dahinter steht.
+**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort beschreibe ich das Muster, das die fünf Trends verbindet.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>

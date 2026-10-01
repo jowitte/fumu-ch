@@ -52,6 +52,6 @@ Seit dem 24. August läuft ChatGPT-Werbung auch in der Schweiz, und seit dem 31.
 
 ChatGPT kann heute nicht liefern, was Premium-Publisher können: kein redaktionelles Umfeld mit Glaubwürdigkeit, kein Schweizer Publikum, keinen Nachweis, dass jemand tatsächlich hingeschaut hat. Wer das belegen kann, hält ein Argument in der Hand, das CPM-Vergleiche nicht abbilden. Mittelfristig allerdings fliesst ein wachsender Teil der Werbegelder in Kanäle, die Publisher nicht kontrollieren. Die wichtigste Absicherung werden direkte Beziehungen zu Newsletter-Abonnenten, App-Nutzern und zahlenden Lesern.
 
-**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort erkläre ich, warum diese Entwicklungen kein Zufall sind und welches Muster dahinter steht.
+**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort beschreibe ich das Muster, das die fünf Trends verbindet.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>
