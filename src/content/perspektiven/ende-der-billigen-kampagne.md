@@ -57,6 +57,6 @@ Den Agenturen steht dieselbe Verschiebung bevor, nur heftiger: Wer davon lebt, K
 
 Das klingt nach einer klaren Empfehlung: die Strategie aufwerten und die Ausführung loslassen. Nur wissen viele Werbeorganisationen gar nicht mehr, wo die Ausführung aufhört und die Strategie anfängt, weil diese Grenze nie gezogen werden musste.
 
-**Mehr aus diesem Thema:** Der Text greift einen von fünf Trends aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/) heraus. Dort beschreibe ich das Muster, das die fünf Trends verbindet.
+**Mehr aus diesem Thema:** Der Text vertieft Trend 3, Agentic Advertising Operations, aus dem Rahmen-Artikel [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/). Dort beschreibe ich das Muster, das die fünf Trends verbindet.
 
 <a href="/downloads/ai-trends-2026.pdf" class="cta">Whitepaper herunterladen &rarr;</a>
