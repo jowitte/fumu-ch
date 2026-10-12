@@ -1,12 +1,12 @@
 {
   "meta": {
-    "snapshot_date": "2026-09-28",
+    "snapshot_date": "2026-10-12",
     "site_count": 108,
     "crawler_count": 20,
     "cadence_days": 14,
-    "generated_at": "2026-09-28T09:02:08.632497+02:00"
+    "generated_at": "2026-10-12T09:02:08.299422+02:00"
   },
-  "headline": "Snapshot 2026-09-28: 80 Veränderungen auf 4 Sites.",
+  "headline": "Snapshot 2026-10-12: 11 Veränderungen auf 4 Sites.",
   "by_category": [
     {
       "category": "brand",
@@ -17,19 +17,19 @@
     {
       "category": "ecommerce",
       "label": "E-Commerce",
-      "block_share": 0.0333,
+      "block_share": 0.0458,
       "site_count": 12
     },
     {
       "category": "platform",
       "label": "Plattformen",
-      "block_share": 0.5733,
+      "block_share": 0.5533,
       "site_count": 15
     },
     {
       "category": "publisher_open",
       "label": "Publisher (frei)",
-      "block_share": 0.2958,
+      "block_share": 0.2938,
       "site_count": 24
     },
     {
@@ -41,13 +41,13 @@
   ],
   "by_crawler": [
     {
-      "crawler_id": "applebot_extended",
-      "label": "applebot_extended",
-      "block_share": 0.4167,
-      "blocked_sites": 45,
+      "crawler_id": "ccbot",
+      "label": "ccbot",
+      "block_share": 0.4259,
+      "blocked_sites": 46,
       "bot_category": "scraper",
       "honors_robots": true,
-      "provider": "Apple"
+      "provider": "Common Crawl"
     },
     {
       "crawler_id": "bytespider",
@@ -59,19 +59,19 @@
       "provider": "ByteDance"
     },
     {
-      "crawler_id": "ccbot",
-      "label": "ccbot",
-      "block_share": 0.4167,
-      "blocked_sites": 45,
+      "crawler_id": "applebot_extended",
+      "label": "applebot_extended",
+      "block_share": 0.4074,
+      "blocked_sites": 44,
       "bot_category": "scraper",
       "honors_robots": true,
-      "provider": "Common Crawl"
+      "provider": "Apple"
     },
     {
       "crawler_id": "claudebot",
       "label": "claudebot",
-      "block_share": 0.4074,
-      "blocked_sites": 44,
+      "block_share": 0.3981,
+      "blocked_sites": 43,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Anthropic"
@@ -79,8 +79,8 @@
     {
       "crawler_id": "gptbot",
       "label": "gptbot",
-      "block_share": 0.3704,
-      "blocked_sites": 40,
+      "block_share": 0.3611,
+      "blocked_sites": 39,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "OpenAI"
@@ -88,8 +88,8 @@
     {
       "crawler_id": "meta_external",
       "label": "meta_external",
-      "block_share": 0.3519,
-      "blocked_sites": 38,
+      "block_share": 0.3611,
+      "blocked_sites": 39,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Meta"
@@ -97,20 +97,11 @@
     {
       "crawler_id": "perplexitybot",
       "label": "perplexitybot",
-      "block_share": 0.3426,
-      "blocked_sites": 37,
+      "block_share": 0.3333,
+      "blocked_sites": 36,
       "bot_category": "scraper",
       "honors_robots": false,
       "provider": "Perplexity"
-    },
-    {
-      "crawler_id": "google_extended",
-      "label": "google_extended",
-      "block_share": 0.3148,
-      "blocked_sites": 34,
-      "bot_category": "scraper",
-      "honors_robots": true,
-      "provider": "Google"
     },
     {
       "crawler_id": "amazonbot",
@@ -120,6 +111,15 @@
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Amazon"
+    },
+    {
+      "crawler_id": "google_extended",
+      "label": "google_extended",
+      "block_share": 0.2963,
+      "blocked_sites": 32,
+      "bot_category": "scraper",
+      "honors_robots": true,
+      "provider": "Google"
     },
     {
       "crawler_id": "chatgpt_user",
@@ -400,9 +400,26 @@
         "publisher_open": 0.2958,
         "publisher_paywall": 0.5587
       }
+    },
+    {
+      "date": "2026-10-12",
+      "by_category": {
+        "brand": 0.0118,
+        "ecommerce": 0.0458,
+        "platform": 0.5533,
+        "publisher_open": 0.2938,
+        "publisher_paywall": 0.5587
+      }
     }
   ],
   "runs": [
+    {
+      "date": "2026-10-12",
+      "changes": 11,
+      "sites_changed": 4,
+      "summary": "11 Veränderungen auf 4 Sites (Instagram, Zalando, SRF, u.a.).",
+      "commentary": null
+    },
     {
       "date": "2026-09-28",
       "changes": 80,
