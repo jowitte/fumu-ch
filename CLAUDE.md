@@ -148,7 +148,7 @@ Erhebung, Snapshots und Publish des Radars liegen seit 2026-09-20 in diesem Repo
 | `--color-neutral` | #F4F4F4 | Hintergrund-Akzent |
 | `--color-white` | #FFFFFF | Buttons-/Kontrast-Flächen |
 
-**Chart-Serienfarben** kommen nicht aus dieser Tabelle, sondern aus der Brand-Kategorien-Palette (Akasha-Vault: `var/templates/marken/fumu/brand.yaml` > `colors.categorical`, dataviz-validiert gegen ivory) – kanonische Kopie in `src/data/crawler-tracker.ts` > `categoryColors`. Keine ad-hoc Hexwerte in Chart-Komponenten.
+**Chart-Serienfarben** kommen nicht aus dieser Tabelle, sondern aus der Brand-Kategorien-Palette (Akasha-Vault: `var/marken/fumu/brand.yaml` > `colors.categorical`, dataviz-validiert gegen ivory) – kanonische Kopie in `src/data/crawler-tracker.ts` > `categoryColors`. Keine ad-hoc Hexwerte in Chart-Komponenten.
 
 ### Typografie
 

@@ -122,7 +122,7 @@ export function renderInlineLinks(text: string): string {
 
 // Serienfarben für den Trend: Farbe folgt der Kategorie, nie dem Rang.
 // Slots 1–5 der Brand-Kategorien-Palette (Akasha-Vault:
-// var/templates/marken/fumu/brand.yaml > colors.categorical), dataviz-validiert
+// var/marken/fumu/brand.yaml > colors.categorical), dataviz-validiert
 // gegen die ivory-Fläche #F0EEE6 (Lightness-Band, Chroma, CVD-Separation,
 // Kontrast ≥3:1 – alle PASS). Bei Änderung dort ändern und hier nachziehen.
 export const categoryColors: Record<string, string> = {
