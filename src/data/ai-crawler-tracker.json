@@ -1,12 +1,12 @@
 {
   "meta": {
-    "snapshot_date": "2026-10-12",
+    "snapshot_date": "2026-10-26",
     "site_count": 108,
     "crawler_count": 20,
     "cadence_days": 14,
-    "generated_at": "2026-10-12T09:02:08.299422+02:00"
+    "generated_at": "2026-10-26T09:02:08.585308+01:00"
   },
-  "headline": "Snapshot 2026-10-12: 11 Veränderungen auf 4 Sites.",
+  "headline": "Snapshot 2026-10-26: 39 Veränderungen auf 10 Sites.",
   "by_category": [
     {
       "category": "brand",
@@ -17,25 +17,25 @@
     {
       "category": "ecommerce",
       "label": "E-Commerce",
-      "block_share": 0.0458,
+      "block_share": 0.0708,
       "site_count": 12
     },
     {
       "category": "platform",
       "label": "Plattformen",
-      "block_share": 0.5533,
+      "block_share": 0.5767,
       "site_count": 15
     },
     {
       "category": "publisher_open",
       "label": "Publisher (frei)",
-      "block_share": 0.2938,
+      "block_share": 0.2917,
       "site_count": 24
     },
     {
       "category": "publisher_paywall",
       "label": "Paywall-Publisher",
-      "block_share": 0.5587,
+      "block_share": 0.5522,
       "site_count": 23
     }
   ],
@@ -43,8 +43,8 @@
     {
       "crawler_id": "ccbot",
       "label": "ccbot",
-      "block_share": 0.4259,
-      "blocked_sites": 46,
+      "block_share": 0.4352,
+      "blocked_sites": 47,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Common Crawl"
@@ -52,8 +52,8 @@
     {
       "crawler_id": "bytespider",
       "label": "bytespider",
-      "block_share": 0.4167,
-      "blocked_sites": 45,
+      "block_share": 0.4259,
+      "blocked_sites": 46,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "ByteDance"
@@ -61,8 +61,8 @@
     {
       "crawler_id": "applebot_extended",
       "label": "applebot_extended",
-      "block_share": 0.4074,
-      "blocked_sites": 44,
+      "block_share": 0.4167,
+      "blocked_sites": 45,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Apple"
@@ -70,8 +70,8 @@
     {
       "crawler_id": "claudebot",
       "label": "claudebot",
-      "block_share": 0.3981,
-      "blocked_sites": 43,
+      "block_share": 0.4167,
+      "blocked_sites": 45,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Anthropic"
@@ -79,8 +79,8 @@
     {
       "crawler_id": "gptbot",
       "label": "gptbot",
-      "block_share": 0.3611,
-      "blocked_sites": 39,
+      "block_share": 0.3796,
+      "blocked_sites": 41,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "OpenAI"
@@ -97,8 +97,8 @@
     {
       "crawler_id": "perplexitybot",
       "label": "perplexitybot",
-      "block_share": 0.3333,
-      "blocked_sites": 36,
+      "block_share": 0.3426,
+      "blocked_sites": 37,
       "bot_category": "scraper",
       "honors_robots": false,
       "provider": "Perplexity"
@@ -115,8 +115,8 @@
     {
       "crawler_id": "google_extended",
       "label": "google_extended",
-      "block_share": 0.2963,
-      "blocked_sites": 32,
+      "block_share": 0.287,
+      "blocked_sites": 31,
       "bot_category": "scraper",
       "honors_robots": true,
       "provider": "Google"
@@ -167,6 +167,15 @@
       "provider": "Mistral AI"
     },
     {
+      "crawler_id": "meta_externalfetcher",
+      "label": "meta_externalfetcher",
+      "block_share": 0.2037,
+      "blocked_sites": 22,
+      "bot_category": "assistant",
+      "honors_robots": true,
+      "provider": "Meta"
+    },
+    {
       "crawler_id": "duckassistbot",
       "label": "duckassistbot",
       "block_share": 0.1944,
@@ -192,15 +201,6 @@
       "bot_category": "agent",
       "honors_robots": true,
       "provider": "Google"
-    },
-    {
-      "crawler_id": "meta_externalfetcher",
-      "label": "meta_externalfetcher",
-      "block_share": 0.1852,
-      "blocked_sites": 20,
-      "bot_category": "assistant",
-      "honors_robots": true,
-      "provider": "Meta"
     },
     {
       "crawler_id": "google_agent",
@@ -410,9 +410,26 @@
         "publisher_open": 0.2938,
         "publisher_paywall": 0.5587
       }
+    },
+    {
+      "date": "2026-10-26",
+      "by_category": {
+        "brand": 0.0118,
+        "ecommerce": 0.0708,
+        "platform": 0.5767,
+        "publisher_open": 0.2917,
+        "publisher_paywall": 0.5522
+      }
     }
   ],
   "runs": [
+    {
+      "date": "2026-10-26",
+      "changes": 39,
+      "sites_changed": 10,
+      "summary": "39 Veränderungen auf 10 Sites (Shell, AliExpress, Instagram, u.a.).",
+      "commentary": null
+    },
     {
       "date": "2026-10-12",
       "changes": 11,
