@@ -2,6 +2,7 @@
 title: "Mehr Output, weniger Wert"
 description: "Verdichtungs-Paradox. KI macht den Einzelnen schneller – doch die Zeit füllt sich sofort wieder, und Output täuscht Wert vor. Warum das ein Organisationsproblem ist."
 date: 2026-06-14
+updated: 2026-10-30
 category: "KI & Arbeit"
 image: "/images/perspektiven/mehr-output-weniger-wert-trichter.webp"
 icon: "/images/perspektiven/icons/mehr-output-weniger-wert.webp"
@@ -39,11 +40,11 @@ Dazu fällt ein Filter weg, der bisher unsichtbar gearbeitet hat: die Knappheit.
 
 KI senkt diesen Preis auf fast null, und jeder produziert jetzt einen passablen ersten Entwurf. Wenn der Entwurf aber gratis ist, gibt es keine Hürde mehr, also landet mehr auf dem Tisch. Dazu bläht sich jede Vorlage auf, weil auch der Umfang nichts mehr kostet: Das Memo wird fünf Seiten lang, weil fünf Seiten so billig sind wie eine. Die Prüfarbeit, die der Aufwand früher erübrigt hat, fällt jetzt erst recht an, nur später und bei jemand anderem.
 
-Die KI-Nutzung am Arbeitsplatz hat sich in zwei Jahren [nahezu verdoppelt](https://www.gallup.com/workplace/691643/work-nearly-doubled-two-years.aspx), die Begeisterung ist gross, und doch zeigen 95 Prozent der KI-Pilotprojekte [keinen messbaren Ertrag](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo). Bessere KI-Modelle lösen dieses Problem nicht. Es ist ein Organisationsproblem, solange Organisationen überwiegend aus Menschen bestehen.
+In den USA nutzten 2023 noch 21 Prozent der Beschäftigten KI bei der Arbeit, 2025 waren es 40 Prozent, [nahezu doppelt so viele](https://www.gallup.com/workplace/691643/work-nearly-doubled-two-years.aspx). Im selben Jahr sahen in einer methodisch umstrittenen [Studie des MIT-Projekts NANDA](https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo) 95 Prozent der untersuchten Organisationen keine deutliche, anhaltende Wirkung aus aufgabenspezifischen KI-Systemen. Ich halte das für ein Organisationsproblem und keines der Modelle, solange Organisationen überwiegend aus Menschen bestehen.
 
-![Trichter von der GenAI-Pilotierung zum messbaren Ertrag: 80 Prozent der Unternehmen pilotieren, 40 Prozent rollen aus, nur 5 Prozent sehen einen messbaren Geschäftswert.](/images/perspektiven/mehr-output-weniger-wert-trichter.webp)
+![Trichter für aufgabenspezifische KI-Systeme: 60 Prozent der untersuchten Organisationen haben solche Systeme geprüft, 20 Prozent pilotiert, 5 Prozent mit Wirkung eingeführt.](/images/perspektiven/mehr-output-weniger-wert-trichter.webp)
 
-*Vom Pilot zum Ertrag: Die wenigsten GenAI-Initiativen zeigen messbaren Geschäftswert. Quelle: MIT, State of AI in Business 2025.*
+*Aufgabenspezifische KI-Systeme sind für einzelne Abläufe gebaut oder eingekauft, anders als Chat-Werkzeuge wie ChatGPT. «Mit Wirkung eingeführt» heisst: mit deutlicher, anhaltender Wirkung auf Produktivität oder Ergebnis. Quelle: MIT-Projekt NANDA, State of AI in Business 2025; Interviews in 52 Organisationen, Befragung von 153 Führungskräften, Januar bis Juni 2025.*
 
 ## Wer entscheidet, was «fertig» heisst
 
