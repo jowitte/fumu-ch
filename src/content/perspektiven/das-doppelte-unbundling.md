@@ -1,54 +1,46 @@
 ---
 title: "Das doppelte Unbundling"
-description: "Das zweite Unbundling. Was passiert mit der digitalen Werbung, wenn Nutzer aufhören, Websites zu besuchen? Nicht weil sie das Internet verlassen, sondern weil die Antwort jetzt direkt im Chat erscheint."
+description: "Das zweite Unbundling. Beim ersten verloren Verlage die Hoheit über die Werbung und behielten den Leser. Jetzt verlieren sie den Leser an den Chat."
 date: 2026-03-27
 category: "Medien"
 image: "/images/perspektiven/das-doppelte-unbundling-drei-aeren.webp"
 icon: "/images/perspektiven/icons/das-doppelte-unbundling.webp"
-updated: 2026-09-26
+updated: 2026-11-01
 draft: false
 series: "ai-digitale-werbung"
 ---
 
-Was passiert mit der digitalen Werbung, wenn Nutzer aufhören, Websites zu besuchen? Sie verlassen das Internet nicht; die Antwort erscheint jetzt direkt im Chat, ohne Klick, ohne Pageview und ohne Banner.
+Was passiert mit der digitalen Werbung, wenn Nutzer aufhören, Websites zu besuchen? Sie bekommen die Antwort im Chat, ohne Klick, ohne Seitenaufruf und ohne Banner. Gerade läuft ein zweites Unbundling. Unbundling heisst Entbündelung: Was ein Anbieter bisher zusammen verkaufte, zerfällt in Teile, die andere einzeln anbieten.
 
-Gerade läuft ein zweites Unbundling. Unbundling heisst Entbündelung: Was ein Anbieter bisher zusammen verkaufte, zerfällt in Teile, die andere einzeln anbieten.
+Beim ersten Unbundling verloren die Verlage die Hoheit über die Werbung und behielten den Leser. Beim zweiten verlieren sie den Leser. Ich halte das zweite deshalb für das gefährlichere.
 
-## Das erste Unbundling: Google und Facebook entkoppeln Werbung von Inhalt
+## Das erste Unbundling: Werbung ohne Inhalt
 
-In der Print-Ära kontrollierten Publisher alles: Inhalte, Werbung, Distribution. Wer Leser erreichen wollte, musste durch den Publisher. Das war unbequem für Werbetreibende und profitabel für Verlage.
+In der Print-Ära kontrollierten Publisher Inhalte, Werbung und Distribution. Wer Leser erreichen wollte, musste durch den Verlag, was für Werbetreibende unbequem war und für Verlage profitabel. Verleger erinnern sich gern an diese Zeit, Werbetreibende weniger.
 
-Mit dem Internet liess sich Werbung plötzlich unabhängig von Inhalten platzieren. Ein Nutzer besuchte eine Nachrichtenseite und sah Werbung, die Google ausgesteuert hatte, dazu Retargeting-Pixel von Criteo, die ihm Produkte nachtrugen, die er anderswo angesehen hatte, und die Infrastruktur von Ad Networks, die der Publisher nie gewählt hatte. Publisher wurden zu «modularisierten Inhaltslieferanten»: Die Inhalte waren austauschbar geworden. Was zählte, waren Reichweite und Daten.
+Mit dem Internet liess sich Werbung unabhängig vom Inhalt platzieren. Auf der Nachrichtenseite steuerte Google die Anzeigen aus, und Criteo trug dem Leser Produkte nach, die er anderswo angesehen hatte. Der Publisher lieferte das Umfeld, einen wachsenden Teil des Geldes verdienten andere mit Reichweite und Daten.
 
-## Das zweite Unbundling: AI entkoppelt Inhalt und Distribution
+## Das zweite Unbundling: Inhalt ohne Besuch
 
-ChatGPT, Perplexity und Googles AI Overviews, die KI-Zusammenfassungen über den Suchergebnissen, liefern Inhalte direkt an Nutzer, ohne dass diese je auf Publisher-Seiten kommen. Publisher werden zu Lieferanten von Rohmaterial. Ihre Artikel werden verarbeitet, zusammengefasst, neu kombiniert.
-
-AI Overviews erscheinen bei [rund 60% aller US-Suchanfragen](https://xponent21.com/insights/google-ai-overviews-surpass-60-percent/). Wo sie erscheinen, sinkt die organische Klickrate bei Informationsanfragen [um 61%](https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update).
-
-Cloudflare misst das Verhältnis zwischen AI-Crawler-Anfragen und dem Traffic, den diese Plattformen an Websites zurückschicken. Im ersten Quartal 2026 crawlte Anthropic [knapp 24'000 Seiten](https://seomator.com/blog/crawl-to-refer-ratio-ai-crawlers-llm-bots) pro Besucher, den die Plattform an Publisher zurückschickte. Bei OpenAI waren es 1'276 zu 1, bei Perplexity 111 zu 1 und bei Google 5 zu 1.
+ChatGPT, Perplexity und Googles AI Overviews, die KI-Zusammenfassungen über den Suchtreffern, liefern die Inhalte direkt an den Nutzer. Der Artikel wird weiter gelesen, nur nicht von einem Menschen: Ein Modell verarbeitet ihn, fasst ihn zusammen und mischt ihn mit anderen. Wie wenig die Plattformen an die Quellen zurückschicken, zeigt das Verhältnis von abgerufenen Seiten zu Besuchern in [93 Prozent Zero-Click](/perspektiven/zero-click/).
 
 ![Drei Ären der digitalen Werbung. Print: Der Publisher bündelt Werbung, Inhalte und Distribution und erreicht den Leser direkt. Internet: Der Publisher liefert Inhalte, Ad Networks liefern Werbung, beides trifft sich auf der Website. AI: Der Publisher liefert nur noch Quelldaten, AI-Plattformen bringen Inhalte und Werbung zum Nutzer.](/images/perspektiven/das-doppelte-unbundling-drei-aeren.svg)
 
-## Fünf Trends, die daraus folgen
+## Was daraus folgt
 
-**Trend 1: AI Eyeballs.** Die Aufmerksamkeit verschiebt sich von Websites zu AI-Interfaces. [37% der US-Konsumenten](https://searchengineland.com/consumers-start-searches-ai-not-google-study-467159) starten Suchanfragen inzwischen mit AI statt Google. Bei der Gen Z liegen ChatGPT und Google [fast gleichauf](https://www.frac.tl/ai-vs-seo-how-generative-search-is-reshaping-discovery-content-strategy-and-consumer-trust-in-2025/). Das kostet Traffic, und Inhalte müssen für AI-Antworten aufbereitet werden. Sichtbarkeit entsteht zunehmend in der AI-Antwort statt auf der eigenen Website.
+Aus der zweiten Entbündelung folgen fünf Entwicklungen, die diese Serie einzeln behandelt. Die Aufmerksamkeit wandert von der Website in die Antwort, und die Werbung folgt ihr: OpenAI zeigt seit Februar 2026 [Anzeigen in ChatGPT](https://techcrunch.com/2026/02/09/chatgpt-rolls-out-ads/) und verlangte zum Start [rund 60 Dollar](https://digiday.com/marketing/openai-turns-on-cost-per-click-ads-inside-chatgpt) pro tausend Einblendungen. OpenAI-Chef Sam Altman hatte die Verbindung von KI und Werbung im Mai 2024 noch [«uniquely unsettling»](https://www.youtube.com/watch?v=FVRHTWWEIz4) genannt. Knapp zwei Jahre später hat sein Unternehmen einen Ad-Tech-Partner, an das Unbehagen hat er sich offenbar gewöhnt.
 
-**Trend 2: Werbung in AI-Interfaces.** OpenAI hat am 9. Februar 2026 [Werbung in ChatGPT](https://techcrunch.com/2026/02/09/chatgpt-rolls-out-ads/) gestartet, zu einem CPM (Preis pro tausend Einblendungen) um die 60 Dollar, bei 900 Millionen wöchentlich aktiven Nutzern und mit Criteo als erstem Ad-Tech-Partner. Zum Start lief der Kanal nur in den USA. Sam Altman nannte die Kombination von AI und Werbung noch Mitte 2024 [«uniquely unsettling»](https://www.youtube.com/watch?v=FVRHTWWEIz4). Eineinhalb Jahre später hat sein Unternehmen einen Ad-Tech-Partner.
+Dann übernehmen Agenten die Arbeit auf beiden Seiten des Marktes. Laut Wall Street Journal will Meta bis Ende 2026 Anzeigen [vollautomatisch](https://www.adweek.com/media/meta-wants-brands-to-create-ads-using-ai-by-end-of-2026) erstellen und ausspielen lassen; dafür sollen ein Produktbild und ein Budgetziel genügen. Auf der Käuferseite beginnen Shopping-Agenten mitzuentscheiden, was gekauft wird. Werbewirkung über Aufmerksamkeit, Emotion und Erinnerung greift bei ihnen nicht. Ein Agent hat keine Jugenderinnerung an eine Marke, er liest Produktdaten.
 
-**Trend 3: Agentic Advertising Operations.** AI-Agenten übernehmen die gesamte Wertschöpfungskette, von der Kreation bis zur Auslieferung. Meta hat [vollautomatische Kampagnen](https://www.adweek.com/media/meta-wants-brands-to-create-ads-using-ai-by-end-of-2026) für Ende 2026 angekündigt: Werbetreibende geben Geschäftsziel und Budget ein, der Rest läuft automatisch. [96% der US-Einkäufer von Werbung](https://www.iab.com/insights/2026-outlook) kennen den Einkauf durch KI-Agenten (Agentic AI Ad Buying) bereits, zwei Drittel beschäftigen sich aktiv damit. Dem Menschen bleiben die kreative Strategie und die Fähigkeit, den Algorithmus zu korrigieren, wenn er in die falsche Richtung optimiert.
-
-**Trend 4: Agentic Commerce.** Wenn nicht mehr Menschen, sondern ihre AI-Agenten Kaufentscheidungen treffen, verändert das die gesamte Werbewirkungskette. Amazons Shopping-Assistent Rufus hatte 2025 [300 Millionen Nutzer](https://www.pymnts.com/amazon/2026/amazon-q4-results-show-agentic-shopping-push-beyond-ai-spending), und wer ihn nutzt, schliesst einen Kauf mit rund 60% höherer Wahrscheinlichkeit ab. Bei ChatGPT betreffen [rund 50 Millionen Anfragen täglich](https://digiday.com/media/chatgpt-is-now-20-of-walmarts-referral-traffic-while-amazon-wards-off-ai-shopping-agents) das Einkaufen. McKinsey beziffert das [Potenzial](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-agentic-commerce-opportunity-how-ai-agents-are-ushering-in-a-new-era-for-consumers-and-merchants) weltweit auf 3 bis 5 Billionen Dollar bis 2030. Klassische Werbewirkung über Aufmerksamkeit, Emotion und Erinnerung funktioniert bei Maschinen nicht. Ein AI-Agent wertet Produktdaten aus.
-
-**Trend 5: Measurement Reset.** Wie misst man Werbewirkung, wenn Nutzer in AI-Interfaces interagieren, Cookies verschwinden und Plattformen zu Black Boxes werden? Multi-Touch-Attribution, die einen Kauf auf alle Kontaktpunkte davor verteilt, hatte schon vorher Schwächen; ohne Cookies und ohne Einblick in die Plattformen fehlen ihr jetzt die Kontaktpunkte. Marketing Mix Modeling, die statistische Schätzung der Werbewirkung aus aggregierten Daten, erlebt eine Renaissance. Attention Metrics, die messen, ob eine Anzeige tatsächlich angeschaut wurde, ergänzen die blosse Sichtbarkeit (Viewability), und Tests mit Kontrollgruppen (Incrementality Testing) gewinnen an Boden.
+Die Branche muss zudem ihre Messung neu aufsetzen: Cookies fallen weg, die Plattformen geben wenig Einblick, und der Kauf verlagert sich in Oberflächen, in die niemand von aussen hineinsieht. Sie greift dabei auf Marketing Mix Modeling zurück, die statistische Schätzung der Werbewirkung aus aggregierten Daten, eine Methode, die älter ist als das Web.
 
 ## Was jetzt zu tun ist
 
-**Publisher** sollten zuerst ihre Inhalte maschinenlesbar machen, mit strukturierten Daten, sauberen Metadaten und konsistenten Taxonomien, und zwar für AI-Antworten. Dazu kommen direkte Beziehungen: Newsletter-Abonnenten, App-Nutzer und zahlende Leser sind Reichweite, die nicht von Google abhängt. Attention Metrics taugen als Verkaufsargument, weil Premium-Umfelder nachweislich mehr Aufmerksamkeit erzeugen als programmatischer Standard; diesen messbaren Vorteil können Google und Meta nicht kopieren. Content-Licensing schliesslich lohnt eine Prüfung, aber mit realistischen Erwartungen. Reddit hat Lizenzverträge mit Google und OpenAI abgeschlossen, doch die Datenlizenzen machen [rund 5% des Umsatzes](https://www.cnbc.com/2026/07/30/reddit-rddt-q2-2026-earnings-report.html) aus. Für Schweizer Publisher wird das kaum ein tragendes Geschäftsmodell.
+**Publisher** machen ihre Inhalte zuerst maschinenlesbar, damit sie in den Antworten überhaupt vorkommen. Robuster sind direkte Beziehungen zu Newsletter-Abonnenten, App-Nutzern und zahlenden Lesern, denn diese Reichweite hängt nicht an Google. Premium-Umfelder erzeugen laut einer [Eye-Tracking-Studie](https://ozoneproject.com/blog/ozone-study-shows-clear-link-between-attention-paid-to-quality-content-and-accompanying-ads) für den britischen Verlagsverbund Ozone mehr Aufmerksamkeit als andere Websites, und diesen Vorteil können Google und Meta ohne eigene Redaktionen kaum nachbauen. Licensing lohnt eine Prüfung mit nüchternen Erwartungen: Bei Reddit brachte die Sparte, zu der die Datenlizenzen an Google und OpenAI gehören, im zweiten Quartal 2026 [rund 5 Prozent des Umsatzes](https://www.cnbc.com/2026/07/30/reddit-rddt-q2-2026-earnings-report.html).
 
-**Werbetreibende** sollten ihre Produktdaten für AI-Agenten aufbereiten: Sucht ein Agent das beste Fahrrad für Pendler, liest er strukturierte Feeds. Die Abhängigkeit von Plattform-Algorithmen gehört auf den Prüfstand, denn Metas Advantage+ und Googles Performance Max liefern bessere Ergebnisse, aber ohne Transparenz. Und sobald AI-Werbekanäle in Europa verfügbar sind, lohnt ein Test.
+**Werbetreibende** bereiten ihre Produktdaten für Agenten auf. Sucht ein Agent das beste Fahrrad für Pendler, liest er strukturierte Feeds. Die eigene Abhängigkeit von Metas Advantage+ und Googles Performance Max gehört auf den Prüfstand, denn beide versprechen bessere Ergebnisse, ohne zu zeigen, wie sie zustande kommen.
 
-Bei **Agenturen** übernehmen automatisierte Kampagnensysteme die operative Arbeit an Kampagnen, also Setup, Gebotssteuerung und A/B-Tests. Den Agenturen bleibt, die Messlücke ihrer Kunden zu schliessen und «Agent Readiness» als Beratungsdisziplin aufzubauen.
+Bei **Agenturen** übernehmen automatisierte Systeme die operative Arbeit an Kampagnen, also Setup, Gebote und A/B-Tests. Ihnen bleibt, die Messlücke ihrer Kunden zu schliessen und diese darauf vorzubereiten, dass Agenten mitkaufen.
 
 ## Die fünf Trends einzeln
 
