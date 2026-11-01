@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Gecrawlte Seiten pro zurückgeschicktem Besucher nach AI-Plattform, Q1 2026",
+    "text": "Gecrawlte Seiten pro zurückgeschicktem Besucher nach AI-Plattform, September 2026",
     "anchor": "start",
     "fontSize": 13,
     "fontWeight": "bold",
@@ -15,26 +15,26 @@
     "values": [
       {
         "plattform": "Google",
-        "wert": 5,
-        "label": "5",
-        "grp": "rest"
-      },
-      {
-        "plattform": "Perplexity",
-        "wert": 111,
-        "label": "111",
+        "wert": 4.7,
+        "label": "4,7",
         "grp": "rest"
       },
       {
         "plattform": "OpenAI",
-        "wert": 1276,
-        "label": "1'276",
+        "wert": 341,
+        "label": "341",
         "grp": "rest"
       },
       {
         "plattform": "Anthropic",
-        "wert": 23951,
-        "label": "23'951",
+        "wert": 549,
+        "label": "549",
+        "grp": "rest"
+      },
+      {
+        "plattform": "Perplexity",
+        "wert": 2373,
+        "label": "2'373",
         "grp": "hl"
       }
     ]
@@ -45,9 +45,9 @@
       "type": "nominal",
       "sort": [
         "Google",
-        "Perplexity",
         "OpenAI",
-        "Anthropic"
+        "Anthropic",
+        "Perplexity"
       ],
       "axis": {
         "title": null,
@@ -64,7 +64,7 @@
         "type": "log",
         "domain": [
           1,
-          100000
+          10000
         ]
       },
       "axis": {
@@ -77,10 +77,9 @@
           10,
           100,
           1000,
-          10000,
-          100000
+          10000
         ],
-        "labelExpr": "datum.value >= 100000 ? \"100'000\" : datum.value >= 10000 ? \"10'000\" : datum.value >= 1000 ? \"1'000\" : datum.label",
+        "labelExpr": "datum.value >= 10000 ? \"10'000\" : datum.value >= 1000 ? \"1'000\" : datum.label",
         "labelOverlap": false,
         "format": "d"
       }
