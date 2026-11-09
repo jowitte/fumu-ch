@@ -73,6 +73,31 @@ const { section, sticky = true } = Astro.props;
         );
       }
 
+      // FAQ-Sektion: sichtbar sind nur die Fragen, die Antwort öffnet sich auf
+      // Klick. Natives <details> braucht kein JS, ist per Tastatur bedienbar
+      // und lässt die Antwort im HTML. Markdown-Kanal und FAQPage-JSON-LD
+      // lesen dieselben Daten und bleiben unberührt.
+      if (section.id === 'faq' && item.kind === 'item' && item.title) {
+        return (
+          <details class="evans-item faq-item">
+            <summary>
+              {item.tag && <span class="evans-tag">{item.tag}</span>}
+              <span class="faq-marker" aria-hidden="true"></span>
+              <h3>{item.title}</h3>
+            </summary>
+            <div class="faq-answer">
+              <p><RichText value={item.body} /></p>
+              {item.cta && (
+                <a href={item.cta.href} class="cta-link" target={item.cta.external ? '_blank' : undefined} rel={item.cta.external ? 'noopener' : undefined}>
+                  {item.cta.label}{item.cta.arrow && <> &rarr;</>}
+                </a>
+              )}
+              {item.component?.name === 'newsletter' && <NewsletterSignup />}
+            </div>
+          </details>
+        );
+      }
+
       // Items ohne Tag und Titel sind Fliesstext-Absätze (Analyse-Teil einer
       // Pillar) und rücken enger zusammen als eigenständige Einträge.
       return (
@@ -176,6 +201,82 @@ const { section, sticky = true } = Astro.props;
     color: var(--color-text);
     margin: 0;
     max-width: 600px;
+  }
+
+  /* FAQ: Die Frage bleibt der Item-Titel (h3 oben), davor steht der
+     Coral-Chevron aus CollapsibleSection statt des Browser-Dreiecks. Die
+     Antwort fluchtet mit der Frage, nicht mit dem Chevron. Geschlossene
+     Fragen stehen als Liste eng beieinander. */
+  .faq-item {
+    margin-bottom: var(--space-md);
+  }
+
+  .faq-item[open]:not(:last-child) {
+    margin-bottom: var(--space-lg);
+  }
+
+  .faq-item summary {
+    display: grid;
+    grid-template-columns: 8px 1fr;
+    grid-template-areas:
+      ".      tag"
+      "marker question";
+    column-gap: var(--space-sm);
+    /* Fragenbreite (600px) plus Chevron-Spalte: hält Klickfläche und
+       Fokusring am Textblock statt über die ganze Spalte. */
+    max-width: calc(600px + 8px + var(--space-sm));
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary:focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 4px;
+  }
+
+  .faq-item summary .evans-tag {
+    grid-area: tag;
+  }
+
+  .faq-item summary h3 {
+    grid-area: question;
+    margin: 0;
+  }
+
+  .faq-item summary:hover h3 {
+    opacity: 0.85;
+  }
+
+  /* 8px-Quadrat mit zwei Coral-Kanten, gedreht: zu zeigt er nach rechts,
+     offen nach unten. Der Versatz zentriert ihn auf der ersten Fragezeile
+     (18px × 1.2). */
+  .faq-marker {
+    grid-area: marker;
+    width: 8px;
+    height: 8px;
+    margin-top: 7px;
+    border-right: 2px solid var(--color-coral);
+    border-bottom: 2px solid var(--color-coral);
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+  }
+
+  .faq-item[open] > summary .faq-marker {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: var(--space-sm) 0 0 calc(8px + var(--space-sm));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-marker {
+      transition: none;
+    }
   }
 
   .links {
