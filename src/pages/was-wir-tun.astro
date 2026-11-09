@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { jsonLd } from '../lib/json-ld';
 import EvansSection from '../components/EvansSection.astro';
+import PageIntro from '../components/PageIntro.astro';
 import { wasWirTun } from '../data/pages/was-wir-tun';
 
 const serviceLd = {
@@ -45,14 +47,14 @@ const serviceLd = {
 
 <BaseLayout title={wasWirTun.title} description={wasWirTun.description}>
 
-  <script type="application/ld+json" set:html={JSON.stringify(serviceLd)} />
+  <script type="application/ld+json" set:html={jsonLd(serviceLd)} />
 
   <section class="evans-page">
     <div class="container">
 
       <h1>{wasWirTun.title}</h1>
 
-      {wasWirTun.intro.map(paragraph => <p class="intro">{paragraph}</p>)}
+      <PageIntro paragraphs={wasWirTun.intro} />
 
       {wasWirTun.sections.map(section => (
         <>
@@ -67,25 +69,9 @@ const serviceLd = {
 </BaseLayout>
 
 <style>
-  .intro {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--color-text);
-    max-width: 720px;
-    margin: 0 0 var(--space-xl) 0;
-  }
-
   .section-divider {
     border: none;
     border-top: 1px solid var(--color-coral);
     margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .intro {
-      font-size: 18px;
-      margin: 0 0 var(--space-lg) 0;
-    }
   }
 </style>

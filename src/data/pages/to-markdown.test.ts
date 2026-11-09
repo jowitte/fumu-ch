@@ -5,7 +5,7 @@ import { wasWirTun } from './was-wir-tun';
 import { pillars } from '../pillars';
 import { withRelated } from './related';
 import { headingOf, textFragments, toMarkdown } from './to-markdown';
-import type { PageContent } from './types';
+import type { PageContent, Rich } from './types';
 
 /**
  * Regressionssicherung gegen den Schattentext-Fall (2026-08-19): Eine Aussage
@@ -138,6 +138,41 @@ describe('FAQ', () => {
 
   it('setzt die Frage nicht als fetten Titel vor die Antwort', () => {
     expect(toMarkdown(subject)).not.toContain('**Erste Frage?**');
+  });
+
+  it('verliert Tag, CTA und Fallback einer Frage nicht', () => {
+    const markdown = toMarkdown(
+      page({
+        sections: [
+          {
+            label: 'Häufige Fragen',
+            id: 'faq',
+            items: [
+              {
+                kind: 'item',
+                title: 'Was kostet das?',
+                tag: 'Preis',
+                body: 'Kommt drauf an.',
+                cta: { label: 'Anfragen', href: '/kontakt/' },
+                component: { name: 'newsletter', fallback: 'Anmeldung auf der Kontaktseite.' },
+              },
+            ],
+          },
+        ],
+      }),
+    );
+    expect(markdown).toContain(
+      '### Was kostet das? (Preis)\n\nKommt drauf an. [Anfragen](/kontakt/) Anmeldung auf der Kontaktseite.',
+    );
+  });
+});
+
+describe('Rich-Typ', () => {
+  it('lässt Link und Auszeichnung nicht im selben Teil zu', () => {
+    // Prüft tsc, nicht vitest: ohne Typfehler meldet tsc die Direktive als unbenutzt.
+    // @ts-expect-error – ein Teil ist entweder Link oder Auszeichnung
+    const part: Exclude<Rich, string>[number] = { label: 'x', href: '/x/', em: 'y' };
+    expect(part).toBeDefined();
   });
 });
 

@@ -1,4 +1,5 @@
 ---
+import { isEm, isStrong } from '../data/pages/types';
 import type { Rich } from '../data/pages/types';
 
 /**
@@ -15,8 +16,8 @@ const parts = typeof value === 'string' ? [value] : value;
 
 {parts.map(part => {
   if (typeof part === 'string') return part;
-  if ('em' in part) return <em>{part.em}</em>;
-  if ('strong' in part) return <strong>{part.strong}</strong>;
+  if (isEm(part)) return <em>{part.em}</em>;
+  if (isStrong(part)) return <strong>{part.strong}</strong>;
   // Einzeilig, damit kein Whitespace im Link vor einem Satzzeichen landet.
   return <a href={part.href} target={part.external ? '_blank' : undefined} rel={part.external ? 'noopener' : undefined}>{part.label}</a>;
 })}

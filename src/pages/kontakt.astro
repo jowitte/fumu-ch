@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EvansSection from '../components/EvansSection.astro';
+import PageIntro from '../components/PageIntro.astro';
 import { kontakt } from '../data/pages/kontakt';
 ---
 
@@ -11,7 +12,7 @@ import { kontakt } from '../data/pages/kontakt';
 
       <h1>{kontakt.title}</h1>
 
-      {kontakt.intro.map(paragraph => <p class="intro">{paragraph}</p>)}
+      <PageIntro paragraphs={kontakt.intro} />
 
       {kontakt.sections.map(section => (
         <>
@@ -26,25 +27,9 @@ import { kontakt } from '../data/pages/kontakt';
 </BaseLayout>
 
 <style>
-  .intro {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--color-text);
-    max-width: 720px;
-    margin: 0 0 var(--space-xl) 0;
-  }
-
   .section-divider {
     border: none;
     border-top: 1px solid var(--color-coral);
     margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .intro {
-      font-size: 18px;
-      margin: 0 0 var(--space-lg) 0;
-    }
   }
 </style>

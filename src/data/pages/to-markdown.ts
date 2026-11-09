@@ -1,4 +1,5 @@
-import type { Cta, Item, PageContent, Rich, Section } from './types';
+import { isEm, isStrong } from './types';
+import type { Cta, Item, PageContent, Rich, RichPart, Section } from './types';
 
 /**
  * Serialisiert PageContent zu Markdown für /[slug].md und /llms-full.txt.
@@ -13,12 +14,10 @@ export const headingOf = (page: PageContent): string => page.heading ?? page.tit
 
 const link = (cta: Cta) => `[${cta.label}](${cta.href})`;
 
-type Part = Exclude<Rich, string>[number];
-
-const partToMarkdown = (part: Part): string => {
+const partToMarkdown = (part: RichPart): string => {
   if (typeof part === 'string') return part;
-  if ('em' in part) return `*${part.em}*`;
-  if ('strong' in part) return `**${part.strong}**`;
+  if (isEm(part)) return `*${part.em}*`;
+  if (isStrong(part)) return `**${part.strong}**`;
   return link(part);
 };
 
@@ -53,9 +52,18 @@ const itemToMarkdown = (item: Item): string => {
   }
 };
 
-/** FAQ-Sektion (`id: 'faq'`): jede Frage als H3, die Antwort als Absatz darunter. */
-const faqItemToMarkdown = (item: Item): string =>
-  item.kind === 'item' && item.title ? `### ${item.title}\n\n${rich(item.body)}` : itemToMarkdown(item);
+/**
+ * FAQ-Sektion (`id: 'faq'`): jede Frage als H3, die Antwort als Absatz
+ * darunter. Tag, CTA und Fallback kommen mit, wie bei gewöhnlichen Items.
+ */
+const faqItemToMarkdown = (item: Item): string => {
+  if (item.kind !== 'item' || !item.title) return itemToMarkdown(item);
+  const heading = item.tag ? `### ${item.title} (${item.tag})` : `### ${item.title}`;
+  const answer = [rich(item.body)];
+  if (item.cta) answer.push(link(item.cta));
+  if (item.component) answer.push(item.component.fallback);
+  return `${heading}\n\n${answer.join(' ')}`;
+};
 
 const sectionToMarkdown = (section: Section): string =>
   [
@@ -81,8 +89,8 @@ export const textFragments = (page: PageContent): string[] => {
     }
     for (const part of value) {
       if (typeof part === 'string') fragments.push(part);
-      else if ('em' in part) fragments.push(part.em);
-      else if ('strong' in part) fragments.push(part.strong);
+      else if (isEm(part)) fragments.push(part.em);
+      else if (isStrong(part)) fragments.push(part.strong);
       else fragments.push(part.label, part.href);
     }
   };

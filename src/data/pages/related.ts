@@ -1,3 +1,4 @@
+import { isLink } from './types';
 import type { PageContent, Rich } from './types';
 
 /** Was von einer Perspektive gebraucht wird – Auszug aus dem Collection-Eintrag. */
@@ -38,7 +39,7 @@ const PERSPEKTIVE = /^(?:https:\/\/fumu\.ch)?\/perspektiven\/([^/]+)\/?$/;
 /** Alle Link-Ziele einer Seite: Inline-Links, CTAs, Personen-Links. */
 const hrefs = (page: PageContent): string[] => {
   const fromRich = (value: Rich) =>
-    typeof value === 'string' ? [] : value.flatMap(part => (typeof part === 'object' && 'href' in part ? [part.href] : []));
+    typeof value === 'string' ? [] : value.flatMap(part => (isLink(part) ? [part.href] : []));
 
   return page.sections.flatMap(section =>
     section.items.flatMap(item => {

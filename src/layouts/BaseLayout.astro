@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { breadcrumbTrail } from '../lib/breadcrumb';
+import { jsonLd } from '../lib/json-ld';
 
 interface ArticleAuthor {
   slug: string;
@@ -29,15 +31,9 @@ const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://fumu.ch';
 
 const pageTitle = title.toLowerCase().includes('fumu') ? title : `${title} – fumu`;
 
-// Breadcrumb aus URL-Pfad ableiten
+// Breadcrumb aus URL-Pfad, aktuelle Seite mit Titel (src/lib/breadcrumb.ts)
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
-const breadcrumbItems = [
-  { name: 'Home', url: `${siteUrl}/` },
-  ...pathSegments.map((seg, i) => ({
-    name: seg.charAt(0).toUpperCase() + seg.slice(1).replace(/-/g, ' '),
-    url: `${siteUrl}/${pathSegments.slice(0, i + 1).join('/')}/`,
-  })),
-];
+const breadcrumbItems = breadcrumbTrail(Astro.url.pathname, title, siteUrl);
 
 const isHome = pathSegments.length === 0;
 
@@ -163,10 +159,10 @@ const ogType = article ? 'article' : 'website';
   {article && articleAuthors.map(a => <meta property="article:author" content={a.name} />)}
   <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <script type="application/ld+json" set:html={JSON.stringify(organizationLd)} />
-  {websiteLd && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
-  {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
-  {articleLd && <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />}
+  <script type="application/ld+json" set:html={jsonLd(organizationLd)} />
+  {websiteLd && <script type="application/ld+json" set:html={jsonLd(websiteLd)} />}
+  {breadcrumbLd && <script type="application/ld+json" set:html={jsonLd(breadcrumbLd)} />}
+  {articleLd && <script type="application/ld+json" set:html={jsonLd(articleLd)} />}
   <slot name="head" />
 </head>
 <body>
@@ -177,7 +173,7 @@ const ogType = article ? 'article' : 'website';
         <nav aria-label="Breadcrumb" class="breadcrumb-trail">
           {breadcrumbItems.map((item, i) => {
             const isLast = i === breadcrumbItems.length - 1;
-            const label = isLast ? title : item.name;
+            const label = item.name;
             return (
               <>
                 {i > 0 && <span class="breadcrumb-sep">›</span>}

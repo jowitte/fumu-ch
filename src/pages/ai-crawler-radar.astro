@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { jsonLd } from "../lib/json-ld";
 import BlockShareBars from "../components/charts/BlockShareBars.astro";
 import TrendChart from "../components/charts/TrendChart.astro";
 import CollapsibleSection from "../components/CollapsibleSection.astro";
@@ -99,7 +100,7 @@ const datasetLd = {
 ---
 
 <BaseLayout title="AI-Crawler-Radar" description={description}>
-  <script type="application/ld+json" set:html={JSON.stringify(datasetLd)} />
+  <script type="application/ld+json" set:html={jsonLd(datasetLd)} />
 
   <section class="radar-page">
     <div class="container">

@@ -12,10 +12,15 @@ export type Cta = {
   external?: boolean;
   /** Pfeil hinter dem Label (nur HTML, der Markdown-Kanal ignoriert ihn). */
   arrow?: boolean;
+  // Ein Link ist keine Auszeichnung – verhindert { label, href, em } im Rich-Text.
+  em?: never;
+  strong?: never;
 };
 
 /** Auszeichnung im Fliesstext: Kursiv (Werktitel) oder Fett (Begriff). */
-export type Emphasis = { em: string } | { strong: string };
+export type Emphasis =
+  | { em: string; strong?: never; href?: never; label?: never }
+  | { strong: string; em?: never; href?: never; label?: never };
 
 /**
  * Fliesstext, der Links und Auszeichnungen enthalten darf – ohne Markdown im
@@ -23,6 +28,17 @@ export type Emphasis = { em: string } | { strong: string };
  * Textstücken, Links und Auszeichnungen.
  */
 export type Rich = string | Array<string | Cta | Emphasis>;
+
+/** Ein Teil eines Rich-Texts, der kein reiner String ist oder sein kann. */
+export type RichPart = Exclude<Rich, string>[number];
+
+// Type Guards statt `'em' in part`: Die `?: never`-Felder machen Link und
+// Auszeichnung gegenseitig unvereinbar, `in` grenzt dann aber nicht mehr ein.
+export const isLink = (part: RichPart): part is Cta => typeof part === 'object' && typeof part.href === 'string';
+export const isEm = (part: RichPart): part is Extract<Emphasis, { em: string }> =>
+  typeof part === 'object' && typeof part.em === 'string';
+export const isStrong = (part: RichPart): part is Extract<Emphasis, { strong: string }> =>
+  typeof part === 'object' && typeof part.strong === 'string';
 
 /** Standard-Eintrag der Content-Spalte: optionaler Tag, Titel, Fliesstext, optionaler CTA. */
 export type TextItem = {

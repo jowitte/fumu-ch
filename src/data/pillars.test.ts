@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { assertPillarSlugsFree, pillarPath, pillars } from './pillars';
 import { wasWirTun } from './pages/was-wir-tun';
+import { isLink } from './pages/types';
 import type { Rich, Section } from './pages/types';
 
 /**
@@ -18,7 +19,7 @@ const hrefs = (sections: Section[]): string[] =>
     section.items.flatMap(item => {
       if (item.kind !== 'item') return [];
       const body: Rich = item.body;
-      return typeof body === 'string' ? [] : body.flatMap(part => (typeof part === 'object' && 'href' in part ? [part.href] : []));
+      return typeof body === 'string' ? [] : body.flatMap(part => (isLink(part) ? [part.href] : []));
     }),
   );
 
@@ -68,7 +69,7 @@ describe.each(pillars.map(p => [p.slug, p] as const))('%s', (_slug, pillar) => {
     }
   });
 
-  it('verweist nur auf publizierte Perspektiven', () => {
+  it('verweist nur auf vorhandene Perspektiven, die kein Entwurf sind (Termin prüft der Build)', () => {
     const inline = hrefs(page.sections)
       .map(href => href.match(/^\/perspektiven\/([^/]+)\/$/)?.[1])
       .filter((slug): slug is string => Boolean(slug));

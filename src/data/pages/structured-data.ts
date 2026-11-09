@@ -1,3 +1,4 @@
+import { isEm, isStrong } from './types';
 import type { PageContent, Rich, TextItem } from './types';
 
 /**
@@ -13,8 +14,8 @@ export const plainText = (value: Rich): string =>
     : value
         .map(part => {
           if (typeof part === 'string') return part;
-          if ('em' in part) return part.em;
-          if ('strong' in part) return part.strong;
+          if (isEm(part)) return part.em;
+          if (isStrong(part)) return part.strong;
           return part.label;
         })
         .join('');

@@ -102,6 +102,7 @@ Bewusster Schwerpunkt des Projekts (siehe Git-Historie): die Site ist für AI-Cr
 - `netlify/edge-functions/markdown-negotiation.ts` – Content Negotiation: bei `Accept: text/markdown` wird intern die `.md`-Variante gefetcht und mit `Content-Type: text/markdown` + `Vary: Accept` ausgeliefert. `x-edge-bypass`-Header verhindert Rekursion; Static Assets sind via `excludedPath` ausgenommen.
 - `netlify.toml` – setzt auf `/` `Link`-Header mit `rel="describedby"` auf `llms.txt`/`llms-full.txt` (RFC 8288) sowie Security-Header (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`).
 - `public/robots.txt` – Content-Signals (`ai-train=yes, search=yes, ai-input=yes`) plus explizite Allow-Blocks für GPTBot, ClaudeBot, PerplexityBot etc. Position: AI-Sichtbarkeit ist Asset, Content darf in Modelle einfliessen.
+- JSON-LD immer über `jsonLd()` aus `src/lib/json-ld.ts` in `set:html` geben (maskiert `<`); der Brotkrumen-Pfad kommt aus `src/lib/breadcrumb.ts`, letzte Stufe mit Seitentitel.
 - `src/pages/.well-known/api-catalog.ts` – RFC-9727-Stub (`application/linkset+json`, aktuell leeres `linkset`). Wird gefüllt, sobald fumu echte APIs hat.
 
 Beim Ändern dieser Schicht: Konsistenz wahren (neue Page → in `.md`-Route, llms.txt und ggf. Sitemap berücksichtigen).
