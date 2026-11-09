@@ -1,0 +1,22 @@
+---
+import type { Rich } from '../data/pages/types';
+
+/**
+ * Rich-Text ohne Markdown-Parsing: Textstücke, Links und Auszeichnungen.
+ * Gegenstück im Markdown-Kanal ist `rich()` in src/data/pages/to-markdown.ts.
+ */
+interface Props {
+  value: Rich;
+}
+
+const { value } = Astro.props;
+const parts = typeof value === 'string' ? [value] : value;
+---
+
+{parts.map(part => {
+  if (typeof part === 'string') return part;
+  if ('em' in part) return <em>{part.em}</em>;
+  if ('strong' in part) return <strong>{part.strong}</strong>;
+  // Einzeilig, damit kein Whitespace im Link vor einem Satzzeichen landet.
+  return <a href={part.href} target={part.external ? '_blank' : undefined} rel={part.external ? 'noopener' : undefined}>{part.label}</a>;
+})}

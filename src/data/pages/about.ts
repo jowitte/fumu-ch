@@ -7,8 +7,9 @@ export const about: PageContent = {
   description:
     'Wer wir sind und wie wir arbeiten. Startup-Erfahrung trifft strategische Disziplin und technisches Tiefenverständnis.',
   order: 3,
-  intro:
+  intro: [
     'Startup-Erfahrung trifft strategische Disziplin. Wir denken in Zusammenhängen, nicht in Silos – und übersetzen zwischen Technik, Organisation und Business.',
+  ],
   sections: [
     {
       label: 'Gründer',

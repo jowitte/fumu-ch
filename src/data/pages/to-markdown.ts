@@ -4,15 +4,26 @@ import type { Cta, Item, PageContent, Rich, Section } from './types';
  * Serialisiert PageContent zu Markdown für /[slug].md und /llms-full.txt.
  * Reine Funktion ohne Astro-Abhängigkeit, damit sie im Test läuft.
  *
- * Die H1 setzen die aufrufenden Routen aus `title` – hier entsteht nur der Body.
+ * Die H1 setzen die aufrufenden Routen aus `headingOf(page)` – hier entsteht
+ * nur der Body.
  */
+
+/** Sichtbare H1: eigenes Feld, wenn der H1 länger ist als der Title-Tag. */
+export const headingOf = (page: PageContent): string => page.heading ?? page.title;
 
 const link = (cta: Cta) => `[${cta.label}](${cta.href})`;
 
+type Part = Exclude<Rich, string>[number];
+
+const partToMarkdown = (part: Part): string => {
+  if (typeof part === 'string') return part;
+  if ('em' in part) return `*${part.em}*`;
+  if ('strong' in part) return `**${part.strong}**`;
+  return link(part);
+};
+
 const rich = (value: Rich): string =>
-  typeof value === 'string'
-    ? value
-    : value.map(part => (typeof part === 'string' ? part : link(part))).join('');
+  typeof value === 'string' ? value : value.map(partToMarkdown).join('');
 
 const itemToMarkdown = (item: Item): string => {
   switch (item.kind) {
@@ -36,14 +47,24 @@ const itemToMarkdown = (item: Item): string => {
 
     case 'logos':
       return item.entries.map(e => `- **${e.name}** – ${e.note}`).join('\n');
+
+    case 'links':
+      return item.entries.map(e => `- [${e.title}](${e.href}): ${e.teaser}`).join('\n');
   }
 };
 
+/** FAQ-Sektion (`id: 'faq'`): jede Frage als H3, die Antwort als Absatz darunter. */
+const faqItemToMarkdown = (item: Item): string =>
+  item.kind === 'item' && item.title ? `### ${item.title}\n\n${rich(item.body)}` : itemToMarkdown(item);
+
 const sectionToMarkdown = (section: Section): string =>
-  [`## ${section.label}`, ...section.items.map(itemToMarkdown)].join('\n\n');
+  [
+    `## ${section.label}`,
+    ...section.items.map(section.id === 'faq' ? faqItemToMarkdown : itemToMarkdown),
+  ].join('\n\n');
 
 export const toMarkdown = (page: PageContent): string =>
-  [page.intro, ...page.sections.map(sectionToMarkdown)].join('\n\n');
+  [...page.intro, ...page.sections.map(sectionToMarkdown)].join('\n\n');
 
 /**
  * Jedes Klartext-Stück einer Seite – Grundlage der Regressionssicherung:
@@ -51,7 +72,7 @@ export const toMarkdown = (page: PageContent): string =>
  * eine Aussage nur in einem der beiden Kanäle landet.
  */
 export const textFragments = (page: PageContent): string[] => {
-  const fragments: string[] = [page.intro];
+  const fragments: string[] = [...page.intro];
 
   const pushRich = (value: Rich) => {
     if (typeof value === 'string') {
@@ -59,7 +80,10 @@ export const textFragments = (page: PageContent): string[] => {
       return;
     }
     for (const part of value) {
-      fragments.push(typeof part === 'string' ? part : part.href);
+      if (typeof part === 'string') fragments.push(part);
+      else if ('em' in part) fragments.push(part.em);
+      else if ('strong' in part) fragments.push(part.strong);
+      else fragments.push(part.label, part.href);
     }
   };
 
@@ -85,6 +109,9 @@ export const textFragments = (page: PageContent): string[] => {
           break;
         case 'logos':
           for (const e of item.entries) fragments.push(e.name, e.note);
+          break;
+        case 'links':
+          for (const e of item.entries) fragments.push(e.title, e.href, e.teaser);
           break;
       }
     }

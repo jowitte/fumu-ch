@@ -52,7 +52,7 @@ const serviceLd = {
 
       <h1>{wasWirTun.title}</h1>
 
-      <p class="intro">{wasWirTun.intro}</p>
+      {wasWirTun.intro.map(paragraph => <p class="intro">{paragraph}</p>)}
 
       {wasWirTun.sections.map(section => (
         <>

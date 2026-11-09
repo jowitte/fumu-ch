@@ -5,8 +5,9 @@ export const kontakt: PageContent = {
   description:
     'Lass uns sprechen – oder abonniere den fumu-Newsletter: Perspektiven darauf, wie aus Technologie Wirkung wird, gelegentlich per E-Mail.',
   order: 6,
-  intro:
+  intro: [
     'Du stehst vor einer strategischen oder technologischen Veränderung und suchst einen Sparringspartner, der Strategie, Organisation und Technologie zusammendenkt? Lass uns reden.',
+  ],
   sections: [
     {
       label: 'Termin',

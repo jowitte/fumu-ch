@@ -1,5 +1,11 @@
 ---
+import { pillarPath, pillars } from '../data/pillars';
+
 const currentPath = Astro.url.pathname;
+
+// Die Pillars hängen unter «Was wir tun» und markieren deshalb diesen Punkt.
+const isActive = (href: string) =>
+  currentPath === href || (href === '/was-wir-tun/' && pillars.some(p => pillarPath(p) === currentPath));
 
 const navItems = [
   { href: '/was-wir-tun/', label: 'Was wir tun' },
@@ -21,7 +27,7 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class:list={['nav-link', { active: currentPath === item.href }]}
+              class:list={['nav-link', { active: isActive(item.href) }]}
             >
               {item.label}
             </a>

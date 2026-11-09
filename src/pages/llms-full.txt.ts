@@ -14,7 +14,7 @@ export const GET: APIRoute = async () => {
     id === 'home' ? 'https://fumu.ch/' : `https://fumu.ch/${id}/`;
 
   const renderPage = (page: (typeof pages)[number]) =>
-    `## ${page.title}
+    `## ${page.heading}
 
 _${page.description}_
 

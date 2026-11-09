@@ -167,6 +167,7 @@ const ogType = article ? 'article' : 'website';
   {websiteLd && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
   {breadcrumbLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />}
   {articleLd && <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />}
+  <slot name="head" />
 </head>
 <body>
   <Header />

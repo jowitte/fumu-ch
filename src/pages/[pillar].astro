@@ -1,0 +1,147 @@
+---
+/**
+ * Pillar-Seiten: eine Route für alle Einträge der Registry (src/data/pillars.ts).
+ * Inhalt kommt aus dem PageContent-Modul der Pillar; der Markdown-Zwilling
+ * entsteht aus denselben Daten über [slug].md.ts.
+ *
+ * Hintergrund: docs/plans/2026-08-21-pillar-seiten.md
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EvansSection from '../components/EvansSection.astro';
+import { pillarPath, pillars, type Pillar } from '../data/pillars';
+import { loadPage } from '../data/pages';
+import { headingOf } from '../data/pages/to-markdown';
+import { faqPageLd, serviceLd } from '../data/pages/structured-data';
+
+export function getStaticPaths() {
+  return pillars.map(pillar => ({ params: { pillar: pillar.slug }, props: { pillar } }));
+}
+
+interface Props {
+  pillar: Pillar;
+}
+
+const { pillar } = Astro.props;
+const page = await loadPage(pillar.page);
+
+const url = new URL(pillarPath(pillar), Astro.site).toString();
+const structuredData = [serviceLd(page, { url, serviceType: pillar.serviceType }), faqPageLd(page)].filter(Boolean);
+
+const siblings = pillars.filter(p => p.slug !== pillar.slug);
+---
+
+<BaseLayout title={page.title} description={page.description}>
+
+  <Fragment slot="head">
+    {structuredData.map(data => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+  </Fragment>
+
+  <section class="evans-page">
+    <div class="container">
+
+      <h1 class="pillar-title">{headingOf(page)}</h1>
+
+      <div class="intro">
+        {page.intro.map(paragraph => <p>{paragraph}</p>)}
+      </div>
+
+      {page.sections.map(section => (
+        <>
+          <hr class="section-divider" />
+          <EvansSection section={section} />
+        </>
+      ))}
+
+      <nav class="pillar-nav" aria-label="Was wir tun">
+        <a href="/was-wir-tun/" class="back-link">&larr; Was wir tun</a>
+        {siblings.length > 0 && (
+          <ul class="siblings">
+            {siblings.map(sibling => (
+              <li><a href={pillarPath(sibling)}>{sibling.label}</a></li>
+            ))}
+          </ul>
+        )}
+      </nav>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Der H1 einer Pillar trägt die Suchfrage und ist deshalb länger als die
+     übrigen Seitentitel – gleicher Schnitt, kleinerer Grad. */
+  .pillar-title {
+    font-size: 44px;
+    max-width: 880px;
+  }
+
+  .intro {
+    max-width: 720px;
+    margin: 0 0 var(--space-xl) 0;
+  }
+
+  .intro p {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .intro p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--color-coral);
+    margin: 0;
+  }
+
+  .pillar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-md) var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-coral);
+    margin-bottom: var(--space-xl);
+  }
+
+  .back-link,
+  .siblings a {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-coral);
+  }
+
+  .back-link:hover,
+  .siblings a:hover {
+    text-decoration: none;
+  }
+
+  .siblings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md) var(--space-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .pillar-title {
+      font-size: 30px;
+    }
+
+    .intro {
+      margin: 0 0 var(--space-lg) 0;
+    }
+
+    .intro p {
+      font-size: 18px;
+    }
+  }
+</style>

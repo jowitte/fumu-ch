@@ -14,11 +14,15 @@ export type Cta = {
   arrow?: boolean;
 };
 
+/** Auszeichnung im Fliesstext: Kursiv (Werktitel) oder Fett (Begriff). */
+export type Emphasis = { em: string } | { strong: string };
+
 /**
- * Fliesstext, der Links enthalten darf – ohne Markdown im Renderer: der
- * einfache Fall ist ein String, sonst eine Folge aus Textstücken und Links.
+ * Fliesstext, der Links und Auszeichnungen enthalten darf – ohne Markdown im
+ * Renderer: der einfache Fall ist ein String, sonst eine Folge aus
+ * Textstücken, Links und Auszeichnungen.
  */
-export type Rich = string | Array<string | Cta>;
+export type Rich = string | Array<string | Cta | Emphasis>;
 
 /** Standard-Eintrag der Content-Spalte: optionaler Tag, Titel, Fliesstext, optionaler CTA. */
 export type TextItem = {
@@ -63,22 +67,47 @@ export type LogosItem = {
   entries: Array<{ name: string; image: string; note: string }>;
 };
 
-export type Item = TextItem | PersonItem | QuoteItem | LogosItem;
+/**
+ * Liste aus verlinkten Titeln mit Teaser – verwandte Perspektiven einer
+ * Pillar, die Pillar-Liste auf /was-wir-tun/. Im Markdown eine Linkliste.
+ */
+export type LinksItem = {
+  kind: 'links';
+  entries: Array<{ title: string; href: string; teaser: string }>;
+};
+
+export type Item = TextItem | PersonItem | QuoteItem | LogosItem | LinksItem;
 
 export type Section = {
   /** Text der Coral-Label-Spalte, im Markdown die H2. */
   label: string;
-  /** Optionaler HTML-Anker, z.B. `newsletter` für /kontakt/#newsletter. */
+  /**
+   * Optionaler HTML-Anker, z.B. `newsletter` für /kontakt/#newsletter.
+   * Zwei Werte tragen Bedeutung:
+   * - `faq`: Jedes Item ist ein Frage/Antwort-Paar (Frage in `title`, Antwort
+   *   in `body`). Daraus entstehen das sichtbare Markup, die H3-Paare im
+   *   Markdown und das FAQPage-JSON-LD (structured-data.ts).
+   * - `formate`: Items mit `title` sind Service-Formate (Dauer in `tag`) und
+   *   speisen den Angebotskatalog im ProfessionalService-JSON-LD.
+   */
   id?: string;
   items: Item[];
 };
 
 export type PageContent = {
+  /** Title-Tag (das Layout hängt «– fumu» an) und Breadcrumb. */
   title: string;
+  /** Sichtbare H1, falls sie länger ist als der Title-Tag. Sonst gilt `title`. */
+  heading?: string;
   description: string;
   /** Reihenfolge in llms-full.txt – entspricht dem bisherigen Frontmatter-Feld. */
   order: number;
-  /** Lead-Absatz unter der H1. */
-  intro: string;
+  /** Lead unter der H1, ein Eintrag pro Absatz. */
+  intro: string[];
   sections: Section[];
+  /**
+   * Verwandte Perspektiven als Slugs, aufgelöst zur Build-Zeit gegen die
+   * Collection (related.ts). Ein unbekannter Slug bricht den Build.
+   */
+  relatedPerspektiven?: { label: string; slugs: string[] };
 };

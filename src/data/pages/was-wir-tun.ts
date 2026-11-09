@@ -1,12 +1,14 @@
 import type { PageContent } from './types';
+import { pillarPath, pillars } from '../pillars';
 
 export const wasWirTun: PageContent = {
   title: 'Was wir tun',
   description:
     'Beratung für KI-Transformation in Medien, Marketing und Werbung: Strategie, Organisation, Prozesse und Technologie – bis in die Umsetzung.',
   order: 2,
-  intro:
+  intro: [
     'Technologie allein verändert nichts. Neue Tools, Plattformen und Algorithmen entfalten erst dann Wirkung, wenn Strategie, Organisation und Prozesse mitspielen. Genau dort arbeiten wir.',
+  ],
   sections: [
     {
       label: 'Unser Ansatz',
@@ -51,6 +53,21 @@ export const wasWirTun: PageContent = {
           tag: 'Domäne',
           title: 'Medien, Marketing und Werbung',
           body: 'Unser Schwerpunkt liegt in Medien, Marketing und Werbung. Publisher, Agenturen, Vermarkter und Technologie-Anbieter stehen vor massiven Umbrüchen. Wir kennen die Akteure, die Technologie und die Dynamiken dieses Marktes.',
+        },
+      ],
+    },
+    {
+      // Pillar-Liste aus der Registry (src/data/pillars.ts). Label gesetzt in
+      // der Vault-Session 2026-11-08 («Vertiefung» war die Rückfalloption).
+      label: 'Leistungen',
+      items: [
+        {
+          kind: 'links',
+          entries: pillars.map(pillar => ({
+            title: pillar.label,
+            href: pillarPath(pillar),
+            teaser: pillar.teaser,
+          })),
         },
       ],
     },

@@ -28,7 +28,7 @@ npm run build    # Production Build → dist/
 npm run preview  # Preview des Builds
 ```
 
-Kein Linter konfiguriert. Verifikation ist `npm run build` – es prüft Zod-Schemas, TypeScript (strict) und generiert alle dynamischen Routen – plus `npx vitest run` für die drei Unit-Test-Files (`src/plugins/remark-wikilinks.test.mjs`, `src/plugins/obsidian-markers.test.mjs`, `src/data/pages/to-markdown.test.ts`). Vor jedem Commit, der Content oder Routen berührt: `npm run build` muss grün durchlaufen. Die Radar-Pipeline unter `tools/crawler-radar/` hat eigene Python-Tests (siehe Architektur > AI-Crawler-Radar-Pipeline).
+Kein Linter konfiguriert. Verifikation ist `npm run build` – es prüft Zod-Schemas und generiert alle dynamischen Routen, prüft aber keine TypeScript-Typen (`@astrojs/check` ist nicht installiert) – plus `npx vitest run` für die Unit-Tests (`src/plugins/*.test.mjs`, `src/lib/*.test.ts`, `src/data/**/*.test.ts`). Vor jedem Commit, der Content oder Routen berührt: `npm run build` muss grün durchlaufen. Die Radar-Pipeline unter `tools/crawler-radar/` hat eigene Python-Tests (siehe Architektur > AI-Crawler-Radar-Pipeline).
 
 ## Deploy
 
@@ -117,6 +117,15 @@ Drei eigene Plugins verarbeiten jedes Markdown vor dem Render:
 - `remarkStripObsidianMarkers` (remark) – entfernt `%% … %%`-Inline-Kommentare (Obsidian-Kommentare, `@dieter`/`@jochen`-Mentions) und Legacy-`[!dieter]`/`[!jochen]`-Dialog-Blockquotes aus dem AST. **Belt-and-Suspenders**: Pendant zu `dialog_filter.py` im Akasha-Vault; die primäre Bereinigung passiert im `/fumu-web`-Skill beim Transform, das Plugin fängt Drift ab.
 - `rehypeImgLazy` (rehype) – setzt `loading="lazy"` + `decoding="async"` auf alle `<img>` im Markdown-Output (Astro tut das nur für die `astro:assets`-Pipeline, nicht für `/public`-Pfade).
 
+### Pillar-Seiten (`src/pages/[pillar].astro`)
+
+Themenseiten unter «Was wir tun», je eine pro Suchraum (Plan: `docs/plans/2026-08-21-pillar-seiten.md`, Bauplan im Vault: «Pillar-Architektur fumu.ch»). Eine Pillar ist ein `PageContent`-Modul unter `src/data/pages/<slug>.ts` plus ein Eintrag in der Registry `src/data/pillars.ts`; Route, Markdown-Zwilling, llms.txt/llms-full.txt, Pillar-Liste auf `/was-wir-tun/` und Header-Aktivzustand folgen daraus, ohne Änderung an Komponenten oder Routen.
+
+- `heading` trägt den H1, wenn er länger ist als der Title-Tag; `intro` ist ein Absatz-Array.
+- Section-`id: 'formate'` speist den Angebotskatalog im `ProfessionalService`-JSON-LD, `id: 'faq'` das `FAQPage`-JSON-LD und die `###`-Paare im Markdown (`src/data/pages/structured-data.ts`).
+- `relatedPerspektiven` (Slugs) wird zur Build-Zeit gegen die publizierten Perspektiven aufgelöst (`loadPage` in `src/data/pages/index.ts`); ein unbekannter Slug bricht den Build, ebenso jeder Inline-Link auf eine nicht publizierte Perspektive und ein Pillar-Slug, den schon eine andere Seite belegt.
+- Copy-Quelle ist die Vault-Notiz der Pillar; im Modul nicht umformulieren.
+
 ### Weitere generierte Routen
 
 - `src/pages/rss.xml.ts` – RSS-Feed der veröffentlichten Perspektiven.
@@ -199,6 +208,7 @@ Statische Seiten: Content in `src/content/pages/*.md`, Layout in `src/pages/*.as
 ```
 /                          → Home (Hero)
 /was-wir-tun/              → Was wir tun
+/ki-transformation/        → Pillar 1 (Registry: src/data/pillars.ts, Route [pillar].astro)
 /about/                    → About (Autoren-Anker: /about/#<slug>)
 /perspektiven/             → Artikelübersicht
 /perspektiven/[slug]/      → Einzelartikel

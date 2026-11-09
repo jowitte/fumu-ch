@@ -1,6 +1,7 @@
 ---
 import NewsletterSignup from './NewsletterSignup.astro';
-import type { Rich, Section } from '../data/pages/types';
+import RichText from './RichText.astro';
+import type { Section } from '../data/pages/types';
 
 interface Props {
   section: Section;
@@ -9,9 +10,6 @@ interface Props {
 }
 
 const { section, sticky = true } = Astro.props;
-
-/** Rich-Text in Segmente zerlegen, damit Links ohne Markdown-Parsing entstehen. */
-const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
 ---
 
 <div class="evans-section" id={section.id}>
@@ -27,13 +25,7 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
             <div class="person-info">
               <h3>{item.name}</h3>
               <span class="evans-tag">{item.tag}</span>
-              <p>
-                {parts(item.body).map(part =>
-                  typeof part === 'string'
-                    ? part
-                    : <a href={part.href} target={part.external ? '_blank' : undefined} rel={part.external ? 'noopener' : undefined}>{part.label}</a>
-                )}
-              </p>
+              <p><RichText value={item.body} /></p>
               {item.links.map(l => (
                 <a href={l.href} class="linkedin-link" target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined}>{l.label}</a>
               ))}
@@ -55,6 +47,21 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
         );
       }
 
+      if (item.kind === 'links') {
+        return (
+          <ul class="links">
+            {item.entries.map(entry => (
+              <li>
+                <a href={entry.href} class="link-entry">
+                  <h3>{entry.title}</h3>
+                  <p>{entry.teaser}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        );
+      }
+
       if (item.kind === 'quote') {
         return (
           <div class="testimonial">
@@ -66,17 +73,13 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
         );
       }
 
+      // Items ohne Tag und Titel sind Fliesstext-Absätze (Analyse-Teil einer
+      // Pillar) und rücken enger zusammen als eigenständige Einträge.
       return (
-        <div class="evans-item">
+        <div class:list={['evans-item', { prose: !item.tag && !item.title }]}>
           {item.tag && <span class="evans-tag">{item.tag}</span>}
           {item.title && <h3>{item.title}</h3>}
-          <p>
-            {parts(item.body).map(part =>
-              typeof part === 'string'
-                ? part
-                : <a href={part.href} target={part.external ? '_blank' : undefined} rel={part.external ? 'noopener' : undefined}>{part.label}</a>
-            )}
-          </p>
+          <p><RichText value={item.body} /></p>
           {item.cta && (
             <a href={item.cta.href} class="cta-link" target={item.cta.external ? '_blank' : undefined} rel={item.cta.external ? 'noopener' : undefined}>
               {item.cta.label}{item.cta.arrow && <> &rarr;</>}
@@ -129,6 +132,23 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
     margin-bottom: 0;
   }
 
+  /* Inline-Links aus RichText – Konvention wie .post-body der Perspektiven. */
+  .evans-item p :global(a),
+  .person-info p :global(a) {
+    color: var(--color-coral);
+    text-decoration: none;
+  }
+
+  .evans-item p :global(a:hover),
+  .person-info p :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  /* Aufeinanderfolgende Absätze lesen sich als ein Text, nicht als Einträge. */
+  .evans-item.prose:has(+ .evans-item.prose) {
+    margin-bottom: var(--space-md);
+  }
+
   .evans-tag {
     font-family: var(--font-sans);
     font-size: 12px;
@@ -146,6 +166,7 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
     font-weight: 500;
     color: var(--color-coral);
     margin: 0 0 var(--space-sm) 0;
+    max-width: 600px;
   }
 
   .evans-item p {
@@ -155,6 +176,46 @@ const parts = (body: Rich) => (typeof body === 'string' ? [body] : body);
     color: var(--color-text);
     margin: 0;
     max-width: 600px;
+  }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 600px;
+  }
+
+  .links li + li {
+    margin-top: var(--space-lg);
+  }
+
+  .link-entry {
+    display: block;
+    color: inherit;
+  }
+
+  .link-entry:hover {
+    text-decoration: none;
+  }
+
+  .link-entry h3 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-coral);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .link-entry:hover h3 {
+    text-decoration: underline;
+  }
+
+  .link-entry p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0;
   }
 
   .cta-link {

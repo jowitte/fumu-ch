@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { series as seriesRegistry } from '../data/series';
 import { isPublished } from '../lib/published';
+import { pillarPath, pillars } from '../data/pillars';
 
 export const GET: APIRoute = async () => {
   const posts = (await getCollection('perspektiven', isPublished))
@@ -15,6 +16,11 @@ export const GET: APIRoute = async () => {
     .map(([slug, data]) => `- [${data.name}](https://fumu.ch/perspektiven/themen/${slug}/): ${data.teaser}`)
     .join('\n');
 
+  // Pillars hängen unter «Was wir tun» und stehen deshalb direkt darunter.
+  const pillarList = pillars
+    .map(p => `\n- [${p.label}](https://fumu.ch${pillarPath(p)}): ${p.teaser}`)
+    .join('');
+
   const body = `# fumu
 
 > fumu übersetzt Technologie in Wirkung – Beratung für KI-Transformation in Medien, Marketing und Werbung. Wir beraten Verlage, Vermarkter, Agenturen und Marken in der Schweiz und Europa.
@@ -25,7 +31,7 @@ fumu verbindet Strategie, Organisation und Technologie – damit aus technologis
 
 ## Seiten
 
-- [Was wir tun](https://fumu.ch/was-wir-tun/): Strategieberatung, Technologie-Evaluation, Organisationsentwicklung, Interim Leadership
+- [Was wir tun](https://fumu.ch/was-wir-tun/): Strategieberatung, Technologie-Evaluation, Organisationsentwicklung, Interim Leadership${pillarList}
 - [Über fumu](https://fumu.ch/about/): Wer wir sind und wie wir arbeiten
 - [Perspektiven](https://fumu.ch/perspektiven/): Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung
 - [Kontakt & Newsletter](https://fumu.ch/kontakt/): Unverbindliches Erstgespräch vereinbaren – und Newsletter-Anmeldung (AdTech, MarTech, AI-Integration)

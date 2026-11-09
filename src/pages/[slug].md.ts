@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const GET: APIRoute = async ({ props }) => {
   const page = props.page as ResolvedPage;
 
-  const body = `# ${page.title}
+  const body = `# ${page.heading}
 
 ${page.body}`;
 
