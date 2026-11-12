@@ -109,6 +109,13 @@ export const intro = [
   'Der Radar verfolgt diese Deklarationen. fumu erhebt seit April 2026 alle 14 Tage die robots.txt von gut 100 Sites – Publisher mit und ohne Paywall, Plattformen, Brands und E-Commerce, Schwerpunkt Schweiz – und wertet sie gegen 20 dokumentierte AI-Crawler aus. robots.txt ist dabei Deklaration, nicht Crawl-Realität; das strukturelle Muster hinter der Bewegung beschreibt [Das doppelte Unbundling](/perspektiven/das-doppelte-unbundling/).',
 ];
 
+// Lizenz der Radar-Daten (Entscheid Jochen, 2026-11-09, Anlass: Search Console
+// meldet «license» im Dataset-Markup). Die URL speist das Dataset-JSON-LD, der
+// Satz steht am Fuss der Seite und der .md-Variante – Inline-Link im
+// Markdown-Format wie bei intro.
+export const LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/';
+export const licenseNote = `Die Daten stehen unter der Lizenz [CC BY 4.0](${LICENSE_URL}). Wer sie verwendet, nennt als Quelle: fumu AI-Crawler-Radar.`;
+
 // Markdown-Inline-Links ([Text](url)) zu <a> auflösen – mehr Markdown können
 // intro und Lauf-Summaries bewusst nicht (Vertrag mit tracker-content.yaml).
 // Escaped vorher HTML-Sonderzeichen, damit set:html gefahrlos bleibt.

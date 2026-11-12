@@ -4,7 +4,7 @@
 // bei jedem Snapshot nicht auseinanderdriften. [slug].md.ts nimmt diese
 // Seite deshalb aus. Abschnittsreihenfolge wie auf der HTML-Seite.
 import type { APIRoute } from 'astro';
-import { tracker, intro, formatDate, formatShare, describeRunChanges } from '../data/crawler-tracker';
+import { tracker, intro, formatDate, formatShare, describeRunChanges, licenseNote } from '../data/crawler-tracker';
 
 export const GET: APIRoute = async () => {
   const categories = [...tracker.by_category].sort((a, b) => b.block_share - a.block_share);
@@ -98,7 +98,8 @@ ${crawlerRows}
 
 ${methodology}
 ${methodologyDetails ? `\n${methodologyDetails}\n` : ''}
-${siteSection}`;
+${siteSection}${licenseNote}
+`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
