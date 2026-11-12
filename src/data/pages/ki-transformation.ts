@@ -12,6 +12,12 @@ import type { PageContent } from './types';
 export const kiTransformation: PageContent = {
   title: 'KI-Transformation',
   heading: 'KI-Transformation: warum Pilotprojekte überzeugen und der ROI trotzdem ausbleibt',
+  hero: {
+    src: '/images/pillars/ki-transformation-organigramm.svg',
+    alt: 'Oben, überschrieben mit ‹Punktlösung: Jeder hat ein Werkzeug, die Organisation bleibt, wie sie ist›, ein Organigramm mit Geschäftsleitung, drei Bereichen und sechs Teams, jedes Team mit eigenem KI-Werkzeug. Unten, überschrieben mit ‹Systemlösung: Dieselben Teams, eine Ebene weniger, entlang des Prozesses›, dieselben sechs Teams ohne die Ebene der Bereiche, nebeneinander vom Kundenwunsch bis zur Erfüllung, darunter die KI als gemeinsamer Prozess.',
+    caption:
+      'Punktlösung und Systemlösung an derselben Organisation: Oben bekommt jedes Team ein KI-Werkzeug, unten ändern sich Ebenen und Übergaben mit.',
+  },
   description:
     'KI-Transformation. Pilotprojekte laufen, in der Erfolgsrechnung taucht davon wenig auf. Woran das liegt und welche drei Fragen zusammen zu klären sind.',
   // Direkt hinter /was-wir-tun/ (2) in llms-full.txt, Platz für die übrigen Pillars.
@@ -99,6 +105,12 @@ export const kiTransformation: PageContent = {
           title: 'KI-Wertstromanalyse',
           tag: 'vier Wochen',
           body: 'Ein Wertstrom reicht vom Kundenwunsch bis zu dessen Erfüllung und läuft dabei durch mehrere Prozesse und Abteilungen. Wir wählen mit Ihnen einen solchen Wertstrom aus, messen jeden Schritt und zeigen, wo KI Durchlaufzeit oder Fehler senken kann, was das einbringt und womit Sie am besten starten. Weil die Analyse über die Prozessgrenzen hinausgeht, sieht sie auch die Übergaben, an denen ein Zeitgewinn sonst hängen bleibt.',
+        },
+        {
+          kind: 'image',
+          src: '/images/pillars/ki-wertstromanalyse-zeitbalken.svg',
+          alt: 'Zeitachse eines Prozesses mit fünf Schritten: Auftrag klären 1 Stunde, Planen 4 Stunden, Umsetzen 8 Stunden, Prüfen 3 Stunden, Abrechnen 1 Stunde. Dazwischen liegen Wartezeiten von 2, 5, 1 und 3 Tagen, die längste nach dem Planen ist hervorgehoben.',
+          caption: 'Beispiel: 13 Tage Durchlaufzeit, davon 17 Stunden Arbeit.',
         },
         {
           kind: 'item',

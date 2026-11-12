@@ -1,12 +1,12 @@
 import { isEm, isStrong } from './types';
-import type { Cta, Item, PageContent, Rich, RichPart, Section } from './types';
+import type { Cta, Figure, Item, PageContent, Rich, RichPart, Section } from './types';
 
 /**
  * Serialisiert PageContent zu Markdown für /[slug].md und /llms-full.txt.
  * Reine Funktion ohne Astro-Abhängigkeit, damit sie im Test läuft.
  *
  * Die H1 setzen die aufrufenden Routen aus `headingOf(page)` – hier entsteht
- * nur der Body.
+ * nur der Body, beginnend mit dem Hero (falls gesetzt) und dem Lead.
  */
 
 /** Sichtbare H1: eigenes Feld, wenn der H1 länger ist als der Title-Tag. */
@@ -23,6 +23,8 @@ const partToMarkdown = (part: RichPart): string => {
 
 const rich = (value: Rich): string =>
   typeof value === 'string' ? value : value.map(partToMarkdown).join('');
+
+const figure = (value: Figure): string => `![${value.alt}](${value.src})\n\n*${value.caption}*`;
 
 const itemToMarkdown = (item: Item): string => {
   switch (item.kind) {
@@ -49,6 +51,9 @@ const itemToMarkdown = (item: Item): string => {
 
     case 'links':
       return item.entries.map(e => `- [${e.title}](${e.href}): ${e.teaser}`).join('\n');
+
+    case 'image':
+      return figure(item);
   }
 };
 
@@ -72,7 +77,7 @@ const sectionToMarkdown = (section: Section): string =>
   ].join('\n\n');
 
 export const toMarkdown = (page: PageContent): string =>
-  [...page.intro, ...page.sections.map(sectionToMarkdown)].join('\n\n');
+  [...(page.hero ? [figure(page.hero)] : []), ...page.intro, ...page.sections.map(sectionToMarkdown)].join('\n\n');
 
 /**
  * Jedes Klartext-Stück einer Seite – Grundlage der Regressionssicherung:
@@ -81,6 +86,7 @@ export const toMarkdown = (page: PageContent): string =>
  */
 export const textFragments = (page: PageContent): string[] => {
   const fragments: string[] = [...page.intro];
+  if (page.hero) fragments.push(page.hero.alt, page.hero.src, page.hero.caption);
 
   const pushRich = (value: Rich) => {
     if (typeof value === 'string') {
@@ -120,6 +126,9 @@ export const textFragments = (page: PageContent): string[] => {
           break;
         case 'links':
           for (const e of item.entries) fragments.push(e.title, e.href, e.teaser);
+          break;
+        case 'image':
+          fragments.push(item.alt, item.src, item.caption);
           break;
       }
     }

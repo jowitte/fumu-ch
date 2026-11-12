@@ -92,7 +92,22 @@ export type LinksItem = {
   entries: Array<{ title: string; href: string; teaser: string }>;
 };
 
-export type Item = TextItem | PersonItem | QuoteItem | LogosItem | LinksItem;
+/**
+ * Bild mit Bildunterschrift, meist ein Diagramm (SVG unter /public/images).
+ * Im HTML eine <figure>, die auf die Datei verlinkt (Figure.astro) – auf dem
+ * Handy öffnet ein Tippen das Bild in voller Grösse. Im Markdown ein Bild mit
+ * der Bildunterschrift als eigener Zeile darunter.
+ */
+export type Figure = {
+  src: string;
+  alt: string;
+  caption: string;
+};
+
+/** Bild in der Content-Spalte, in Textbreite. */
+export type ImageItem = { kind: 'image' } & Figure;
+
+export type Item = TextItem | PersonItem | QuoteItem | LogosItem | LinksItem | ImageItem;
 
 export type Section = {
   /** Text der Coral-Label-Spalte, im Markdown die H2. */
@@ -115,6 +130,12 @@ export type PageContent = {
   title: string;
   /** Sichtbare H1, falls sie länger ist als der Title-Tag. Sonst gilt `title`. */
   heading?: string;
+  /**
+   * Bild direkt unter der H1, vor dem Lead: steht auf dem ersten Bildschirm
+   * und darf bis zur Containerbreite gehen. Im Markdown direkt nach der H1.
+   * Rendert bisher nur die Pillar-Route ([pillar].astro).
+   */
+  hero?: Figure;
   description: string;
   /** Reihenfolge in llms-full.txt – entspricht dem bisherigen Frontmatter-Feld. */
   order: number;

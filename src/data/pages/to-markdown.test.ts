@@ -52,8 +52,9 @@ describe.each(pages)('%s', (_name, page) => {
     }
   });
 
-  it('beginnt mit dem Lead, ohne H1', () => {
-    expect(markdown.startsWith(page.intro.join('\n\n'))).toBe(true);
+  it('beginnt mit Hero (falls gesetzt) und Lead, ohne H1', () => {
+    const hero = page.hero ? [`![${page.hero.alt}](${page.hero.src})\n\n*${page.hero.caption}*`] : [];
+    expect(markdown.startsWith([...hero, ...page.intro].join('\n\n'))).toBe(true);
     expect(markdown).not.toContain('\n# ');
   });
 });
@@ -204,5 +205,55 @@ describe('Linkliste', () => {
     expect(textFragments(subject)).toEqual(
       expect.arrayContaining(['Eins', '/eins/', 'Erster Teaser.', 'Zwei', '/zwei/', 'Zweiter Teaser.']),
     );
+  });
+});
+
+describe('Bild', () => {
+  const subject = page({
+    sections: [
+      {
+        label: 'Analyse',
+        items: [
+          { kind: 'item', body: 'Davor.' },
+          {
+            kind: 'image',
+            src: '/images/pillars/beispiel.svg',
+            alt: 'Zwei Kästen, durch einen Pfeil verbunden.',
+            caption: 'Ein Beispiel.',
+          },
+          { kind: 'item', body: 'Danach.' },
+        ],
+      },
+    ],
+  });
+
+  it('serialisiert das Bild mit Alt-Text und die Bildunterschrift als eigene Zeile darunter', () => {
+    expect(toMarkdown(subject)).toContain(
+      'Davor.\n\n![Zwei Kästen, durch einen Pfeil verbunden.](/images/pillars/beispiel.svg)\n\n*Ein Beispiel.*\n\nDanach.',
+    );
+  });
+
+  it('führt Alt-Text, Pfad und Bildunterschrift als Textstücke', () => {
+    expect(textFragments(subject)).toEqual(
+      expect.arrayContaining(['Zwei Kästen, durch einen Pfeil verbunden.', '/images/pillars/beispiel.svg', 'Ein Beispiel.']),
+    );
+  });
+});
+
+describe('Hero', () => {
+  const hero = {
+    src: '/images/pillars/beispiel.svg',
+    alt: 'Zwei Kästen, durch einen Pfeil verbunden.',
+    caption: 'Ein Beispiel.',
+  };
+
+  it('steht vor dem Lead, die Bildunterschrift als eigene Zeile darunter', () => {
+    expect(toMarkdown(page({ hero, intro: ['Lead.'] }))).toBe(
+      '![Zwei Kästen, durch einen Pfeil verbunden.](/images/pillars/beispiel.svg)\n\n*Ein Beispiel.*\n\nLead.',
+    );
+  });
+
+  it('führt Alt-Text, Pfad und Bildunterschrift als Textstücke', () => {
+    expect(textFragments(page({ hero }))).toEqual(expect.arrayContaining([hero.alt, hero.src, hero.caption]));
   });
 });

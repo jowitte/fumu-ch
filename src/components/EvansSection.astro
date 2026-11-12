@@ -1,4 +1,5 @@
 ---
+import Figure from './Figure.astro';
 import NewsletterSignup from './NewsletterSignup.astro';
 import RichText from './RichText.astro';
 import type { Section } from '../data/pages/types';
@@ -71,6 +72,11 @@ const { section, sticky = true } = Astro.props;
             </blockquote>
           </div>
         );
+      }
+
+      // Diagramme stehen in Textbreite, ein Tippen öffnet sie in voller Grösse.
+      if (item.kind === 'image') {
+        return <Figure figure={item} class="evans-figure" />;
       }
 
       // FAQ-Sektion: sichtbar sind nur die Fragen, die Antwort öffnet sich auf
@@ -201,6 +207,23 @@ const { section, sticky = true } = Astro.props;
     color: var(--color-text);
     margin: 0;
     max-width: 600px;
+  }
+
+  /* Bild in Textbreite. Es gehört zum Eintrag davor und rückt deshalb näher
+     an ihn heran; folgt ein Fliesstext-Absatz, liest sich das Ganze als ein
+     Text mit Abbildung. */
+  .evans-figure {
+    margin: 0 0 var(--space-xl) 0;
+    max-width: 600px;
+  }
+
+  .evans-figure:last-child {
+    margin-bottom: 0;
+  }
+
+  .evans-item:has(+ .evans-figure),
+  .evans-figure:has(+ .evans-item.prose) {
+    margin-bottom: var(--space-lg);
   }
 
   /* FAQ: Die Frage bleibt der Item-Titel (h3 oben), davor steht der

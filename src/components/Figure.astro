@@ -1,0 +1,207 @@
+---
+/**
+ * Diagramm mit Bildunterschrift – in der Content-Spalte (EvansSection) und
+ * als Hero im Lead ([pillar].astro). Ein Klick oder Tippen öffnet das Bild
+ * gross in einer Ebene über der Seite (Popover-API, kein JavaScript); Klick
+ * daneben, Esc oder «Schliessen» macht sie wieder zu. Maus-Hover zeigt nur
+ * den Hinweis und vergrössert nicht – sonst verdeckte das Bild beim Lesen
+ * den Text.
+ *
+ * Nur für Bilder mit Details (Diagramme, Charts). Illustrationen, Logos und
+ * Porträts haben eigene Item-Typen und laufen nicht hier durch.
+ *
+ * Breite und Rand setzt der Aufrufer über `class` – er muss `margin` setzen,
+ * sonst gilt der Browser-Default von <figure>. Die übrigen Attribute landen
+ * auf <figure>, darunter das data-astro-cid-* des Aufrufers, damit dessen
+ * scoped CSS hier greift.
+ */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import type { HTMLAttributes } from 'astro/types';
+import type { Figure } from '../data/pages/types';
+import { svgSize } from '../lib/svg-size';
+
+interface Props extends HTMLAttributes<'figure'> {
+  figure: Figure;
+  /** Über dem Falz (Hero): sofort laden statt lazy. */
+  eager?: boolean;
+}
+
+const { figure, eager = false, class: className, ...attrs } = Astro.props;
+
+// width/height aus der viewBox: Der Platz steht, bevor das SVG geladen ist.
+// Gelesen beim Build aus public/ (Build und Dev laufen im Repo-Root) – ein
+// falscher Pfad bricht deshalb den Build, statt ein leeres Bild auszuliefern.
+const size = figure.src.endsWith('.svg')
+  ? svgSize(readFileSync(join(process.cwd(), 'public', figure.src), 'utf8'))
+  : undefined;
+
+// Eindeutig pro Seite, solange jedes Diagramm dort nur einmal vorkommt.
+const zoomId = `zoom-${figure.src.split('/').pop()?.replace(/\.[^.]+$/, '')}`;
+---
+
+<figure class={className} {...attrs}>
+  <button type="button" class="figure-zoom" popovertarget={zoomId}>
+    <span class="visually-hidden">Vergrössern: </span>
+    <img
+      src={figure.src}
+      alt={figure.alt}
+      width={size?.width}
+      height={size?.height}
+      loading={eager ? undefined : 'lazy'}
+      decoding="async"
+    />
+    <span class="zoom-hint" aria-hidden="true">⤢ Vergrössern</span>
+  </button>
+  <div id={zoomId} popover class="zoom-layer">
+    <img src={figure.src} alt="" width={size?.width} height={size?.height} loading="lazy" decoding="async" />
+    <p>{figure.caption}</p>
+    <div class="zoom-actions">
+      <button type="button" class="zoom-close" popovertarget={zoomId} popovertargetaction="hide">Schliessen</button>
+      <a href={figure.src} class="zoom-file">In voller Grösse öffnen</a>
+    </div>
+  </div>
+  <figcaption>{figure.caption}</figcaption>
+</figure>
+
+<style>
+  .figure-zoom {
+    all: unset;
+    display: block;
+    position: relative;
+    width: 100%;
+    cursor: zoom-in;
+  }
+
+  .figure-zoom:focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 4px;
+  }
+
+  .figure-zoom img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .zoom-hint {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-white);
+    background: var(--color-coral);
+    padding: 4px 8px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .figure-zoom:hover .zoom-hint,
+  .figure-zoom:focus-visible .zoom-hint {
+    opacity: 1;
+  }
+
+  /* Ohne Maus gibt es kein Hover – dort steht der Hinweis fest. */
+  @media (hover: none) {
+    .zoom-hint {
+      opacity: 1;
+    }
+  }
+
+  /* Die Ebene ist so breit wie das Bild, höchstens fast der ganze Bildschirm;
+     das Bild schrumpft unter Erhalt seines Seitenverhältnisses hinein.
+     margin: auto zentriert sie – der globale Reset (* { margin: 0 }) nimmt
+     dem Popover sonst die Browser-Zentrierung. */
+  .zoom-layer {
+    margin: auto;
+    width: fit-content;
+    max-width: 94vw;
+    max-height: 94vh;
+    box-sizing: border-box;
+    padding: var(--space-lg);
+    border: none;
+    border-radius: 4px;
+    background: var(--color-bg);
+    overflow: auto;
+  }
+
+  .zoom-layer::backdrop {
+    background: rgb(20 20 20 / 0.6);
+  }
+
+  .zoom-layer img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(94vw - 2 * var(--space-lg));
+    max-height: calc(94vh - 9rem);
+  }
+
+  /* Breite 0 + min-width 100 %: Die Bildunterschrift bricht in Bildbreite um,
+     statt die Ebene breiter zu ziehen. */
+  .zoom-layer p {
+    width: 0;
+    min-width: 100%;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    margin: var(--space-sm) 0 0 0;
+  }
+
+  /* Auf dem Handy ist die Ebene kaum grösser als das Bild im Text – dort
+     führt der Link auf die Datei, die sich mit zwei Fingern zoomen lässt. */
+  .zoom-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm) var(--space-lg);
+    margin-top: var(--space-md);
+  }
+
+  .zoom-file {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-coral);
+  }
+
+  .zoom-close {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-coral);
+    background: none;
+    border: 1px solid var(--color-coral);
+    border-radius: 3px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+
+  figcaption {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-light);
+    margin-top: var(--space-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .zoom-hint {
+      transition: none;
+    }
+  }
+</style>

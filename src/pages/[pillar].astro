@@ -9,6 +9,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { jsonLd } from '../lib/json-ld';
 import EvansSection from '../components/EvansSection.astro';
+import Figure from '../components/Figure.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { pillarPath, pillars, type Pillar } from '../data/pillars';
 import { loadPage } from '../data/pages';
@@ -43,7 +44,10 @@ const siblings = pillars.filter(p => p.slug !== pillar.slug);
 
       <h1 class="pillar-title">{headingOf(page)}</h1>
 
-      <PageIntro paragraphs={page.intro} />
+      <div class="pillar-lead">
+        {page.hero && <Figure figure={page.hero} class="pillar-hero" eager />}
+        <PageIntro paragraphs={page.intro} />
+      </div>
 
       {page.sections.map(section => (
         <>
@@ -74,6 +78,21 @@ const siblings = pillars.filter(p => p.slug !== pillar.slug);
   .pillar-title {
     font-size: 44px;
     max-width: 880px;
+  }
+
+  /* Hero im Lead wie im Magazin: Das Diagramm steht rechts und ragt aus der
+     720er-Lesespalte des Leads in den freien Rand des Containers, der Lead
+     umfliesst es. flow-root hält den Float im Block, damit die erste
+     Section-Linie erst darunter beginnt. Auf dem Handy steht das Bild in
+     voller Breite zwischen H1 und Lead. */
+  .pillar-lead {
+    display: flow-root;
+  }
+
+  .pillar-hero {
+    float: right;
+    width: min(480px, 50%);
+    margin: 6px 0 var(--space-xl) var(--space-lg);
   }
 
   .section-divider {
@@ -117,6 +136,12 @@ const siblings = pillars.filter(p => p.slug !== pillar.slug);
   @media (max-width: 768px) {
     .pillar-title {
       font-size: 30px;
+    }
+
+    .pillar-hero {
+      float: none;
+      width: auto;
+      margin: 0 0 var(--space-lg) 0;
     }
   }
 </style>
