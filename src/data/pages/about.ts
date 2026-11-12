@@ -26,7 +26,7 @@ export const about: PageContent = {
         {
           kind: 'quote',
           text: 'Seit OneLog im Werbemarkt tätig ist, begleitet uns Jochen – als einer der wenigen, die die Medien- und Werbebranche und die Technologie dahinter gleichermassen verstehen. Er arbeitet ausgesprochen analytisch, bringt komplexe Sachverhalte schnell auf den Punkt und treibt Themen aus eigenem Antrieb voran. In einer Allianz von vier Medienhäusern ist er der Externe, dem alle vertrauen.',
-          cite: 'Silvano Oeschger, CEO OneLog AG',
+          cite: 'Silvano Oeschger, ehem. CEO OneLog AG',
         },
       ],
     },
