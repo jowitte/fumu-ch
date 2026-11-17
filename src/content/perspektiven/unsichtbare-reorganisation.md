@@ -27,7 +27,7 @@ Rollen weiten sich aus, die Grenzen zwischen Funktionen verschieben sich, und Ko
 
 ## Warum sie unsichtbar bleibt
 
-Eine Erklärung, warum kaum eine Organisation hinsieht, geben der Ökonom Ajay Agrawal und seine Co-Autoren in *Power and Prediction*. KI wird fast überall als Punktlösung (*point solution*) eingesetzt: ein besseres Werkzeug, in einen unveränderten Ablauf geschoben. Der einzelne Mitarbeiter wird schneller, der Ablauf bleibt gleich, und die Organisation merkt nichts. Produktivität auf Unternehmensebene entsteht aber erst, wenn sich die abhängigen Abläufe mitverändern; das nennen die Autoren die Systemlösung (*system solution*). Eine US-Zensus-Erhebung über 300'000 Firmen, auf die sie sich stützen, zeigt: Wer KI nur als besseres Werkzeug einsetzt, sieht kaum Produktivitätsgewinn.
+Eine Erklärung, warum kaum eine Organisation hinsieht, geben der Ökonom Ajay Agrawal und seine Co-Autoren in *Power and Prediction*. KI wird fast überall als Punktlösung (*point solution*) eingesetzt: ein besseres Werkzeug, in einen unveränderten Ablauf geschoben. Der einzelne Mitarbeiter wird schneller, der Ablauf bleibt gleich, und die Organisation merkt nichts. Produktivität auf Unternehmensebene entsteht aber erst, wenn sich die abhängigen Abläufe mitverändern; das nennen die Autoren die [Systemlösung](/ki-transformation/) (*system solution*). Eine US-Zensus-Erhebung über 300'000 Firmen, auf die sie sich stützen, zeigt: Wer KI nur als besseres Werkzeug einsetzt, sieht kaum Produktivitätsgewinn.
 
 Solange eine Organisation nur die Punktlösung sieht, taucht die Reorganisation nirgends auf: Kein Gremium, kein Budget, kein Projekt trägt ihren Namen. Offiziell wurde ja nur ein Werkzeug eingeführt.
 

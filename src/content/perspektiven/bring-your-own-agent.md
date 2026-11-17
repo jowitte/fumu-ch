@@ -9,7 +9,7 @@ draft: false
 series: "ki-und-arbeit"
 ---
 
-«Welches KI-Tool sollen wir einführen?» Auch bei KI-Projekten steht die Frage nach dem besten Tool am Anfang. Welches Tool das beste ist, entscheidet in der Praxis aber oft der Wissensarbeiter selbst, der sich die Nutzung aus Neugier beibringt und dabei sein eigenes Toolset aufbaut. [78 Prozent](https://blogs.microsoft.com/blog/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/) der Wissensarbeiter, die KI nutzen, bringen ihre eigenen Werkzeuge mit; Microsoft und LinkedIn nennen das «Bring Your Own AI».
+«Welches KI-Tool sollen wir einführen?» Auch bei [KI-Projekten](/ki-transformation/) steht die Frage nach dem besten Tool am Anfang. Welches Tool das beste ist, entscheidet in der Praxis aber oft der Wissensarbeiter selbst, der sich die Nutzung aus Neugier beibringt und dabei sein eigenes Toolset aufbaut. [78 Prozent](https://blogs.microsoft.com/blog/2024/05/08/microsoft-and-linkedin-release-the-2024-work-trend-index-on-the-state-of-ai-at-work/) der Wissensarbeiter, die KI nutzen, bringen ihre eigenen Werkzeuge mit; Microsoft und LinkedIn nennen das «Bring Your Own AI».
 
 ![Punkte-Raster mit 100 Wissensarbeitern, 78 davon korallenrot: der Anteil der KI-Nutzer, die eigene KI-Werkzeuge zur Arbeit mitbringen (Microsoft/LinkedIn Work Trend Index 2024, 31'000 Befragte in 31 Märkten).](/images/perspektiven/bring-your-own-agent-byoai-anteil.svg)
 

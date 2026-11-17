@@ -28,7 +28,7 @@ Generative KI entzieht dem Aufbau von Erfahrung die Finanzierung. Liefert das Mo
 
 Erik Brynjolfsson und zwei Kollegen aus Stanford werten die Lohndaten von Millionen US-Beschäftigten aus. In den Berufen, die KI am stärksten ausgesetzt sind, liegt die Beschäftigung der 22- bis 25-Jährigen [19 Prozent](https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf) tiefer, als wenn sie sich wie in wenig exponierten Berufen entwickelt hätte. Bei den Erfahrenen gibt es diese Lücke nicht. Bei den Jungen entsteht sie, weil Firmen weniger von ihnen einstellen, nicht weil sie mehr entlassen.
 
-Harvard-Ökonomen finden dasselbe Muster in [62 Millionen Lebensläufen](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555): Firmen, die generative KI einführen, beschäftigen danach weniger Junioren als vergleichbare Firmen, bei den Seniors ändert sich am Trend nichts. Die Autoren lassen offen, ob die Arbeit schon heute ersetzt ist oder die Firmen vorauseilend Stellen nicht besetzen, die sie bald automatisiert glauben. Für den Nachwuchs macht das keinen Unterschied.
+Harvard-Ökonomen finden dasselbe Muster in [62 Millionen Lebensläufen](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555): Firmen, die [generative KI einführen](/ki-transformation/), beschäftigen danach weniger Junioren als vergleichbare Firmen, bei den Seniors ändert sich am Trend nichts. Die Autoren lassen offen, ob die Arbeit schon heute ersetzt ist oder die Firmen vorauseilend Stellen nicht besetzen, die sie bald automatisiert glauben. Für den Nachwuchs macht das keinen Unterschied.
 
 ## Urteilsfähigkeit wird wertvoller
 
