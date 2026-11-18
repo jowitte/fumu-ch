@@ -109,14 +109,15 @@ Beim Ändern dieser Schicht: Konsistenz wahren (neue Page → in `.md`-Route, ll
 
 ### Markdown-Pipeline (`astro.config.mjs`)
 
-Astro 7 rendert Markdown per Default mit **Sätteri**, das keine remark/rehype-Plugins kennt. Weil die drei Plugins unten tragend sind, läuft die Pipeline über `markdown.processor: unified({ remarkPlugins, rehypePlugins })` aus `@astrojs/markdown-remark` weiter auf unified. Wer den Prozessor umstellt, verliert Wikilink-Auflösung, Marker-Stripping und Lazy-Images auf einen Schlag.
+Astro 7 rendert Markdown per Default mit **Sätteri**, das keine remark/rehype-Plugins kennt. Weil die vier Plugins unten tragend sind, läuft die Pipeline über `markdown.processor: unified({ remarkPlugins, rehypePlugins })` aus `@astrojs/markdown-remark` weiter auf unified. Wer den Prozessor umstellt, verliert Wikilink-Auflösung, Marker-Stripping, Lazy-Images und das Vergrössern der Diagramme auf einen Schlag.
 
-Drei eigene Plugins verarbeiten jedes Markdown vor dem Render:
+Vier eigene Plugins verarbeiten jedes Markdown vor dem Render:
 
 - `remarkWikilinks` (remark, `src/plugins/remark-wikilinks.mjs`) – löst `[[…]]` auf: Anker-Wikilinks werden zu internen Links, Notiz-Wikilinks zu Klartext.
 
 - `remarkStripObsidianMarkers` (remark) – entfernt `%% … %%`-Inline-Kommentare (Obsidian-Kommentare, `@dieter`/`@jochen`-Mentions) und Legacy-`[!dieter]`/`[!jochen]`-Dialog-Blockquotes aus dem AST. **Belt-and-Suspenders**: Pendant zu `dialog_filter.py` im Akasha-Vault; die primäre Bereinigung passiert im `/fumu-web`-Skill beim Transform, das Plugin fängt Drift ab.
 - `rehypeImgLazy` (rehype) – setzt `loading="lazy"` + `decoding="async"` auf alle `<img>` im Markdown-Output (Astro tut das nur für die `astro:assets`-Pipeline, nicht für `/public`-Pfade).
+- `rehypeImgZoom` (rehype, `src/plugins/rehype-img-zoom.mjs`) – macht Detail-Bilder (Diagramme, Charts, Screenshots), die allein in einem Absatz stehen, per Klick vergrösserbar: dasselbe Markup wie `Figure.astro` auf den Pillar-Seiten, Stile in `global.css` («Diagramme vergrössern»). Illustrationen erkennt es am Dateinamen auf `-hero` und lässt sie, wie sie sind. SVGs bekommen `width`/`height` aus der viewBox.
 
 ### Pillar-Seiten (`src/pages/[pillar].astro`)
 
@@ -186,7 +187,8 @@ Erhebung, Snapshots und Publish des Radars liegen seit 2026-09-20 in diesem Repo
 3. Frontmatter muss dem Zod-Schema entsprechen (title, description, date; optional category, image, authors)
 4. `draft: true` für unveröffentlichte Artikel
 5. Keine Obsidian-Syntax: keine `[[Wikilinks]]`, keine `#tags`, keine Callouts, keine `%% %%`-Kommentare
-6. `npm run build` zur Verifikation laufen lassen
+6. Bilder als eigene Zeile `![alt](/images/perspektiven/…)`. Illustrationen heissen `<slug>-hero.<ext>`, alles andere gilt als Detail-Bild und wird vergrösserbar (Entscheid Jochen 2026-11-12: nur Bilder mit Details, nie Illustrationen oder Logos).
+7. `npm run build` zur Verifikation laufen lassen
 
 ### Obsidian → Astro Transformation
 

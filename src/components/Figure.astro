@@ -10,6 +10,10 @@
  * Nur für Bilder mit Details (Diagramme, Charts). Illustrationen, Logos und
  * Porträts haben eigene Item-Typen und laufen nicht hier durch.
  *
+ * Die Stile für Knopf, Hinweis und Ebene stehen in global.css («Diagramme
+ * vergrössern»), weil rehype-img-zoom dasselbe Markup für die Perspektiven
+ * erzeugt – wer es hier ändert, ändert es dort mit.
+ *
  * Breite und Rand setzt der Aufrufer über `class` – er muss `margin` setzen,
  * sonst gilt der Browser-Default von <figure>. Die übrigen Attribute landen
  * auf <figure>, darunter das data-astro-cid-* des Aufrufers, damit dessen
@@ -54,7 +58,15 @@ const zoomId = `zoom-${figure.src.split('/').pop()?.replace(/\.[^.]+$/, '')}`;
     <span class="zoom-hint" aria-hidden="true">⤢ Vergrössern</span>
   </button>
   <div id={zoomId} popover class="zoom-layer">
-    <img src={figure.src} alt="" width={size?.width} height={size?.height} loading="lazy" decoding="async" />
+    <img
+      src={figure.src}
+      alt=""
+      width={size?.width}
+      height={size?.height}
+      style={size ? `--zoom-ratio: ${size.width} / ${size.height}` : undefined}
+      loading="lazy"
+      decoding="async"
+    />
     <p>{figure.caption}</p>
     <div class="zoom-actions">
       <button type="button" class="zoom-close" popovertarget={zoomId} popovertargetaction="hide">Schliessen</button>
@@ -65,130 +77,9 @@ const zoomId = `zoom-${figure.src.split('/').pop()?.replace(/\.[^.]+$/, '')}`;
 </figure>
 
 <style>
-  .figure-zoom {
-    all: unset;
-    display: block;
-    position: relative;
-    width: 100%;
-    cursor: zoom-in;
-  }
-
-  .figure-zoom:focus-visible {
-    outline: 2px solid var(--color-coral);
-    outline-offset: 4px;
-  }
-
+  /* Im Raster füllt das Diagramm die Breite, die der Aufrufer ihm gibt. */
   .figure-zoom img {
-    display: block;
     width: 100%;
-    height: auto;
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  .zoom-hint {
-    position: absolute;
-    top: var(--space-sm);
-    right: var(--space-sm);
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1;
-    color: var(--color-white);
-    background: var(--color-coral);
-    padding: 4px 8px;
-    border-radius: 3px;
-    opacity: 0;
-    transition: opacity 0.15s;
-  }
-
-  .figure-zoom:hover .zoom-hint,
-  .figure-zoom:focus-visible .zoom-hint {
-    opacity: 1;
-  }
-
-  /* Ohne Maus gibt es kein Hover – dort steht der Hinweis fest. */
-  @media (hover: none) {
-    .zoom-hint {
-      opacity: 1;
-    }
-  }
-
-  /* Die Ebene ist so breit wie das Bild, höchstens fast der ganze Bildschirm;
-     das Bild schrumpft unter Erhalt seines Seitenverhältnisses hinein.
-     margin: auto zentriert sie – der globale Reset (* { margin: 0 }) nimmt
-     dem Popover sonst die Browser-Zentrierung. */
-  .zoom-layer {
-    margin: auto;
-    width: fit-content;
-    max-width: 94vw;
-    max-height: 94vh;
-    box-sizing: border-box;
-    padding: var(--space-lg);
-    border: none;
-    border-radius: 4px;
-    background: var(--color-bg);
-    overflow: auto;
-  }
-
-  .zoom-layer::backdrop {
-    background: rgb(20 20 20 / 0.6);
-  }
-
-  .zoom-layer img {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: calc(94vw - 2 * var(--space-lg));
-    max-height: calc(94vh - 9rem);
-  }
-
-  /* Breite 0 + min-width 100 %: Die Bildunterschrift bricht in Bildbreite um,
-     statt die Ebene breiter zu ziehen. */
-  .zoom-layer p {
-    width: 0;
-    min-width: 100%;
-    font-family: var(--font-sans);
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--color-text-light);
-    margin: var(--space-sm) 0 0 0;
-  }
-
-  /* Auf dem Handy ist die Ebene kaum grösser als das Bild im Text – dort
-     führt der Link auf die Datei, die sich mit zwei Fingern zoomen lässt. */
-  .zoom-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-sm) var(--space-lg);
-    margin-top: var(--space-md);
-  }
-
-  .zoom-file {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-coral);
-  }
-
-  .zoom-close {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-coral);
-    background: none;
-    border: 1px solid var(--color-coral);
-    border-radius: 3px;
-    padding: 6px 12px;
-    cursor: pointer;
   }
 
   figcaption {
@@ -197,11 +88,5 @@ const zoomId = `zoom-${figure.src.split('/').pop()?.replace(/\.[^.]+$/, '')}`;
     line-height: 1.5;
     color: var(--color-text-light);
     margin-top: var(--space-sm);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .zoom-hint {
-      transition: none;
-    }
   }
 </style>

@@ -213,13 +213,25 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
     margin-bottom: var(--space-md);
   }
 
-  .post-body :global(img) {
+  /* Die Ebene der Vergrösserung (global.css) bringt eigene Masse mit. */
+  .post-body :global(img:not(.zoom-layer img)) {
     max-width: 100%;
     height: auto;
-    margin: var(--space-lg) 0;
     /* Weisse Bild-Hintergründe (Editorial-Sketches, Charts) verschmelzen mit
        dem Ivory-Seitenhintergrund: Weiss × Ivory = Ivory, Striche bleiben. */
     mix-blend-mode: multiply;
+  }
+
+  /* Illustrationen stehen als Bild im Absatz, Detail-Bilder als
+     vergrösserbare Figure (rehype-img-zoom) – beide mit demselben Abstand. */
+  .post-body :global(p > img),
+  .post-body :global(.post-figure) {
+    margin: var(--space-lg) 0;
+  }
+
+  /* Der Knopf so breit wie das Bild, damit der Hinweis in dessen Ecke sitzt. */
+  .post-body :global(.post-figure .figure-zoom) {
+    width: fit-content;
   }
 
   .post-body :global(ul), .post-body :global(ol) {
