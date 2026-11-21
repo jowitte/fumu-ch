@@ -36,6 +36,8 @@ Bezahlt wird die Urteilsfähigkeit später, wenn ein Kunde nicht mehr den Text b
 
 Dazu fallen Kosten und Nutzen auseinander. Die Ausbildung kostet im laufenden Quartal, der fertige Senior nützt Jahre später, womöglich der Konkurrenz. Der Markt für erfahrene Leute funktioniert damit wie eine Allmende, auch wenn er in der Personalabteilung Arbeitsmarkt heisst: Jede Firma bedient sich, und auffüllen muss keine, solange es die anderen tun.
 
+<figure class="loop-illustration"><video autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" width="1376" height="768" poster="/images/perspektiven/wer-bildet-noch-aus-hero.webp" role="img" aria-label="Obstgarten mit alten, tragenden Bäumen, an denen ältere Erntehelfer auf Leitern pflücken; im Vordergrund eine leere Reihe frisch umgegrabener Erde, in der ein einzelner korallenroter Setzling wächst: Geerntet wird, nachgepflanzt kaum."><source src="/images/perspektiven/wer-bildet-noch-aus-hero.mp4" type="video/mp4"></video></figure>
+
 ![Obstgarten mit alten, tragenden Bäumen, an denen ältere Erntehelfer auf Leitern pflücken; im Vordergrund eine leere Reihe frisch umgegrabener Erde mit einem einzigen korallenroten Setzling: Geerntet wird, nachgepflanzt kaum.](/images/perspektiven/wer-bildet-noch-aus-hero.webp)
 
 ## Die Schweiz hat dafür einen Vertrag, vorerst

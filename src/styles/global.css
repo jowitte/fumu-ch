@@ -320,6 +320,41 @@ li {
   }
 }
 
+/* Illustration als stummes Loop-Video (Perspektiven, seit 2026-11-20): soll
+   wirken wie ein Bild, darum ohne Bedienelemente und nicht anklickbar. Das
+   Markdown-Bild direkt danach ist der Ersatz bei «Bewegung reduzieren» und
+   steht so auch im Markdown-Zwilling für Agenten. */
+.loop-illustration {
+  margin: 0 0 var(--space-md);
+}
+
+.loop-illustration video {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.loop-illustration video::-webkit-media-controls,
+.loop-illustration video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+.loop-illustration + p:has(> img:only-child) {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loop-illustration {
+    display: none;
+  }
+
+  .loop-illustration + p:has(> img:only-child) {
+    display: block;
+  }
+}
+
 /* Diagramme vergrössern – gemeinsam für Figure.astro (Pillar-Seiten) und
    rehype-img-zoom (Perspektiven), deren Markup gleich bleiben muss. Klick
    oder Tippen öffnet die Ebene (Popover-API, kein JS), Hover zeigt nur den

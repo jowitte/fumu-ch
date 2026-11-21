@@ -23,6 +23,8 @@ Forscher von Stanford und BetterUp nennen es [Workslop](https://hbr.org/2025/09/
 
 Rollen weiten sich aus, die Grenzen zwischen Funktionen verschieben sich, und Kompetenz wandert von Menschen in Maschinen. Das sind Symptome einer Reorganisation, die von unten entsteht, freiwillig und selbstverstärkend. Sie hat keinen Architekten und steht in keinem Organigramm.
 
+<figure class="loop-illustration"><video autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" width="1376" height="768" poster="/images/perspektiven/unsichtbare-reorganisation-hero.webp" role="img" aria-label="Luftbild einer formalen Parkanlage, deren gepflasterte Wege ein Organigramm bilden: Ausgetretene Trampelpfade durchbrechen die Hecken-Kompartimente, auf den Pfaden gehen Menschen und korallenrote Roboter Seite an Seite. Die Reorganisation entsteht von unten, ohne Architekt."><source src="/images/perspektiven/unsichtbare-reorganisation-hero.mp4" type="video/mp4"></video></figure>
+
 ![Luftbild einer formalen Parkanlage, deren gepflasterte Wege ein Organigramm bilden: Ausgetretene Trampelpfade durchbrechen die Hecken-Kompartimente, auf den Pfaden gehen Menschen und korallenrote Roboter Seite an Seite. Die Reorganisation entsteht von unten, ohne Architekt.](/images/perspektiven/unsichtbare-reorganisation-hero.webp)
 
 ## Warum sie unsichtbar bleibt
