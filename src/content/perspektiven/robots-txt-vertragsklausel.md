@@ -14,7 +14,7 @@ Im August haben SRF und RTS je acht von neun Trainings-Crawlern ausgesperrt, von
 
 Ich beobachte das über ein eigenes Monitoring: Alle 14 Tage liest ein automatischer Lauf die robots.txt von 108 Sites mit Schwerpunkt Schweiz und Europa und wertet sie gegen 20 AI-Crawler aus. Die Ergebnisse stehen im [AI-Crawler-Radar](/ai-crawler-radar/) auf fumu.ch. Die Werte aus dem Radar geben hier den Stand vom 17. August wieder, den aktuellen zeigt das Radar selbst.
 
-![Heatmap der Sperrquote pro Site-Kategorie und Bot-Typ: Paywall-Publisher sperren Trainings-Crawler zu 81 Prozent, Plattformen blockieren breit über alle Bot-Typen, Brands und E-Commerce sperren praktisch nichts. 108 Sites × 20 AI-Crawler, Snapshot 17. August 2026, fumu Eigenerhebung.](/images/perspektiven/robots-txt-vertragsklausel-heatmap.webp)
+![Heatmap der Sperrquote pro Site-Kategorie und Bot-Typ: Paywall-Publisher sperren Trainings-Crawler zu 81 Prozent, Plattformen blockieren breit über alle Bot-Typen, Brands und E-Commerce sperren praktisch nichts ganz. Kleine Zahlen nennen die Prozentpunkte, die nur Teile einer Site sperren. 108 Sites × 20 AI-Crawler, Snapshot 17. August 2026, fumu Eigenerhebung.](/images/perspektiven/robots-txt-vertragsklausel-heatmap.webp)
 
 *Quelle: fumu Eigenerhebung, 108 Sites und 20 AI-Crawler, Snapshot 17. August 2026.*
 

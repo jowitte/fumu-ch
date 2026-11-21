@@ -37,6 +37,7 @@ aggregated_block_quote:
     x: bot_category
     y: category
     color: block_share
+    annotate: selective_share  # Teilsperren als zweite Zahl in der Zelle
     title: "Sperrquote pro Site-Kategorie und Bot-Typ"
 
 timeline_by_category:
