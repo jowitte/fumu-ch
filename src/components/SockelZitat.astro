@@ -1,0 +1,92 @@
+---
+/**
+ * Zitat im Sockel: Safran-Fleck mit «, das Zitat in Serif kursiv weiss, die
+ * Quelle in Rosé. Startseite und /was-wir-tun/ setzen es in den Slot
+ * `sockel` von BaseLayout.
+ *
+ * Mit `titel` steht es als <section> mit visuell verstecktem H2 (Startseite:
+ * Die Sektion «Referenzen» hat sonst keinen sichtbaren Titel). Ohne `titel`
+ * ist es ein <div> – auf /was-wir-tun/ steht die H2 «Referenzen» sichtbar
+ * über den Logos.
+ */
+import type { QuoteItem } from '../data/pages/types';
+
+interface Props {
+  zitat: QuoteItem;
+  titel?: { text: string; id: string };
+}
+
+const { zitat, titel } = Astro.props;
+const Tag = titel ? 'section' : 'div';
+---
+
+<Tag class="zitat" aria-labelledby={titel?.id}>
+  {titel && <h2 id={titel.id} class="visually-hidden">{titel.text}</h2>}
+  <div class="zitat-zeichen" aria-hidden="true">«</div>
+  <figure>
+    <blockquote>{zitat.text}</blockquote>
+    <figcaption>{zitat.cite}</figcaption>
+  </figure>
+</Tag>
+
+<style>
+  .zitat {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: var(--space-xl);
+  }
+
+  .zitat-zeichen {
+    display: grid;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    padding-top: 30px;
+    font-family: var(--font-serif);
+    font-size: 90px;
+    line-height: 1;
+    color: var(--color-plum);
+    background: var(--color-saffron);
+    border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+  }
+
+  .zitat figure {
+    margin: 0;
+  }
+
+  .zitat blockquote {
+    max-width: 28em;
+    font-family: var(--font-serif);
+    font-size: 34px;
+    font-style: italic;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-white);
+  }
+
+  .zitat figcaption {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-blush);
+  }
+
+  @media (max-width: 860px) {
+    .zitat {
+      grid-template-columns: 1fr;
+    }
+
+    .zitat-zeichen {
+      width: 80px;
+      height: 80px;
+      padding-top: 22px;
+      font-size: 64px;
+    }
+
+    .zitat blockquote {
+      font-size: 26px;
+    }
+  }
+</style>
