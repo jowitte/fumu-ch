@@ -5,6 +5,11 @@
  * zweites Stück in Safran, darüber das Bild mit `mix-blend-mode: multiply` –
  * sein weisser Grund wird durchsichtig, die Striche liegen auf dem Papier.
  * Funktioniert mit jedem Bild auf weissem Grund (Bild-Stil `editorial`).
+ *
+ * Mit `video` spielt darüber ein stummes Loop-Video desselben Ausschnitts
+ * (ebenfalls multiply). Das Bild bleibt mit Alt-Text im DOM: Es ist Poster,
+ * trägt die Beschreibung für Screenreader und tritt bei «Bewegung
+ * reduzieren» an die Stelle des Videos – wie bei `.loop-illustration`.
  */
 interface Props {
   src: string;
@@ -17,15 +22,36 @@ interface Props {
   safran?: boolean;
   /** Bild auf dem ersten Bildschirm: sofort laden statt lazy. */
   eager?: boolean;
+  /** Stummes Loop-Video (mp4) zum Bild, gleicher Ausschnitt, weisser Grund. */
+  video?: string;
 }
 
-const { src, alt, width, height, torn = 1, tone = 'blush', safran = false, eager = false } = Astro.props;
+const { src, alt, width, height, torn = 1, tone = 'blush', safran = false, eager = false, video } = Astro.props;
 ---
 
 <figure class="papier-bild" style={`--papier-form: var(--torn-${torn}); aspect-ratio: ${width} / ${height};`}>
   <div class:list={['papier', 'papier-grund', `papier-${tone}`]} aria-hidden="true"></div>
   {safran && <div class="papier papier-safran" aria-hidden="true"></div>}
+  {video && (
+    <video
+      class="papier-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      disablepictureinpicture
+      disableremoteplayback
+      preload="auto"
+      width={width}
+      height={height}
+      poster={src}
+      aria-hidden="true"
+    >
+      <source src={video} type="video/mp4" />
+    </video>
+  )}
   <img
+    class:list={[{ 'papier-standbild': video }]}
     src={src}
     alt={alt}
     width={width}
@@ -68,11 +94,42 @@ const { src, alt, width, height, torn = 1, tone = 'blush', safran = false, eager
     clip-path: var(--torn-2);
   }
 
-  .papier-bild img {
+  .papier-bild img,
+  .papier-video {
     position: relative;
     display: block;
     width: 100%;
     height: auto;
     mix-blend-mode: multiply;
+  }
+
+  /* Das Video soll wirken wie ein Bild: ohne Bedienelemente, nicht anklickbar. */
+  .papier-video {
+    pointer-events: none;
+  }
+
+  .papier-video::-webkit-media-controls,
+  .papier-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
+  /* Mit Video liegt das Bild unsichtbar darunter (Alt-Text bleibt lesbar)
+     und erscheint erst bei «Bewegung reduzieren». */
+  .papier-bild img.papier-standbild {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .papier-video {
+      display: none;
+    }
+
+    .papier-bild img.papier-standbild {
+      position: relative;
+      opacity: 1;
+    }
   }
 </style>

@@ -3,15 +3,16 @@ import { startseitenFlaechen } from './startseite';
 
 /**
  * Regel 2 des Entwurfs: höchstens eine Safran-Fläche pro Bildschirmhöhe.
- * Kopfbild (Safran-Papier) und Themen-Karten stehen auf dem Desktop auf
- * demselben ersten Bildschirm.
+ * Das Kopfbild trägt kein Safran-Papier (Entscheid Jochen, 2026-11-23: Es
+ * lag hinter der Prozesswand mit dem Coral-Band des Startbilds); Safran gibt
+ * es auf der Startseite nur als Karte der zweiten Leistung.
  */
 describe('startseitenFlaechen', () => {
-  it('eine Leistung: Coral-Karte, Safran-Papier im Kopfbild', () => {
-    expect(startseitenFlaechen(1)).toEqual({ themen: ['coral'], heroSafran: true });
+  it('eine Leistung: Coral-Karte, Kopfbild ohne Safran', () => {
+    expect(startseitenFlaechen(1)).toEqual({ themen: ['coral'], heroSafran: false });
   });
 
-  it('zwei Leistungen: die zweite Karte ist Safran, das Kopfbild verzichtet auf Safran', () => {
+  it('zwei Leistungen: die zweite Karte ist Safran, das Kopfbild bleibt ohne', () => {
     expect(startseitenFlaechen(2)).toEqual({ themen: ['coral', 'saffron'], heroSafran: false });
   });
 
@@ -21,7 +22,7 @@ describe('startseitenFlaechen', () => {
     expect(flaechen.heroSafran).toBe(false);
   });
 
-  it('ohne Leistung keine Karte, Safran im Kopfbild', () => {
-    expect(startseitenFlaechen(0)).toEqual({ themen: [], heroSafran: true });
+  it('ohne Leistung keine Karte und kein Safran', () => {
+    expect(startseitenFlaechen(0)).toEqual({ themen: [], heroSafran: false });
   });
 });
