@@ -60,9 +60,9 @@ description: string   # Meta-Description
 order: number         # Navigationsreihenfolge
 ```
 
-Seiten: home, was-wir-tun, about, perspektiven, kontakt, impressum, datenschutz
+Seiten: was-wir-tun, about, perspektiven, kontakt, impressum, datenschutz
 
-`home.md` trägt seit dem Redesign (2026-11) nur noch Frontmatter (Title und Description fürs HTML). Die Texte der Startseite stehen in `src/data/pages/home.ts`; daraus entstehen `index.astro`, `/index.md` und der Startseiten-Abschnitt in `/llms-full.txt`. Bis die Startseiten-Texte aus dem Vault kommen, ist sie eine Übergangs-Startseite aus Texten, die schon auf der Site stehen.
+Die Startseite hat keine Collection-Datei mehr (seit 2026-11-23). Einzige Quelle ist `src/data/pages/home.ts` – Title, Description und Inhalt; daraus entstehen `index.astro`, `/index.md` und der Startseiten-Abschnitt in `/llms-full.txt`, alle über `loadPage`. Bis die Startseiten-Texte aus dem Vault kommen, ist sie eine Übergangs-Startseite aus Texten, die schon auf der Site stehen.
 
 ### `perspektiven` – Blog/Artikel
 
@@ -165,7 +165,7 @@ Stand: Redesign «Mischung 4» (2026-11), Entwurf und Begründung in `docs/plans
 | `--color-blush-light` | #F8EADF | Papier: Karten, Hinterlegung von Bildern |
 | `--color-plum-line` | Rosé 22 % | Haarlinie im Sockel |
 
-Regeln für die Signatur (Entwurf, Regeln 1–6): Coral steht nur auf dem, was etwas tut oder auszeichnet. Coral-Schrift unter 24 px nur auf Weiss (auf Rosé-hell erst ab 24 px – Links auf Rosé-hell-Karten stehen deshalb in Pflaume). Höchstens eine Safran-Fläche pro Bildschirmhöhe, Coral als grosse Fläche einmal pro Seite. Auf Pflaume: Text Weiss, Nebentext Rosé, Links und Fokus Safran, Coral nur als Knopf und als Datum auf den weissen Blättern. Keine weiteren Farben.
+Regeln für die Signatur (Entwurf, Regeln 1–6): Coral steht nur auf dem, was etwas tut oder auszeichnet. Coral-Schrift unter 24 px nur auf Weiss (auf Rosé-hell erst ab 24 px – Links auf Rosé-hell-Karten stehen deshalb in Pflaume). Höchstens eine Safran-Fläche pro Bildschirmhöhe, Coral als grosse Fläche einmal pro Seite (auf der Startseite umgesetzt in `src/lib/startseite.ts`: gibt es eine Safran-Karte, verliert das Kopfbild sein Safran-Papier). Auf Pflaume: Text Weiss, Nebentext Rosé, Links und Fokus Safran, Coral nur als Knopf und als Datum auf den weissen Blättern. Keine weiteren Farben.
 
 Link-, Fokus- und Titelfarbe hängen an vererbbaren Variablen (`--link`, `--focus`, `--heading`, Default Coral/Coral/Pflaume): Der Sockel stellt sie auf Safran und Weiss um, Karten und Blätter setzen sie für ihren Inhalt neu. Farben einer Fläche dort umstellen, nicht über Selektoren auf `a` oder `h2`.
 
@@ -182,7 +182,7 @@ Link-, Fokus- und Titelfarbe hängen an vererbbaren Variablen (`--link`, `--focu
 ### Formen
 
 - Papierkarte `Karte.astro`: `--radius-cut` (ungleiche Ecken), `--shadow-layer`; Töne Coral, Safran, Rosé-hell, Weiss.
-- Gerissenes Papier: `--torn-1`, `--torn-2`, `--torn-3`, `--torn-edge` (clip-path-Polygone), erzeugt beim Build aus festen Startwerten in `src/lib/torn-paper.ts` und von `BaseLayout` auf `:root` gelegt. Illustrationen (`-hero`-Bilder) und Loop-Videos im Markdown liegen automatisch auf einer Papierform in Rosé-hell (`global.css`), Bilder im Layout über `PapierBild.astro`.
+- Gerissenes Papier: `--torn-1`, `--torn-2`, `--torn-3`, `--torn-edge` (clip-path-Polygone aus festen Startwerten, `src/lib/torn-paper.ts`). Sie stehen erzeugt in `src/styles/torn-paper.css`, das `BaseLayout` importiert; nach einer Änderung an `torn-paper.ts` `node scripts/torn-css.mjs` laufen lassen, sonst schlägt der Test fehl. Illustrationen (`-hero`-Bilder) und Loop-Videos im Markdown liegen automatisch auf einer Papierform in Rosé-hell (`global.css`), Bilder im Layout über `PapierBild.astro`.
 - Sockel `Sockel.astro`: Pflaume mit gerissener Oberkante; enthält den Slot `sockel` aus `BaseLayout` (seitenspezifisch: Zitat, Perspektiven als Blätter über `PerspektivenBlaetter.astro`), den Abschluss «25 Minuten Kennenlernen» (Text aus der Sektion «Termin» in `src/data/pages/kontakt.ts`, abschaltbar mit `BaseLayout`-Prop `abschluss={false}`, nur auf `/kontakt/`), die Newsletter-Zeile und den Fuss mit Link zum AI-Crawler-Radar.
 
 ### Spacing

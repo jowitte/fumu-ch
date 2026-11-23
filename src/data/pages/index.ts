@@ -20,8 +20,8 @@ import { isPublished } from '../../lib/published';
  * docs/plans/2026-08-21-pillar-seiten.md
  */
 const fixedPages: Record<string, PageContent> = {
-  // Startseite: /index.md und der Abschnitt in llms-full.txt kommen aus
-  // home.ts; home.md liefert nur noch Title und Description fürs HTML.
+  // Startseite: HTML, /index.md und der Abschnitt in llms-full.txt kommen
+  // aus home.ts (eigene Routen index.astro und index.md.ts).
   home,
   about,
   'was-wir-tun': wasWirTun,

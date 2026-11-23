@@ -1,7 +1,7 @@
 /**
  * Lesedauer einer Perspektive in Minuten, aus dem Markdown-Body: 200 Wörter
  * pro Minute, gerundet, mindestens 1. Code-Blöcke, Bilder und HTML-Tags
- * zählen nicht mit. Redesign-Prototyp: Etikett am Rand neben Datum und Thema.
+ * zählen nicht mit. Steht in der Meta-Zeile der Artikelseite.
  */
 export const readingMinutes = (body: string | undefined): number => {
   const words = (body ?? '')

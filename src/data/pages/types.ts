@@ -110,7 +110,7 @@ export type ImageItem = { kind: 'image' } & Figure;
 export type Item = TextItem | PersonItem | QuoteItem | LogosItem | LinksItem | ImageItem;
 
 export type Section = {
-  /** Text der Coral-Label-Spalte, im Markdown die H2. */
+  /** Titel der Sektion, im HTML und im Markdown die H2. */
   label: string;
   /**
    * Optionaler HTML-Anker, z.B. `newsletter` für /kontakt/#newsletter.

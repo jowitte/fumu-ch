@@ -1,21 +1,23 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Karte from '../components/Karte.astro';
 import PapierBild from '../components/PapierBild.astro';
 import PerspektivenBlaetter from '../components/PerspektivenBlaetter.astro';
 import RichText from '../components/RichText.astro';
-import { home, pillarOfFormat } from '../data/pages/home';
+import { loadPage } from '../data/pages';
+import { home as homeContent, pillarOfFormat } from '../data/pages/home';
 import { headingOf } from '../data/pages/to-markdown';
 import { isLink } from '../data/pages/types';
 import type { LinksItem, QuoteItem, TextItem } from '../data/pages/types';
 import { pillarPath } from '../data/pillars';
 import { isPublished } from '../lib/published';
+import { startseitenFlaechen } from '../lib/startseite';
 
-// Title und Description aus dem Frontmatter von home.md, die Inhalte aus
-// src/data/pages/home.ts (daraus entsteht auch /index.md).
-const page = await getEntry('pages', 'home');
-if (!page) throw new Error('src/content/pages/home.md fehlt');
+// Einzige Quelle der Startseite ist src/data/pages/home.ts – Title,
+// Description und Inhalt. loadPage prüft Perspektiven-Links wie bei
+// /index.md und llms-full.txt.
+const home = await loadPage(homeContent);
 
 const posts = (await getCollection('perspektiven', isPublished))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -29,9 +31,8 @@ const themen = wasWirTun.items.find((item): item is LinksItem => item.kind === '
 const formate = wasWirTun.items.filter((item): item is TextItem => item.kind === 'item');
 const zitat = referenzen.items.find((item): item is QuoteItem => item.kind === 'quote');
 
-// Erste Leistung Coral (Regel 4: Coral als grosse Fläche einmal pro Seite),
-// zweite Safran, weitere Rosé-hell.
-const themaTone = (i: number) => (i === 0 ? 'coral' : i === 1 ? 'saffron' : 'blush-light') as const;
+// Flächenfarben nach den Regeln 2 und 4 des Entwurfs (src/lib/startseite.ts)
+const flaechen = startseitenFlaechen(themen.length);
 
 // Eine Karte, die selbst ein Link ist, darf keinen Link enthalten.
 const formatHref = (format: TextItem) => {
@@ -41,7 +42,7 @@ const formatHref = (format: TextItem) => {
 };
 ---
 
-<BaseLayout title={page.data.title} description={page.data.description}>
+<BaseLayout title={home.title} description={home.description}>
   <section class="container hero">
     <div class="hero-text">
       <h1>{headingOf(home)}</h1>
@@ -53,7 +54,7 @@ const formatHref = (format: TextItem) => {
       alt="Drei Menschen über einem grossen Blatt: Einer zeichnet einen klaren Weg durch ein Gewirr von Linien."
       width={1200}
       height={896}
-      safran
+      safran={flaechen.heroSafran}
       eager
     />
   </section>
@@ -63,7 +64,7 @@ const formatHref = (format: TextItem) => {
     {themen.length > 0 && (
       <div class:list={['themen', { 'themen-einzeln': themen.length === 1 }]}>
         {themen.map((thema, i) => (
-          <Karte tone={themaTone(i)} href={thema.href} class="thema">
+          <Karte tone={flaechen.themen[i]} href={thema.href} class="thema">
             <h3>{thema.title}</h3>
             <p>{thema.teaser}</p>
             <span class="thema-pfeil" aria-hidden="true">&rarr;</span>

@@ -1,5 +1,6 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { tornEdge, tornPolygon, tornTokens } from './torn-paper';
+import { tornCss, tornEdge, tornPolygon, tornTokens } from './torn-paper';
 
 const points = (polygon: string) => polygon.replace(/^polygon\(/, '').replace(/\)$/, '').split(', ');
 const numbers = (point: string) => point.split(' ').map(v => Number.parseFloat(v));
@@ -78,5 +79,20 @@ describe('tornTokens', () => {
     for (const value of Object.values(tokens)) {
       expect(value.startsWith('polygon(')).toBe(true);
     }
+  });
+});
+
+describe('tornCss', () => {
+  it('legt die vier Variablen auf :root', () => {
+    const css = tornCss();
+    expect(css).toContain(':root {');
+    for (const [name, value] of Object.entries(tornTokens())) {
+      expect(css).toContain(`${name}: ${value};`);
+    }
+  });
+
+  it('steht unverändert in src/styles/torn-paper.css (sonst: node scripts/torn-css.mjs)', () => {
+    const file = readFileSync(new URL('../styles/torn-paper.css', import.meta.url), 'utf8');
+    expect(file).toBe(tornCss());
   });
 });

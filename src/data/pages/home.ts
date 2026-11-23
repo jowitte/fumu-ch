@@ -13,9 +13,8 @@ import type { Item, PageContent, QuoteItem, TextItem } from './types';
  *   dazu die Formate (Items mit Titel aus der Sektion `formate`) jeder Pillar
  * - Referenzen: das erste Zitat von /about/
  *
- * HTML (src/pages/index.astro) und /index.md entstehen beide aus diesem Modul.
- * Title und Description stehen wörtlich wie im Frontmatter von
- * src/content/pages/home.md.
+ * HTML (src/pages/index.astro), /index.md und der Startseiten-Abschnitt in
+ * /llms-full.txt entstehen alle aus diesem Modul, auch Title und Description.
  */
 
 const isFormat = (item: Item): item is TextItem => item.kind === 'item' && Boolean(item.title);

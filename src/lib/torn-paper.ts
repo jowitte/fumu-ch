@@ -85,3 +85,18 @@ export const tornTokens = (): TornTokens => ({
   '--torn-3': tornPolygon(23),
   '--torn-edge': tornEdge(3),
 });
+
+/**
+ * Die Tokens als Stylesheet. Steht erzeugt in src/styles/torn-paper.css
+ * (`node scripts/torn-css.mjs`), damit Astro es ins gemeinsame, gehashte CSS
+ * bündelt statt es in jede Seite zu schreiben. Ein Test hält Datei und
+ * Funktion gleich.
+ */
+export const tornCss = (): string =>
+  `/* Erzeugt von scripts/torn-css.mjs aus src/lib/torn-paper.ts – nicht von Hand ändern. */
+:root {
+${Object.entries(tornTokens())
+  .map(([name, value]) => `  ${name}: ${value};`)
+  .join('\n')}
+}
+`;
