@@ -53,7 +53,9 @@ describe.each(pages)('%s', (_name, page) => {
   });
 
   it('beginnt mit Hero (falls gesetzt) und Lead, ohne H1', () => {
-    const hero = page.hero ? [`![${page.hero.alt}](${page.hero.src})\n\n*${page.hero.caption}*`] : [];
+    const hero = page.hero
+      ? [`![${page.hero.alt}](${page.hero.src})` + (page.hero.caption ? `\n\n*${page.hero.caption}*` : '')]
+      : [];
     expect(markdown.startsWith([...hero, ...page.intro].join('\n\n'))).toBe(true);
     expect(markdown).not.toContain('\n# ');
   });
@@ -255,5 +257,18 @@ describe('Hero', () => {
 
   it('führt Alt-Text, Pfad und Bildunterschrift als Textstücke', () => {
     expect(textFragments(page({ hero }))).toEqual(expect.arrayContaining([hero.alt, hero.src, hero.caption]));
+  });
+
+  it('steht ohne Bildunterschrift allein vor dem Lead', () => {
+    expect(toMarkdown(page({ hero: { src: hero.src, alt: hero.alt }, intro: ['Lead.'] }))).toBe(
+      '![Zwei Kästen, durch einen Pfeil verbunden.](/images/pillars/beispiel.svg)\n\nLead.',
+    );
+  });
+
+  it('führt ohne Bildunterschrift Alt-Text und Pfad, aber kein leeres Stück', () => {
+    const fragments = textFragments(page({ hero: { src: hero.src, alt: hero.alt } }));
+    expect(fragments).toEqual(expect.arrayContaining([hero.alt, hero.src]));
+    expect(fragments).not.toContain('');
+    expect(fragments).not.toContain(undefined);
   });
 });

@@ -97,11 +97,15 @@ export type LinksItem = {
  * Im HTML eine <figure>, die auf die Datei verlinkt (Figure.astro) – auf dem
  * Handy öffnet ein Tippen das Bild in voller Grösse. Im Markdown ein Bild mit
  * der Bildunterschrift als eigener Zeile darunter.
+ *
+ * Die Bildunterschrift ist optional: Steht die Aussage schon im Text daneben
+ * (Kopf von /was-wir-tun/), fehlt sie – dann gibt es weder <figcaption> noch
+ * eine Kursivzeile im Markdown.
  */
 export type Figure = {
   src: string;
   alt: string;
-  caption: string;
+  caption?: string;
 };
 
 /** Bild in der Content-Spalte, in Textbreite. */
@@ -133,7 +137,7 @@ export type PageContent = {
   /**
    * Bild direkt unter der H1, vor dem Lead: steht auf dem ersten Bildschirm
    * und darf bis zur Containerbreite gehen. Im Markdown direkt nach der H1.
-   * Rendert bisher nur die Pillar-Route ([pillar].astro).
+   * Rendern die Pillar-Route ([pillar].astro) und /was-wir-tun/.
    */
   hero?: Figure;
   description: string;

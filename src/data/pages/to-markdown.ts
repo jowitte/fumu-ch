@@ -24,7 +24,12 @@ const partToMarkdown = (part: RichPart): string => {
 const rich = (value: Rich): string =>
   typeof value === 'string' ? value : value.map(partToMarkdown).join('');
 
-const figure = (value: Figure): string => `![${value.alt}](${value.src})\n\n*${value.caption}*`;
+const figure = (value: Figure): string =>
+  `![${value.alt}](${value.src})` + (value.caption ? `\n\n*${value.caption}*` : '');
+
+/** Alt-Text, Pfad und – falls gesetzt – Bildunterschrift als Textstücke. */
+const figureFragments = (value: Figure): string[] =>
+  [value.alt, value.src, value.caption].filter((part): part is string => Boolean(part));
 
 const itemToMarkdown = (item: Item): string => {
   switch (item.kind) {
@@ -86,7 +91,7 @@ export const toMarkdown = (page: PageContent): string =>
  */
 export const textFragments = (page: PageContent): string[] => {
   const fragments: string[] = [...page.intro];
-  if (page.hero) fragments.push(page.hero.alt, page.hero.src, page.hero.caption);
+  if (page.hero) fragments.push(...figureFragments(page.hero));
 
   const pushRich = (value: Rich) => {
     if (typeof value === 'string') {
@@ -128,7 +133,7 @@ export const textFragments = (page: PageContent): string[] => {
           for (const e of item.entries) fragments.push(e.title, e.href, e.teaser);
           break;
         case 'image':
-          fragments.push(item.alt, item.src, item.caption);
+          fragments.push(...figureFragments(item));
           break;
       }
     }
