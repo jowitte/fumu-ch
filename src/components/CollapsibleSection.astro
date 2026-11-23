@@ -1,8 +1,8 @@
 ---
 // Klappbare Section auf Basis von nativem <details>/<summary> – hält die
 // No-Client-JS-Linie des AI-Crawler-Radars, ist crawlbar und nativ
-// fokussier-/bedienbar. Titel folgt der CI-Regel «Serifen nur in H1»
-// (Entscheid 2026-07-16): gestylt wie ein H2 – Sans, medium, Coral.
+// fokussier-/bedienbar. Titel im Stil einer H2 (Serif, Pflaume), rechts ein
+// Plus in Coral, zwischen den Abschnitten eine Haarlinie in Rosé (Redesign 2026-11).
 interface Props {
   title: string;
   open?: boolean;
@@ -13,8 +13,8 @@ const { title, open = false } = Astro.props;
 
 <details class="collapsible" open={open}>
   <summary>
-    <span class="chevron" aria-hidden="true"></span>
     <span class="title">{title}</span>
+    <span class="plus" aria-hidden="true"></span>
   </summary>
   <div class="body">
     <slot />
@@ -23,14 +23,15 @@ const { title, open = false } = Astro.props;
 
 <style>
   .collapsible {
-    border-top: 1px solid var(--color-coral);
-    padding: var(--space-md) 0;
+    padding: 18px 0;
+    border-top: 1px solid var(--color-blush);
   }
 
   summary {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    justify-content: space-between;
+    gap: var(--space-md);
     cursor: pointer;
     list-style: none;
   }
@@ -39,39 +40,60 @@ const { title, open = false } = Astro.props;
     display: none;
   }
 
-  summary:focus-visible {
-    outline: 2px solid var(--color-coral);
-    outline-offset: 4px;
-  }
-
   .title {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--color-coral);
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-  }
-
-  .chevron {
-    flex-shrink: 0;
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid var(--color-coral);
-    border-bottom: 2px solid var(--color-coral);
-    transform: rotate(-45deg);
-    transition: transform 0.15s ease;
-  }
-
-  .collapsible[open] > summary .chevron {
-    transform: rotate(45deg);
+    font-family: var(--font-serif);
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--color-plum);
   }
 
   summary:hover .title {
-    opacity: 0.85;
+    color: var(--color-coral);
+  }
+
+  /* Plus in Coral, wird offen zum Minus */
+  .plus {
+    position: relative;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+  }
+
+  .plus::before,
+  .plus::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 18px;
+    height: 2px;
+    background: var(--color-coral);
+    transition: transform 0.15s ease;
+  }
+
+  .plus::after {
+    transform: rotate(90deg);
+  }
+
+  .collapsible[open] > summary .plus::after {
+    transform: rotate(0deg);
   }
 
   .body {
     padding-top: var(--space-md);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plus::before,
+    .plus::after {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .title {
+      font-size: 26px;
+    }
   }
 </style>

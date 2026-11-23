@@ -3,7 +3,7 @@
 // Function /api/newsletter-signup (kein MailerLite-Embed, kein Token im Browser).
 // Double-Opt-in: MailerLite verschickt nach dem Eintrag die Confirmation-Mail.
 //
-// Lebt auf der /newsletter-Seite; Post-Ende und Footer verlinken nur dorthin.
+// Lebt auf /kontakt/#newsletter; Post-Ende und Sockel verlinken nur dorthin.
 // heading/lead sind optional – die Seite liefert den Kontext meist selbst.
 
 interface Props {
@@ -48,7 +48,7 @@ const hasIntro = Boolean(heading || lead);
     <p class="newsletter-consent">
       Mit der Anmeldung bestätigst du den Erhalt des Newsletters. Wir versenden über
       MailerLite (EU-Hosting) und du erhältst zuerst eine Bestätigungsmail (Double-Opt-in).
-      Abmeldung jederzeit über den Link in jeder Mail. Details in der
+      Abmeldung jederzeit über den Link in jeder Mail. Details in der{' '}
       <a href="/datenschutz/">Datenschutzerklärung</a>.
     </p>
 
@@ -58,33 +58,30 @@ const hasIntro = Boolean(heading || lead);
 
 <style>
   .newsletter {
-    max-width: var(--content-width);
+    max-width: var(--page-width);
   }
 
   .newsletter-heading {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--color-coral);
-    letter-spacing: 0.5px;
     margin: 0 0 var(--space-sm) 0;
+    font-size: 28px;
   }
 
   .newsletter-lead {
-    font-family: var(--font-sans);
+    margin: 0 0 var(--space-md) 0;
     font-size: 15px;
     line-height: 1.6;
-    color: var(--color-text-light);
-    margin: 0 0 var(--space-md) 0;
+    color: var(--color-plum-soft);
   }
 
+  /* Etikett in Versalien, Pflaume-soft */
   .newsletter-label {
     display: block;
-    font-family: var(--font-sans);
+    margin: var(--space-md) 0 var(--space-sm);
     font-size: 13px;
     font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-plum-soft);
   }
 
   .newsletter-controls {
@@ -92,38 +89,41 @@ const hasIntro = Boolean(heading || lead);
     gap: var(--space-sm);
   }
 
+  /* Feld weiss, Rand Pflaume-soft (über 3:1 auf Weiss und Rosé-hell) */
   .newsletter-input {
     flex: 1 1 auto;
     min-width: 0;
+    padding: 0.7em 0.9em;
     font-family: var(--font-sans);
     font-size: 16px;
-    color: var(--color-text);
+    color: var(--color-ink);
     background: var(--color-white);
-    border: 1px solid var(--color-text-light);
-    padding: 0.6em 0.8em;
+    border: 1px solid var(--color-plum-soft);
+    border-radius: 6px;
   }
 
-  .newsletter-input:focus {
-    outline: none;
-    border-color: var(--color-coral);
+  .newsletter-input:focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 2px;
   }
 
   .newsletter-button {
     flex: 0 0 auto;
+    padding: 0.85em 1.5em;
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    line-height: 1;
     color: var(--color-white);
     background: var(--color-coral);
-    border: 1px solid var(--color-coral);
-    padding: 0.6em 1.4em;
+    border: none;
+    border-radius: var(--radius-cut);
+    box-shadow: var(--shadow-layer);
     cursor: pointer;
-    transition: opacity 0.2s;
   }
 
   .newsletter-button:hover {
-    opacity: 0.9;
+    background: color-mix(in srgb, var(--color-coral) 88%, var(--color-ink));
   }
 
   .newsletter-button:disabled {
@@ -141,38 +141,24 @@ const hasIntro = Boolean(heading || lead);
   }
 
   .newsletter-consent {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--color-text-light);
     margin: var(--space-sm) 0 0 0;
-  }
-
-  .newsletter-consent a {
-    color: var(--color-coral);
-  }
-
-  .newsletter-consent a:hover {
-    text-decoration: underline;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--color-plum-soft);
   }
 
   .newsletter-feedback {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    line-height: 1.5;
     margin: var(--space-md) 0 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-plum);
   }
 
   .newsletter-feedback[data-state='success'] {
-    color: var(--color-coral);
     font-weight: 600;
   }
 
-  .newsletter-feedback[data-state='error'] {
-    color: var(--color-text);
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     .newsletter-controls {
       flex-direction: column;
       align-items: stretch;

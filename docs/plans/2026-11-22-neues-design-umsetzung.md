@@ -196,11 +196,11 @@
 **Files:**
 - Modify: `src/pages/ai-crawler-radar.astro`, `src/components/CollapsibleSection.astro`, `src/components/NewsletterSignup.astro`, `src/components/charts/BlockShareBars.astro`, `src/components/charts/TrendChart.astro`, `src/pages/impressum.astro`, `src/pages/datenschutz.astro`, `src/pages/agb.astro`, `src/pages/404.astro`, `src/styles/global.css` (`.content`)
 
-- [ ] **Step 1: Radar** – Lesespalte linksbündig (`--page-width`), H1 Serif, Snapshot-Zeile in Versalien Pflaume-soft, Inline-Links Coral unterstrichen; `CollapsibleSection`: Titel H2-Stil Serif, Plus in Coral rechts statt Chevron, Haarlinie in Rosé. Charts: Farben unverändert, `var(--font-mono)` → `var(--font-sans)` mit `font-variant-numeric: tabular-nums`.
-- [ ] **Step 2: Newsletter-Formular** – Feld weiss mit Rand Pflaume-soft (≥ 3:1), Knopf Coral mit `--radius-cut`, Label in Versalien Pflaume-soft, Fokus Coral.
-- [ ] **Step 3: Rechtstexte und 404** – `.container.content` linksbündig in `--page-width`, H2 Serif; 404: H1 Serif, Text, Link Coral.
-- [ ] **Step 4: Verifizieren** – `npm run build && npx vitest run` grün; `grep -rn "font-mono\|color-bg\|color-text\b\|color-text-light\|color-sage\|color-lavender\|color-sand\|color-neutral\|color-primary" src/` leer; `diff` von `ai-crawler-radar.md`, `impressum.md`, `datenschutz.md`, `agb.md` gegen Baseline leer; Sichtprüfung Desktop und 400 px.
-- [ ] **Step 5: Commit** «Design: Radar, Rechtstexte, 404, Formulare».
+- [x] **Step 1: Radar** – Lesespalte linksbündig (`--page-width`), H1 Serif, Snapshot-Zeile in Versalien Pflaume-soft, Inline-Links Coral unterstrichen; `CollapsibleSection`: Titel H2-Stil Serif, Plus in Coral rechts statt Chevron, Haarlinie in Rosé. Charts: Farben unverändert, `var(--font-mono)` → `var(--font-sans)` mit `font-variant-numeric: tabular-nums`.
+- [x] **Step 2: Newsletter-Formular** – Feld weiss mit Rand Pflaume-soft (≥ 3:1), Knopf Coral mit `--radius-cut`, Label in Versalien Pflaume-soft, Fokus Coral.
+- [x] **Step 3: Rechtstexte und 404** – `.container.content` linksbündig in `--page-width`, H2 Serif; 404: H1 Serif, Text, Link Coral.
+- [x] **Step 4: Verifizieren** – `npm run build && npx vitest run` grün; `grep -rn "font-mono\|color-bg\|color-text\b\|color-text-light\|color-sage\|color-lavender\|color-sand\|color-neutral\|color-primary" src/` leer; `diff` von `ai-crawler-radar.md`, `impressum.md`, `datenschutz.md`, `agb.md` gegen Baseline leer; Sichtprüfung Desktop und 400 px.
+- [x] **Step 5: Commit** «Design: Radar, Rechtstexte, 404, Formulare».
 
 ### Task 10: Favicon, Touch-Icon, OG-Bild
 
