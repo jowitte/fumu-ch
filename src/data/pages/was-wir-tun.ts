@@ -3,6 +3,14 @@ import { pillarPath, pillars } from '../pillars';
 
 export const wasWirTun: PageContent = {
   title: 'Was wir tun',
+  // Diagramm im Kopf rechts neben dem Lead. Quelle im Vault:
+  // «Aufwände/fumu Marketing/fumu.ch/assets/diagram-technologie-allein.excalidraw.md»,
+  // abgenommen 2026-11-23, Alt-Text von dort. Ohne Bildunterschrift: Der Lead
+  // daneben macht die Aussage.
+  hero: {
+    src: '/images/was-wir-tun/technologie-allein.svg',
+    alt: 'Oben, überschrieben mit ‹Technologie allein›, ein Kästchen Technologie; ein gestrichelter Pfeil reisst ab, bevor er das blasse Kästchen Wirkung erreicht. Unten, überschrieben mit ‹mit Strategie, Organisation und Prozessen›, stehen Strategie, Organisation und Prozesse auf einem breiten Kästchen Technologie; eine Klammer fasst alle vier zusammen, von ihr führt ein Pfeil zur Wirkung.',
+  },
   description:
     'Beratung für KI-Transformation in Medien, Marketing und Werbung: Strategie, Organisation, Prozesse und Technologie – bis in die Umsetzung.',
   order: 2,
@@ -11,6 +19,9 @@ export const wasWirTun: PageContent = {
   ],
   sections: [
     {
+      // Die ids tragen die Seite: was-wir-tun.astro findet die Sektionen
+      // darüber (sectionById), nicht über das Label.
+      id: 'ansatz',
       label: 'Unser Ansatz',
       items: [
         {
@@ -40,6 +51,7 @@ export const wasWirTun: PageContent = {
       ],
     },
     {
+      id: 'schwerpunkt',
       label: 'Schwerpunkt',
       items: [
         {
@@ -59,6 +71,7 @@ export const wasWirTun: PageContent = {
     {
       // Pillar-Liste aus der Registry (src/data/pillars.ts). Label gesetzt in
       // der Vault-Session 2026-11-08 («Vertiefung» war die Rückfalloption).
+      id: 'leistungen',
       label: 'Leistungen',
       items: [
         {
@@ -72,6 +85,7 @@ export const wasWirTun: PageContent = {
       ],
     },
     {
+      id: 'referenzen',
       label: 'Referenzen',
       items: [
         {

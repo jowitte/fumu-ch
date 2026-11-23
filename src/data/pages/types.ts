@@ -129,6 +129,17 @@ export type Section = {
   items: Item[];
 };
 
+/**
+ * Sektion einer Seite über ihre `id` – für Seiten, die ihre Sektionen selbst
+ * anordnen (was-wir-tun.astro). Fehlt die `id`, bricht der Build mit dieser
+ * Meldung, statt eine Sektion leer zu rendern.
+ */
+export const sectionById = (page: PageContent, id: string): Section => {
+  const section = page.sections.find(s => s.id === id);
+  if (!section) throw new Error(`${page.title}: Sektion mit id «${id}» fehlt`);
+  return section;
+};
+
 export type PageContent = {
   /** Title-Tag (das Layout hängt «– fumu» an) und Breadcrumb. */
   title: string;
