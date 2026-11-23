@@ -1,9 +1,23 @@
 ---
+/**
+ * /was-wir-tun/ (Entwurf B vom 23.11., docs/plans/2026-11-23-was-wir-tun-grafisch-entwurf.md):
+ * Kopf mit Diagramm wie die Pillar-Seiten, Ansatz als Raster, Schwerpunkt auf
+ * einer Karte, Leistungen als Karten, Logos in Pflaume, Zitat im Sockel.
+ *
+ * Die Seite rendert ihre Sektionen selbst und findet sie über die `id`
+ * (sectionById), nicht über das Label. Text kommt aus src/data/pages/was-wir-tun.ts,
+ * derselben Quelle wie /was-wir-tun.md; dort fehlt nichts, was hier steht.
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Figure from '../components/Figure.astro';
+import Karte from '../components/Karte.astro';
+import LeistungsKarten from '../components/LeistungsKarten.astro';
+import RichText from '../components/RichText.astro';
+import SockelZitat from '../components/SockelZitat.astro';
 import { jsonLd } from '../lib/json-ld';
-import Sektion from '../components/Sektion.astro';
-import PageIntro from '../components/PageIntro.astro';
 import { wasWirTun } from '../data/pages/was-wir-tun';
+import { sectionById } from '../data/pages/types';
+import type { Item, LinksItem, LogosItem, QuoteItem, Section, TextItem } from '../data/pages/types';
 
 const serviceLd = {
   '@context': 'https://schema.org',
@@ -43,6 +57,30 @@ const serviceLd = {
     ],
   },
 };
+
+const hero = wasWirTun.hero;
+if (!hero) throw new Error('was-wir-tun.ts: Das Diagramm im Kopf (hero) fehlt');
+
+const ansatz = sectionById(wasWirTun, 'ansatz');
+const schwerpunkt = sectionById(wasWirTun, 'schwerpunkt');
+const leistungen = sectionById(wasWirTun, 'leistungen');
+const referenzen = sectionById(wasWirTun, 'referenzen');
+
+// Jede Sektion trägt nur die Item-Arten, die diese Seite rendert. Kommt aus
+// dem Vault eine andere dazu, bricht der Build – sonst stünde sie nur im
+// Markdown-Zwilling und fehlte hier still.
+const nur = <K extends Item['kind']>(section: Section, ...kinds: K[]) => {
+  const fremd = section.items.find(item => !kinds.includes(item.kind as K));
+  if (fremd) throw new Error(`was-wir-tun.astro: «${section.label}» enthält ein Item «${fremd.kind}», das die Seite nicht rendert`);
+  return section.items as Extract<Item, { kind: K }>[];
+};
+
+const saeulen: TextItem[] = nur(ansatz, 'item');
+const linsen: TextItem[] = nur(schwerpunkt, 'item');
+const leistungsEintraege = nur(leistungen, 'links').flatMap((item: LinksItem) => item.entries);
+const referenzItems = nur(referenzen, 'logos', 'quote');
+const logos = referenzItems.filter((item): item is LogosItem => item.kind === 'logos').flatMap(item => item.entries);
+const zitat = referenzItems.find((item): item is QuoteItem => item.kind === 'quote');
 ---
 
 <BaseLayout title={wasWirTun.title} description={wasWirTun.description}>
@@ -50,10 +88,236 @@ const serviceLd = {
   <script type="application/ld+json" set:html={jsonLd(serviceLd)} />
 
   <div class="container seite">
-    <h1>{wasWirTun.title}</h1>
-    <PageIntro paragraphs={wasWirTun.intro} />
-    {wasWirTun.sections.map(section => <Sektion section={section} />)}
+    <section class="kopf">
+      <div class="kopf-text">
+        <h1>{wasWirTun.title}</h1>
+        {wasWirTun.intro.map(text => <p class="lead">{text}</p>)}
+      </div>
+      <Karte tone="blush-light" class="kopf-karte">
+        <Figure figure={hero} class="kopf-figur" eager />
+      </Karte>
+    </section>
+
+    <section class="block" aria-labelledby="ansatz">
+      <h2 id="ansatz">{ansatz.label}</h2>
+      <div class="saeulen">
+        {saeulen.map(saeule => (
+          <div class="saeule">
+            {saeule.tag && <span class="saeule-wort">{saeule.tag}</span>}
+            {saeule.title && <h3>{saeule.title}</h3>}
+            <p><RichText value={saeule.body} /></p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="schwerpunkt">
+      <h2 id="schwerpunkt">{schwerpunkt.label}</h2>
+      <Karte tone="blush-light" class="linsen">
+        {linsen.map(linse => (
+          <div class="linse">
+            {linse.tag && <span class="label-caps etikett">{linse.tag}</span>}
+            {linse.title && <h3>{linse.title}</h3>}
+            <p><RichText value={linse.body} /></p>
+          </div>
+        ))}
+      </Karte>
+    </section>
+
+    <section class="block" aria-labelledby="leistungen">
+      <h2 id="leistungen">{leistungen.label}</h2>
+      <LeistungsKarten entries={leistungsEintraege} />
+    </section>
+
+    <section class="block" aria-labelledby="referenzen">
+      <h2 id="referenzen">{referenzen.label}</h2>
+      <div class="logos">
+        {logos.map(logo => (
+          <figure class="logo">
+            <span class="logo-bild" role="img" aria-label={`Logo ${logo.name}`} style={`--logo: url('${logo.image}')`}></span>
+            <figcaption>{logo.note}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
   </div>
+
+  {zitat && <SockelZitat slot="sockel" zitat={zitat} />}
 
 </BaseLayout>
 
+<style>
+  /* Kopf: Titel und Lead links, das Diagramm auf Rosé-hell rechts */
+  .kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 24px 56px;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 72px;
+  }
+
+  .kopf h1 {
+    margin: 0;
+  }
+
+  .lead {
+    max-width: 30em;
+    margin: var(--space-md) 0 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
+  }
+
+  .kopf h1 + .lead {
+    margin-top: 28px;
+  }
+
+  .kopf :global(.kopf-karte) {
+    padding: 22px 22px 18px;
+  }
+
+  /* Figure verlangt den Rand vom Aufrufer. */
+  .kopf :global(.kopf-figur) {
+    margin: 0;
+  }
+
+  /* Sektionen */
+  .block {
+    margin: 0 0 88px;
+  }
+
+  .block > h2 {
+    margin: 0 0 32px;
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .block h3 {
+    margin: 0 0 var(--space-sm);
+  }
+
+  .block p {
+    margin: 0;
+  }
+
+  /* Unser Ansatz: vier Säulen im Raster, ohne Karten */
+  .saeulen {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 64px;
+  }
+
+  .saeule {
+    padding-top: 22px;
+    border-top: 1px solid var(--color-blush);
+  }
+
+  .saeule-wort {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-serif);
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--color-plum);
+  }
+
+  .saeule h3 {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  .saeule p {
+    color: var(--color-ink);
+  }
+
+  /* Schwerpunkt: KI und Domäne nebeneinander auf einer Karte */
+  .block :global(.linsen) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px;
+    padding: 40px 44px 44px;
+  }
+
+  .etikett {
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--color-plum-soft);
+  }
+
+  .linse h3 {
+    margin-bottom: 14px;
+    font-size: 34px;
+    line-height: 1.05;
+  }
+
+  /* Referenzen: Logos als Maske in Pflaume statt in ihren Farben */
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .logo-bild {
+    display: block;
+    height: 36px;
+    max-width: 180px;
+    background: var(--color-plum);
+    -webkit-mask: var(--logo) left center / contain no-repeat;
+    mask: var(--logo) left center / contain no-repeat;
+  }
+
+  /* Im Kontrastmodus überschreibt der Browser Hintergründe – die Maske
+     bliebe leer. Hier bekommt sie die Textfarbe des Modus. */
+  @media (forced-colors: active) {
+    .logo-bild {
+      forced-color-adjust: none;
+      background: CanvasText;
+    }
+  }
+
+  .logo figcaption {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-plum-soft);
+  }
+
+  @media (max-width: 860px) {
+    .kopf,
+    .saeulen,
+    .block :global(.linsen),
+    .logos {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .kopf {
+      padding-bottom: var(--space-xl);
+    }
+
+    .block {
+      margin-bottom: var(--space-xl);
+    }
+
+    .block > h2 {
+      font-size: 36px;
+    }
+
+    .saeule-wort {
+      font-size: 36px;
+    }
+
+    .block :global(.linsen) {
+      gap: 32px;
+      padding: 30px 26px 32px;
+    }
+  }
+</style>

@@ -1,0 +1,140 @@
+---
+/**
+ * Leistungen als Papierkarten, eine pro Pillar – auf /was-wir-tun/. Die
+ * Flächen folgen der Position (leistungsToene): die erste Coral, die zweite
+ * Safran, alle weiteren Rosé-hell.
+ *
+ * Raster aus sechs Spalten: Eine Leistung füllt die Breite. Ab zwei stehen
+ * die ersten beiden je halb nebeneinander, alle weiteren in Dritteln
+ * darunter. Die Anzahl steht als Klasse am Raster (`einzeln`), kein JS.
+ */
+import Karte from './Karte.astro';
+import type { LinksItem } from '../data/pages/types';
+import { leistungsToene } from '../lib/leistungs-toene';
+
+interface Props {
+  entries: LinksItem['entries'];
+}
+
+const { entries } = Astro.props;
+const toene = leistungsToene(entries.length);
+---
+
+<ul class:list={['leistungs-karten', { einzeln: entries.length === 1 }]}>
+  {entries.map((entry, i) => (
+    <li>
+      <Karte tone={toene[i]} href={entry.href} class="leistung">
+        <h3>{entry.title}</h3>
+        <p>{entry.teaser}</p>
+        <span class="pfeil" aria-hidden="true">&rarr;</span>
+      </Karte>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .leistungs-karten {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .leistungs-karten > li {
+    display: flex;
+    grid-column: span 2;
+    margin: 0;
+  }
+
+  .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2) {
+    grid-column: span 3;
+  }
+
+  .einzeln > li {
+    grid-column: span 6;
+  }
+
+  /* Karte ist eine eigene Komponente: ihr Wurzel-Element trägt das
+     data-astro-cid dieses Bausteins nicht, daher :global. */
+  .leistungs-karten :global(.leistung) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 220px;
+    padding: 30px 30px 32px;
+  }
+
+  .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2) :global(.leistung) {
+    min-height: 260px;
+    padding: 40px;
+  }
+
+  .einzeln :global(.leistung) {
+    min-height: 240px;
+    padding: 40px;
+  }
+
+  h3 {
+    max-width: 14em;
+    margin: 0 0 14px;
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2) h3 {
+    font-size: 44px;
+  }
+
+  .einzeln h3 {
+    font-size: 52px;
+  }
+
+  p {
+    max-width: 30em;
+    margin: 0;
+  }
+
+  /* Halbe Karten in Coral und Safran: Der Teaser hält Abstand zum
+     Papierstück in der Ecke (Karte.astro). */
+  .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2) p {
+    padding-right: 96px;
+  }
+
+  .pfeil {
+    margin-top: auto;
+    padding-top: 22px;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  @media (max-width: 860px) {
+    .leistungs-karten {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .leistungs-karten > li,
+    .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2),
+    .einzeln > li {
+      grid-column: auto;
+    }
+
+    .leistungs-karten :global(.leistung),
+    .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2) :global(.leistung),
+    .einzeln :global(.leistung) {
+      min-height: 0;
+      padding: 30px 26px 32px;
+    }
+
+    h3,
+    .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2) h3,
+    .einzeln h3 {
+      font-size: 36px;
+    }
+
+    .leistungs-karten:not(.einzeln) > li:nth-child(-n + 2) p {
+      padding-right: 0;
+    }
+  }
+</style>
