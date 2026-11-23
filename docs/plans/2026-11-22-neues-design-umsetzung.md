@@ -223,11 +223,11 @@
 - Use: `scripts/text-diff.mjs` (Task 1)
 - Modify: `CLAUDE.md` (Stack-Tabelle Schriften; Abschnitt Design-System; Startseite-Quelle; Sockel)
 
-- [ ] **Step 1: Text-Vergleich** – `scripts/text-diff.mjs <baseline-dir> <dist-dir>` (in Task 1 angelegt): liest jede `index.html` beider Bäume, entfernt `<script>`, `<style>`, `<svg>`, Tags und Entities, vergleicht die Wort-Multimengen je Seite und gibt pro Seite «fehlt:» und «neu:» aus. `node scripts/text-diff.mjs <workspace>/baseline dist`. Expected: «fehlt:» nur bei der Startseite (alter Update-Strom, alte Teaser) und überall nur das Navigationslabel «Kontakt & Newsletter» und Alt-Texte der Doodle-Icons; «neu:» nur Abschluss, Radar-Link, «Termin vereinbaren», «Min.», «Thema»-Streifen, Sockel-Überschriften.
-- [ ] **Step 2: Markdown-Vergleich** – `diff -r` aller `.md`, `llms.txt`, `llms-full.txt`, `rss.xml` gegen die Baseline. Expected: einzige Abweichung `index.md`.
-- [ ] **Step 3: Überlauf** – `scripts/overflow-check.mjs` (playwright-core wie Task 10) öffnet bei 400 px Breite jede Seite aus `dist` über `npm run preview` und meldet `scrollWidth > 400`. Expected: keine Meldung.
-- [ ] **Step 4: Kontrast-Stichprobe** – in DevTools je ein Link und Fokusring im Sockel (Safran auf Pflaume) und jede Coral-Schrift auf Rosé-hell (≥ 24 px). Expected: Regeln 3 und 6 eingehalten.
-- [ ] **Step 5: CLAUDE.md** – Stack-Zeile Fonts auf Instrument Serif + Instrument Sans; Design-System-Tabellen (Farben, Typografie, Layout) auf die neuen Tokens; Hinweis: Texte der Startseite stehen in `src/data/pages/home.ts` (HTML und `/index.md` entstehen daraus); `BaseLayout`-Slot `sockel` und Prop `abschluss`; Papierkanten über `--torn-*`.
-- [ ] **Step 6: Gesamtlauf** – `npm run build && npx vitest run`. Expected: alles grün.
-- [ ] **Step 7: Commit** «Design: Abnahme-Skripte und CLAUDE.md».
+- [x] **Step 1: Text-Vergleich** – `scripts/text-diff.mjs <baseline-dir> <dist-dir>` (in Task 1 angelegt): liest jede `index.html` beider Bäume, entfernt `<script>`, `<style>`, `<svg>`, Tags und Entities, vergleicht die Wort-Multimengen je Seite und gibt pro Seite «fehlt:» und «neu:» aus. `node scripts/text-diff.mjs <workspace>/baseline dist`. Expected: «fehlt:» nur bei der Startseite (alter Update-Strom, alte Teaser) und überall nur das Navigationslabel «Kontakt & Newsletter» und Alt-Texte der Doodle-Icons; «neu:» nur Abschluss, Radar-Link, «Termin vereinbaren», «Min.», «Thema»-Streifen, Sockel-Überschriften.
+- [x] **Step 2: Markdown-Vergleich** – `diff -r` aller `.md`, `llms.txt`, `llms-full.txt`, `rss.xml` gegen die Baseline. Expected: einzige Abweichung `index.md`.
+- [x] **Step 3: Überlauf** – `scripts/overflow-check.mjs` (playwright-core wie Task 10) öffnet bei 400 px Breite jede Seite aus `dist` über `npm run preview` und meldet `scrollWidth > 400`. Expected: keine Meldung.
+- [x] **Step 4: Kontrast-Stichprobe** – in DevTools je ein Link und Fokusring im Sockel (Safran auf Pflaume) und jede Coral-Schrift auf Rosé-hell (≥ 24 px). Expected: Regeln 3 und 6 eingehalten.
+- [x] **Step 5: CLAUDE.md** – Stack-Zeile Fonts auf Instrument Serif + Instrument Sans; Design-System-Tabellen (Farben, Typografie, Layout) auf die neuen Tokens; Hinweis: Texte der Startseite stehen in `src/data/pages/home.ts` (HTML und `/index.md` entstehen daraus); `BaseLayout`-Slot `sockel` und Prop `abschluss`; Papierkanten über `--torn-*`.
+- [x] **Step 6: Gesamtlauf** – `npm run build && npx vitest run`. Expected: alles grün.
+- [x] **Step 7: Commit** «Design: Abnahme-Skripte und CLAUDE.md».
 - [ ] **Step 8: Lokal-Review mit Jochen** – `npm run dev` im Worktree auf einem freien Port, URL an Jochen. Merge auf `main` und Push nur auf seine Ansage.
