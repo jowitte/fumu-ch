@@ -1,0 +1,579 @@
+---
+/**
+ * WEGWERF-MOCKUP (was-wir-tun-grafisch, 2026-11-23) – nicht für main.
+ * Drei Varianten von /was-wir-tun/ aus denselben Daten (src/data/pages/was-wir-tun.ts),
+ * Wortlaut unverändert:
+ *   a – Ruhig: Bild im Kopf, Raster, Coral-Karte am heutigen Platz, Zitat im Sockel
+ *   b – Diagramm: wie a, Diagramm statt Bild im Kopf
+ *   c – Ausgang zuerst: Leistungen direkt unter dem Kopf, Methodik kompakt darunter
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Karte from '../components/Karte.astro';
+import PapierBild from '../components/PapierBild.astro';
+import RichText from '../components/RichText.astro';
+import { wasWirTun } from '../data/pages/was-wir-tun';
+import type { LinksItem, LogosItem, QuoteItem, Section, TextItem } from '../data/pages/types';
+import AnsatzDiagramm from './AnsatzDiagramm.astro';
+
+interface Props {
+  variante: 'a' | 'b' | 'c';
+}
+
+const { variante } = Astro.props;
+
+const sec = (label: string): Section => {
+  const s = wasWirTun.sections.find(x => x.label === label);
+  if (!s) throw new Error(`Sektion ${label} fehlt`);
+  return s;
+};
+const ansatz = sec('Unser Ansatz');
+const schwerpunkt = sec('Schwerpunkt');
+const leistungen = sec('Leistungen');
+const referenzen = sec('Referenzen');
+
+const saeulen = ansatz.items as TextItem[];
+const linsen = schwerpunkt.items as TextItem[];
+const pillarsEcht = (leistungen.items[0] as LinksItem).entries;
+// Nur zum Zeigen, wie das Layout mit fünf Leistungen wächst (Schalter unten links).
+const platzhalter = 'Platzhalter: Der Teaser kommt mit der Pillar-Seite aus dem Vault.';
+const pillarsDummy = [
+  { title: 'KI-Schulungen', href: '#', teaser: platzhalter },
+  { title: 'Medien, Werbung und AdTech', href: '#', teaser: platzhalter },
+  { title: 'Strategische Begleitung', href: '#', teaser: platzhalter },
+  { title: 'Interim Leadership', href: '#', teaser: platzhalter },
+];
+const toene = ['coral', 'saffron', 'blush-light', 'blush-light', 'blush-light'] as const;
+const alle = [...pillarsEcht.map(p => ({ ...p, dummy: false })), ...pillarsDummy.map(p => ({ ...p, dummy: true }))];
+
+const logos = referenzen.items.find((i): i is LogosItem => i.kind === 'logos')!;
+const zitat = referenzen.items.find((i): i is QuoteItem => i.kind === 'quote')!;
+
+const namen = { a: 'A · Ruhig', b: 'B · Diagramm', c: 'C · Ausgang zuerst' };
+---
+
+<BaseLayout title={wasWirTun.title} description={wasWirTun.description}>
+  <div class:list={['container', 'wwt', `variante-${variante}`]}>
+
+    <!-- Kopf -->
+    <section class="kopf">
+      <div class="kopf-text">
+        <h1>{wasWirTun.title}</h1>
+        {wasWirTun.intro.map(p => <p class="lead">{p}</p>)}
+      </div>
+      {variante === 'b' ? (
+        <Karte tone="blush-light" class="kopf-diagramm">
+          <AnsatzDiagramm />
+        </Karte>
+      ) : (
+        <PapierBild
+          src="/images/perspektiven/unsichtbare-reorganisation-hero.webp"
+          video="/images/perspektiven/unsichtbare-reorganisation-hero.mp4"
+          alt="Platzhalter-Bild aus der Perspektive «Die unsichtbare Reorganisation»"
+          width={1376}
+          height={768}
+          torn={2}
+          eager
+        />
+      )}
+    </section>
+
+    {variante === 'c' && (
+      <section class="block leistungen" aria-labelledby="leistungen">
+        <h2 id="leistungen">{leistungen.label}</h2>
+        <div class="leistungen-raster">
+          {alle.map((p, i) => (
+            <Karte tone={toene[i]} href={p.href} class:list={['leistung', { dummy: p.dummy }]}>
+              <h3>{p.title}</h3>
+              <p>{p.teaser}</p>
+              <span class="pfeil" aria-hidden="true">&rarr;</span>
+            </Karte>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Unser Ansatz: die vier Säulen -->
+    <section class="block ansatz" aria-labelledby="ansatz">
+      <h2 id="ansatz">{ansatz.label}</h2>
+      <div class="saeulen">
+        {saeulen.map(s => (
+          <div class="saeule">
+            <span class="saeule-wort">{s.tag}</span>
+            <h3>{s.title}</h3>
+            <p><RichText value={s.body} /></p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Schwerpunkt: KI und Domäne nebeneinander auf einer Karte -->
+    <section class="block schwerpunkt" aria-labelledby="schwerpunkt">
+      <h2 id="schwerpunkt">{schwerpunkt.label}</h2>
+      <Karte tone="blush-light" class="linsen">
+        {linsen.map(l => (
+          <div class="linse">
+            <span class="etikett">{l.tag}</span>
+            <h3>{l.title}</h3>
+            <p><RichText value={l.body} /></p>
+          </div>
+        ))}
+      </Karte>
+    </section>
+
+    {variante !== 'c' && (
+      <section class="block leistungen" aria-labelledby="leistungen">
+        <h2 id="leistungen">{leistungen.label}</h2>
+        <div class="leistungen-raster">
+          {alle.map((p, i) => (
+            <Karte tone={toene[i]} href={p.href} class:list={['leistung', { dummy: p.dummy }]}>
+              <h3>{p.title}</h3>
+              <p>{p.teaser}</p>
+              <span class="pfeil" aria-hidden="true">&rarr;</span>
+            </Karte>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Referenzen: Logos in Pflaume statt Coral, Zitat wandert in den Sockel -->
+    <section class="block referenzen" aria-labelledby="referenzen">
+      <h2 id="referenzen">{referenzen.label}</h2>
+      <div class="logos">
+        {logos.entries.map(e => (
+          <figure class="logo">
+            <span class="logo-bild" style={`--logo: url(${e.image})`} role="img" aria-label={`Logo ${e.name}`}></span>
+            <figcaption>{e.note}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <section slot="sockel" class="zitat" aria-label="Kundenstimme">
+    <div class="zitat-zeichen" aria-hidden="true">«</div>
+    <figure>
+      <blockquote>{zitat.text}</blockquote>
+      <figcaption>{zitat.cite}</figcaption>
+    </figure>
+  </section>
+
+  <!-- Mockup-Leiste: nicht Teil des Entwurfs -->
+  <nav class="mockup-leiste" aria-label="Mockup">
+    <a href="/was-wir-tun-a/" class:list={{ aktiv: variante === 'a' }}>A</a>
+    <a href="/was-wir-tun-b/" class:list={{ aktiv: variante === 'b' }}>B</a>
+    <a href="/was-wir-tun-c/" class:list={{ aktiv: variante === 'c' }}>C</a>
+    <span class="trenner"></span>
+    <button type="button" data-n="1" class="aktiv">1 Leistung</button>
+    <button type="button" data-n="5">5 Leistungen</button>
+    <span class="name">{namen[variante]}</span>
+  </nav>
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const set = n => {
+      root.dataset.leistungen = n;
+      document.querySelectorAll('.mockup-leiste button').forEach(b => b.classList.toggle('aktiv', b.dataset.n === n));
+      try { sessionStorage.setItem('wwt-n', n); } catch {}
+    };
+    let start = '1';
+    try { start = sessionStorage.getItem('wwt-n') || '1'; } catch {}
+    set(start);
+    document.querySelectorAll('.mockup-leiste button').forEach(b => b.addEventListener('click', () => set(b.dataset.n)));
+  })();
+</script>
+
+<style is:global>
+  @font-face {
+    font-family: Excalifont;
+    src: url('/fonts/excalifont-regular.woff2') format('woff2');
+    font-display: swap;
+  }
+</style>
+
+<style>
+  /* ---------- Kopf ---------- */
+  .kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+    gap: 24px 56px;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 72px;
+  }
+
+  .kopf h1 {
+    margin: 0;
+    font-size: 76px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+
+  .lead {
+    max-width: 30em;
+    margin: 28px 0 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
+  }
+
+  .variante-b .kopf {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .wwt :global(.kopf-diagramm) {
+    padding: 22px 22px 18px;
+  }
+
+  /* ---------- Blöcke ---------- */
+  .block {
+    margin: 0 0 88px;
+  }
+
+  .block > h2 {
+    margin: 0 0 32px;
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .block h3 {
+    margin: 0 0 var(--space-sm);
+  }
+
+  .block p {
+    margin: 0;
+  }
+
+  .etikett {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-plum-soft);
+  }
+
+  /* ---------- Ansatz: vier Säulen ---------- */
+  .saeulen {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 64px;
+  }
+
+  .saeule {
+    padding-top: 22px;
+    border-top: 1px solid var(--color-blush);
+  }
+
+  .saeule-wort {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-serif);
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--color-plum);
+  }
+
+  .saeule h3 {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-plum);
+  }
+
+  .saeule p {
+    color: var(--color-ink);
+  }
+
+  /* Variante C: vier Spalten, kompakter */
+  .variante-c .saeulen {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px 32px;
+  }
+
+  .variante-c .saeule-wort {
+    font-size: 36px;
+  }
+
+  .variante-c .saeule p {
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+
+  /* ---------- Schwerpunkt ---------- */
+  .wwt :global(.linsen) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px;
+    padding: 40px 44px 44px;
+  }
+
+  .linse h3 {
+    font-size: 34px;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Leistungen ---------- */
+  .leistungen-raster {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .wwt :global(.leistung) {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 6;
+    min-height: 240px;
+    padding: 40px 40px 40px;
+  }
+
+  .wwt :global(.leistung.dummy) {
+    display: none;
+  }
+
+  :global(html[data-leistungen='5']) .wwt :global(.leistung.dummy) {
+    display: flex;
+  }
+
+  :global(html[data-leistungen='5']) .wwt :global(.leistung) {
+    grid-column: span 2;
+    min-height: 220px;
+    padding: 30px 30px 32px;
+  }
+
+  :global(html[data-leistungen='5']) .wwt :global(.leistung:nth-child(-n + 2)) {
+    grid-column: span 3;
+    min-height: 260px;
+    padding: 40px 40px 40px;
+  }
+
+  :global(.leistung) h3 {
+    max-width: 14em;
+    margin-bottom: 14px;
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  :global(html[data-leistungen='5']) :global(.leistung) h3 {
+    font-size: 34px;
+  }
+
+  :global(html[data-leistungen='5']) :global(.leistung:nth-child(-n + 2)) h3 {
+    font-size: 44px;
+  }
+
+  :global(.leistung) p {
+    max-width: 30em;
+  }
+
+  /* Zwei Karten nebeneinander: Text hält Abstand zum Papierstück in der Ecke */
+  :global(html[data-leistungen='5']) :global(.leistung:nth-child(-n + 2)) p {
+    padding-right: 96px;
+  }
+
+  .pfeil {
+    margin-top: auto;
+    padding-top: 22px;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  /* ---------- Referenzen ---------- */
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .logo-bild {
+    display: block;
+    height: 36px;
+    max-width: 180px;
+    background: var(--color-plum);
+    -webkit-mask: var(--logo) left center / contain no-repeat;
+    mask: var(--logo) left center / contain no-repeat;
+  }
+
+  .logo figcaption {
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-plum-soft);
+  }
+
+  /* ---------- Sockel: Zitat (wie Startseite) ---------- */
+  .zitat {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: var(--space-xl);
+  }
+
+  .zitat-zeichen {
+    display: grid;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    padding-top: 30px;
+    font-family: var(--font-serif);
+    font-size: 90px;
+    line-height: 1;
+    color: var(--color-plum);
+    background: var(--color-saffron);
+    border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+  }
+
+  .zitat figure {
+    margin: 0;
+  }
+
+  .zitat blockquote {
+    max-width: 30em;
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-style: italic;
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    color: var(--color-white);
+  }
+
+  .zitat figcaption {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-blush);
+  }
+
+  /* ---------- Mockup-Leiste ---------- */
+  .mockup-leiste {
+    position: fixed;
+    left: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px;
+    font: 600 13px/1 var(--font-sans);
+    background: #1d1d1f;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+  }
+
+  .mockup-leiste a,
+  .mockup-leiste button {
+    padding: 8px 10px;
+    color: #ddd;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .mockup-leiste .aktiv {
+    color: #1d1d1f;
+    background: #fff;
+  }
+
+  .mockup-leiste .trenner {
+    width: 1px;
+    height: 20px;
+    margin: 0 4px;
+    background: #555;
+  }
+
+  .mockup-leiste .name {
+    padding: 0 10px 0 8px;
+    color: #999;
+    font-weight: 500;
+  }
+
+  /* ---------- Mobil ---------- */
+  @media (max-width: 860px) {
+    .kopf,
+    .variante-b .kopf,
+    .saeulen,
+    .variante-c .saeulen,
+    .wwt :global(.linsen),
+    .logos {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .kopf h1 {
+      font-size: 46px;
+    }
+
+    .kopf {
+      padding-bottom: var(--space-xl);
+    }
+
+    .block {
+      margin-bottom: var(--space-xl);
+    }
+
+    .block > h2 {
+      font-size: 36px;
+    }
+
+    .saeule-wort,
+    .variante-c .saeule-wort {
+      font-size: 36px;
+    }
+
+    .wwt :global(.linsen) {
+      gap: 32px;
+      padding: 30px 26px 32px;
+    }
+
+    .leistungen-raster {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .wwt :global(.leistung),
+    :global(html[data-leistungen='5']) .wwt :global(.leistung),
+    :global(html[data-leistungen='5']) .wwt :global(.leistung:nth-child(-n + 2)) {
+      grid-column: auto;
+      min-height: 0;
+      padding: 30px 26px 32px;
+    }
+
+    :global(.leistung) h3,
+    :global(html[data-leistungen='5']) :global(.leistung) h3,
+    :global(html[data-leistungen='5']) :global(.leistung:nth-child(-n + 2)) h3 {
+      font-size: 36px;
+    }
+
+    .zitat {
+      grid-template-columns: 1fr;
+    }
+
+    .zitat-zeichen {
+      width: 80px;
+      height: 80px;
+      padding-top: 22px;
+      font-size: 64px;
+    }
+
+    .zitat blockquote {
+      font-size: 24px;
+    }
+
+    .mockup-leiste .name {
+      display: none;
+    }
+  }
+</style>
