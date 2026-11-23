@@ -109,4 +109,4 @@
 - [x] **Step 2: `CLAUDE.md`** – Formen: Sockelkante und Knöpfe aus `src/lib/riss.ts` (Variablen `--riss-*` in `torn-paper.css`), `--torn-1…3` nur noch für die Papierformen hinter Bildern, `.btn` zeichnet die Fläche in `::before` (Farbe über `--btn-farbe`).
 - [x] **Step 3: Abnahme** – `npm run build && npx vitest run` grün; `node scripts/text-diff.mjs <stand-vorher> dist` ohne Unterschiede (Stand vor Task 1 in den Scratchpad sichern); Markdown-, llms-, RSS-Dateien byte-gleich; `node scripts/overflow-check.mjs` und `node scripts/knopf-check.mjs` ohne Befund.
 - [x] **Step 4: Commit** «Riss: OG-Bild und CLAUDE.md».
-- [ ] **Step 5: Lokal-Review mit Jochen** – Dev-Server auf freiem Port, auch in Safari; Push nur auf seine Ansage.
+- [x] **Step 5: Lokal-Review mit Jochen** – Dev-Server auf freiem Port, auch in Safari; Push nur auf seine Ansage.

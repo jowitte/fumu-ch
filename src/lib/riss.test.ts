@@ -10,11 +10,23 @@ import {
   svgDataUri,
 } from './riss';
 
-/** Punkte eines Pfads mit der Klasse `cls` (Kante zuerst, dann zwei Ecken, dann Z). */
+/**
+ * Punkte der Kante eines Pfads mit der Klasse `cls`. Der Pfad beginnt mit
+ * M x,y, die Kante folgt absolut (Paare) oder relativ (l dx,dy …), danach
+ * kommen zwei absolute Ecken (L …) und Z – die Ecken gehören nicht zur Kante.
+ */
 const kante = (svg: string, cls = 'flaeche') => {
   const d = svg.match(new RegExp(`<path class="${cls}" d="([^"]+)"`))?.[1] ?? '';
-  const punkte = [...d.matchAll(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g)].map(m => [Number(m[1]), Number(m[2])]);
-  return punkte.slice(0, -2);
+  const teil = d.split(/ L/)[0];
+  const relativ = /\sl/.test(teil);
+  const paare = [...teil.matchAll(/(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/g)].map(m => [Number(m[1]), Number(m[2])]);
+  if (!relativ) return paare;
+  const punkte = [paare[0]];
+  for (const [dx, dy] of paare.slice(1)) {
+    const [x, y] = punkte.at(-1)!;
+    punkte.push([Math.round((x + dx) * 10) / 10, Math.round((y + dy) * 10) / 10]);
+  }
+  return punkte;
 };
 
 describe('mischFarbe', () => {
@@ -81,6 +93,18 @@ describe('rissKanteSvg', () => {
   it('ist deterministisch', () => {
     expect(rissKanteSvg({ farbe: FARBEN.plum, faser: '#897484' })).toBe(svg);
   });
+
+  it('schliesst auch mit dem Faserrand ohne Naht an', () => {
+    const punkte = kante(svg, 'faser');
+    expect(punkte.at(-1)?.[0]).toBe(1100);
+    expect(punkte.at(-1)?.[1]).toBe(punkte[0][1]);
+  });
+
+  it('schreibt die Kanten als relative Schritte (kleineres Stylesheet)', () => {
+    for (const cls of ['flaeche', 'faser']) {
+      expect(svg).toMatch(new RegExp(`<path class="${cls}" d="M[\\d.]+,[\\d.]+ l`));
+    }
+  });
 });
 
 describe('knopfKantenSvg', () => {
@@ -105,6 +129,13 @@ describe('knopfKantenSvg', () => {
         expect(y).toBeLessThanOrEqual(10);
       }
     }
+  });
+
+  it('lässt den Faserrand nie unter die Oberkante fallen', () => {
+    const oben = kante(knopfKantenSvg('oben'));
+    const faser = kante(knopfKantenSvg('faser'));
+    expect(faser).toHaveLength(oben.length);
+    faser.forEach(([, y], i) => expect(y).toBeLessThanOrEqual(oben[i][1] + 0.05));
   });
 
   it('reisst oben und unten verschieden', () => {

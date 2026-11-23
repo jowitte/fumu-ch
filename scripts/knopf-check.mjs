@@ -63,6 +63,12 @@ for (const [path, width] of [['/', 1280], ['/', 400], ['/kontakt/', 1280], ['/ko
     });
     anfaenge.push(vorher.position.split(',')[0].trim().split(' ')[0]);
     if (!vorher.maske.includes('data:image/svg+xml')) melde(name, 'keine Riss-Maske am ::before');
+    const rand = await knopf.evaluate(el => {
+      const s = getComputedStyle(el, '::after');
+      return { maske: s.maskImage || s.webkitMaskImage || '', schnitt: s.clipPath };
+    });
+    if (!rand.maske.includes('data:image/svg+xml')) melde(name, 'keine Riss-Maske am Faserrand (::after)');
+    if (!rand.schnitt.startsWith('polygon')) melde(name, `Faserrand ohne Seitenschnitt (${rand.schnitt})`);
     if (vorher.farbe !== CORAL) melde(name, `Fläche ist ${vorher.farbe}, nicht Coral`);
     await knopf.hover();
     const hover = await knopf.evaluate(el => getComputedStyle(el, '::before').backgroundColor);
@@ -73,14 +79,25 @@ for (const [path, width] of [['/', 1280], ['/', 400], ['/kontakt/', 1280], ['/ko
   // Jeder Knopf auf der Seite reisst anders: die Riss-Masken beginnen an verschiedenen Stellen
   if (new Set(anfaenge).size < anfaenge.length) melde(`${path} ${width}`, `gleicher Riss auf mehreren Knöpfen (Maskenanfang ${anfaenge.join(', ')})`);
 
-  // Fokus per Tastatur: Tab bis zum ersten .btn, dann muss ein Ring stehen
+  // Fokus per Tastatur: durch die ganze Seite tabben; jeder sichtbare .btn
+  // muss erreicht werden und einen Ring zeigen
+  const sichtbar = await page.evaluate(() =>
+    [...document.querySelectorAll('.btn')].map((el, i) => (el.getClientRects().length ? i : -1)).filter(i => i >= 0));
   await page.locator('body').click({ position: { x: 1, y: 1 } });
-  let fokus = null;
-  for (let i = 0; i < 40 && !fokus; i++) {
+  const ringe = new Map();
+  for (let i = 0; i < 120 && ringe.size < sichtbar.length; i++) {
     await page.keyboard.press('Tab');
-    fokus = await page.evaluate(() => (document.activeElement?.classList.contains('btn') ? getComputedStyle(document.activeElement).outlineStyle : null));
+    const treffer = await page.evaluate(() => {
+      const el = document.activeElement;
+      return el?.classList.contains('btn')
+        ? [[...document.querySelectorAll('.btn')].indexOf(el), getComputedStyle(el).outlineStyle]
+        : null;
+    });
+    if (treffer) ringe.set(treffer[0], treffer[1]);
   }
-  if (fokus !== 'solid') melde(`${path} ${width}`, `Fokusring am .btn fehlt (${fokus})`);
+  for (const i of sichtbar) {
+    if (ringe.get(i) !== 'solid') melde(`${path} ${width} .btn[${i}]`, `Fokusring fehlt (${ringe.get(i) ?? 'nicht erreicht'})`);
+  }
 
   if (path === '/kontakt/') {
     // Das Eingabefeld behält seine Höhe (44 px), der höhere Knopf zieht es nicht mit
@@ -92,12 +109,17 @@ for (const [path, width] of [['/', 1280], ['/', 400], ['/kontakt/', 1280], ['/ko
     if (!(deckkraft < 1)) melde(`${path} ${width}`, `Newsletter-Knopf disabled nicht halbtransparent (${deckkraft})`);
   }
 
+  // Kontrastmodus: Rahmen statt Fläche, und kein Schatten unter dem Rahmen
   await page.emulateMedia({ forcedColors: 'active' });
-  const rahmen = await page.locator('.btn').first().evaluate(el => {
-    const s = getComputedStyle(el);
-    return `${s.borderTopStyle} ${s.borderTopWidth}`;
-  });
-  if (rahmen.startsWith('none') || rahmen.endsWith(' 0px')) melde(`${path} ${width}`, `kein Rahmen im Kontrastmodus (${rahmen})`);
+  const kontrast = await page.evaluate(() =>
+    [...document.querySelectorAll('.btn')]
+      .map((el, i) => ({ i, sichtbar: el.getClientRects().length > 0, s: getComputedStyle(el) }))
+      .filter(k => k.sichtbar)
+      .map(({ i, s }) => ({ i, rahmen: `${s.borderTopStyle} ${s.borderTopWidth}`, filter: s.filter })));
+  for (const { i, rahmen, filter } of kontrast) {
+    if (rahmen.startsWith('none') || rahmen.endsWith(' 0px')) melde(`${path} ${width} .btn[${i}]`, `kein Rahmen im Kontrastmodus (${rahmen})`);
+    if (filter !== 'none') melde(`${path} ${width} .btn[${i}]`, `Schatten im Kontrastmodus (${filter.slice(0, 40)}…)`);
+  }
   await page.close();
 }
 await browser.close();

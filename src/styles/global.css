@@ -304,10 +304,12 @@ li {
   color: var(--color-white);
 }
 
-/* Windows-Kontrastmodus: Hintergründe fallen weg, der Knopf braucht einen Rahmen. */
+/* Windows-Kontrastmodus: Hintergründe fallen weg, der Knopf braucht einen
+   Rahmen – ohne Schatten darunter. */
 @media (forced-colors: active) {
   .btn {
     border: 1px solid ButtonText;
+    filter: none;
   }
 }
 

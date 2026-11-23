@@ -74,12 +74,23 @@ const stellen = (breite: number, schritt: number) => {
   return Array.from({ length: n + 1 }, (_, i) => (i * breite) / n);
 };
 
+/** Zehntel als kurze Zahl: «1.5», «-0.3», «0» statt «0.0». */
+const kurz = (zehntel: number) => {
+  const s = (zehntel / 10).toFixed(1);
+  return s.endsWith('.0') ? s.slice(0, -2) : s;
+};
+
 /**
  * Kante als Polylinie, dann zwei Ecken, dann zu: «Fläche jenseits der Kante».
- * Nach M gelten weitere Paare als Linien – das spart ein L pro Punkt.
+ * Nach dem Startpunkt folgt die Kante in relativen Schritten (l dx,dy …),
+ * gerechnet in ganzen Zehnteln, damit sich keine Rundung aufsummiert – das
+ * hält die Data-URIs im gemeinsamen Stylesheet klein. Die Ecken sind absolut.
  */
-const flaeche = (kante: Array<[number, number]>, ecken: [[number, number], [number, number]]) =>
-  `M${kante.map(([x, y]) => `${f1(x)},${f1(y)}`).join(' ')} L${ecken[0].join(',')} L${ecken[1].join(',')} Z`;
+const flaeche = (kante: Array<[number, number]>, ecken: [[number, number], [number, number]]) => {
+  const z = kante.map(([x, y]) => [Math.round(x * 10), Math.round(y * 10)]);
+  const schritte = z.slice(1).map(([x, y], i) => `${kurz(x - z[i][0])},${kurz(y - z[i][1])}`);
+  return `M${f1(z[0][0] / 10)},${f1(z[0][1] / 10)} l${schritte.join(' ')} L${ecken[0].join(',')} L${ecken[1].join(',')} Z`;
+};
 
 export type RissKanteOptionen = {
   /** Farbe der Fläche unterhalb der Kante. */
@@ -96,7 +107,8 @@ export type RissKanteOptionen = {
  * Sockelkante: feiner Riss (9 px · fbm(x / 220), 8 Oktaven, Gain 0.56),
  * dahinter ein stellenweise sichtbarer Faserrand (max(0, 2.6 · fbm₂(x / 55)
  * + 0.4) px), davor 55 kurze Fasern. Unterhalb der Kante ist die Kachel
- * voll gefüllt.
+ * voll gefüllt. `breite` muss ein Vielfaches von 220 sein (damit auch von
+ * 55), sonst ist das Rauschen nicht periodisch und fbmPeriodisch wirft.
  */
 export const rissKanteSvg = ({ farbe, faser, breite = 1100, hoehe = 48, basis = 22 }: RissKanteOptionen): string => {
   const riss = fbmPeriodisch(21, 8, 0.56, breite / 220);
@@ -132,7 +144,10 @@ export const rissKanteSvg = ({ farbe, faser, breite = 1100, hoehe = 48, basis = 
  * - `oben`: Riss um y = 5 (3 px · fbm(x / 60), 7 Oktaven, Gain 0.55), Fläche darunter
  * - `unten`: eigener Riss, Fläche darüber
  * - `faser`: Kante von `oben`, um max(0, 1.8 · fbm(x / 25) + 0.3) px nach oben
- *   versetzt, Fläche darunter – Maske für den hellen Faserrand
+ *   versetzt, Fläche darunter – Maske für den hellen Faserrand. Das fbm dafür
+ *   ist ein eigenes (Startwert 45, 6 Oktaven, Gain 0.6, Periode 300 / 25 = 12);
+ *   im Mockup war es das Riss-fbm, verschoben – optisch ohne Unterschied,
+ *   hier aber sauber periodisch.
  */
 export const knopfKantenSvg = (art: 'oben' | 'unten' | 'faser'): string => {
   const breite = 300;
