@@ -132,6 +132,10 @@ Themenseiten unter «Was wir tun», je eine pro Suchraum (Plan: `docs/plans/2026
 - `relatedPerspektiven` (Slugs) wird zur Build-Zeit gegen die publizierten Perspektiven aufgelöst (`loadPage` in `src/data/pages/index.ts`); ein unbekannter Slug bricht den Build, ebenso jeder Inline-Link auf eine nicht publizierte Perspektive und ein Pillar-Slug, den schon eine andere Seite belegt.
 - Copy-Quelle ist die Vault-Notiz der Pillar; im Modul nicht umformulieren.
 
+### Kategorie-Seite `/was-wir-tun/` (`src/pages/was-wir-tun.astro`)
+
+Seit 2026-11-23 (Entwurf B, `docs/plans/2026-11-23-was-wir-tun-grafisch-entwurf.md`) rendert die Seite ihre Sektionen selbst, wie `index.astro` die Startseite, und findet sie über ihre `id` – `ansatz`, `schwerpunkt`, `leistungen`, `referenzen` – mit `sectionById` aus `src/data/pages/types.ts`. Ein Label darf der Vault umbenennen; fehlt eine `id` oder trägt eine Sektion eine Item-Art, die die Seite nicht rendert, bricht der Build. Das Diagramm im Kopf kommt über `hero` aus `src/data/pages/was-wir-tun.ts` (Quelle im Vault: `diagram-technologie-allein.excalidraw.md` im Ordner fumu.ch, ohne Bildunterschrift; `Figure.caption` ist optional). Die Leistungen stehen als Karten über `LeistungsKarten.astro`, eine bis fünf Pillars, Flächen nach Position aus `src/lib/leistungs-toene.ts` (dieselbe Funktion wie auf der Startseite). Das Zitat steht im Sockel über `SockelZitat.astro`, im Markdown-Zwilling weiter unter «Referenzen». `Sektion.astro` rendert weiterhin About, Kontakt und die Pillars.
+
 ### Weitere generierte Routen
 
 - `src/pages/rss.xml.ts` – RSS-Feed der veröffentlichten Perspektiven.
