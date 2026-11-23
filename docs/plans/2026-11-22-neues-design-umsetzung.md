@@ -164,18 +164,18 @@
 **Interfaces:**
 - Produces: `type BlattPost = { id: string; title: string; description: string; date: Date; series?: string }` und `sockelPerspektiven(posts: BlattPost[], current: BlattPost, n?: number): BlattPost[]` (Default 3); `readingMinutes(body: string | undefined): number`.
 
-- [ ] **Step 1: Tests schreiben** (`src/lib/sockel.test.ts`):
+- [x] **Step 1: Tests schreiben** (`src/lib/sockel.test.ts`):
   - Artikel mit Thema und vier weiteren desselben Themas → die drei neuesten davon, neueste zuerst, ohne den Artikel selbst.
   - Artikel mit Thema und genau einem weiteren → genau dieser eine.
   - Artikel mit Thema ohne weitere → die drei neuesten aller Perspektiven ohne den Artikel.
   - Artikel ohne Thema → die drei neuesten aller Perspektiven ohne den Artikel.
   - Weniger als drei Perspektiven insgesamt → alle ausser dem Artikel, kein Fehler.
-- [ ] **Step 2: Laufen lassen** – `npx vitest run src/lib/sockel.test.ts`. Expected: FAIL.
-- [ ] **Step 3: `sockelPerspektiven` implementieren.**
-- [ ] **Step 4: Tests grün** – `npx vitest run src/lib/sockel.test.ts src/lib/reading-time.test.ts`. Expected: PASS.
-- [ ] **Step 5: Artikelseite** – nach `perspektive.html`: Kopf in der Lesespalte (Breite `--read-width`): Meta-Zeile mit Datum (Coral, Versalien), «Thema: {name}» als Streifen in Rosé (Link auf die Themenseite, nur mit Thema; bei `seriesPart` «Teil {n} im Thema {name}»), Autor oder Autoren verlinkt wie heute, «{readingMinutes} Min.», bei `updated` «Überarbeitet {Datum}»; Hinweis «Geplant für …» im Dev wie heute; H1 Serif 76/46 px. Lesespalte 18.5 px/1.72, H2 Serif 38 px; Illustrationen und Loop-Videos ragen 110 px links und rechts aus der Spalte (unter 1000 px 20 px). Serien-Navigation als zwei Karten Rosé-hell, Newsletter-Hinweis als Karte Rosé-hell mit seinem heutigen Text. Im Slot `sockel`: H2 «Mehr aus dem Thema {name}» mit Link «Zum Thema» (ohne Thema: H2 «Perspektiven» mit Link «Alle Perspektiven»), `PerspektivenBlaetter` aus `sockelPerspektiven`, darunter «← Alle Perspektiven». Doodle-Icon wird nicht gerendert.
-- [ ] **Step 6: Verifizieren** – `npm run build && npx vitest run` grün; `diff -r` der Perspektiven-`.md` gegen die Baseline leer; Sichtprüfung `/perspektiven/wer-bildet-noch-aus/` (Video auf Papier, auch mit «Bewegung reduzieren»), `/perspektiven/robots-txt-vertragsklausel/` (Überarbeitet, Charts, Zoom), eine Perspektive ohne Thema, Desktop und 400 px.
-- [ ] **Step 7: Commit** «Design: Perspektive mit Lesespalte, Papier und Sockel».
+- [x] **Step 2: Laufen lassen** – `npx vitest run src/lib/sockel.test.ts`. Expected: FAIL.
+- [x] **Step 3: `sockelPerspektiven` implementieren.**
+- [x] **Step 4: Tests grün** – `npx vitest run src/lib/sockel.test.ts src/lib/reading-time.test.ts`. Expected: PASS.
+- [x] **Step 5: Artikelseite** – nach `perspektive.html`: Kopf in der Lesespalte (Breite `--read-width`): Meta-Zeile mit Datum (Coral, Versalien), «Thema: {name}» als Streifen in Rosé (Link auf die Themenseite, nur mit Thema; bei `seriesPart` «Teil {n} im Thema {name}»), Autor oder Autoren verlinkt wie heute, «{readingMinutes} Min.», bei `updated` «Überarbeitet {Datum}»; Hinweis «Geplant für …» im Dev wie heute; H1 Serif 76/46 px. Lesespalte 18.5 px/1.72, H2 Serif 38 px; Illustrationen und Loop-Videos ragen 110 px links und rechts aus der Spalte (unter 1000 px 20 px). Serien-Navigation als zwei Karten Rosé-hell, Newsletter-Hinweis als Karte Rosé-hell mit seinem heutigen Text. Im Slot `sockel`: H2 «Mehr aus dem Thema {name}» mit Link «Zum Thema» (ohne Thema: H2 «Perspektiven» mit Link «Alle Perspektiven»), `PerspektivenBlaetter` aus `sockelPerspektiven`, darunter «← Alle Perspektiven». Doodle-Icon wird nicht gerendert.
+- [x] **Step 6: Verifizieren** – `npm run build && npx vitest run` grün; `diff -r` der Perspektiven-`.md` gegen die Baseline leer; Sichtprüfung `/perspektiven/wer-bildet-noch-aus/` (Video auf Papier, auch mit «Bewegung reduzieren»), `/perspektiven/robots-txt-vertragsklausel/` (Überarbeitet, Charts, Zoom), eine Perspektive ohne Thema, Desktop und 400 px.
+- [x] **Step 7: Commit** «Design: Perspektive mit Lesespalte, Papier und Sockel».
 
 ### Task 8: Perspektiven-Übersicht und Themen
 
