@@ -230,4 +230,4 @@
 - [x] **Step 5: CLAUDE.md** – Stack-Zeile Fonts auf Instrument Serif + Instrument Sans; Design-System-Tabellen (Farben, Typografie, Layout) auf die neuen Tokens; Hinweis: Texte der Startseite stehen in `src/data/pages/home.ts` (HTML und `/index.md` entstehen daraus); `BaseLayout`-Slot `sockel` und Prop `abschluss`; Papierkanten über `--torn-*`.
 - [x] **Step 6: Gesamtlauf** – `npm run build && npx vitest run`. Expected: alles grün.
 - [x] **Step 7: Commit** «Design: Abnahme-Skripte und CLAUDE.md».
-- [ ] **Step 8: Lokal-Review mit Jochen** – `npm run dev` im Worktree auf einem freien Port, URL an Jochen. Merge auf `main` und Push nur auf seine Ansage.
+- [x] **Step 8: Lokal-Review mit Jochen** – `npm run dev` im Worktree auf einem freien Port, URL an Jochen. Merge auf `main` und Push nur auf seine Ansage.
