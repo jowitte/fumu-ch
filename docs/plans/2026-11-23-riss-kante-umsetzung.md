@@ -50,7 +50,7 @@
   - `knopfSeitenPolygon(): string` – `polygon(…)` mit `calc()`-Versatz ≤ 1.5 px an linker und rechter Seite, oben und unten über den Rand hinaus (−20 % / 120 %)
   - `svgDataUri(svg: string): string` – `url("data:image/svg+xml,…")`, ohne rohe `#`, `<`, `>`, `"`
 
-- [ ] **Step 1: Tests schreiben** (`src/lib/riss.test.ts`):
+- [x] **Step 1: Tests schreiben** (`src/lib/riss.test.ts`):
   - `mischFarbe(FARBEN.plum, FARBEN.white, 0.37)` ist `'#897484'`; mit Coral `'#DA8A87'`.
   - `FARBEN` stimmt mit `src/styles/global.css` überein (Datei lesen, je `--color-white|plum|coral|blush: <hex>;` finden).
   - `fbmPeriodisch(21, 8, 0.56, 5)`: zweimal erzeugt gleiche Werte; für x in 0…5 (Schritt 0.37) gilt |f(x) − f(x + 5)| < 1e-9; alle Werte in [−1, 1].
@@ -59,10 +59,10 @@
   - `knopfSeitenPolygon()`: beginnt mit `polygon(`, enthält `-20%` und `120%`, jeder `calc`-Versatz ≤ 1.5 px.
   - Die bestehenden Tests in `torn-paper.test.ts` bleiben unverändert grün (Beleg, dass das Verschieben von `mulberry32` die Polygone nicht ändert; der Sync-Test mit `torn-paper.css` fängt jede Abweichung).
   - `svgDataUri('<svg fill="#43233B"/>')` beginnt mit `url("data:image/svg+xml,` und enthält im Nutzteil weder `#` noch `<`, `>` oder `"`.
-- [ ] **Step 2: Laufen lassen** – `npx vitest run src/lib/riss.test.ts`. Expected: FAIL (Modul fehlt).
-- [ ] **Step 3: Implementieren.** Periodisches Wertrauschen: ein Array aus 4096 Stützwerten (mulberry32, [−1, 1]); in Oktave o mit Frequenz 2^o, Gitterperiode `periode · 2^o`, Index modulo dieser Periode, Oktaven-Versatz `o · 37.1`, weiche Interpolation s = t²(3 − 2t), normiert auf die Amplitudensumme. Kanten als Polylinien, Punkte alle 1.5 px (Sockel) bzw. 1 px (Knopf), eine Nachkommastelle. Massstäbe so, dass die Gitterperiode ganzzahlig ist: Sockel 1100 / 220 = 5, Faserrand 1100 / 55 = 20, Knopf 300 / 60 = 5, Knopf-Faser 300 / 25 = 12. Fasern nur im Bereich x ∈ [4, breite − 4], 55 Stück. Knopf-Streifen: Kante um y = 5 (`oben`: Fläche darunter; `unten`: Fläche darüber, anderer Startwert; `faser`: Kante um max(0, 1.8 · fbm + 0.3) px nach oben versetzt, Fläche darunter).
-- [ ] **Step 4: Tests grün** – `npx vitest run src/lib/riss.test.ts`. Expected: PASS; danach `npx vitest run` ganz grün.
-- [ ] **Step 5: Commit** «Riss: Generator für nahtlose Papierriss-Kacheln».
+- [x] **Step 2: Laufen lassen** – `npx vitest run src/lib/riss.test.ts`. Expected: FAIL (Modul fehlt).
+- [x] **Step 3: Implementieren.** Periodisches Wertrauschen: ein Array aus 4096 Stützwerten (mulberry32, [−1, 1]); in Oktave o mit Frequenz 2^o, Gitterperiode `periode · 2^o`, Index modulo dieser Periode, Oktaven-Versatz `o · 37.1`, weiche Interpolation s = t²(3 − 2t), normiert auf die Amplitudensumme. Kanten als Polylinien, Punkte alle 1.5 px (Sockel) bzw. 1 px (Knopf), eine Nachkommastelle. Massstäbe so, dass die Gitterperiode ganzzahlig ist: Sockel 1100 / 220 = 5, Faserrand 1100 / 55 = 20, Knopf 300 / 60 = 5, Knopf-Faser 300 / 25 = 12. Fasern nur im Bereich x ∈ [4, breite − 4], 55 Stück. Knopf-Streifen: Kante um y = 5 (`oben`: Fläche darunter; `unten`: Fläche darüber, anderer Startwert; `faser`: Kante um max(0, 1.8 · fbm + 0.3) px nach oben versetzt, Fläche darunter).
+- [x] **Step 4: Tests grün** – `npx vitest run src/lib/riss.test.ts`. Expected: PASS; danach `npx vitest run` ganz grün.
+- [x] **Step 5: Commit** «Riss: Generator für nahtlose Papierriss-Kacheln».
 
 ### Task 2: Sockelkante aus der Riss-Kachel
 
