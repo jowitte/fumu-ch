@@ -22,7 +22,7 @@ import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { tornEdge } from '../src/lib/torn-paper.ts';
+import { FARBEN, mischFarbe, rissKanteSvg, svgDataUri } from '../src/lib/riss.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const playwrightPath =
@@ -68,7 +68,8 @@ const ogHtml = () => `<!doctype html><html><head><meta charset="utf-8"><style>
   .logo span { color: ${colors.coral}; }
   .claim { margin-top: 28px; font: 400 52px/1.1 'Instrument Serif'; color: ${colors.plumSoft}; letter-spacing: -0.01em; }
   .papier { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: ${colors.blush}; }
-  .papier::before { content: ''; position: absolute; left: 0; right: 0; top: -22px; height: 24px; background: ${colors.blush}; clip-path: ${tornEdge(3)}; }
+  /* Oberkante: derselbe feine Papierriss wie die Sockelkante der Site (src/lib/riss.ts), in Rosé */
+  .papier::before { content: ''; position: absolute; left: 0; right: 0; top: -38px; height: 48px; background: ${svgDataUri(rissKanteSvg({ farbe: FARBEN.blush, faser: mischFarbe(FARBEN.blush, FARBEN.white, 0.37) }))} repeat-x left top / auto 100%; filter: drop-shadow(0 -1px 0 rgb(43 26 39 / .08)) drop-shadow(0 -5px 7px rgb(43 26 39 / .08)); }
 </style></head><body>
   <div class="logo">fumu<span>.</span></div>
   <div class="claim">Technologie in Wirkung übersetzen.</div>

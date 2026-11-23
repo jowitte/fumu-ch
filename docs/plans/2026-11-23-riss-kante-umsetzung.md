@@ -105,8 +105,8 @@
 **Interfaces:**
 - Consumes: `rissKanteSvg`, `svgDataUri`, `mischFarbe`, `FARBEN` (Task 1).
 
-- [ ] **Step 1: `brand-assets.mjs`** – Import `tornEdge` ersetzen; die Papierkante im OG-Bild als `background: ${svgDataUri(rissKanteSvg({ farbe: FARBEN.blush, faser: mischFarbe(FARBEN.blush, FARBEN.white, .37) }))} repeat-x` über dem Rosé-Streifen. `node scripts/brand-assets.mjs`; Bild ansehen.
-- [ ] **Step 2: `CLAUDE.md`** – Formen: Sockelkante und Knöpfe aus `src/lib/riss.ts` (Variablen `--riss-*` in `torn-paper.css`), `--torn-1…3` nur noch für die Papierformen hinter Bildern, `.btn` zeichnet die Fläche in `::before` (Farbe über `--btn-farbe`).
-- [ ] **Step 3: Abnahme** – `npm run build && npx vitest run` grün; `node scripts/text-diff.mjs <stand-vorher> dist` ohne Unterschiede (Stand vor Task 1 in den Scratchpad sichern); Markdown-, llms-, RSS-Dateien byte-gleich; `node scripts/overflow-check.mjs` und `node scripts/knopf-check.mjs` ohne Befund.
-- [ ] **Step 4: Commit** «Riss: OG-Bild und CLAUDE.md».
+- [x] **Step 1: `brand-assets.mjs`** – Import `tornEdge` ersetzen; die Papierkante im OG-Bild als `background: ${svgDataUri(rissKanteSvg({ farbe: FARBEN.blush, faser: mischFarbe(FARBEN.blush, FARBEN.white, .37) }))} repeat-x` über dem Rosé-Streifen. `node scripts/brand-assets.mjs`; Bild ansehen.
+- [x] **Step 2: `CLAUDE.md`** – Formen: Sockelkante und Knöpfe aus `src/lib/riss.ts` (Variablen `--riss-*` in `torn-paper.css`), `--torn-1…3` nur noch für die Papierformen hinter Bildern, `.btn` zeichnet die Fläche in `::before` (Farbe über `--btn-farbe`).
+- [x] **Step 3: Abnahme** – `npm run build && npx vitest run` grün; `node scripts/text-diff.mjs <stand-vorher> dist` ohne Unterschiede (Stand vor Task 1 in den Scratchpad sichern); Markdown-, llms-, RSS-Dateien byte-gleich; `node scripts/overflow-check.mjs` und `node scripts/knopf-check.mjs` ohne Befund.
+- [x] **Step 4: Commit** «Riss: OG-Bild und CLAUDE.md».
 - [ ] **Step 5: Lokal-Review mit Jochen** – Dev-Server auf freiem Port, auch in Safari; Push nur auf seine Ansage.
