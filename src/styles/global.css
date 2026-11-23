@@ -121,7 +121,7 @@ body {
 /* Titel in Instrument Serif, Pflaume. Die Hierarchie trägt die Grösse, nicht
    das Gewicht: Die Serif hat nur 400. Ab H4 übernimmt die Sans. */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--color-plum);
+  color: var(--heading, var(--color-plum));
   margin-top: var(--space-lg);
   margin-bottom: var(--space-md);
   overflow-wrap: break-word;
@@ -150,8 +150,11 @@ p {
   margin-bottom: var(--space-md);
 }
 
+/* Link-, Fokus- und Titelfarbe hängen an vererbbaren Variablen, damit eine
+   Fläche sie für alles darin umstellen kann: der Sockel auf Safran und Weiss,
+   ein weisses Blatt im Sockel wieder auf Coral und Pflaume. */
 a {
-  color: var(--color-coral);
+  color: var(--link, var(--color-coral));
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
@@ -162,7 +165,7 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-coral);
+  outline: 2px solid var(--focus, var(--color-coral));
   outline-offset: 3px;
 }
 
