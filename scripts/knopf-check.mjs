@@ -34,6 +34,9 @@ const base = `http://127.0.0.1:${server.address().port}`;
 const befunde = [];
 const melde = (wo, was) => befunde.push(`${wo}: ${was}`);
 const CORAL = 'rgb(196, 69, 64)';
+// Hover als feste Farbe (Coral 88 % + Ink), nicht color-mix: Browser ohne
+// color-mix (Safari < 16.2) verlören sonst beim Hover die ganze Fläche.
+const HOVER = 'rgb(178, 64, 61)';
 // Summe der drei Kanäle in 0–255; versteht rgb(…) und color(srgb …) (color-mix liefert das zweite).
 const summe = farbe => {
   const werte = (farbe.match(/[\d.]+/g) ?? []).map(Number);
@@ -49,21 +52,26 @@ for (const [path, width] of [['/', 1280], ['/', 400], ['/kontakt/', 1280], ['/ko
   const anzahl = await knoepfe.count();
   if (!anzahl) melde(`${path} ${width}`, 'kein .btn gefunden');
 
+  const anfaenge = [];
   for (let i = 0; i < anzahl; i++) {
     const knopf = knoepfe.nth(i);
     const name = `${path} ${width} .btn[${i}] «${(await knopf.textContent())?.trim()}»`;
     if (!(await knopf.isVisible())) continue;
     const vorher = await knopf.evaluate(el => {
       const s = getComputedStyle(el, '::before');
-      return { maske: s.maskImage || s.webkitMaskImage || '', farbe: s.backgroundColor };
+      return { maske: s.maskImage || s.webkitMaskImage || '', farbe: s.backgroundColor, position: s.maskPosition || s.webkitMaskPosition || '' };
     });
+    anfaenge.push(vorher.position.split(',')[0].trim().split(' ')[0]);
     if (!vorher.maske.includes('data:image/svg+xml')) melde(name, 'keine Riss-Maske am ::before');
     if (vorher.farbe !== CORAL) melde(name, `Fläche ist ${vorher.farbe}, nicht Coral`);
     await knopf.hover();
     const hover = await knopf.evaluate(el => getComputedStyle(el, '::before').backgroundColor);
     if (!(summe(hover) < summe(CORAL))) melde(name, `Hover dunkelt nicht (${hover})`);
+    if (hover !== HOVER) melde(name, `Hover-Farbe ist ${hover}, nicht ${HOVER}`);
     await page.mouse.move(0, 0);
   }
+  // Jeder Knopf auf der Seite reisst anders: die Riss-Masken beginnen an verschiedenen Stellen
+  if (new Set(anfaenge).size < anfaenge.length) melde(`${path} ${width}`, `gleicher Riss auf mehreren Knöpfen (Maskenanfang ${anfaenge.join(', ')})`);
 
   // Fokus per Tastatur: Tab bis zum ersten .btn, dann muss ein Ring stehen
   await page.locator('body').click({ position: { x: 1, y: 1 } });
@@ -75,6 +83,9 @@ for (const [path, width] of [['/', 1280], ['/', 400], ['/kontakt/', 1280], ['/ko
   if (fokus !== 'solid') melde(`${path} ${width}`, `Fokusring am .btn fehlt (${fokus})`);
 
   if (path === '/kontakt/') {
+    // Das Eingabefeld behält seine Höhe (44 px), der höhere Knopf zieht es nicht mit
+    const feldhoehe = await page.locator('.newsletter-input').evaluate(el => el.getBoundingClientRect().height);
+    if (Math.abs(feldhoehe - 44) > 1) melde(`${path} ${width}`, `Eingabefeld ${feldhoehe} px statt 44 px hoch`);
     const nl = page.locator('form.newsletter-form button[type="submit"]');
     if (!(await nl.evaluate(el => el.classList.contains('btn')))) melde(`${path} ${width}`, 'Newsletter-Knopf trägt kein .btn');
     const deckkraft = await nl.evaluate(el => { el.disabled = true; return Number(getComputedStyle(el).opacity); });

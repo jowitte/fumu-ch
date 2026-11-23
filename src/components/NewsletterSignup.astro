@@ -84,8 +84,11 @@ const hasIntro = Boolean(heading || lead);
     color: var(--color-plum-soft);
   }
 
+  /* Feld und Knopf mittig: Der Knopf ist höher als seine sichtbare Fläche
+     (Riss oben und unten) und soll das Feld nicht mitziehen. */
   .newsletter-controls {
     display: flex;
+    align-items: center;
     gap: var(--space-sm);
   }
 
@@ -107,8 +110,9 @@ const hasIntro = Boolean(heading || lead);
     outline-offset: 2px;
   }
 
-  /* Fläche, Riss und Schatten kommen von .btn (global.css). */
+  /* Fläche, Riss und Schatten kommen von .btn (global.css); eigene Stelle des Risses. */
   .newsletter-button {
+    --riss-x: -150px;
     flex: 0 0 auto;
   }
 

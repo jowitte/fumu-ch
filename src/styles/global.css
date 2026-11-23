@@ -278,6 +278,10 @@ li {
     var(--riss-oben) top left / auto 10px repeat-x,
     var(--riss-unten) bottom left / auto 10px repeat-x,
     linear-gradient(#000 0 0) center / 100% calc(100% - 18px) no-repeat;
+  /* Jeder Knopf setzt mit --riss-x eine andere Stelle des Risses an,
+     damit nicht alle Knöpfe denselben Riss tragen. */
+  -webkit-mask-position: var(--riss-x, 0px) top, var(--riss-x, 0px) bottom, center;
+  mask-position: var(--riss-x, 0px) top, var(--riss-x, 0px) bottom, center;
 }
 
 /* Heller Faserrand hinter der Oberkante */
@@ -288,10 +292,15 @@ li {
   background: var(--riss-knopf-faser);
   -webkit-mask: var(--riss-faser) top left / auto 10px repeat-x;
   mask: var(--riss-faser) top left / auto 10px repeat-x;
+  -webkit-mask-position: var(--riss-x, 0px) top;
+  mask-position: var(--riss-x, 0px) top;
 }
 
+/* Hover: Coral 88 % + Ink, als fester Wert. Mit color-mix() würde die
+   Variable in Browsern ohne color-mix (Safari < 16.2) ungültig, und die
+   Fläche verschwände ganz. */
 .btn:hover {
-  --btn-farbe: color-mix(in srgb, var(--color-coral) 88%, var(--color-ink));
+  --btn-farbe: #B2403D;
   color: var(--color-white);
 }
 
