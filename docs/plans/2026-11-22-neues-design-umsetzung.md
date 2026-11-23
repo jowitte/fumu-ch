@@ -211,10 +211,10 @@
 **Interfaces:**
 - Consumes: Schriften aus Task 1.
 
-- [ ] **Step 1: Skript** `scripts/brand-assets.mjs` – rendert eine HTML-Vorlage mit den self-hosted Instrument-Schriften per `playwright-core` (Pfad per Umgebungsvariable `PLAYWRIGHT_CORE`, Default `/Users/jochen.witte/Data/Akasha/.claude/lib/publish/node_modules/playwright-core`; im Kopf des Skripts dokumentiert, keine neue Abhängigkeit im Repo): Icon «f.» (Instrument Serif, Pflaume auf Weiss, Punkt Coral) als 16, 32 und 180 px PNG; OG-Bild 1200×630: Weiss, Schriftzug «fumu.» 140 px, darunter der Claim «Technologie in Wirkung übersetzen.» in Pflaume-soft, unten eine Papierkante in Rosé. `favicon.ico` aus 16 und 32 px mit `magick`.
-- [ ] **Step 2: Laufen lassen** – `node scripts/brand-assets.mjs`. Expected: fünf Dateien neu geschrieben; `magick identify public/favicon.ico` zeigt 16×16 und 32×32; `magick identify public/images/og-default.png` zeigt 1200x630.
-- [ ] **Step 3: Sichtprüfung** der fünf Dateien (Read), dann `npm run build` grün.
-- [ ] **Step 4: Commit** «Design: Favicon, Touch-Icon und OG-Bild im neuen Schriftzug».
+- [x] **Step 1: Skript** `scripts/brand-assets.mjs` – rendert eine HTML-Vorlage mit den self-hosted Instrument-Schriften per `playwright-core` (Pfad per Umgebungsvariable `PLAYWRIGHT_CORE`, Default `/Users/jochen.witte/Data/Akasha/.claude/lib/publish/node_modules/playwright-core`; im Kopf des Skripts dokumentiert, keine neue Abhängigkeit im Repo): Icon «f.» (Instrument Serif, Pflaume auf Weiss, Punkt Coral) als 16, 32 und 180 px PNG; OG-Bild 1200×630: Weiss, Schriftzug «fumu.» 140 px, darunter der Claim «Technologie in Wirkung übersetzen.» in Pflaume-soft, unten eine Papierkante in Rosé. `favicon.ico` aus 16 und 32 px mit `magick`.
+- [x] **Step 2: Laufen lassen** – `node scripts/brand-assets.mjs`. Expected: fünf Dateien neu geschrieben; `magick identify public/favicon.ico` zeigt 16×16 und 32×32; `magick identify public/images/og-default.png` zeigt 1200x630.
+- [x] **Step 3: Sichtprüfung** der fünf Dateien (Read), dann `npm run build` grün.
+- [x] **Step 4: Commit** «Design: Favicon, Touch-Icon und OG-Bild im neuen Schriftzug».
 
 ### Task 11: Abnahme
 
