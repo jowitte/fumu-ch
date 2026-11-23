@@ -5,7 +5,7 @@
  * einer Karte, Leistungen als Karten, Logos in Pflaume, Zitat im Sockel.
  *
  * Die Seite rendert ihre Sektionen selbst und findet sie über die `id`
- * (sectionById), nicht über das Label. Text kommt aus src/data/pages/was-wir-tun.ts,
+ * (sectionsByIds), nicht über das Label. Text kommt aus src/data/pages/was-wir-tun.ts,
  * derselben Quelle wie /was-wir-tun.md; dort fehlt nichts, was hier steht.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -16,7 +16,7 @@ import RichText from '../components/RichText.astro';
 import SockelZitat from '../components/SockelZitat.astro';
 import { jsonLd } from '../lib/json-ld';
 import { wasWirTun } from '../data/pages/was-wir-tun';
-import { sectionById } from '../data/pages/types';
+import { sectionsByIds } from '../data/pages/types';
 import type { Item, LinksItem, LogosItem, QuoteItem, Section, TextItem } from '../data/pages/types';
 
 const serviceLd = {
@@ -61,10 +61,14 @@ const serviceLd = {
 const hero = wasWirTun.hero;
 if (!hero) throw new Error('was-wir-tun.ts: Das Diagramm im Kopf (hero) fehlt');
 
-const ansatz = sectionById(wasWirTun, 'ansatz');
-const schwerpunkt = sectionById(wasWirTun, 'schwerpunkt');
-const leistungen = sectionById(wasWirTun, 'leistungen');
-const referenzen = sectionById(wasWirTun, 'referenzen');
+// Genau diese vier, in dieser Reihenfolge: Eine neue Sektion im Datenmodul
+// bricht den Build, statt nur im Markdown-Zwilling zu erscheinen.
+const [ansatz, schwerpunkt, leistungen, referenzen] = sectionsByIds(wasWirTun, [
+  'ansatz',
+  'schwerpunkt',
+  'leistungen',
+  'referenzen',
+]);
 
 // Jede Sektion trägt nur die Item-Arten, die diese Seite rendert. Kommt aus
 // dem Vault eine andere dazu, bricht der Build – sonst stünde sie nur im

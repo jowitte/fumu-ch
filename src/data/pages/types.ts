@@ -124,6 +124,9 @@ export type Section = {
    *   Markdown und das FAQPage-JSON-LD (structured-data.ts).
    * - `formate`: Items mit `title` sind Service-Formate (Dauer in `tag`) und
    *   speisen den Angebotskatalog im ProfessionalService-JSON-LD.
+   * Auf /was-wir-tun/ tragen die ids die Seite (`ansatz`, `schwerpunkt`,
+   * `leistungen`, `referenzen`): was-wir-tun.astro holt die Sektionen
+   * darüber (sectionsByIds), nicht über das Label.
    */
   id?: string;
   items: Item[];
@@ -138,6 +141,22 @@ export const sectionById = (page: PageContent, id: string): Section => {
   const section = page.sections.find(s => s.id === id);
   if (!section) throw new Error(`${page.title}: Sektion mit id «${id}» fehlt`);
   return section;
+};
+
+/**
+ * Genau diese Sektionen, in dieser Reihenfolge – für Seiten, die jede Sektion
+ * selbst setzen. Kommt im Datenmodul eine Sektion dazu oder wechselt die
+ * Reihenfolge, bricht der Build: Sonst stünde die Änderung im
+ * Markdown-Zwilling, und die HTML-Seite liesse sie still weg.
+ */
+export const sectionsByIds = (page: PageContent, ids: string[]): Section[] => {
+  const ist = page.sections.map(s => s.id ?? `«${s.label}»`);
+  if (ist.join() !== ids.join()) {
+    throw new Error(
+      `${page.title}: Sektionen ${ist.join(', ')} – die Seite rendert genau ${ids.join(', ')} in dieser Reihenfolge`,
+    );
+  }
+  return ids.map(id => sectionById(page, id));
 };
 
 export type PageContent = {
