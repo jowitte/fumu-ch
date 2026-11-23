@@ -14,7 +14,7 @@ CH-8049 Zürich\
 hello@fumu.ch\
 +41 76 488 56 45
 
-Diese Datenschutzerklärung gilt für die Website fumu.ch. Wir behandeln deine Daten vertraulich und entsprechend dem Schweizer Bundesgesetz über den Datenschutz (DSG) und – soweit anwendbar – der Datenschutz-Grundverordnung (DSGVO) der EU.
+Diese Datenschutzerklärung gilt für die Website fumu.ch. Wir behandeln Ihre Daten vertraulich und entsprechend dem Schweizer Bundesgesetz über den Datenschutz (DSG) und – soweit anwendbar – der Datenschutz-Grundverordnung (DSGVO) der EU.
 
 ## 2. Welche Daten wir erheben
 
@@ -24,11 +24,11 @@ Die Website wird über Netlify gehostet und über Cloudflare als Content Deliver
 
 ### 2.2 Webanalyse mit Cloudflare Web Analytics
 
-Wir nutzen Cloudflare Web Analytics zur Auswertung der Website-Nutzung. Cloudflare Web Analytics setzt keine Cookies, greift nicht auf den Gerätespeicher zu und erstellt keine persönlichen Profile. IP-Adressen werden nicht in identifizierbarer Form gespeichert, sondern ausschliesslich zur Aggregation von Statistiken kurzzeitig verarbeitet. Eine Einwilligung ist nicht erforderlich, da kein Zugriff auf dein Endgerät erfolgt (Art. 45c FMG; Art. 5 Abs. 3 ePrivacy-Richtlinie). Grundlage ist unser berechtigtes Interesse an der Verbesserung unseres Angebots (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. f DSGVO).
+Wir nutzen Cloudflare Web Analytics zur Auswertung der Website-Nutzung. Cloudflare Web Analytics setzt keine Cookies, greift nicht auf den Gerätespeicher zu und erstellt keine persönlichen Profile. IP-Adressen werden nicht in identifizierbarer Form gespeichert, sondern ausschliesslich zur Aggregation von Statistiken kurzzeitig verarbeitet. Eine Einwilligung ist nicht erforderlich, da kein Zugriff auf Ihr Endgerät erfolgt (Art. 45c FMG; Art. 5 Abs. 3 ePrivacy-Richtlinie). Grundlage ist unser berechtigtes Interesse an der Verbesserung unseres Angebots (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. f DSGVO).
 
 ### 2.3 Kontaktaufnahme
 
-Wenn du uns per E-Mail kontaktierst, verarbeiten wir die von dir mitgeteilten Daten zur Bearbeitung deiner Anfrage. Grundlage ist die Vertragsanbahnung bzw. -erfüllung (Art. 31 Abs. 2 lit. a DSG; Art. 6 Abs. 1 lit. b DSGVO).
+Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten zur Bearbeitung Ihrer Anfrage. Grundlage ist die Vertragsanbahnung bzw. -erfüllung (Art. 31 Abs. 2 lit. a DSG; Art. 6 Abs. 1 lit. b DSGVO).
 
 ### 2.4 Cookies
 
@@ -36,11 +36,11 @@ Diese Website setzt keine Tracking-Cookies. Im Rahmen des Bot- und Missbrauchssc
 
 ### 2.5 Newsletter
 
-Auf fumu.ch kannst du dich für unseren Newsletter anmelden. Den Versand wickeln wir über MailerLite ab, einen Dienst der UAB «MailerLite» (Paupio g. 28, 11341 Vilnius, Litauen). MailerLite verarbeitet die Anmeldedaten ausschliesslich auf Servern innerhalb der EU (Deutschland und Niederlande).
+Auf fumu.ch können Sie sich für unseren Newsletter anmelden. Den Versand wickeln wir über MailerLite ab, einen Dienst der UAB «MailerLite» (Paupio g. 28, 11341 Vilnius, Litauen). MailerLite verarbeitet die Anmeldedaten ausschliesslich auf Servern innerhalb der EU (Deutschland und Niederlande).
 
-Für die Anmeldung verwenden wir das Double-Opt-in-Verfahren: Nach Eingabe deiner E-Mail-Adresse erhältst du eine Bestätigungsmail. Erst wenn du den darin enthaltenen Link anklickst, wird deine Adresse in den Verteiler aufgenommen. Gespeichert werden deine E-Mail-Adresse sowie zum Nachweis der Einwilligung der Zeitpunkt der Anmeldung und der Bestätigung. Eine Pflicht zur Angabe weiterer Daten besteht nicht.
+Für die Anmeldung verwenden wir das Double-Opt-in-Verfahren: Nach Eingabe Ihrer E-Mail-Adresse erhalten Sie eine Bestätigungsmail. Erst wenn Sie den darin enthaltenen Link anklicken, wird Ihre Adresse in den Verteiler aufgenommen. Gespeichert werden Ihre E-Mail-Adresse sowie zum Nachweis der Einwilligung der Zeitpunkt der Anmeldung und der Bestätigung. Eine Pflicht zur Angabe weiterer Daten besteht nicht.
 
-Rechtsgrundlage ist deine Einwilligung (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. a DSGVO). Du kannst den Newsletter jederzeit abbestellen – über den Abmeldelink am Ende jeder Newsletter-Mail oder per Nachricht an hello@fumu.ch. Mit der Abmeldung widerrufst du zugleich deine Einwilligung; die Rechtmässigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt.
+Rechtsgrundlage ist Ihre Einwilligung (Art. 31 Abs. 1 DSG; Art. 6 Abs. 1 lit. a DSGVO). Sie können den Newsletter jederzeit abbestellen – über den Abmeldelink am Ende jeder Newsletter-Mail oder per Nachricht an hello@fumu.ch. Mit der Abmeldung widerrufen Sie zugleich Ihre Einwilligung; die Rechtmässigkeit der bis dahin erfolgten Verarbeitung bleibt unberührt.
 
 ## 3. Weitergabe an Dritte
 
@@ -63,11 +63,11 @@ Netlify (USA) und Cloudflare (USA) betreiben global verteilte Infrastruktur. Die
 - Kontaktanfragen: bis zur Erledigung, danach Löschung, sofern keine gesetzliche Aufbewahrungspflicht besteht
 - Newsletter-Daten (MailerLite): bis zur Abmeldung bzw. zum Widerruf der Einwilligung
 
-## 6. Deine Rechte
+## 6. Ihre Rechte
 
-Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Bei Fragen oder zur Ausübung deiner Rechte wende dich an hello@fumu.ch.
+Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Bei Fragen oder zur Ausübung Ihrer Rechte wenden Sie sich an hello@fumu.ch.
 
-Beschwerden kannst du beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) einreichen. Falls die DSGVO anwendbar ist, steht dir zusätzlich das Beschwerderecht bei einer EU-Aufsichtsbehörde zu.
+Beschwerden können Sie beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) einreichen. Falls die DSGVO anwendbar ist, steht Ihnen zusätzlich das Beschwerderecht bei einer EU-Aufsichtsbehörde zu.
 
 ## 7. Änderungen
 

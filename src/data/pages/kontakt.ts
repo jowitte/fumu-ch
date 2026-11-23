@@ -3,10 +3,10 @@ import type { PageContent } from './types';
 export const kontakt: PageContent = {
   title: 'Kontakt & Newsletter',
   description:
-    'Lass uns sprechen – oder abonniere den fumu-Newsletter: Perspektiven darauf, wie aus Technologie Wirkung wird, gelegentlich per E-Mail.',
+    'Sprechen wir miteinander – oder abonnieren Sie den fumu-Newsletter: Perspektiven darauf, wie aus Technologie Wirkung wird, gelegentlich per E-Mail.',
   order: 6,
   intro: [
-    'Du stehst vor einer strategischen oder technologischen Veränderung und suchst einen Sparringspartner, der Strategie, Organisation und Technologie zusammendenkt? Lass uns reden.',
+    'Sie stehen vor einer strategischen oder technologischen Veränderung und suchen einen Sparringspartner, der Strategie, Organisation und Technologie zusammendenkt? Sprechen wir darüber.',
   ],
   sections: [
     {
@@ -30,7 +30,7 @@ export const kontakt: PageContent = {
       items: [
         {
           kind: 'item',
-          body: 'Konkrete Anfrage? Schreib uns direkt – wir antworten innerhalb von 24 Stunden.',
+          body: 'Konkrete Anfrage? Schreiben Sie uns direkt – wir antworten innerhalb von 24 Stunden.',
           cta: { label: 'hello@fumu.ch', href: 'mailto:hello@fumu.ch' },
         },
       ],
@@ -41,11 +41,11 @@ export const kontakt: PageContent = {
       items: [
         {
           kind: 'item',
-          body: 'Perspektiven darauf, wie aus Technologie Wirkung wird – gelegentlich, ohne Lärm, direkt in dein Postfach.',
+          body: 'Perspektiven darauf, wie aus Technologie Wirkung wird – gelegentlich, ohne Lärm, direkt in Ihr Postfach.',
           component: {
             name: 'newsletter',
             fallback:
-              'Zur Anmeldung trägst du deine E-Mail-Adresse auf https://fumu.ch/kontakt/#newsletter ein. Anschliessend erhältst du eine Bestätigungsmail; erst mit dem Klick auf den Bestätigungslink wird die Anmeldung aktiv. Versand über MailerLite (EU-Hosting), Abmeldung jederzeit über den Link in jeder Mail.',
+              'Zur Anmeldung tragen Sie Ihre E-Mail-Adresse auf https://fumu.ch/kontakt/#newsletter ein. Anschliessend erhalten Sie eine Bestätigungsmail; erst mit dem Klick auf den Bestätigungslink wird die Anmeldung aktiv. Versand über MailerLite (EU-Hosting), Abmeldung jederzeit über den Link in jeder Mail.',
           },
         },
       ],

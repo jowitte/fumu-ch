@@ -46,8 +46,8 @@ const hasIntro = Boolean(heading || lead);
     </div>
 
     <p class="newsletter-consent">
-      Mit der Anmeldung bestätigst du den Erhalt des Newsletters. Wir versenden über
-      MailerLite (EU-Hosting) und du erhältst zuerst eine Bestätigungsmail (Double-Opt-in).
+      Mit der Anmeldung bestätigen Sie den Erhalt des Newsletters. Wir versenden über
+      MailerLite (EU-Hosting), und Sie erhalten zuerst eine Bestätigungsmail (Double-Opt-in).
       Abmeldung jederzeit über den Link in jeder Mail. Details in der{' '}
       <a href="/datenschutz/">Datenschutzerklärung</a>.
     </p>
@@ -160,9 +160,9 @@ const hasIntro = Boolean(heading || lead);
   // Progressive Enhancement: ohne JS postet die Form klassisch an die Edge
   // Function; mit JS bleibt der Nutzer auf der Seite und sieht Inline-Feedback.
   const MESSAGES: Record<string, string> = {
-    success: 'Fast geschafft – bitte bestätige die Anmeldung über den Link in der E-Mail, die wir dir gerade geschickt haben.',
-    invalid_email: 'Diese E-Mail-Adresse sieht nicht gültig aus. Bitte prüfe sie und versuch es erneut.',
-    generic: 'Da ist etwas schiefgelaufen. Bitte versuch es später noch einmal oder schreib uns an hello@fumu.ch.',
+    success: 'Fast geschafft – bitte bestätigen Sie die Anmeldung über den Link in der E-Mail, die wir Ihnen gerade geschickt haben.',
+    invalid_email: 'Diese E-Mail-Adresse sieht nicht gültig aus. Bitte prüfen Sie sie und versuchen Sie es erneut.',
+    generic: 'Da ist etwas schiefgelaufen. Bitte versuchen Sie es später noch einmal oder schreiben Sie uns an hello@fumu.ch.',
   };
 
   function setFeedback(el: HTMLElement, state: 'success' | 'error', message: string) {

@@ -18,4 +18,4 @@ Sollten auf diesen Seiten Verknüpfungen zu anderen Seiten im Internet angelegt 
 
 Konzeption und Gestaltung: Jochen Witte
 
-Informationen zum Datenschutz findest du in unserer [Datenschutzerklärung](/datenschutz/).
+Informationen zum Datenschutz finden Sie in unserer [Datenschutzerklärung](/datenschutz/).
