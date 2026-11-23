@@ -292,6 +292,33 @@ li {
   pointer-events: none;
 }
 
+/* Illustrationen auf gerissenem Papier (Redesign 2026-11): Loop-Video und
+   Bleistiftbild (Dateiname auf -hero, Konvention aus CLAUDE.md) liegen auf
+   einer Papierform in Rosé-hell; multiply macht ihr Weiss durchsichtig.
+   Dasselbe gilt für das Standbild, das bei «Bewegung reduzieren» an die
+   Stelle des Videos tritt – es ist ein -hero-Bild. Detail-Bilder (Zoom)
+   stehen frei. */
+.loop-illustration,
+p:has(> img[src*="-hero."]:only-child) {
+  position: relative;
+}
+
+.loop-illustration::before,
+p:has(> img[src*="-hero."]:only-child)::before {
+  content: '';
+  position: absolute;
+  inset: 2% 4% 0 6%;
+  background: var(--color-blush-light);
+  clip-path: var(--torn-1);
+}
+
+.loop-illustration video,
+p:has(> img[src*="-hero."]:only-child) > img {
+  position: relative;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
 .loop-illustration video::-webkit-media-controls,
 .loop-illustration video::-webkit-media-controls-start-playback-button {
   display: none !important;

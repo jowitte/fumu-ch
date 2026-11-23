@@ -104,9 +104,9 @@
   - `PerspektivenBlaetter.astro` Props `{ items: Array<{ href: string; title: string; text: string; date?: Date }> }`: Raster mit bis zu drei weissen Blättern auf Pflaume, `--shadow-sheet`, das erste −0.8°, das dritte +0.7° gedreht; Datum (falls vorhanden) Coral in Versalien; Titel Instrument Serif 32 px Pflaume; unter 860 px einspaltig, ohne Drehung.
   - Global: `.loop-illustration` und `p:has(> img[src*="-hero."]:only-child)` bekommen `position: relative` und ein `::before` in Rosé-hell mit `clip-path: var(--torn-1)`; Video bzw. Bild darüber mit `multiply`; dasselbe für das Standbild bei `prefers-reduced-motion`.
 
-- [ ] **Step 1: Komponenten schreiben** nach den Interfaces; Werte aus `startseite.html`.
-- [ ] **Step 2: Verifizieren** – `npm run build && npx vitest run` grün. Sichtprüfung über eine Perspektive mit Loop-Video (z. B. `/perspektiven/wer-bildet-noch-aus/`) und eine mit Bleistift-Bild (`/perspektiven/alte-metriken-versagen/`): Papierform hinter dem Bild, Weiss durchsichtig; dasselbe mit aktivierter Option «Bewegung reduzieren» (DevTools → Rendering → `prefers-reduced-motion: reduce`).
-- [ ] **Step 3: Commit** «Design: Karte, Papierbild, Perspektiven-Blätter».
+- [x] **Step 1: Komponenten schreiben** nach den Interfaces; Werte aus `startseite.html`.
+- [x] **Step 2: Verifizieren** – `npm run build && npx vitest run` grün. Sichtprüfung über eine Perspektive mit Loop-Video (z. B. `/perspektiven/wer-bildet-noch-aus/`) und eine mit Bleistift-Bild (`/perspektiven/alte-metriken-versagen/`): Papierform hinter dem Bild, Weiss durchsichtig; dasselbe mit aktivierter Option «Bewegung reduzieren» (DevTools → Rendering → `prefers-reduced-motion: reduce`).
+- [x] **Step 3: Commit** «Design: Karte, Papierbild, Perspektiven-Blätter».
 
 ### Task 5: Übergangs-Startseite aus bestehenden Texten
 
