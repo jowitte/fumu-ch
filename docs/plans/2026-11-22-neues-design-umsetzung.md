@@ -45,13 +45,13 @@
 - Produces (CSS-Tokens, von allen späteren Tasks benutzt): `--color-white`, `--color-plum`, `--color-plum-soft`, `--color-ink`, `--color-coral`, `--color-saffron`, `--color-blush`, `--color-blush-light`, `--color-plum-line: rgb(243 217 196 / .22)`, `--font-serif: 'Instrument Serif', Georgia, serif`, `--font-sans: 'Instrument Sans', system-ui, sans-serif`, `--radius-cut: 22px 8px 26px 10px / 10px 24px 8px 20px`, `--shadow-layer: 0 1px 0 rgb(0 0 0 / .06), 0 14px 24px -18px rgb(43 26 39 / .5)`, `--shadow-sheet: 0 18px 30px -20px rgb(0 0 0 / .7)`, `--max-width: 1200px`, `--read-width: 680px`, `--page-width: 760px`, Spacing `--space-xs…xl` wie heute.
 - Entfernt: `--color-bg`, `--color-text`, `--color-text-light`, `--color-primary`, `--color-neutral`, `--color-sage`, `--color-lavender`, `--color-sand`, `--font-mono`. Jede Verwendung im Code wird in ihrem Task ersetzt; bis dahin dürfen Komponenten auf Fallbacks fallen.
 
-- [ ] **Step 1: Worktree anlegen** – mit superpowers:using-git-worktrees einen Worktree auf neuem Branch `redesign` von `main` (Stand mit Commit «Plan: Entwurf für das neue Design …»). `npm install`.
-- [ ] **Step 2: Baseline sichern** – `scripts/text-diff.mjs` anlegen (Verhalten siehe Task 11, Schritt 1). `npm run build`, dann den ganzen `dist/` nach `<workspace>/baseline/` kopieren. Expected: 27 Seiten gebaut; `node scripts/text-diff.mjs <workspace>/baseline dist` meldet keine Unterschiede.
-- [ ] **Step 3: Schriften beschaffen** (Download freigegeben) – `npm install --no-save @fontsource/instrument-serif @fontsource-variable/instrument-sans`, die woff2 für latin und latin-ext (Serif 400 normal und kursiv, Sans variable wght) unter obigen Namen nach `public/fonts/` kopieren, OFL-Text dazu. `package.json` bleibt unverändert. Expected: `ls public/fonts/instrument-*` zeigt 6 Dateien.
-- [ ] **Step 4: `global.css` umstellen** – `@font-face` für die neuen Dateien mit den bestehenden `unicode-range`-Strings für latin und latin-ext; alte `@font-face` raus; `:root` auf die Tokens oben; `body` Weiss, Tinte, Instrument Sans 17px/1.6; h1–h3 Instrument Serif 400 in Pflaume (Grössen aus dem Entwurf), h4–h6 Instrument Sans 600; Links Coral mit Unterstreichung (Offset 0.22em); Fokus `outline: 2px solid var(--color-coral)`; Breakpoint 860 px. Zoom-Ebene und `.loop-illustration` auf die neuen Tokens (Papier kommt in Task 4).
-- [ ] **Step 5: Preload** in `BaseLayout.astro` auf `instrument-sans-latin.woff2` und `instrument-serif-latin.woff2`.
-- [ ] **Step 6: Verifizieren** – `npm run build && npx vitest run`. Expected: 27 Seiten, alle Tests grün; `grep -l "Instrument Serif" dist/_astro/*.css` findet eine Datei; `grep -rl "Fraunces\|IBM Plex" dist/_astro/*.css` findet nichts.
-- [ ] **Step 7: Commit** – `git add` der genannten Dateien, Commit «Design: Tokens und Schriften (Instrument, Pflaume, Coral)».
+- [x] **Step 1: Worktree anlegen** – mit superpowers:using-git-worktrees einen Worktree auf neuem Branch `redesign` von `main` (Stand mit Commit «Plan: Entwurf für das neue Design …»). `npm install`.
+- [x] **Step 2: Baseline sichern** – `scripts/text-diff.mjs` anlegen (Verhalten siehe Task 11, Schritt 1). `npm run build`, dann den ganzen `dist/` nach `<workspace>/baseline/` kopieren. Expected: 27 Seiten gebaut; `node scripts/text-diff.mjs <workspace>/baseline dist` meldet keine Unterschiede.
+- [x] **Step 3: Schriften beschaffen** (Download freigegeben) – `npm install --no-save @fontsource/instrument-serif @fontsource-variable/instrument-sans`, die woff2 für latin und latin-ext (Serif 400 normal und kursiv, Sans variable wght) unter obigen Namen nach `public/fonts/` kopieren, OFL-Text dazu. `package.json` bleibt unverändert. Expected: `ls public/fonts/instrument-*` zeigt 6 Dateien.
+- [x] **Step 4: `global.css` umstellen** – `@font-face` für die neuen Dateien mit den bestehenden `unicode-range`-Strings für latin und latin-ext; alte `@font-face` raus; `:root` auf die Tokens oben; `body` Weiss, Tinte, Instrument Sans 17px/1.6; h1–h3 Instrument Serif 400 in Pflaume (Grössen aus dem Entwurf), h4–h6 Instrument Sans 600; Links Coral mit Unterstreichung (Offset 0.22em); Fokus `outline: 2px solid var(--color-coral)`; Breakpoint 860 px. Zoom-Ebene und `.loop-illustration` auf die neuen Tokens (Papier kommt in Task 4).
+- [x] **Step 5: Preload** in `BaseLayout.astro` auf `instrument-sans-latin.woff2` und `instrument-serif-latin.woff2`.
+- [x] **Step 6: Verifizieren** – `npm run build && npx vitest run`. Expected: 27 Seiten, alle Tests grün; `grep -l "Instrument Serif" dist/_astro/*.css` findet eine Datei; `grep -rl "Fraunces\|IBM Plex" dist/_astro/*.css` findet nichts.
+- [x] **Step 7: Commit** – `git add` der genannten Dateien, Commit «Design: Tokens und Schriften (Instrument, Pflaume, Coral)».
 
 ### Task 2: Gerissenes Papier als CSS-Variablen
 
@@ -62,17 +62,17 @@
 **Interfaces:**
 - Produces: `tornPolygon(seed: number, opts?: { points?: number; jitter?: number; cx?: number; cy?: number; rx?: number; ry?: number }): string`, `tornEdge(seed: number, teeth?: number): string`, `tornTokens(): Record<'--torn-1' | '--torn-2' | '--torn-3' | '--torn-edge', string>`; CSS-Variablen `--torn-1`, `--torn-2`, `--torn-3`, `--torn-edge` auf `:root` jeder Seite.
 
-- [ ] **Step 1: Tests schreiben** (`src/lib/torn-paper.test.ts`):
+- [x] **Step 1: Tests schreiben** (`src/lib/torn-paper.test.ts`):
   - `tornPolygon(7)` zweimal aufgerufen liefert denselben String; `tornPolygon(7) !== tornPolygon(11)`.
   - `tornPolygon(7)` beginnt mit `polygon(`, hat 90 Punkte (89 Kommas), jeder Punkt matcht `/^-?\d+\.\d% -?\d+\.\d%$/`, alle Werte liegen zwischen −5 und 105.
   - `tornPolygon(7, { points: 40 })` hat 40 Punkte.
   - `tornEdge(3)` endet mit `100% 100%, 0% 100%)`, beginnt mit `polygon(0% `, alle y-Werte der Kante liegen zwischen 25 und 75; Standard 20 Zacken.
   - `tornTokens()` hat genau die vier Schlüssel; alle Werte beginnen mit `polygon(`.
-- [ ] **Step 2: Laufen lassen** – `npx vitest run src/lib/torn-paper.test.ts`. Expected: FAIL (Modul fehlt).
-- [ ] **Step 3: Implementieren** – `tornPolygon` portiert `torn()` aus `docs/plans/assets/2026-11-22-neues-design/mix4.py` (Ellipse mit 7 sinusförmigen Wellen plus Zittern) mit einem deterministischen PRNG (z. B. mulberry32) statt `random.Random`; Defaults points 90, jitter 0.035, cx 52, cy 52, rx 47, ry 44; Zahlen mit einer Nachkommastelle. `tornEdge`: x gleichmässig 0–100 %, y mit Zittern um 50 % (Bereich 25–75), dann `100% 100%, 0% 100%`. `tornTokens`: `--torn-1` = tornPolygon(7), `--torn-2` = tornPolygon(11, { points: 70, jitter: 0.05, cx: 50, cy: 50, rx: 46, ry: 45 }), `--torn-3` = tornPolygon(23), `--torn-edge` = tornEdge(3).
-- [ ] **Step 4: Tests grün** – `npx vitest run src/lib/torn-paper.test.ts`. Expected: PASS.
-- [ ] **Step 5: In BaseLayout einspeisen** – im `<head>` `<style is:inline set:html={…}>` mit `:root{--torn-1:…;…}` aus `tornTokens()`. Expected nach `npm run build`: `grep -c "\-\-torn-edge:polygon" dist/index.html` = 1.
-- [ ] **Step 6: Commit** «Design: gerissene Papierkanten als Build-Tokens».
+- [x] **Step 2: Laufen lassen** – `npx vitest run src/lib/torn-paper.test.ts`. Expected: FAIL (Modul fehlt).
+- [x] **Step 3: Implementieren** – `tornPolygon` portiert `torn()` aus `docs/plans/assets/2026-11-22-neues-design/mix4.py` (Ellipse mit 7 sinusförmigen Wellen plus Zittern) mit einem deterministischen PRNG (z. B. mulberry32) statt `random.Random`; Defaults points 90, jitter 0.035, cx 52, cy 52, rx 47, ry 44; Zahlen mit einer Nachkommastelle. `tornEdge`: x gleichmässig 0–100 %, y mit Zittern um 50 % (Bereich 25–75), dann `100% 100%, 0% 100%`. `tornTokens`: `--torn-1` = tornPolygon(7), `--torn-2` = tornPolygon(11, { points: 70, jitter: 0.05, cx: 50, cy: 50, rx: 46, ry: 45 }), `--torn-3` = tornPolygon(23), `--torn-edge` = tornEdge(3).
+- [x] **Step 4: Tests grün** – `npx vitest run src/lib/torn-paper.test.ts`. Expected: PASS.
+- [x] **Step 5: In BaseLayout einspeisen** – im `<head>` `<style is:inline set:html={…}>` mit `:root{--torn-1:…;…}` aus `tornTokens()`. Expected nach `npm run build`: `grep -c "\-\-torn-edge:polygon" dist/index.html` = 1.
+- [x] **Step 6: Commit** «Design: gerissene Papierkanten als Build-Tokens».
 
 ### Task 3: Kopfzeile, Sockel und Fuss
 
