@@ -1,6 +1,6 @@
 ---
 /**
- * Lead unter dem H1 der Evans-Seiten (about, kontakt, was-wir-tun, Pillars).
+ * Lead unter dem H1 der Seiten aus PageContent (about, kontakt, was-wir-tun, Pillars).
  * Ein Eintrag pro Absatz; zwischen Absätzen der normale Absatzabstand, unter
  * dem Block der Abstand zur ersten Sektion.
  */
@@ -17,23 +17,22 @@ const { paragraphs } = Astro.props;
 
 <style>
   .intro {
-    max-width: 720px;
+    max-width: var(--page-width);
     margin: 0 0 var(--space-xl) 0;
   }
 
   .intro p {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--color-text);
     margin: 0 0 var(--space-md) 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
   }
 
   .intro p:last-child {
     margin-bottom: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     .intro {
       margin: 0 0 var(--space-lg) 0;
     }

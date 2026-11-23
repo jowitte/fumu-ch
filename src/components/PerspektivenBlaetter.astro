@@ -1,7 +1,8 @@
 ---
 /**
- * Perspektiven als weisse Blätter auf Pflaume (im Sockel): bis zu drei,
- * das erste und das dritte leicht gedreht. Datum Coral in Versalien
+ * Perspektiven als weisse Blätter auf Pflaume (im Sockel), drei pro Reihe,
+ * das erste und das dritte jeder Reihe leicht gedreht. Die Auswahl trifft
+ * der Aufrufer (Startseite und Artikel: drei; Pillar: alle verwandten). Datum Coral in Versalien
  * (Regel 6: Coral im Sockel nur als Knopf und als Datum auf den Blättern),
  * Titel in Serif. Unter 860 px einspaltig und ohne Drehung.
  */
@@ -17,7 +18,7 @@ const formatDate = (date: Date) =>
 
 {items.length > 0 && (
   <ul class="blaetter">
-    {items.slice(0, 3).map(item => (
+    {items.map(item => (
       <li>
         <a href={item.href} class="blatt">
           {item.date && <time class="blatt-datum" datetime={item.date.toISOString().split('T')[0]}>{formatDate(item.date)}</time>}
@@ -33,7 +34,7 @@ const formatDate = (date: Date) =>
   .blaetter {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
+    gap: 36px 28px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -55,11 +56,11 @@ const formatDate = (date: Date) =>
     --heading: var(--color-plum);
   }
 
-  .blaetter li:nth-child(1) .blatt {
+  .blaetter li:nth-child(3n + 1) .blatt {
     transform: rotate(-0.8deg);
   }
 
-  .blaetter li:nth-child(3) .blatt {
+  .blaetter li:nth-child(3n) .blatt {
     transform: rotate(0.7deg);
   }
 

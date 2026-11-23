@@ -108,6 +108,9 @@ export const about: PageContent = {
     },
     {
       label: 'Typische Formate',
+      // Formate als Karten wie auf den Pillar-Seiten (Sektion.astro); speist
+      // hier kein JSON-LD, about.astro setzt nur das Person-Markup.
+      id: 'formate',
       items: [
         {
           kind: 'item',

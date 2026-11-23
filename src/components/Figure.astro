@@ -1,6 +1,6 @@
 ---
 /**
- * Diagramm mit Bildunterschrift – in der Content-Spalte (EvansSection) und
+ * Diagramm mit Bildunterschrift – in der Spalte einer Sektion (Sektion.astro) und
  * als Hero im Lead ([pillar].astro). Ein Klick oder Tippen öffnet das Bild
  * gross in einer Ebene über der Seite (Popover-API, kein JavaScript); Klick
  * daneben, Esc oder «Schliessen» macht sie wieder zu. Maus-Hover zeigt nur
@@ -83,10 +83,10 @@ const zoomId = `zoom-${figure.src.split('/').pop()?.replace(/\.[^.]+$/, '')}`;
   }
 
   figcaption {
+    margin-top: var(--space-sm);
     font-family: var(--font-sans);
     font-size: 14px;
     line-height: 1.5;
-    color: var(--color-text-light);
-    margin-top: var(--space-sm);
+    color: var(--color-plum-soft);
   }
 </style>

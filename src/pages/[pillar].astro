@@ -8,9 +8,12 @@
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { jsonLd } from '../lib/json-ld';
-import EvansSection from '../components/EvansSection.astro';
 import Figure from '../components/Figure.astro';
+import Karte from '../components/Karte.astro';
 import PageIntro from '../components/PageIntro.astro';
+import PerspektivenBlaetter from '../components/PerspektivenBlaetter.astro';
+import Sektion from '../components/Sektion.astro';
+import type { LinksItem } from '../data/pages/types';
 import { pillarPath, pillars, type Pillar } from '../data/pillars';
 import { loadPage } from '../data/pages';
 import { headingOf } from '../data/pages/to-markdown';
@@ -31,6 +34,12 @@ const url = new URL(pillarPath(pillar), Astro.site).toString();
 const structuredData = [serviceLd(page, { url, serviceType: pillar.serviceType }), faqPageLd(page)].filter(Boolean);
 
 const siblings = pillars.filter(p => p.slug !== pillar.slug);
+
+// Die verwandten Perspektiven hängt loadPage als letzte Sektion an
+// (related.ts). Sie stehen als Blätter im Sockel, nicht in der Spalte.
+const related = pillar.page.relatedPerspektiven ? page.sections.at(-1) : undefined;
+const sections = related ? page.sections.slice(0, -1) : page.sections;
+const relatedEntries = related?.items.find((item): item is LinksItem => item.kind === 'links')?.entries ?? [];
 ---
 
 <BaseLayout title={page.title} description={page.description}>
@@ -39,65 +48,68 @@ const siblings = pillars.filter(p => p.slug !== pillar.slug);
     {structuredData.map(data => <script type="application/ld+json" set:html={jsonLd(data)} />)}
   </Fragment>
 
-  <section class="evans-page">
-    <div class="container">
-
-      <h1 class="pillar-title">{headingOf(page)}</h1>
-
-      <div class="pillar-lead">
-        {page.hero && <Figure figure={page.hero} class="pillar-hero" eager />}
-        <PageIntro paragraphs={page.intro} />
-      </div>
-
-      {page.sections.map(section => (
-        <>
-          <hr class="section-divider" />
-          <EvansSection section={section} />
-        </>
-      ))}
-
-      <nav class="pillar-nav" aria-label="Was wir tun">
-        <a href="/was-wir-tun/" class="back-link">&larr; Was wir tun</a>
-        {siblings.length > 0 && (
-          <ul class="siblings">
-            {siblings.map(sibling => (
-              <li><a href={pillarPath(sibling)}>{sibling.label}</a></li>
-            ))}
-          </ul>
-        )}
-      </nav>
-
+  <div class="container seite">
+    <div class:list={['pillar-kopf', { 'mit-bild': page.hero }]}>
+      <h1 class="pillar-titel">{headingOf(page)}</h1>
+      {page.hero && (
+        <Karte tone="blush-light" class="pillar-hero-karte">
+          <Figure figure={page.hero} class="pillar-hero" eager />
+        </Karte>
+      )}
     </div>
-  </section>
+    <PageIntro paragraphs={page.intro} />
+    {sections.map(section => <Sektion section={section} />)}
+    <nav class="pillar-nav" aria-label="Was wir tun">
+      <a href="/was-wir-tun/">&larr; Was wir tun</a>
+      {siblings.length > 0 && (
+        <ul class="geschwister">
+          {siblings.map(sibling => (
+            <li><a href={pillarPath(sibling)}>{sibling.label}</a></li>
+          ))}
+        </ul>
+      )}
+    </nav>
+  </div>
 
+  {related && relatedEntries.length > 0 && (
+    <section slot="sockel" class="weiterlesen" aria-labelledby="weiterlesen">
+      <div class="sec-head">
+        <h2 id="weiterlesen">{related.label}</h2>
+      </div>
+      <PerspektivenBlaetter
+        items={relatedEntries.map(entry => ({ href: entry.href, title: entry.title, text: entry.teaser }))}
+      />
+    </section>
+  )}
 </BaseLayout>
 
 <style>
-  /* Der H1 einer Pillar trägt die Suchfrage und ist deshalb länger als die
+  /* Kopf: Titel links, Diagramm rechts auf Rosé-hell, darunter der Lead.
+     Der H1 einer Pillar trägt die Suchfrage und ist deshalb länger als die
      übrigen Seitentitel – gleicher Schnitt, kleinerer Grad. */
-  .pillar-title {
-    font-size: 44px;
-    max-width: 880px;
+  .pillar-kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg) 48px;
+    align-items: center;
+    margin-bottom: var(--space-xl);
   }
 
-  /* Hero im Lead wie im Magazin: Das Diagramm steht rechts und ragt aus der
-     720er-Lesespalte des Leads in den freien Rand des Containers, der Lead
-     umfliesst es. flow-root hält den Float im Block, damit die erste
-     Section-Linie erst darunter beginnt. Auf dem Handy steht das Bild in
-     voller Breite zwischen H1 und Lead. */
-  .pillar-lead {
-    display: flow-root;
+  .pillar-kopf.mit-bild {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   }
 
-  .pillar-hero {
-    float: right;
-    width: min(480px, 50%);
-    margin: 6px 0 var(--space-xl) var(--space-lg);
+  .pillar-titel {
+    margin: var(--space-lg) 0 0;
+    font-size: 60px;
+    line-height: 1.02;
   }
 
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--color-coral);
+  .seite :global(.pillar-hero-karte) {
+    padding: 24px 24px 18px;
+  }
+
+  .seite :global(.pillar-hero) {
     margin: 0;
   }
 
@@ -106,25 +118,13 @@ const siblings = pillars.filter(p => p.slug !== pillar.slug);
     flex-wrap: wrap;
     align-items: baseline;
     gap: var(--space-md) var(--space-lg);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--color-coral);
-    margin-bottom: var(--space-xl);
+    max-width: var(--page-width);
+    margin-top: var(--space-xl);
+    font-size: 15px;
+    font-weight: 600;
   }
 
-  .back-link,
-  .siblings a {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-coral);
-  }
-
-  .back-link:hover,
-  .siblings a:hover {
-    text-decoration: none;
-  }
-
-  .siblings {
+  .geschwister {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md) var(--space-lg);
@@ -133,15 +133,17 @@ const siblings = pillars.filter(p => p.slug !== pillar.slug);
     padding: 0;
   }
 
-  @media (max-width: 768px) {
-    .pillar-title {
-      font-size: 30px;
+  .geschwister li {
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .pillar-kopf.mit-bild {
+      grid-template-columns: minmax(0, 1fr);
     }
 
-    .pillar-hero {
-      float: none;
-      width: auto;
-      margin: 0 0 var(--space-lg) 0;
+    .pillar-titel {
+      font-size: 40px;
     }
   }
 </style>

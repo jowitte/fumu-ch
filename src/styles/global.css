@@ -221,6 +221,31 @@ li {
   background: color-mix(in srgb, var(--color-coral) 88%, var(--color-ink));
 }
 
+/* Kopf einer Sektion im Sockel und auf der Startseite: Titel links, ein
+   Link rechts (z.B. «Alle Perspektiven»). */
+.sec-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm) var(--space-lg);
+  margin-bottom: 32px;
+}
+
+.sec-head h2 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+.sec-link {
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
 /* Etikett: Versalien, 13 px, leicht gesperrt */
 .label-caps {
   font-family: var(--font-sans);
@@ -242,6 +267,9 @@ li {
   }
   h1 {
     font-size: 46px;
+  }
+  .sec-head h2 {
+    font-size: 40px;
   }
 }
 

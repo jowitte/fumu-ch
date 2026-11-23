@@ -1,6 +1,6 @@
 /**
  * Seiteninhalt als einzige Quelle: aus einem PageContent entstehen sowohl das
- * gerenderte Evans-Raster (EvansSection.astro) als auch der Markdown-Kanal
+ * gerenderte HTML (Sektion.astro) als auch der Markdown-Kanal
  * (to-markdown.ts, gelesen von /[slug].md und /llms-full.txt).
  *
  * Hintergrund: docs/plans/2026-08-19-seiteninhalt-eine-quelle.md

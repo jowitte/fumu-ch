@@ -265,27 +265,8 @@ const formatHref = (format: TextItem) => {
     color: var(--color-blush);
   }
 
-  .sec-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-sm) var(--space-lg);
-    margin-bottom: 36px;
-  }
-
-  .sec-head h2 {
-    margin: 0;
+  .perspektiven .sec-head h2 {
     font-size: 60px;
-    line-height: 1;
-    letter-spacing: -0.015em;
-  }
-
-  .sec-link {
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 5px;
   }
 
   @media (max-width: 860px) {
@@ -304,7 +285,7 @@ const formatHref = (format: TextItem) => {
     }
 
     .leistungen > h2,
-    .sec-head h2 {
+    .perspektiven .sec-head h2 {
       font-size: 44px;
     }
 
