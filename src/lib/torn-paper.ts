@@ -2,14 +2,16 @@
  * Gerissenes Papier als clip-path-Polygone. Die Formen entstehen beim Build
  * aus festen Startwerten, damit jede Seite und jeder Build dieselbe Kante
  * zeigt – nicht zufällig im Browser. BaseLayout legt sie als CSS-Variablen
- * `--torn-*` auf :root; Papierflächen hinter Bildern und die Oberkante des
- * Sockels lesen sie mit `clip-path: var(--torn-N)`.
+ * `--torn-*` auf :root; die Papierflächen hinter Bildern lesen sie mit
+ * `clip-path: var(--torn-N)`. Dazu kommen die `--riss-*`-Kacheln für
+ * Sockelkante und Knöpfe aus src/lib/riss.ts.
  *
  * Portiert aus `torn()` in docs/plans/assets/2026-11-22-neues-design/mix4.py
  * (Entwurf «Mischung 4»), mit eigenem PRNG statt Pythons random.Random.
  */
 
-import { mulberry32 } from './zufall';
+import { FARBEN, knopfKantenSvg, knopfSeitenPolygon, mischFarbe, rissKanteSvg, svgDataUri } from './riss.ts';
+import { mulberry32 } from './zufall.ts';
 
 const uniform = (rnd: () => number, min: number, max: number) => min + (max - min) * rnd();
 
@@ -48,32 +50,33 @@ export const tornPolygon = (seed: number, opts: TornOptions = {}): string => {
   return `polygon(${pts.join(', ')})`;
 };
 
-const percent = (value: number) => `${Number(value.toFixed(1))}%`;
+export type TornTokens = Record<'--torn-1' | '--torn-2' | '--torn-3', string>;
 
-/**
- * Gerissene Oberkante einer Fläche: Zacken von links nach rechts, die
- * abwechselnd über und unter der Mitte liegen, dann unten über beide Ecken
- * geschlossen. Die Box ist dafür nur wenige Pixel hoch.
- */
-export const tornEdge = (seed: number, teeth = 20): string => {
-  const rnd = mulberry32(seed);
-  const pts: string[] = [];
-  for (let i = 0; i <= teeth; i++) {
-    const side = i % 2 === 0 ? 1 : -1;
-    const y = 50 + side * uniform(rnd, 4, 22);
-    pts.push(`${percent((i * 100) / teeth)} ${percent(y)}`);
-  }
-  return `polygon(${pts.join(', ')}, 100% 100%, 0% 100%)`;
-};
-
-export type TornTokens = Record<'--torn-1' | '--torn-2' | '--torn-3' | '--torn-edge', string>;
-
-/** Die Formen der Site, als CSS-Variablen für :root. */
+/** Die Papierformen hinter den Bildern, als CSS-Variablen für :root. */
 export const tornTokens = (): TornTokens => ({
   '--torn-1': tornPolygon(7),
   '--torn-2': tornPolygon(11, { points: 70, jitter: 0.05, cx: 50, cy: 50, rx: 46, ry: 45 }),
   '--torn-3': tornPolygon(23),
-  '--torn-edge': tornEdge(3),
+});
+
+/**
+ * Der feine Papierriss (src/lib/riss.ts) für Sockelkante und Knöpfe:
+ * - `--riss-kante`: Sockel-Oberkante in Pflaume mit Faserton, 1100 × 48 px,
+ *   als Hintergrund über die Breite wiederholt
+ * - `--riss-oben`, `--riss-unten`, `--riss-faser`: Knopf-Streifen 300 × 10 px
+ *   als Masken für Fläche und Faserrand
+ * - `--riss-seiten`: leicht unregelmässige Knopfseiten (clip-path)
+ * - `--riss-knopf-faser`: Faserton des Knopfs (Coral mit 37 % Weiss)
+ */
+export const rissTokens = (): Record<string, string> => ({
+  '--riss-kante': svgDataUri(
+    rissKanteSvg({ farbe: FARBEN.plum, faser: mischFarbe(FARBEN.plum, FARBEN.white, 0.37) }),
+  ),
+  '--riss-oben': svgDataUri(knopfKantenSvg('oben')),
+  '--riss-unten': svgDataUri(knopfKantenSvg('unten')),
+  '--riss-faser': svgDataUri(knopfKantenSvg('faser')),
+  '--riss-seiten': knopfSeitenPolygon(),
+  '--riss-knopf-faser': mischFarbe(FARBEN.coral, FARBEN.white, 0.37),
 });
 
 /**
@@ -85,7 +88,7 @@ export const tornTokens = (): TornTokens => ({
 export const tornCss = (): string =>
   `/* Erzeugt von scripts/torn-css.mjs aus src/lib/torn-paper.ts – nicht von Hand ändern. */
 :root {
-${Object.entries(tornTokens())
+${Object.entries({ ...tornTokens(), ...rissTokens() })
   .map(([name, value]) => `  ${name}: ${value};`)
   .join('\n')}
 }

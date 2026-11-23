@@ -1,7 +1,8 @@
 ---
 /**
  * Pflaumensockel: der untere Teil jeder Seite, mit gerissener Oberkante
- * (`--torn-edge` aus src/lib/torn-paper.ts). Reihenfolge: seitenspezifischer
+ * (feiner Papierriss `--riss-kante` aus src/lib/riss.ts, über die Breite
+ * wiederholt). Reihenfolge: seitenspezifischer
  * Inhalt (Slot, z.B. Zitat oder Perspektiven als Blätter) → Abschluss
  * «25 Minuten Kennenlernen» (alle Seiten ausser Kontakt) → Newsletter-Zeile
  * → Fuss.
@@ -76,15 +77,19 @@ const year = new Date().getFullYear();
 
   /* Gerissene Oberkante: ein schmaler Streifen in Pflaume, der über den
      Sockel hinausragt und oben gerissen ist. */
+  /* Oberkante: eine 1100 px breite Riss-Kachel, nahtlos wiederholt. Ihre
+     unteren 10 px liegen über dem Sockel, damit kein Spalt bleibt. Der
+     Schatten fällt zur weissen Seite: Pflaume liegt als Papier auf Weiss. */
   .sockel::before {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
-    top: -22px;
-    height: 24px;
-    background: var(--color-plum);
-    clip-path: var(--torn-edge);
+    top: -38px;
+    height: 48px;
+    background: var(--riss-kante) repeat-x left top / auto 100%;
+    filter: drop-shadow(0 -1px 0 rgb(43 26 39 / .10)) drop-shadow(0 -5px 7px rgb(43 26 39 / .12));
+    pointer-events: none;
   }
 
   .sockel-inhalt {

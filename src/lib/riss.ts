@@ -13,7 +13,7 @@
  * Oktave genau 2 und Gitter periodisch, damit die Kachel ohne Naht
  * anschliesst.
  */
-import { mulberry32 } from './zufall';
+import { mulberry32 } from './zufall.ts';
 
 /** Grundfarben aus src/styles/global.css (ein Test hält beide gleich). */
 export const FARBEN = {
@@ -74,9 +74,12 @@ const stellen = (breite: number, schritt: number) => {
   return Array.from({ length: n + 1 }, (_, i) => (i * breite) / n);
 };
 
-/** Kante als Polylinie, dann zwei Ecken, dann zu: «Fläche jenseits der Kante». */
+/**
+ * Kante als Polylinie, dann zwei Ecken, dann zu: «Fläche jenseits der Kante».
+ * Nach M gelten weitere Paare als Linien – das spart ein L pro Punkt.
+ */
 const flaeche = (kante: Array<[number, number]>, ecken: [[number, number], [number, number]]) =>
-  `M${kante.map(([x, y]) => `${f1(x)},${f1(y)}`).join(' L')} L${ecken[0].join(',')} L${ecken[1].join(',')} Z`;
+  `M${kante.map(([x, y]) => `${f1(x)},${f1(y)}`).join(' ')} L${ecken[0].join(',')} L${ecken[1].join(',')} Z`;
 
 export type RissKanteOptionen = {
   /** Farbe der Fläche unterhalb der Kante. */

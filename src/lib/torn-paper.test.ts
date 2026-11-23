@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { tornCss, tornEdge, tornPolygon, tornTokens } from './torn-paper';
+import { tornCss, tornPolygon, tornTokens } from './torn-paper';
 
 const points = (polygon: string) => polygon.replace(/^polygon\(/, '').replace(/\)$/, '').split(', ');
 const numbers = (point: string) => point.split(' ').map(v => Number.parseFloat(v));
@@ -44,38 +44,10 @@ describe('tornPolygon', () => {
   });
 });
 
-describe('tornEdge', () => {
-  const edge = tornEdge(3);
-  const edgePoints = points(edge).slice(0, -2);
-
-  it('beginnt links und schliesst unten über beide Ecken', () => {
-    expect(edge.startsWith('polygon(0% ')).toBe(true);
-    expect(edge.endsWith('100% 100%, 0% 100%)')).toBe(true);
-  });
-
-  it('hat standardmässig 20 Zacken, also 21 Punkte von 0 bis 100 %', () => {
-    expect(edgePoints).toHaveLength(21);
-    expect(numbers(edgePoints[0])[0]).toBe(0);
-    expect(numbers(edgePoints[20])[0]).toBe(100);
-  });
-
-  it('hält die Kante zwischen 25 und 75 %', () => {
-    for (const point of edgePoints) {
-      const [, y] = numbers(point);
-      expect(y).toBeGreaterThanOrEqual(25);
-      expect(y).toBeLessThanOrEqual(75);
-    }
-  });
-
-  it('ist deterministisch', () => {
-    expect(tornEdge(3)).toBe(edge);
-  });
-});
-
 describe('tornTokens', () => {
-  it('liefert genau die vier CSS-Variablen als Polygone', () => {
+  it('liefert genau die drei Papierformen als Polygone', () => {
     const tokens = tornTokens();
-    expect(Object.keys(tokens).sort()).toEqual(['--torn-1', '--torn-2', '--torn-3', '--torn-edge']);
+    expect(Object.keys(tokens).sort()).toEqual(['--torn-1', '--torn-2', '--torn-3']);
     for (const value of Object.values(tokens)) {
       expect(value.startsWith('polygon(')).toBe(true);
     }
@@ -83,12 +55,23 @@ describe('tornTokens', () => {
 });
 
 describe('tornCss', () => {
-  it('legt die vier Variablen auf :root', () => {
+  it('legt die Papierformen auf :root', () => {
     const css = tornCss();
     expect(css).toContain(':root {');
     for (const [name, value] of Object.entries(tornTokens())) {
       expect(css).toContain(`${name}: ${value};`);
     }
+  });
+
+  it('legt den Papierriss für Sockelkante und Knöpfe dazu, die alte Zackenkante nicht mehr', () => {
+    const css = tornCss();
+    expect(css).toContain('--riss-kante: url("data:image/svg+xml,');
+    expect(css).toContain('--riss-oben: url("data:image/svg+xml,');
+    expect(css).toContain('--riss-unten: url("data:image/svg+xml,');
+    expect(css).toContain('--riss-faser: url("data:image/svg+xml,');
+    expect(css).toContain('--riss-seiten: polygon(');
+    expect(css).toContain('--riss-knopf-faser: #DA8A87;');
+    expect(css).not.toContain('--torn-edge');
   });
 
   it('steht unverändert in src/styles/torn-paper.css (sonst: node scripts/torn-css.mjs)', () => {

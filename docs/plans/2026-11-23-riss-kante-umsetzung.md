@@ -73,13 +73,13 @@
 - Consumes: `rissKanteSvg`, `knopfKantenSvg`, `knopfSeitenPolygon`, `svgDataUri`, `mischFarbe`, `FARBEN` (Task 1).
 - Produces: CSS-Variablen in `torn-paper.css`: `--riss-kante`, `--riss-oben`, `--riss-unten`, `--riss-faser`, `--riss-knopf-faser` (Farbe), `--riss-seiten`; `--torn-edge` und `tornEdge` entfallen; `TornTokens` hat nur noch `--torn-1…3`.
 
-- [ ] **Step 1: Tests anpassen** (`torn-paper.test.ts`): `describe('tornEdge')` entfernen; `tornTokens()` hat genau `['--torn-1', '--torn-2', '--torn-3']`; `tornCss()` enthält `--riss-kante: url("data:image/svg+xml,`, `--riss-oben:`, `--riss-unten:`, `--riss-faser:`, `--riss-seiten: polygon(` und `--riss-knopf-faser: #DA8A87`; enthält nicht `--torn-edge`. Der Sync-Test mit `torn-paper.css` bleibt.
-- [ ] **Step 2: Laufen lassen** – Expected: FAIL.
-- [ ] **Step 3: `torn-paper.ts`** – `tornEdge` und `--torn-edge` entfernen; `tornCss()` schreibt zusätzlich die Riss-Variablen (Sockelkante in Pflaume mit Faserton `mischFarbe(plum, white, .37)`; Knopf-Streifen als Masken; `--riss-knopf-faser` = `mischFarbe(coral, white, .37)`). Dann `node scripts/torn-css.mjs`.
-- [ ] **Step 4: Tests grün** – `npx vitest run`. Expected: PASS.
-- [ ] **Step 5: `Sockel.astro`** – `.sockel::before`: `top: -38px; height: 48px; background: var(--riss-kante) repeat-x left top / auto 100%;` ohne `clip-path`, mit dem Schatten aus den Global Constraints; Kommentar oben auf die Riss-Kachel umstellen.
-- [ ] **Step 6: Verifizieren** – `npm run build && npx vitest run` grün; `grep -c "torn-edge" dist/_astro/*.css` findet nichts; Aufnahmen des Sockels bei 2560, 1280 und 400 px (eine Seite mit Abschluss, `/kontakt/` ohne): Riss ohne Naht, Faserrand stellenweise, kein weisser Spalt zwischen Kante und Sockel; `node scripts/overflow-check.mjs` meldet keinen Überlauf.
-- [ ] **Step 7: Commit** «Riss: Sockelkante als nahtlose Papierriss-Kachel».
+- [x] **Step 1: Tests anpassen** (`torn-paper.test.ts`): `describe('tornEdge')` entfernen; `tornTokens()` hat genau `['--torn-1', '--torn-2', '--torn-3']`; `tornCss()` enthält `--riss-kante: url("data:image/svg+xml,`, `--riss-oben:`, `--riss-unten:`, `--riss-faser:`, `--riss-seiten: polygon(` und `--riss-knopf-faser: #DA8A87`; enthält nicht `--torn-edge`. Der Sync-Test mit `torn-paper.css` bleibt.
+- [x] **Step 2: Laufen lassen** – Expected: FAIL.
+- [x] **Step 3: `torn-paper.ts`** – `tornEdge` und `--torn-edge` entfernen; `tornCss()` schreibt zusätzlich die Riss-Variablen (Sockelkante in Pflaume mit Faserton `mischFarbe(plum, white, .37)`; Knopf-Streifen als Masken; `--riss-knopf-faser` = `mischFarbe(coral, white, .37)`). Dann `node scripts/torn-css.mjs`.
+- [x] **Step 4: Tests grün** – `npx vitest run`. Expected: PASS.
+- [x] **Step 5: `Sockel.astro`** – `.sockel::before`: `top: -38px; height: 48px; background: var(--riss-kante) repeat-x left top / auto 100%;` ohne `clip-path`, mit dem Schatten aus den Global Constraints; Kommentar oben auf die Riss-Kachel umstellen.
+- [x] **Step 6: Verifizieren** – `npm run build && npx vitest run` grün; `grep -c "torn-edge" dist/_astro/*.css` findet nichts; Aufnahmen des Sockels bei 2560, 1280 und 400 px (eine Seite mit Abschluss, `/kontakt/` ohne): Riss ohne Naht, Faserrand stellenweise, kein weisser Spalt zwischen Kante und Sockel; `node scripts/overflow-check.mjs` meldet keinen Überlauf.
+- [x] **Step 7: Commit** «Riss: Sockelkante als nahtlose Papierriss-Kachel».
 
 ### Task 3: Knöpfe als ausgerissene Streifen
 
