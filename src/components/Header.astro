@@ -22,6 +22,12 @@ const navItems = [
 <header class="site-header">
   <nav class="container header-bar" aria-label="Hauptnavigation">
     <a href="/" class="logo">fumu<span class="logo-dot">.</span></a>
+    {/* Reihenfolge im DOM = Tab-Reihenfolge: Der Menü-Knopf steht vor der
+        Liste, die er öffnet; der Termin-Knopf zuletzt. Auf dem Handy rückt
+        er per order optisch vor den Menü-Knopf. */}
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-list">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-list" id="nav-list">
       {navItems.map(item => (
         <li>
@@ -32,9 +38,6 @@ const navItems = [
       ))}
     </ul>
     <a href="/kontakt/" class="btn header-cta" aria-current={current('/kontakt/')}>Termin vereinbaren</a>
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-list">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
 </header>
 
@@ -140,12 +143,17 @@ const navItems = [
 
     .menu-toggle {
       display: flex;
+      order: 2;
+    }
+
+    .header-cta {
+      order: 1;
     }
 
     /* Ausgeklappt steht die Liste als eigene Zeile unter Schriftzug und Knopf. */
     .nav-list {
       display: none;
-      order: 1;
+      order: 3;
       width: 100%;
       flex-direction: column;
       align-items: flex-start;

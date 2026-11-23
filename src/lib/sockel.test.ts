@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { sockelPerspektiven, type BlattPost } from './sockel';
+import { sockelKopf, sockelPerspektiven, type BlattPost } from './sockel';
 
 const post = (id: string, day: number, series?: string): BlattPost => ({
   id,
@@ -53,5 +53,32 @@ describe('sockelPerspektiven', () => {
     const current = post('a', 20);
     const posts = [current, post('b', 1), post('c', 5), post('d', 9)];
     expect(ids(sockelPerspektiven(posts, current, 2))).toEqual(['d', 'c']);
+  });
+});
+
+describe('sockelKopf', () => {
+  const thema = { name: 'KI und Arbeit', href: '/perspektiven/themen/arbeit/' };
+
+  it('verspricht das Thema, wenn die Blätter aus dem Thema stammen', () => {
+    const current = post('a', 20, 'arbeit');
+    const auswahl = [post('b', 1, 'arbeit'), post('c', 5, 'arbeit')];
+    expect(sockelKopf(auswahl, current, thema)).toEqual({
+      titel: 'Mehr aus dem Thema KI und Arbeit',
+      link: { label: 'Zum Thema', href: '/perspektiven/themen/arbeit/' },
+    });
+  });
+
+  it('fällt auf «Perspektiven» zurück, wenn das Thema keine weitere Perspektive hat', () => {
+    const current = post('a', 20, 'arbeit');
+    const posts = [current, post('x', 19, 'medien'), post('y', 18)];
+    expect(sockelKopf(sockelPerspektiven(posts, current), current, thema)).toEqual({
+      titel: 'Perspektiven',
+      link: { label: 'Alle Perspektiven', href: '/perspektiven/' },
+    });
+  });
+
+  it('zeigt «Perspektiven» für einen Artikel ohne Thema', () => {
+    const current = post('a', 20);
+    expect(sockelKopf([post('x', 19)], current).titel).toBe('Perspektiven');
   });
 });

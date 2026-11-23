@@ -7,7 +7,7 @@ import { resolveAuthors, getAuthorUrl } from '../../content/authors';
 import { getSeries } from '../../data/series';
 import { isPublished, isScheduled } from '../../lib/published';
 import { readingMinutes } from '../../lib/reading-time';
-import { sockelPerspektiven } from '../../lib/sockel';
+import { sockelKopf, sockelPerspektiven } from '../../lib/sockel';
 
 export async function getStaticPaths() {
   const posts = await getCollection('perspektiven', isPublished);
@@ -54,6 +54,11 @@ const toBlatt = (entry: typeof post) => ({
 });
 const allPosts = (await getCollection('perspektiven', isPublished)).map(toBlatt);
 const blaetter = sockelPerspektiven(allPosts, toBlatt(post));
+const kopf = sockelKopf(
+  blaetter,
+  toBlatt(post),
+  seriesData && seriesHref ? { name: seriesData.name, href: seriesHref } : undefined,
+);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} article={{ title: post.data.title, description: post.data.description, date: post.data.date, updated: post.data.updated, image: post.data.image, slug: post.id, authors: postAuthors }}>
@@ -114,30 +119,23 @@ const blaetter = sockelPerspektiven(allPosts, toBlatt(post));
     </Karte>
   </article>
 
-  <section slot="sockel" class="mehr" aria-labelledby="mehr-titel">
-    <div class="sec-head">
-      {seriesData && seriesHref ? (
-        <>
-          <h2 id="mehr-titel">Mehr aus dem Thema {seriesData.name}</h2>
-          <a href={seriesHref} class="sec-link">Zum Thema</a>
-        </>
-      ) : (
-        <>
-          <h2 id="mehr-titel">Perspektiven</h2>
-          <a href="/perspektiven/" class="sec-link">Alle Perspektiven</a>
-        </>
-      )}
-    </div>
-    <PerspektivenBlaetter
-      items={blaetter.map(entry => ({
-        href: `/perspektiven/${entry.id}/`,
-        title: entry.title,
-        text: entry.description,
-        date: entry.date,
-      }))}
-    />
-    <a href="/perspektiven/" class="zurueck">&larr; Alle Perspektiven</a>
-  </section>
+  {blaetter.length > 0 && (
+    <section slot="sockel" class="mehr" aria-labelledby="mehr-titel">
+      <div class="sec-head">
+        <h2 id="mehr-titel">{kopf.titel}</h2>
+        <a href={kopf.link.href} class="sec-link">{kopf.link.label}</a>
+      </div>
+      <PerspektivenBlaetter
+        items={blaetter.map(entry => ({
+          href: `/perspektiven/${entry.id}/`,
+          title: entry.title,
+          text: entry.description,
+          date: entry.date,
+        }))}
+      />
+      <a href="/perspektiven/" class="zurueck">&larr; Alle Perspektiven</a>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
