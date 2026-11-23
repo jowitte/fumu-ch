@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Karte from '../../../components/Karte.astro';
+import PerspektiveZeile from '../../../components/PerspektiveZeile.astro';
 import { series as seriesRegistry } from '../../../data/series';
 import { renderInlineLinks } from '../../../data/crawler-tracker';
 import { isPublished } from '../../../lib/published';
@@ -18,282 +20,84 @@ const { slug, seriesData } = Astro.props;
 // markieren nur die Lesereihenfolge eines erzählten Bogens, nicht die Sortierung.
 const parts = (await getCollection('perspektiven', (entry) => isPublished(entry) && entry.data.series === slug))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const formatDate = (date: Date) => {
-  return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
-};
 ---
 
 <BaseLayout title={seriesData.name} description={seriesData.teaser}>
+  <div class="container seite">
+    <h1>{seriesData.name}</h1>
+    <p class="lead">{seriesData.teaser}</p>
 
-  <section class="evans-page">
-    <div class="container">
+    {seriesData.callout && (
+      <Karte tone="blush-light" class="hinweis">
+        <span class="hinweis-label">{seriesData.callout.label}</span>
+        <p class="hinweis-text" set:html={renderInlineLinks(seriesData.callout.text)} />
+      </Karte>
+    )}
 
-      <div class="series-head">
-        <div class="series-head-text">
-          <h1>{seriesData.name}</h1>
-          <p class="intro">{seriesData.teaser}</p>
-        </div>
-        {seriesData.icon && (
-          <img class="series-head-icon" src={seriesData.icon} alt="" loading="lazy" />
-        )}
-      </div>
+    <section class="liste">
+      <h2>Perspektiven</h2>
+      {parts.map(post => (
+        <PerspektiveZeile
+          href={`/perspektiven/${post.id}/`}
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+          part={post.data.seriesPart}
+        />
+      ))}
+    </section>
 
-      {seriesData.callout && (
-        <aside class="series-callout">
-          <span class="callout-label">{seriesData.callout.label}</span>
-          <p class="callout-text" set:html={renderInlineLinks(seriesData.callout.text)} />
-        </aside>
-      )}
-
-      <hr class="section-divider" />
-      <div class="evans-section">
-        <div class="evans-label">
-          <h2>Perspektiven</h2>
-        </div>
-        <div class="evans-content">
-          {parts.map(post => (
-            <a href={`/perspektiven/${post.id}/`} class="post-item">
-              <span class="post-date">{formatDate(post.data.date)}</span>
-              <div class="post-body">
-                {post.data.seriesPart && (
-                  <span class="part-no">Teil {post.data.seriesPart}</span>
-                )}
-                <h3 class="post-title">{post.data.title}</h3>
-                <p class="post-excerpt">{post.data.description}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <footer>
-        <a href="/perspektiven/" class="back-link">&larr; Alle Perspektiven</a>
-      </footer>
-
-    </div>
-  </section>
-
+    <a href="/perspektiven/" class="zurueck">&larr; Alle Perspektiven</a>
+  </div>
 </BaseLayout>
 
 <style>
-  .series-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-lg);
+  .lead {
+    max-width: var(--page-width);
+    margin-bottom: var(--space-xl);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
   }
 
-  .series-head-icon {
-    width: 160px;
-    height: 160px;
-    object-fit: contain;
-    flex-shrink: 0;
+  .seite :global(.hinweis) {
+    max-width: var(--page-width);
+    margin-bottom: var(--space-xl);
+    padding: 24px 30px 26px;
   }
 
-  .intro {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--color-text);
-    max-width: 720px;
-    margin: 0 0 var(--space-xl) 0;
-  }
-
-  .series-callout {
-    background: var(--color-neutral);
-    border-left: 3px solid var(--color-coral);
-    padding: var(--space-md) var(--space-lg);
-    margin: 0 0 var(--space-lg) 0;
-  }
-
-  .callout-label {
+  .hinweis-label {
     display: block;
-    font-family: var(--font-sans);
-    font-size: 12px;
+    margin-bottom: 8px;
+    font-size: 13px;
     font-weight: 600;
-    color: var(--color-coral);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-bottom: var(--space-xs);
+    color: var(--color-plum-soft);
   }
 
-  .callout-text {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--color-text);
+  .hinweis-text {
     margin: 0;
   }
 
-  .callout-text :global(a) {
-    color: var(--color-coral);
-    text-decoration: none;
-  }
-
-  .callout-text :global(a:hover) {
-    text-decoration: underline;
-  }
-
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--color-coral);
-    margin: var(--space-xl) 0 0 0;
-  }
-
-  .evans-section {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 0;
-    margin: var(--space-xl) 0;
-  }
-
-  .evans-label {
-    padding: 0 var(--space-lg) 0 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .evans-label h2 {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0;
-    position: sticky;
-    top: 80px;
-  }
-
-  .evans-content {
-    border-left: 1px solid var(--color-coral);
-    padding: 0;
-  }
-
-  .post-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: var(--space-md);
-    padding: var(--space-lg) 0 var(--space-lg) var(--space-lg);
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .post-item:first-child {
-    padding-top: 0;
-  }
-
-  .post-item + .post-item {
-    border-top: 1px solid var(--color-neutral);
-  }
-
-  .post-item:hover .post-title {
-    color: var(--color-coral);
-  }
-
-  .post-item:hover {
-    text-decoration: none;
-  }
-
-  .post-date {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    letter-spacing: 0.5px;
-    padding-top: 4px;
-  }
-
-  .part-no {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-coral);
-    letter-spacing: 0.5px;
-    display: block;
-    margin-bottom: var(--space-xs);
-  }
-
-  .post-title {
-    font-family: var(--font-sans);
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--color-coral);
-    line-height: 1.2;
-    margin: 0 0 var(--space-xs) 0;
-    transition: color 0.15s;
-  }
-
-  .post-excerpt {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
-    max-width: 600px;
-  }
-
-  footer {
-    margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--color-coral);
+  .liste {
     margin-bottom: var(--space-xl);
   }
 
-  .back-link {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-coral);
+  .liste > h2 {
+    margin: 0 0 var(--space-md);
+    font-size: 44px;
+    line-height: 1.05;
   }
 
-  .back-link:hover {
-    text-decoration: none;
+  .zurueck {
+    font-size: 15px;
+    font-weight: 600;
   }
 
-  @media (max-width: 768px) {
-    .intro {
-      font-size: 18px;
-      margin: 0 0 var(--space-lg) 0;
-    }
-
-    .post-title {
-      font-size: 20px;
-    }
-
-    .series-head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-    }
-
-    .series-head-icon {
-      width: 110px;
-      height: 110px;
-      align-self: flex-end;
-      margin-bottom: var(--space-md);
-    }
-
-    .evans-section {
-      grid-template-columns: 1fr;
-    }
-
-    .evans-label {
-      padding: var(--space-lg) 0 0 0;
-    }
-
-    .evans-label h2 {
-      position: static;
-    }
-
-    .evans-content {
-      border-left: none;
-      border-top: 1px solid var(--color-coral);
-      padding: var(--space-md) 0 0 0;
-    }
-
-    .post-item {
-      grid-template-columns: 1fr;
-      padding-left: 0;
+  @media (max-width: 860px) {
+    .liste > h2 {
+      font-size: 36px;
     }
   }
 </style>

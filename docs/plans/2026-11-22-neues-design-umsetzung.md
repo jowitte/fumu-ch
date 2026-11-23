@@ -185,11 +185,11 @@
 **Interfaces:**
 - Consumes: `Karte` (Task 4), `readingMinutes` (Task 7).
 
-- [ ] **Step 1: Übersicht** – H1 «Perspektiven», Lead; die drei Themen als Karten Rosé-hell (Name als H2-Link, `cardTeaser`, Callout mit `renderInlineLinks`, Link «Zum Thema»), ohne Themenfarbe und Icon. Darunter je Monat eine H2 in Serif und die Perspektiven als Zeilen: Datum (Coral, Versalien), Titel (Serif 28 px, Link), Beschreibung, «Thema: {name}» als Link. Leerer Zustand «In Kürze» wie heute.
-- [ ] **Step 2: Themen-Übersicht** – Themen als Karten Rosé-hell mit Name, Anzahl, Teaser; Link «← Alle Perspektiven».
-- [ ] **Step 3: Themen-Seite** – H1, Teaser als Lead, Callout als Karte Rosé-hell mit Label in Versalien, H2 «Perspektiven», Zeilen wie in der Übersicht (mit «Teil {n}», wo gesetzt), «← Alle Perspektiven».
-- [ ] **Step 4: Verifizieren** – `npm run build && npx vitest run` grün; `diff` der Themen-`.md` gegen Baseline leer; Sichtprüfung Desktop und 400 px.
-- [ ] **Step 5: Commit** «Design: Perspektiven-Übersicht und Themen».
+- [x] **Step 1: Übersicht** – H1 «Perspektiven», Lead; die drei Themen als Karten Rosé-hell (Name als H2-Link, `cardTeaser`, Callout mit `renderInlineLinks`, Link «Zum Thema»), ohne Themenfarbe und Icon. Darunter je Monat eine H2 in Serif und die Perspektiven als Zeilen: Datum (Coral, Versalien), Titel (Serif 28 px, Link), Beschreibung, «Thema: {name}» als Link. Leerer Zustand «In Kürze» wie heute.
+- [x] **Step 2: Themen-Übersicht** – Themen als Karten Rosé-hell mit Name, Anzahl, Teaser; Link «← Alle Perspektiven».
+- [x] **Step 3: Themen-Seite** – H1, Teaser als Lead, Callout als Karte Rosé-hell mit Label in Versalien, H2 «Perspektiven», Zeilen wie in der Übersicht (mit «Teil {n}», wo gesetzt), «← Alle Perspektiven».
+- [x] **Step 4: Verifizieren** – `npm run build && npx vitest run` grün; `diff` der Themen-`.md` gegen Baseline leer; Sichtprüfung Desktop und 400 px.
+- [x] **Step 5: Commit** «Design: Perspektiven-Übersicht und Themen».
 
 ### Task 9: Radar, Rechtstexte, 404, Formulare und Charts
 
