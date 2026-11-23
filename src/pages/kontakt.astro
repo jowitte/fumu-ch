@@ -1,35 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import EvansSection from '../components/EvansSection.astro';
+import Karte from '../components/Karte.astro';
+import Sektion from '../components/Sektion.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { kontakt } from '../data/pages/kontakt';
 ---
 
-<BaseLayout title={kontakt.title} description={kontakt.description}>
+<BaseLayout title={kontakt.title} description={kontakt.description} abschluss={false}>
 
-  <section class="evans-page">
-    <div class="container">
-
-      <h1>{kontakt.title}</h1>
-
-      <PageIntro paragraphs={kontakt.intro} />
-
-      {kontakt.sections.map(section => (
-        <>
-          <hr class="section-divider" />
-          <EvansSection section={section} sticky={false} />
-        </>
-      ))}
-
-    </div>
-  </section>
+  <div class="container seite">
+    <h1>{kontakt.title}</h1>
+    <PageIntro paragraphs={kontakt.intro} />
+    <Karte tone="blush-light" class="kontakt-karte">
+      {kontakt.sections.map(section => <Sektion section={section} />)}
+    </Karte>
+  </div>
 
 </BaseLayout>
 
 <style>
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--color-coral);
-    margin: 0;
+  /* Termin, E-Mail und Newsletter auf einer Karte in Rosé-hell (Entwurf) */
+  .seite :global(.kontakt-karte) {
+    max-width: calc(var(--page-width) + 80px);
+    padding: 8px 40px 40px;
+  }
+
+  .seite :global(.kontakt-karte .sektion) {
+    margin: var(--space-lg) 0 0;
+  }
+
+  .seite :global(.kontakt-karte .sektion > h2) {
+    margin-bottom: var(--space-md);
+    font-size: 36px;
+  }
+
+  @media (max-width: 860px) {
+    .seite :global(.kontakt-karte) {
+      padding: 4px 22px 28px;
+    }
   }
 </style>

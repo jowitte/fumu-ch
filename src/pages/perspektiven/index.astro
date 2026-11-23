@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Karte from "../../components/Karte.astro";
+import PerspektiveZeile from "../../components/PerspektiveZeile.astro";
 import { series as seriesRegistry } from "../../data/series";
 import { renderInlineLinks } from "../../data/crawler-tracker";
 import { isPublished } from "../../lib/published";
@@ -8,16 +10,6 @@ import { isPublished } from "../../lib/published";
 const posts = (
   await getCollection("perspektiven", isPublished)
 ).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const formatDate = (date: Date) => {
-  return date
-    .toLocaleDateString("de-CH", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })
-    .toUpperCase();
-};
 
 const formatMonth = (date: Date) => {
   const s = date.toLocaleDateString("de-CH", {
@@ -49,344 +41,136 @@ const seriesList = Object.entries(seriesRegistry).map(([slug, data]) => ({
   title="Perspektiven"
   description="Analysen und Einordnungen zu Technologie, Medien und digitaler Werbung."
 >
-  <section class="evans-page">
-    <div class="container">
-      <h1>Perspektiven</h1>
+  <div class="container seite">
+    <h1>Perspektiven</h1>
 
-      <p class="intro">
-        Was sich verändert, warum es wichtig ist und was daraus folgt.
-        Einordnungen aus der Praxis, wenn Strategie, Technologie und
-        Organisation aufeinandertreffen.
-      </p>
+    <p class="lead">
+      Was sich verändert, warum es wichtig ist und was daraus folgt.
+      Einordnungen aus der Praxis, wenn Strategie, Technologie und
+      Organisation aufeinandertreffen.
+    </p>
 
+    <div class="themen">
       {
         seriesList.map((s) => (
-          <aside class={`series-callout callout-${s.color}`}>
-            <div class="callout-body">
-              <h2 class="callout-title">
-                <a href={`/perspektiven/themen/${s.slug}/`}>{s.name}</a>
-              </h2>
-              <p class="callout-text">{s.cardTeaser}</p>
-              {s.callout && (
-                <p
-                  class="callout-text"
-                  set:html={renderInlineLinks(s.callout.text)}
-                />
-              )}
-              <a class="callout-button" href={`/perspektiven/themen/${s.slug}/`}>
-                Zum Thema
-              </a>
-            </div>
-            {s.icon && (
-              <img class="callout-icon" src={s.icon} alt="" loading="lazy" />
+          <Karte tone="blush-light" class="thema">
+            <h2 class="thema-name">
+              <a href={`/perspektiven/themen/${s.slug}/`}>{s.name}</a>
+            </h2>
+            <p class="thema-text">{s.cardTeaser}</p>
+            {s.callout && (
+              <p class="thema-text" set:html={renderInlineLinks(s.callout.text)} />
             )}
-          </aside>
+            <a class="thema-link" href={`/perspektiven/themen/${s.slug}/`}>
+              Zum Thema
+            </a>
+          </Karte>
         ))
       }
-
-      <hr class="section-divider" />
-      {
-        posts.length > 0 ? (
-          groupedByMonth.map((group) => (
-            <div class="evans-section">
-              <div class="evans-label">
-                <h2>{group.label}</h2>
-              </div>
-              <div class="evans-content">
-                {group.posts.map((post) => (
-                  <div class="post-entry">
-                    <a href={`/perspektiven/${post.id}/`} class="post-item">
-                      <span class="post-date">
-                        {formatDate(post.data.date)}
-                      </span>
-                      <div class="post-body">
-                        <h3 class="post-title">{post.data.title}</h3>
-                        <p class="post-excerpt">{post.data.description}</p>
-                      </div>
-                    </a>
-                    {post.data.series && seriesRegistry[post.data.series] && (
-                      <a
-                        href={`/perspektiven/themen/${post.data.series}/`}
-                        class="series-tag"
-                      >
-                        Thema: {seriesRegistry[post.data.series].name}
-                      </a>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        ) : (
-          <div class="evans-section">
-            <div class="evans-label">
-              <h2>In Kürze</h2>
-            </div>
-            <div class="evans-content">
-              <p>Neue Perspektiven erscheinen in Kürze.</p>
-            </div>
-          </div>
-        )
-      }
     </div>
-  </section>
+
+    {
+      posts.length > 0 ? (
+        groupedByMonth.map((group) => (
+          <section class="monat">
+            <h2>{group.label}</h2>
+            {group.posts.map((post) => (
+              <PerspektiveZeile
+                href={`/perspektiven/${post.id}/`}
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date}
+                thema={
+                  post.data.series && seriesRegistry[post.data.series]
+                    ? {
+                        name: seriesRegistry[post.data.series].name,
+                        href: `/perspektiven/themen/${post.data.series}/`,
+                      }
+                    : undefined
+                }
+              />
+            ))}
+          </section>
+        ))
+      ) : (
+        <section class="monat">
+          <h2>In Kürze</h2>
+          <p>Neue Perspektiven erscheinen in Kürze.</p>
+        </section>
+      )
+    }
+  </div>
 </BaseLayout>
 
 <style>
-  .intro {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--color-text);
-    max-width: 720px;
-    margin: 0 0 var(--space-xl) 0;
+  .lead {
+    max-width: var(--page-width);
+    margin-bottom: var(--space-xl);
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
   }
 
-  .series-callout {
+  /* Die Themen als Karten in Rosé-hell, ohne Themenfarbe und Icon */
+  .themen {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .themen :global(.thema) {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-lg);
-    border-radius: 12px;
-    padding: var(--space-lg) var(--space-lg);
-    margin: 0 0 var(--space-md) 0;
+    flex-direction: column;
   }
 
-  .callout-sage {
-    background: var(--color-sage);
+  .thema-name {
+    margin: 0 0 12px;
+    font-size: 30px;
+    line-height: 1.1;
   }
 
-  .callout-lavender {
-    background: var(--color-lavender);
-  }
-
-  .callout-sand {
-    background: var(--color-sand);
-  }
-
-  .callout-body {
-    max-width: 600px;
-  }
-
-  .callout-icon {
-    width: 160px;
-    height: 160px;
-    object-fit: contain;
-    flex-shrink: 0;
-    margin-right: var(--space-lg);
-  }
-
-  .callout-button {
-    display: inline-block;
-    margin-top: var(--space-md);
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text);
-    border: 1px solid var(--color-text);
-    border-radius: 8px;
-    padding: 8px 16px;
+  .thema-name a {
+    color: var(--color-plum);
     text-decoration: none;
   }
 
-  .callout-button:hover {
-    background: var(--color-text);
-    color: var(--color-bg);
-  }
-
-  .callout-title {
-    font-family: var(--font-sans);
-    font-size: 24px;
-    font-weight: 500;
-    margin: 0 0 var(--space-sm) 0;
-  }
-
-  .callout-title a {
-    color: var(--color-coral);
-    text-decoration: none;
-  }
-
-  .callout-title a:hover {
+  .thema-name a:hover {
     text-decoration: underline;
   }
 
-  .callout-text {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
+  .thema-text {
+    margin: 0 0 12px;
+    font-size: 15.5px;
+    color: var(--color-plum-soft);
   }
 
-  .callout-text + .callout-text {
-    margin-top: var(--space-sm);
-  }
-
-  .callout-text :global(a) {
-    color: var(--color-coral);
-    text-decoration: none;
-  }
-
-  .callout-text :global(a:hover) {
-    text-decoration: underline;
-  }
-
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--color-coral);
-    margin: var(--space-xl) 0 0 0;
-  }
-
-  .evans-section {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 0;
-    margin: var(--space-xl) 0;
-  }
-
-  .evans-label {
-    padding: 0 var(--space-lg) 0 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .evans-label h2 {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-coral);
-    margin: 0;
-    position: sticky;
-    top: 80px;
-  }
-
-  .evans-content {
-    border-left: 1px solid var(--color-coral);
-    padding: 0;
-  }
-
-  .post-entry {
-    padding: var(--space-lg) 0 var(--space-lg) var(--space-lg);
-  }
-
-  .post-entry:first-child {
-    padding-top: 0;
-  }
-
-  .post-entry + .post-entry {
-    border-top: 1px solid var(--color-neutral);
-  }
-
-  .post-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: var(--space-md);
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .post-item:hover .post-title {
-    color: var(--color-coral);
-  }
-
-  .post-item:hover {
-    text-decoration: none;
-  }
-
-  .series-tag {
-    display: inline-block;
-    margin-top: var(--space-sm);
-    margin-left: calc(120px + var(--space-md));
-    font-family: var(--font-sans);
-    font-size: 12px;
+  .thema-link {
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 15px;
     font-weight: 600;
-    color: var(--color-text-light);
-    letter-spacing: 0.3px;
-    text-decoration: none;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
   }
 
-  .series-tag:hover {
-    color: var(--color-coral);
+  .monat {
+    margin-bottom: var(--space-xl);
   }
 
-  .post-date {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    letter-spacing: 0.5px;
-    padding-top: 4px;
+  .monat > h2 {
+    margin: 0 0 var(--space-md);
+    font-size: 44px;
+    line-height: 1.05;
   }
 
-  .post-title {
-    font-family: var(--font-sans);
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--color-coral);
-    line-height: 1.2;
-    margin: 0 0 var(--space-sm) 0;
-    transition: color 0.15s;
-  }
-
-  .post-excerpt {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
-    max-width: 600px;
-  }
-
-  @media (max-width: 768px) {
-    .intro {
-      font-size: 18px;
-      margin: 0 0 var(--space-lg) 0;
+  @media (max-width: 860px) {
+    .themen {
+      grid-template-columns: minmax(0, 1fr);
     }
 
-    .post-title {
-      font-size: 20px;
-    }
-
-    .series-callout {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .callout-icon {
-      width: 100px;
-      height: 100px;
-      margin: 0;
-      align-self: flex-end;
-    }
-
-    .evans-section {
-      grid-template-columns: 1fr;
-    }
-
-    .evans-label {
-      padding: var(--space-lg) 0 0 0;
-    }
-
-    .evans-label h2 {
-      position: static;
-    }
-
-    .evans-content {
-      border-left: none;
-      border-top: 1px solid var(--color-coral);
-      padding: var(--space-md) 0 0 0;
-    }
-
-    .post-entry {
-      padding-left: 0;
-    }
-
-    .post-item {
-      grid-template-columns: 1fr;
-    }
-
-    .series-tag {
-      margin-left: 0;
+    .monat > h2 {
+      font-size: 36px;
     }
   }
 </style>

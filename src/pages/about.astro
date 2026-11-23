@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { jsonLd } from '../lib/json-ld';
-import EvansSection from '../components/EvansSection.astro';
+import Sektion from '../components/Sektion.astro';
 import PageIntro from '../components/PageIntro.astro';
 import { about } from '../data/pages/about';
 
@@ -42,29 +42,11 @@ const personLd = {
 
   <script type="application/ld+json" set:html={jsonLd(personLd)} />
 
-  <section class="evans-page">
-    <div class="container">
-
-      <h1>{about.title}</h1>
-
-      <PageIntro paragraphs={about.intro} />
-
-      {about.sections.map(section => (
-        <>
-          <hr class="section-divider" />
-          <EvansSection section={section} />
-        </>
-      ))}
-
-    </div>
-  </section>
+  <div class="container seite">
+    <h1>{about.title}</h1>
+    <PageIntro paragraphs={about.intro} />
+    {about.sections.map(section => <Sektion section={section} />)}
+  </div>
 
 </BaseLayout>
 
-<style>
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--color-coral);
-    margin: 0;
-  }
-</style>

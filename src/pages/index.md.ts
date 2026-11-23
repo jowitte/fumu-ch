@@ -1,14 +1,13 @@
 import type { APIRoute } from 'astro';
-import { getEntry } from 'astro:content';
-import { stripObsidianMarkers } from '../plugins/obsidian-markers.mjs';
+import { home } from '../data/pages/home';
+import { headingOf, toMarkdown } from '../data/pages/to-markdown';
 
+// Markdown-Zwilling der Startseite aus derselben Quelle wie das HTML
+// (src/data/pages/home.ts).
 export const GET: APIRoute = async () => {
-  const home = await getEntry('pages', 'home');
-  if (!home) return new Response('Not found', { status: 404 });
+  const body = `# ${headingOf(home)}
 
-  const body = `# ${home.data.title}
-
-${stripObsidianMarkers(home.body ?? '')}`;
+${toMarkdown(home)}`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },

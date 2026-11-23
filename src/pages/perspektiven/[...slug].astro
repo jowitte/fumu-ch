@@ -1,9 +1,13 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Karte from '../../components/Karte.astro';
+import PerspektivenBlaetter from '../../components/PerspektivenBlaetter.astro';
 import { resolveAuthors, getAuthorUrl } from '../../content/authors';
 import { getSeries } from '../../data/series';
 import { isPublished, isScheduled } from '../../lib/published';
+import { readingMinutes } from '../../lib/reading-time';
+import { sockelKopf, sockelPerspektiven } from '../../lib/sockel';
 
 export async function getStaticPaths() {
   const posts = await getCollection('perspektiven', isPublished);
@@ -25,10 +29,11 @@ const postAuthors = resolveAuthors(post.data.authors);
 // Geplantes Stück: nur der Dev-Server zeigt es (Lokal-Review), der Build nie.
 const scheduled = import.meta.env.DEV && isScheduled(post);
 
-// Themen-Kontext: Hinweis oben + Fussnavigation am Ende. Vor/Zurück nur bei
-// erzähltem Bogen (seriesPart gesetzt), sonst nur «Mehr aus diesem Thema».
+// Themen-Kontext: Streifen im Kopf, Vor/Zurück nur bei erzähltem Bogen
+// (seriesPart gesetzt), im Sockel weitere Perspektiven desselben Themas.
 const seriesSlug = post.data.series;
 const seriesData = getSeries(seriesSlug);
+const seriesHref = seriesSlug ? `/perspektiven/themen/${seriesSlug}/` : undefined;
 let prevPost: typeof post | null = null;
 let nextPost: typeof post | null = null;
 if (seriesSlug && seriesData && post.data.seriesPart) {
@@ -38,195 +43,210 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
   prevPost = idx > 0 ? seriesParts[idx - 1] : null;
   nextPost = idx >= 0 && idx < seriesParts.length - 1 ? seriesParts[idx + 1] : null;
 }
+
+// Sockel: bis zu drei weitere Perspektiven desselben Themas, sonst die neuesten.
+const toBlatt = (entry: typeof post) => ({
+  id: entry.id,
+  title: entry.data.title,
+  description: entry.data.description,
+  date: entry.data.date,
+  series: entry.data.series,
+});
+const allPosts = (await getCollection('perspektiven', isPublished)).map(toBlatt);
+const blaetter = sockelPerspektiven(allPosts, toBlatt(post));
+const kopf = sockelKopf(
+  blaetter,
+  toBlatt(post),
+  seriesData && seriesHref ? { name: seriesData.name, href: seriesHref } : undefined,
+);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} article={{ title: post.data.title, description: post.data.description, date: post.data.date, updated: post.data.updated, image: post.data.image, slug: post.id, authors: postAuthors }}>
-  <article class="evans-page">
-    <div class="container">
-
-      <div class="evans-section">
-        <div class:list={["evans-label", { "has-updated": !!post.data.updated }]}>
-          <span class="post-date">{formatDate(post.data.date)}</span>
-          {post.data.updated && (
-            <span class="post-updated">Überarbeitet {formatDate(post.data.updated)}</span>
-          )}
-          <span class="post-author">
-            {postAuthors.map((author, i) => (
-              <>
-                {i > 0 && (i === postAuthors.length - 1 ? ' und ' : ', ')}
-                <a href={getAuthorUrl(author.slug)}>{author.name}</a>
-              </>
-            ))}
-          </span>
-          {post.data.icon && (
-            <img class="post-icon" src={post.data.icon} alt="" loading="lazy" />
-          )}
-        </div>
-        <div class="evans-content">
-          {scheduled && (
-            <p class="scheduled-hint">Geplant für {formatDate(post.data.date)}, nur lokal sichtbar</p>
-          )}
-          {seriesData && seriesSlug && (
-            <a href={`/perspektiven/themen/${seriesSlug}/`} class="series-hint">
-              {post.data.seriesPart
-                ? <>Teil {post.data.seriesPart} im Thema <strong>{seriesData.name}</strong></>
-                : <>Aus dem Thema <strong>{seriesData.name}</strong></>}
-            </a>
-          )}
-          <h1 class="post-title">{post.data.title}</h1>
-          <div class="post-body">
-            <Content />
-          </div>
-          <aside class="post-newsletter">
-            <p class="post-newsletter-text">Perspektiven wie diese – gelegentlich per E-Mail.</p>
-            <a href="/kontakt/#newsletter" class="post-newsletter-link">Newsletter abonnieren &rarr;</a>
-          </aside>
-          <footer>
-            {seriesData && (prevPost || nextPost) && (
-              <nav class="series-nav" aria-label={`Navigation innerhalb des Themas ${seriesData.name}`}>
-                {prevPost ? (
-                  <a href={`/perspektiven/${prevPost.id}/`} class="series-nav-link series-nav-prev">
-                    <span class="series-nav-dir">&larr; Vorheriger Teil</span>
-                    <span class="series-nav-title">{prevPost.data.title}</span>
-                  </a>
-                ) : <span class="series-nav-spacer"></span>}
-                {nextPost ? (
-                  <a href={`/perspektiven/${nextPost.id}/`} class="series-nav-link series-nav-next">
-                    <span class="series-nav-dir">Nächster Teil &rarr;</span>
-                    <span class="series-nav-title">{nextPost.data.title}</span>
-                  </a>
-                ) : <span class="series-nav-spacer"></span>}
-              </nav>
-            )}
-            {seriesData && seriesSlug && (
-              <a href={`/perspektiven/themen/${seriesSlug}/`} class="series-more">
-                Mehr aus dem Thema <strong>{seriesData.name}</strong> &rarr;
-              </a>
-            )}
-            <a href="/perspektiven/" class="back-link">&larr; Alle Perspektiven</a>
-          </footer>
-        </div>
+  <article class="container artikel">
+    <header class="artikel-kopf">
+      {scheduled && (
+        <p class="scheduled-hint">Geplant für {formatDate(post.data.date)}, nur lokal sichtbar</p>
+      )}
+      <div class="meta">
+        <time class="meta-datum" datetime={post.data.date.toISOString().split('T')[0]}>{formatDate(post.data.date)}</time>
+        {seriesData && seriesHref && (
+          <a href={seriesHref} class="meta-thema">
+            {post.data.seriesPart
+              ? <>Teil {post.data.seriesPart} im Thema {seriesData.name}</>
+              : <>Thema: {seriesData.name}</>}
+          </a>
+        )}
+        <span class="meta-autor">
+          {postAuthors.map((author, i) => (
+            <>
+              {i > 0 && (i === postAuthors.length - 1 ? ' und ' : ', ')}
+              <a href={getAuthorUrl(author.slug)}>{author.name}</a>
+            </>
+          ))}
+        </span>
+        <span>{readingMinutes(post.body)} Min.</span>
+        {post.data.updated && (
+          <span>Überarbeitet {formatDate(post.data.updated)}</span>
+        )}
       </div>
+      <h1 class="post-title">{post.data.title}</h1>
+    </header>
 
+    <div class="post-body">
+      <Content />
     </div>
+
+    {seriesData && (prevPost || nextPost) && (
+      <nav class="series-nav" aria-label={`Navigation innerhalb des Themas ${seriesData.name}`}>
+        {prevPost ? (
+          <Karte tone="blush-light" href={`/perspektiven/${prevPost.id}/`} class="series-nav-link">
+            <span class="series-nav-dir">&larr; Vorheriger Teil</span>
+            <span class="series-nav-title">{prevPost.data.title}</span>
+          </Karte>
+        ) : <span class="series-nav-spacer"></span>}
+        {nextPost ? (
+          <Karte tone="blush-light" href={`/perspektiven/${nextPost.id}/`} class="series-nav-link series-nav-next">
+            <span class="series-nav-dir">Nächster Teil &rarr;</span>
+            <span class="series-nav-title">{nextPost.data.title}</span>
+          </Karte>
+        ) : <span class="series-nav-spacer"></span>}
+      </nav>
+    )}
+
+    <Karte tone="blush-light" class="post-newsletter">
+      <p class="post-newsletter-text">Perspektiven wie diese – gelegentlich per E-Mail.</p>
+      <a href="/kontakt/#newsletter" class="post-newsletter-link">Newsletter abonnieren &rarr;</a>
+    </Karte>
   </article>
+
+  {blaetter.length > 0 && (
+    <section slot="sockel" class="mehr" aria-labelledby="mehr-titel">
+      <div class="sec-head">
+        <h2 id="mehr-titel">{kopf.titel}</h2>
+        <a href={kopf.link.href} class="sec-link">{kopf.link.label}</a>
+      </div>
+      <PerspektivenBlaetter
+        items={blaetter.map(entry => ({
+          href: `/perspektiven/${entry.id}/`,
+          title: entry.title,
+          text: entry.description,
+          date: entry.date,
+        }))}
+      />
+      <a href="/perspektiven/" class="zurueck">&larr; Alle Perspektiven</a>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
-  .evans-section {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 0;
-    margin: var(--space-xl) 0;
+  /* Kopf und Text in der Lesespalte (--read-width), mittig. */
+  .artikel-kopf {
+    max-width: var(--read-width);
+    margin: 48px auto 0;
   }
 
-  /* Die ganze Label-Spalte klebt als ein Block: Datum, Autor und Icon
-     wandern zusammen, statt einzeln zu kleben und sich zu überlagern. */
-  .evans-label {
-    padding: 0 var(--space-lg) 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    align-self: start;
-    position: sticky;
-    top: 80px;
-  }
-
-  .post-icon {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin-top: var(--space-lg);
-  }
-
-  .post-date {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    letter-spacing: 0.5px;
-    display: block;
-  }
-
-  /* Überarbeitungsdatum: gleiche Stimme wie das Datum, eine Zeile darunter;
-     der Autor rückt dann um eine Zeile nach. */
-  .post-updated {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--color-text-light);
-    letter-spacing: 0.5px;
-    display: block;
-    margin-top: 2px;
-  }
-
-  .post-author {
-    font-family: var(--font-sans);
+  .scheduled-hint {
+    display: inline-block;
+    margin-bottom: var(--space-md);
+    padding: 6px 12px;
     font-size: 13px;
-    font-weight: 500;
-    color: var(--color-text-light);
-    display: block;
-    margin-top: var(--space-xs);
+    font-weight: 600;
+    color: var(--color-white);
+    background: var(--color-plum);
+    border-radius: var(--radius-cut);
   }
 
-  .post-author a {
+  /* Meta-Zeile: Datum Coral, Thema als Papierstreifen in Rosé, Rest Pflaume-soft */
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-plum-soft);
+  }
+
+  .meta-datum {
+    color: var(--color-coral);
+  }
+
+  .meta-thema {
+    padding: 8px 12px;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: none;
+    text-decoration: none;
+    color: var(--color-plum);
+    background: var(--color-blush);
+    border-radius: var(--radius-cut);
+  }
+
+  .meta-thema:hover {
+    text-decoration: underline;
+  }
+
+  .meta-autor a {
     color: inherit;
     text-decoration: none;
   }
 
-  .post-author a:hover {
-    color: var(--color-coral);
+  .meta-autor a:hover {
+    text-decoration: underline;
   }
 
-  .evans-content {
-    border-left: 1px solid var(--color-coral);
-    padding: 0 0 0 var(--space-lg);
-  }
-
-  /* fumu CI (2026-07-15): Serifen nur in H1, Coral durchgehend für Überschriften */
   .post-title {
-    font-family: var(--font-serif);
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--color-coral);
-    margin: 0 0 var(--space-lg) 0;
-    line-height: 1.2;
-    max-width: 720px;
+    max-width: 12em;
+    margin: 26px 0 0;
   }
 
+  /* Lesetext */
   .post-body {
-    max-width: var(--content-width);
+    max-width: var(--read-width);
+    margin: 48px auto 0;
+    font-size: 18.5px;
+    line-height: 1.72;
+  }
+
+  .post-body :global(p),
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    margin-bottom: 1.1em;
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-left: 1.3em;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: 0.3em;
   }
 
   .post-body :global(h2) {
-    font-family: var(--font-sans);
-    font-size: 22px;
-    font-weight: 500;
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
+    margin: 1.6em 0 0.5em;
+    font-size: 38px;
+    line-height: 1.1;
   }
 
-  .post-body :global(p) {
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: var(--space-md);
+  .post-body :global(hr) {
+    margin: 2em 0;
+    border: none;
+    border-top: 1px solid var(--color-blush);
   }
 
   /* Die Ebene der Vergrösserung (global.css) bringt eigene Masse mit. */
   .post-body :global(img:not(.zoom-layer img)) {
     max-width: 100%;
     height: auto;
-    /* Weisse Bild-Hintergründe (Editorial-Sketches, Charts) verschmelzen mit
-       dem Ivory-Seitenhintergrund: Weiss × Ivory = Ivory, Striche bleiben. */
-    mix-blend-mode: multiply;
   }
 
-  /* Illustrationen stehen als Bild im Absatz, Detail-Bilder als
-     vergrösserbare Figure (rehype-img-zoom) – beide mit demselben Abstand. */
-  .post-body :global(p > img),
+  /* Detail-Bilder (rehype-img-zoom) stehen frei in der Spalte. */
   .post-body :global(.post-figure) {
-    margin: var(--space-lg) 0;
+    margin: 2em 0;
   }
 
   /* Der Knopf so breit wie das Bild, damit der Hinweis in dessen Ecke sitzt. */
@@ -234,214 +254,117 @@ if (seriesSlug && seriesData && post.data.seriesPart) {
     width: fit-content;
   }
 
-  .post-body :global(ul), .post-body :global(ol) {
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.7;
-    padding-left: var(--space-lg);
-    margin-bottom: var(--space-md);
+  /* Illustrationen und Loop-Videos liegen auf Papier (global.css) und ragen
+     links und rechts aus der Spalte. */
+  .post-body :global(.loop-illustration),
+  .post-body :global(p:has(> img[src*="-hero."]:only-child)) {
+    margin: 2.2em -110px;
   }
 
-  .post-body :global(strong) {
-    font-weight: 600;
+  .post-body :global(p:has(> img[src*="-hero."]:only-child) > img) {
+    width: 100%;
   }
 
-  .post-body :global(a) {
-    color: var(--color-coral);
-    text-decoration: none;
-  }
-
-  .post-body :global(a:hover) {
-    text-decoration: underline;
-  }
-
-  .post-body :global(.cta) {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-coral);
-    border: 1px solid var(--color-coral);
-    padding: 0.6em 1.4em;
-    letter-spacing: 0.3px;
-    margin-top: var(--space-md);
-    text-decoration: none;
-  }
-
-  .post-body :global(.cta:hover) {
-    background: var(--color-coral);
-    color: var(--color-white);
-    text-decoration: none;
-  }
-
-  .scheduled-hint {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-coral);
-    letter-spacing: 0.3px;
-    margin: 0 0 var(--space-sm);
-  }
-
-  .series-hint {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-text-light);
-    letter-spacing: 0.3px;
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: var(--space-sm);
-  }
-
-  .series-hint strong {
-    font-weight: 600;
-    color: var(--color-coral);
-  }
-
-  .series-hint:hover strong {
-    text-decoration: underline;
-  }
-
+  /* Serien-Navigation: zwei Karten nebeneinander */
   .series-nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    gap: 20px;
+    max-width: var(--read-width);
+    margin: 56px auto 0;
   }
 
-  .series-nav-link {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    text-decoration: none;
-    color: inherit;
+  .series-nav :global(.series-nav-link) {
+    padding: 20px 24px 22px;
   }
 
-  .series-nav-next {
+  .series-nav :global(.series-nav-next) {
     text-align: right;
   }
 
   .series-nav-dir {
-    font-family: var(--font-sans);
-    font-size: 12px;
+    display: block;
+    font-size: 13px;
     font-weight: 600;
-    color: var(--color-coral);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-plum-soft);
   }
 
   .series-nav-title {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--color-text);
-  }
-
-  .series-nav-link:hover .series-nav-title {
-    color: var(--color-coral);
-  }
-
-  .series-more {
     display: block;
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text-light);
-    text-decoration: none;
-    margin-bottom: var(--space-md);
+    margin-top: 6px;
+    font-family: var(--font-serif);
+    font-size: 24px;
+    line-height: 1.15;
+    color: var(--color-plum);
   }
 
-  .series-more strong {
-    font-weight: 600;
-    color: var(--color-coral);
-  }
-
-  .series-more:hover strong {
-    text-decoration: underline;
-  }
-
-  .post-newsletter {
-    max-width: var(--content-width);
-    margin-top: var(--space-xl);
-    padding: var(--space-md) var(--space-lg);
-    background: var(--color-neutral);
+  /* Newsletter-Hinweis als Karte in Rosé-hell */
+  .artikel :global(.post-newsletter) {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
-    gap: var(--space-sm);
+    gap: 14px 24px;
+    max-width: var(--read-width);
+    margin: 56px auto 0;
+    padding: 26px 30px;
   }
 
   .post-newsletter-text {
-    font-family: var(--font-sans);
-    font-size: 15px;
-    color: var(--color-text);
     margin: 0;
+    font-family: var(--font-serif);
+    font-size: 26px;
+    line-height: 1.15;
+    color: var(--color-plum);
   }
 
   .post-newsletter-link {
-    font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    letter-spacing: 0.3px;
-    color: var(--color-coral);
-    white-space: nowrap;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
   }
 
-  .post-newsletter-link:hover {
-    text-decoration: underline;
+  /* Sockel */
+  .zurueck {
+    display: inline-block;
+    margin-top: 36px;
+    text-underline-offset: 5px;
   }
 
-  footer {
-    margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--color-coral);
-    margin-bottom: var(--space-xl);
+  @media (max-width: 1000px) {
+    .post-body :global(.loop-illustration),
+    .post-body :global(p:has(> img[src*="-hero."]:only-child)) {
+      margin: 2em -20px;
+    }
   }
 
-  .back-link {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-coral);
-  }
+  @media (max-width: 860px) {
+    .artikel-kopf {
+      margin-top: var(--space-lg);
+    }
 
-  .back-link:hover {
-    text-decoration: none;
-  }
+    .post-body {
+      margin-top: var(--space-lg);
+      font-size: 17px;
+    }
 
-  @media (max-width: 768px) {
-    .evans-section {
+    .post-body :global(h2) {
+      font-size: 30px;
+    }
+
+    .series-nav {
       grid-template-columns: 1fr;
     }
 
-    .evans-label {
-      padding: var(--space-lg) 0 0 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: var(--space-md);
+    .series-nav-spacer {
+      display: none;
     }
 
-    .evans-label {
-      position: static;
-    }
-
-    /* Icon in der horizontalen Label-Zeile: klein, rechtsbündig */
-    .post-icon {
-      width: 56px;
-      height: 56px;
-      margin: 0 0 0 auto;
-    }
-
-    .evans-content {
-      border-left: none;
-      border-top: 1px solid var(--color-coral);
-      padding: var(--space-md) 0 0 0;
-    }
-
-    .post-title {
-      font-size: 28px;
+    .series-nav :global(.series-nav-next) {
+      text-align: left;
     }
   }
 </style>

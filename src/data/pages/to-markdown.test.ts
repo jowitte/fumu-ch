@@ -11,7 +11,7 @@ import type { PageContent, Rich } from './types';
  * Regressionssicherung gegen den Schattentext-Fall (2026-08-19): Eine Aussage
  * darf nicht in einem Kanal stehen und im anderen fehlen. Der Test hält fest,
  * dass jedes Klartext-Stück der Seitendaten im Markdown ankommt – die
- * HTML-Seite rendert dieselben Daten über EvansSection.astro.
+ * HTML-Seite rendert dieselben Daten über Sektion.astro.
  */
 
 /** Stellvertreter für die Perspektiven-Collection, die im Test nicht verfügbar ist. */

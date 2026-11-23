@@ -1,0 +1,124 @@
+---
+/**
+ * Papierkarte: ungleiche Ecken, weicher Schatten zwischen den Lagen.
+ * Flächen nach dem Entwurf: Coral (erstes Thema, einmal pro Seite), Safran
+ * (zweites Thema), Rosé-hell (Formate, Hinweise), Weiss.
+ * Mit `href` wird die ganze Karte zum Link, sonst ist sie ein <div>.
+ *
+ * Regel 2: höchstens eine Safran-Fläche pro Bildschirmhöhe. Das Papierstück
+ * in der Ecke der Coral-Karte ist deshalb Rosé, das der Safran-Karte Rosé-hell.
+ */
+interface Props {
+  tone: 'coral' | 'saffron' | 'blush-light' | 'white';
+  href?: string;
+  class?: string;
+}
+
+const { tone, href, class: className } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag href={href} class:list={['karte', `karte-${tone}`, className]}>
+  <slot />
+</Tag>
+
+<style>
+  .karte {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 32px 30px 34px;
+    color: var(--color-ink);
+    text-decoration: none;
+    border-radius: var(--radius-cut);
+    box-shadow: var(--shadow-layer);
+  }
+
+  .karte > :global(*) {
+    position: relative;
+    z-index: 1;
+  }
+
+  a.karte {
+    transition: transform 0.15s ease;
+  }
+
+  a.karte:hover {
+    transform: translateY(-2px);
+  }
+
+  .karte-coral {
+    color: var(--color-white);
+    background: var(--color-coral);
+    --heading: var(--color-white);
+    --link: var(--color-white);
+  }
+
+  .karte-saffron {
+    background: var(--color-saffron);
+    --heading: var(--color-ink);
+    --link: var(--color-ink);
+  }
+
+  /* Regel 3: Coral-Schrift auf Rosé-hell erst ab 24 px – Links in Text-
+     grösse stehen hier deshalb in Pflaume (unterstrichen). */
+  .karte-blush-light {
+    background: var(--color-blush-light);
+    --link: var(--color-plum);
+  }
+
+  .karte-white {
+    background: var(--color-white);
+  }
+
+  /* Papierstück in der Ecke, nur auf den farbigen Themen-Karten */
+  .karte-coral::after,
+  .karte-saffron::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+    box-shadow: var(--shadow-layer);
+  }
+
+  .karte-coral::after {
+    background: var(--color-blush);
+  }
+
+  /* Der Titel darf nicht über dem Papierstück stehen: weisse Schrift auf
+     Rosé wäre unlesbar. Er hält Abstand zur sichtbaren Ecke. */
+  .karte-coral > :global(:is(h2, h3):first-child),
+  .karte-saffron > :global(:is(h2, h3):first-child) {
+    margin-right: 84px;
+  }
+
+  .karte-saffron::after {
+    background: var(--color-blush-light);
+  }
+
+  @media (max-width: 860px) {
+    .karte-coral::after,
+    .karte-saffron::after {
+      width: 84px;
+      height: 84px;
+    }
+
+    .karte-coral > :global(:is(h2, h3):first-child),
+    .karte-saffron > :global(:is(h2, h3):first-child) {
+      margin-right: 28px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    a.karte {
+      transition: none;
+    }
+
+    a.karte:hover {
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,180 @@
+---
+/**
+ * Pflaumensockel: der untere Teil jeder Seite, mit gerissener Oberkante
+ * (`--torn-edge` aus src/lib/torn-paper.ts). Reihenfolge: seitenspezifischer
+ * Inhalt (Slot, z.B. Zitat oder Perspektiven als Blätter) → Abschluss
+ * «25 Minuten Kennenlernen» (alle Seiten ausser Kontakt) → Newsletter-Zeile
+ * → Fuss.
+ *
+ * Farben nach Regel 6 des Entwurfs: Text Weiss, Nebentext Rosé, Links und
+ * Fokus Safran. Coral steht hier nur als Knopf.
+ */
+import { kontakt } from '../data/pages/kontakt';
+import type { TextItem } from '../data/pages/types';
+import RichText from './RichText.astro';
+
+interface Props {
+  abschluss: boolean;
+}
+
+const { abschluss } = Astro.props;
+
+// Abschluss = Sektion «Termin» der Kontaktseite, damit der Text nur dort steht.
+const termin = kontakt.sections
+  .find(section => section.label === 'Termin')
+  ?.items.find((item): item is TextItem => item.kind === 'item' && Boolean(item.title && item.cta));
+if (!termin?.cta) {
+  throw new Error('Sockel: Sektion «Termin» mit Titel und CTA fehlt in src/data/pages/kontakt.ts');
+}
+const cta = termin.cta;
+
+const inhalt = Astro.slots.has('default') ? (await Astro.slots.render('default')).trim() : '';
+const year = new Date().getFullYear();
+---
+
+<div class="sockel">
+  {inhalt && <div class="container sockel-inhalt"><Fragment set:html={inhalt} /></div>}
+
+  {abschluss && (
+    <section class="container abschluss" aria-labelledby="abschluss-titel">
+      <div class="abschluss-text">
+        <h2 id="abschluss-titel">{termin.title}</h2>
+        <p><RichText value={termin.body} /></p>
+      </div>
+      <a href={cta.href} class="btn" target={cta.external ? '_blank' : undefined} rel={cta.external ? 'noopener' : undefined}>{cta.label}</a>
+    </section>
+  )}
+
+  <div class="container newsletter-zeile">
+    <span>Perspektiven darauf, wie aus Technologie Wirkung wird – gelegentlich per E-Mail.</span>
+    <a href="/kontakt/#newsletter">Newsletter abonnieren &rarr;</a>
+  </div>
+
+  <footer class="container fuss">
+    <p>&copy; {year} fumu GmbH, Zürich</p>
+    <nav class="fuss-nav" aria-label="Fuss">
+      <a href="/ai-crawler-radar/">AI-Crawler-Radar</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/datenschutz/">Datenschutz</a>
+      <a href="/agb/">AGB</a>
+      <a href="mailto:hello@fumu.ch">hello@fumu.ch</a>
+    </nav>
+  </footer>
+</div>
+
+<style>
+  .sockel {
+    position: relative;
+    margin-top: calc(var(--space-xl) + 40px);
+    padding-top: 40px;
+    color: var(--color-white);
+    background: var(--color-plum);
+    --heading: var(--color-white);
+    --link: var(--color-saffron);
+    --focus: var(--color-saffron);
+  }
+
+  /* Gerissene Oberkante: ein schmaler Streifen in Pflaume, der über den
+     Sockel hinausragt und oben gerissen ist. */
+  .sockel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -22px;
+    height: 24px;
+    background: var(--color-plum);
+    clip-path: var(--torn-edge);
+  }
+
+  .sockel-inhalt {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-xl);
+  }
+
+  .abschluss {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .sockel-inhalt + .abschluss {
+    border-top: 1px solid var(--color-plum-line);
+  }
+
+  .abschluss h2 {
+    margin: 0;
+    font-size: 56px;
+    line-height: 1;
+    max-width: 12em;
+  }
+
+  .abschluss p {
+    margin: 10px 0 0;
+    max-width: 36em;
+    color: var(--color-blush);
+  }
+
+  .newsletter-zeile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm) var(--space-lg);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    font-size: 15px;
+    color: var(--color-blush);
+  }
+
+  .sockel-inhalt + .newsletter-zeile,
+  .abschluss + .newsletter-zeile {
+    border-top: 1px solid var(--color-plum-line);
+  }
+
+  .newsletter-zeile a {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .fuss {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md) var(--space-lg);
+    padding-top: 28px;
+    padding-bottom: 48px;
+    font-size: 14px;
+    color: var(--color-blush);
+    border-top: 1px solid var(--color-plum-line);
+  }
+
+  .fuss p {
+    margin: 0;
+  }
+
+  .fuss-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) 24px;
+  }
+
+  .fuss-nav a {
+    text-decoration: none;
+  }
+
+  .fuss-nav a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 860px) {
+    .abschluss h2 {
+      font-size: 44px;
+    }
+  }
+</style>

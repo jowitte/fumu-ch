@@ -1,0 +1,78 @@
+---
+/**
+ * Bleistiftbild auf gerissenem Papier: eine Papierform in Rosé oder
+ * Rosé-hell (clip-path aus `--torn-N`, src/lib/torn-paper.ts), optional ein
+ * zweites Stück in Safran, darüber das Bild mit `mix-blend-mode: multiply` –
+ * sein weisser Grund wird durchsichtig, die Striche liegen auf dem Papier.
+ * Funktioniert mit jedem Bild auf weissem Grund (Bild-Stil `editorial`).
+ */
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  torn?: 1 | 2 | 3;
+  tone?: 'blush' | 'blush-light';
+  /** Zweites Papierstück in Safran – höchstens eine Safran-Fläche pro Bildschirm. */
+  safran?: boolean;
+  /** Bild auf dem ersten Bildschirm: sofort laden statt lazy. */
+  eager?: boolean;
+}
+
+const { src, alt, width, height, torn = 1, tone = 'blush', safran = false, eager = false } = Astro.props;
+---
+
+<figure class="papier-bild" style={`--papier-form: var(--torn-${torn}); aspect-ratio: ${width} / ${height};`}>
+  <div class:list={['papier', 'papier-grund', `papier-${tone}`]} aria-hidden="true"></div>
+  {safran && <div class="papier papier-safran" aria-hidden="true"></div>}
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : undefined}
+  />
+</figure>
+
+<style>
+  .papier-bild {
+    position: relative;
+    margin: 0;
+  }
+
+  .papier {
+    position: absolute;
+  }
+
+  .papier-grund {
+    inset: 4% 2% 8% 6%;
+    clip-path: var(--papier-form);
+  }
+
+  .papier-blush {
+    background: var(--color-blush);
+  }
+
+  .papier-blush-light {
+    background: var(--color-blush-light);
+  }
+
+  .papier-safran {
+    right: 4%;
+    top: 10%;
+    width: 30%;
+    aspect-ratio: 1;
+    background: var(--color-saffron);
+    clip-path: var(--torn-2);
+  }
+
+  .papier-bild img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    mix-blend-mode: multiply;
+  }
+</style>

@@ -14,7 +14,7 @@ Astro-basierte statische Website für fumu – Beratung für KI-Transformation i
 | Markdown | `@astrojs/markdown-remark` (`processor: unified()`) | Astro 7 rendert per Default mit Sätteri; die eigenen remark/rehype-Plugins verlangen unified |
 | Integrations | `@astrojs/rss`, `@astrojs/sitemap` | RSS-Feed, Sitemap mit `lastmod` |
 | Hosting | Netlify Free | Auto-Deploy via GitHub (`origin: jowitte/fumu-ch`), native Forms, Node 22 |
-| Fonts | Fraunces + IBM Plex | Headings (Fraunces), Body (IBM Plex Sans), Mono (IBM Plex Mono); self-hosted woff2 in `public/fonts/` |
+| Fonts | Instrument Serif + Instrument Sans | Titel H1–H3, Zitate, Schriftzug (Instrument Serif 400, normal und kursiv), Text und Navigation (Instrument Sans, Variable 400–700, normal und kursiv); self-hosted woff2 in `public/fonts/` (Fontsource, OFL), Excalifont für die Diagramme |
 | CSS | Custom Properties | Kein Framework, reines CSS in `src/styles/global.css` |
 | Content | Astro Content Collections | Markdown mit Zod-Schema (`src/content.config.ts`) |
 | Preview | https://fumu-ch.netlify.app | Staging-URL · Produktion: https://fumu.ch |
@@ -62,6 +62,8 @@ order: number         # Navigationsreihenfolge
 
 Seiten: home, was-wir-tun, about, perspektiven, kontakt, impressum, datenschutz
 
+`home.md` trägt seit dem Redesign (2026-11) nur noch Frontmatter (Title und Description fürs HTML). Die Texte der Startseite stehen in `src/data/pages/home.ts`; daraus entstehen `index.astro`, `/index.md` und der Startseiten-Abschnitt in `/llms-full.txt`. Bis die Startseiten-Texte aus dem Vault kommen, ist sie eine Übergangs-Startseite aus Texten, die schon auf der Site stehen.
+
 ### `perspektiven` – Blog/Artikel
 
 Pfad: `src/content/perspektiven/*.md`
@@ -94,7 +96,7 @@ Fast jede Seite existiert **doppelt** – als HTML für Menschen und als Quell-M
 
 Beide Welten werden über die Content Collections gespeist – die Markdown-Routen sind die Single Source of Truth für die Agent-Readiness-Schicht. Wer eine neue Seite anlegt, sollte die `.md`-Variante mitdenken.
 
-**Achtung Drift bei bespoke Seiten.** Einige `.astro`-Seiten laden die `pages`-Collection **nicht**, sondern hardcoden ihren Inhalt im eigenen Layout (z.B. `kontakt.astro`, `datenschutz.astro`, `impressum.astro` mit ihrem Ben-Evans-Raster). Bei solchen Seiten ist die Collection-`.md` (die `[slug].md.ts` serviert) ein **parallel von Hand gepflegtes** File, kein Derivat der gerenderten Seite. Folge: Wer den Text einer bespoke Seite ändert, muss die zugehörige `.md` im **selben Edit** nachziehen – sonst driften Menschen-Seite und Agent-Markdown auseinander (passiert 2026-06-08 auf der Kontaktseite: `.md` zeigte „30 Minuten / Lass uns sprechen", die Seite „25 Minuten Kennenlernen"). Warnsignal: Ich editiere sichtbaren Text in `kontakt.astro` / `datenschutz.astro` / `impressum.astro`, ohne die gleichnamige `.md` in `src/content/pages/` anzufassen – Stopp, Twin synchron halten. (Sauberere Dauerlösung – die bespoke Seiten aus der Collection speisen statt zu hardcoden – ist eine eigene Story.)
+**Achtung Drift bei bespoke Seiten.** Einige `.astro`-Seiten laden die `pages`-Collection **nicht**, sondern hardcoden ihren Inhalt im eigenen Layout (z.B. `kontakt.astro`, `datenschutz.astro`, `impressum.astro`). Bei solchen Seiten ist die Collection-`.md` (die `[slug].md.ts` serviert) ein **parallel von Hand gepflegtes** File, kein Derivat der gerenderten Seite. Folge: Wer den Text einer bespoke Seite ändert, muss die zugehörige `.md` im **selben Edit** nachziehen – sonst driften Menschen-Seite und Agent-Markdown auseinander (passiert 2026-06-08 auf der Kontaktseite: `.md` zeigte „30 Minuten / Lass uns sprechen", die Seite „25 Minuten Kennenlernen"). Warnsignal: Ich editiere sichtbaren Text in `kontakt.astro` / `datenschutz.astro` / `impressum.astro`, ohne die gleichnamige `.md` in `src/content/pages/` anzufassen – Stopp, Twin synchron halten. (Sauberere Dauerlösung – die bespoke Seiten aus der Collection speisen statt zu hardcoden – ist eine eigene Story.)
 
 ### Agent-/AI-Readiness-Schicht
 
@@ -147,28 +149,41 @@ Erhebung, Snapshots und Publish des Radars liegen seit 2026-09-20 in diesem Repo
 
 ## Design-System
 
+Stand: Redesign «Mischung 4» (2026-11), Entwurf und Begründung in `docs/plans/2026-11-22-neues-design-entwurf.md` – Bleistift auf gerissenem Papier, oben Weiss, unten Pflaume als Sockel, Coral als Signatur. Tokens in `src/styles/global.css`.
+
 ### Farben
 
 | Variable | Hex | Verwendung |
 |----------|-----|------------|
-| `--color-coral` | #C44540 | Primärfarbe (Logo, CTAs, Linien, Headlines, Links) |
-| `--color-primary` | #223A5E | Tertiär (dunkle Akzente) |
-| `--color-bg` | #FBFAF7 | Seitenhintergrund (helles warmes Off-White) |
-| `--color-sage` | #C3CFC7 | Karten-Pastell |
-| `--color-lavender` | #C9C5DA | Karten-Pastell |
-| `--color-text` | #414141 | Fliesstext |
-| `--color-text-light` | #666 | Sekundärtext |
-| `--color-neutral` | #F4F4F4 | Hintergrund-Akzent |
-| `--color-white` | #FFFFFF | Buttons-/Kontrast-Flächen |
+| `--color-white` | #FFFFFF | Grund oben und in der Mitte jeder Seite |
+| `--color-plum` | #43233B | Sockel unten; Titel, Schriftzug, Navigation |
+| `--color-plum-soft` | #6B4A63 | Sekundärtext, Leads, Etiketten |
+| `--color-ink` | #2B1A27 | Fliesstext |
+| `--color-coral` | #C44540 | Signatur: Knöpfe, Links, Daten, aktiver Menüpunkt, Punkt im Schriftzug |
+| `--color-saffron` | #E9A23B | Papier: Flächen; im Sockel Links und Fokus |
+| `--color-blush` | #F3D9C4 | Papier: Flächen, Thema-Streifen, Haarlinien |
+| `--color-blush-light` | #F8EADF | Papier: Karten, Hinterlegung von Bildern |
+| `--color-plum-line` | Rosé 22 % | Haarlinie im Sockel |
+
+Regeln für die Signatur (Entwurf, Regeln 1–6): Coral steht nur auf dem, was etwas tut oder auszeichnet. Coral-Schrift unter 24 px nur auf Weiss (auf Rosé-hell erst ab 24 px – Links auf Rosé-hell-Karten stehen deshalb in Pflaume). Höchstens eine Safran-Fläche pro Bildschirmhöhe, Coral als grosse Fläche einmal pro Seite. Auf Pflaume: Text Weiss, Nebentext Rosé, Links und Fokus Safran, Coral nur als Knopf und als Datum auf den weissen Blättern. Keine weiteren Farben.
+
+Link-, Fokus- und Titelfarbe hängen an vererbbaren Variablen (`--link`, `--focus`, `--heading`, Default Coral/Coral/Pflaume): Der Sockel stellt sie auf Safran und Weiss um, Karten und Blätter setzen sie für ihren Inhalt neu. Farben einer Fläche dort umstellen, nicht über Selektoren auf `a` oder `h2`.
 
 **Chart-Serienfarben** kommen nicht aus dieser Tabelle, sondern aus der Brand-Kategorien-Palette (Akasha-Vault: `var/marken/fumu/brand.yaml` > `colors.categorical`, dataviz-validiert gegen ivory) – kanonische Kopie in `src/data/crawler-tracker.ts` > `categoryColors`. Keine ad-hoc Hexwerte in Chart-Komponenten.
 
 ### Typografie
 
-- Body: `var(--font-sans)` – IBM Plex Sans, 16px, 400; echter Italic-Schnitt gehostet (`ibm-plex-sans-italic-*.woff2`, nur weight 400 – Bold-Kursiv ist bewusst nicht dabei). Verwendungsregel für Auszeichnungen: Akasha-Vault `var/references/STILREGELN.md` > Auszeichnungen.
-- Headings: `var(--font-serif)` – Fraunces, 600
-- H1: 56px (Fraunces, 400), H2: 28px, H3: 22px, H4: 18px, H5/H6: 16px – H2+ in IBM Plex Sans, 500, Coral
-- Hero-Titel: eigene Grösse in `index.astro`, Fraunces, 400, Coral
+- Text: `var(--font-sans)` – Instrument Sans, 17px/1.6, 400; Perspektiven 18.5px/1.72. Kursiv (echter Schnitt) nur für Werktitel im Fliesstext. Verwendungsregel für Auszeichnungen: Akasha-Vault `var/references/STILREGELN.md` > Auszeichnungen.
+- Titel: `var(--font-serif)` – Instrument Serif 400 (nur dieser Schnitt), Pflaume. H1 76/46 px (Startseite 96/58, Pillar 60/40), H2 im Lesetext 38 px, Sektionstitel 44 px, Sockel-Titel 52/40 px, H3 28 px. H4–H6 in Instrument Sans 600.
+- Serif kursiv: Zitate und die Dauer der Formate (Coral, ab 24 px).
+- Etiketten: Versalien, 13 px, Sperrung 0.05em (`.label-caps` oder lokal).
+- Schriftzug «fumu.» in der Kopfzeile: Instrument Serif 40 px, Punkt Coral. Favicon, Touch-Icon und `og-default.png` erzeugt `scripts/brand-assets.mjs`.
+
+### Formen
+
+- Papierkarte `Karte.astro`: `--radius-cut` (ungleiche Ecken), `--shadow-layer`; Töne Coral, Safran, Rosé-hell, Weiss.
+- Gerissenes Papier: `--torn-1`, `--torn-2`, `--torn-3`, `--torn-edge` (clip-path-Polygone), erzeugt beim Build aus festen Startwerten in `src/lib/torn-paper.ts` und von `BaseLayout` auf `:root` gelegt. Illustrationen (`-hero`-Bilder) und Loop-Videos im Markdown liegen automatisch auf einer Papierform in Rosé-hell (`global.css`), Bilder im Layout über `PapierBild.astro`.
+- Sockel `Sockel.astro`: Pflaume mit gerissener Oberkante; enthält den Slot `sockel` aus `BaseLayout` (seitenspezifisch: Zitat, Perspektiven als Blätter über `PerspektivenBlaetter.astro`), den Abschluss «25 Minuten Kennenlernen» (Text aus der Sektion «Termin» in `src/data/pages/kontakt.ts`, abschaltbar mit `BaseLayout`-Prop `abschluss={false}`, nur auf `/kontakt/`), die Newsletter-Zeile und den Fuss mit Link zum AI-Crawler-Radar.
 
 ### Spacing
 
@@ -176,9 +191,11 @@ Erhebung, Snapshots und Publish des Radars liegen seit 2026-09-20 in diesem Repo
 
 ### Layout
 
-- `--max-width`: 1040px (Container)
-- `--content-width`: 720px (Lesbreite)
-- Breakpoint: 768px (Mobile)
+- `--max-width`: 1200px (Container, Seitenrand 40/20 px)
+- `--page-width`: 760px (Spalte der Seiten aus PageContent, Rechtstexte, Radar; linksbündig)
+- `--read-width`: 680px (Lesespalte der Perspektiven, mittig)
+- Breakpoint: 860px (Mobile)
+- Abnahme-Skripte: `scripts/text-diff.mjs` (Wortmengen zweier Build-Bäume), `scripts/overflow-check.mjs` (Überlauf bei 400 px)
 
 ## Konventionen
 

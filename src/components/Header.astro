@@ -3,39 +3,42 @@ import { pillarPath, pillars } from '../data/pillars';
 
 const currentPath = Astro.url.pathname;
 
-// Die Pillars hängen unter «Was wir tun» und markieren deshalb diesen Punkt.
-const isActive = (href: string) =>
-  currentPath === href || (href === '/was-wir-tun/' && pillars.some(p => pillarPath(p) === currentPath));
+// Die Pillars hängen unter «Was wir tun» und markieren deshalb diesen Punkt,
+// Artikel und Themen unter /perspektiven/ den Punkt «Perspektiven».
+const isSection = (href: string) =>
+  (href === '/was-wir-tun/' && pillars.some(p => pillarPath(p) === currentPath)) ||
+  (href === '/perspektiven/' && currentPath.startsWith('/perspektiven/'));
+
+const current = (href: string) =>
+  currentPath === href ? 'page' : isSection(href) ? 'true' : undefined;
 
 const navItems = [
   { href: '/was-wir-tun/', label: 'Was wir tun' },
-  { href: '/about/', label: 'Über fumu' },
   { href: '/perspektiven/', label: 'Perspektiven' },
-  { href: '/kontakt/', label: 'Kontakt & Newsletter' },
+  { href: '/about/', label: 'Über fumu' },
 ];
 ---
 
 <header class="site-header">
-  <div class="container">
-    <nav class="nav">
-      <a href="/" class="logo">fumu</a>
-      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-list">
-        {navItems.map(item => (
-          <li>
-            <a
-              href={item.href}
-              class:list={['nav-link', { active: isActive(item.href) }]}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </div>
+  <nav class="container header-bar" aria-label="Hauptnavigation">
+    <a href="/" class="logo">fumu<span class="logo-dot">.</span></a>
+    {/* Reihenfolge im DOM = Tab-Reihenfolge: Der Menü-Knopf steht vor der
+        Liste, die er öffnet; der Termin-Knopf zuletzt. Auf dem Handy rückt
+        er per order optisch vor den Menü-Knopf. */}
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-list">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-list" id="nav-list">
+      {navItems.map(item => (
+        <li>
+          <a href={item.href} class="nav-link" aria-current={current(item.href)}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="/kontakt/" class="btn header-cta" aria-current={current('/kontakt/')}>Termin vereinbaren</a>
+  </nav>
 </header>
 
 <script>
@@ -50,36 +53,42 @@ const navItems = [
 
 <style>
   .site-header {
-    background: var(--color-bg);
-    border-bottom: 1px solid var(--color-coral);
-    padding: var(--space-md) 0;
+    background: var(--color-white);
   }
 
-  .nav {
+  .header-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 0 34px;
+    min-height: 88px;
   }
 
+  /* Schriftzug «fumu.»: Serif in Pflaume, der Punkt in Coral */
   .logo {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--color-coral);
-    letter-spacing: 0.5px;
+    margin-right: auto;
+    font-family: var(--font-serif);
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--color-plum);
+    text-decoration: none;
   }
 
-  .logo:hover {
+  .logo-dot {
     color: var(--color-coral);
-    text-decoration: none;
   }
 
   .nav-list {
     display: flex;
+    align-items: center;
+    gap: 34px;
     list-style: none;
-    gap: var(--space-lg);
+    margin: 0;
     padding: 0;
+  }
+
+  .nav-list li {
     margin: 0;
   }
 
@@ -87,48 +96,77 @@ const navItems = [
     font-family: var(--font-sans);
     font-size: 15px;
     font-weight: 500;
-    color: var(--color-text);
-    letter-spacing: 0.3px;
-  }
-
-  .nav-link:hover {
-    color: var(--color-coral);
+    color: var(--color-plum);
     text-decoration: none;
   }
 
-  .nav-link.active {
+  .nav-link:hover,
+  .nav-link[aria-current] {
     color: var(--color-coral);
+  }
+
+  .header-cta {
+    padding: 12px 18px;
   }
 
   .menu-toggle {
     display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 6px;
     background: none;
     border: none;
     cursor: pointer;
-    flex-direction: column;
-    gap: 4px;
   }
 
   .menu-toggle span {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--color-text);
+    background: var(--color-plum);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
+    .header-bar {
+      gap: 0 12px;
+      min-height: 72px;
+    }
+
+    .logo {
+      font-size: 34px;
+    }
+
+    .header-cta {
+      padding: 11px 14px;
+      font-size: 14px;
+    }
+
     .menu-toggle {
       display: flex;
+      order: 2;
     }
+
+    .header-cta {
+      order: 1;
+    }
+
+    /* Ausgeklappt steht die Liste als eigene Zeile unter Schriftzug und Knopf. */
     .nav-list {
       display: none;
+      order: 3;
       width: 100%;
       flex-direction: column;
+      align-items: flex-start;
       gap: var(--space-md);
-      padding-top: var(--space-md);
+      padding: var(--space-sm) 0 var(--space-lg);
     }
+
     .nav-list.open {
       display: flex;
+    }
+
+    .nav-link {
+      font-size: 17px;
     }
   }
 </style>

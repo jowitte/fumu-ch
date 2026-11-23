@@ -108,31 +108,19 @@ const datasetLd = {
   <section class="radar-page">
     <div class="container">
       <div class="content">
-        <div class="radar-head">
-          <div>
-            <h1>AI-Crawler-Radar</h1>
+        <h1>AI-Crawler-Radar</h1>
 
-            <p class="snapshot-meta">
-              Snapshot vom <strong>{formatDate(tracker.meta.snapshot_date)}</strong> ·{' '}
-              {tracker.meta.site_count} Sites × {tracker.meta.crawler_count} Crawler ·
-              Erhebung alle {tracker.meta.cadence_days} Tage
-            </p>
-          </div>
-          <img
-            class="radar-head-icon"
-            src="/images/icons/ai-crawler-radar.webp"
-            alt=""
-            loading="lazy"
-          />
-        </div>
+        <p class="snapshot-meta">
+          Snapshot vom <strong>{formatDate(tracker.meta.snapshot_date)}</strong> ·{' '}
+          {tracker.meta.site_count} Sites × {tracker.meta.crawler_count} Crawler ·
+          Erhebung alle {tracker.meta.cadence_days} Tage
+        </p>
 
         {
           intro.map((paragraph) => (
             <p class="intro" set:html={renderInlineLinks(paragraph)} />
           ))
         }
-
-        <hr class="section-divider" />
 
         <h2>Verlauf</h2>
         <p class="section-lead">
@@ -147,7 +135,6 @@ const datasetLd = {
         {
           runs.length > 0 && (
             <section class="run-log">
-              <hr class="section-divider" />
               <h2>Aktualisierungen</h2>
               {recentRuns.map((run) => (
                 <article class="run">
@@ -277,80 +264,52 @@ const datasetLd = {
 
 <style>
   .radar-page {
-    padding: var(--space-lg) 0 var(--space-xl) 0;
+    padding-bottom: var(--space-lg);
   }
 
+  /* Snapshot-Zeile unter dem H1: Versalien, Pflaume-soft */
   .snapshot-meta {
-    font-family: var(--font-sans);
+    margin-bottom: var(--space-lg);
     font-size: 13px;
-    color: var(--color-text-light);
-    letter-spacing: 0.4px;
-    margin-bottom: var(--space-md);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-plum-soft);
   }
 
-  .radar-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-lg);
-  }
-
-  .radar-head-icon {
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-    flex-shrink: 0;
+  .snapshot-meta strong {
+    color: var(--color-plum);
   }
 
   .intro {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-text);
     margin-bottom: var(--space-md);
+    font-size: 17px;
+    line-height: 1.65;
   }
 
-  /* Inline-Links aus set:html (renderInlineLinks) – Konvention wie .post-body */
-  .intro :global(a),
-  .run-summary :global(a),
-  .run-commentary :global(a),
-  .license-note :global(a) {
-    color: var(--color-coral);
-    text-decoration: none;
+  .content > h2 {
+    margin-top: var(--space-xl);
   }
 
-  .intro :global(a:hover),
-  .run-summary :global(a:hover),
-  .run-commentary :global(a:hover),
-  .license-note :global(a:hover) {
-    text-decoration: underline;
-  }
-
-  /* Fuss der Seite, sichtbar ausserhalb der klappbaren Sections – Schrift wie
-     die Snapshot-Zeile unter dem H1. */
+  /* Fuss der Seite, sichtbar ausserhalb der klappbaren Sections */
   .license-note {
-    font-family: var(--font-sans);
+    margin: var(--space-lg) 0 0 0;
     font-size: 13px;
     line-height: 1.5;
-    color: var(--color-text-light);
-    margin: var(--space-lg) 0 0 0;
-  }
-
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--color-coral);
-    margin: var(--space-lg) 0;
+    color: var(--color-plum-soft);
   }
 
   .section-lead {
-    font-size: 14px;
-    color: var(--color-text-light);
     margin-bottom: var(--space-md);
+    font-size: 15px;
+    color: var(--color-plum-soft);
   }
 
   .chart-footnote {
-    font-size: 12px;
-    color: var(--color-text-light);
     margin-top: var(--space-md);
+    font-size: 13px;
+    color: var(--color-plum-soft);
   }
 
   .run {
@@ -358,54 +317,48 @@ const datasetLd = {
   }
 
   .run-meta {
-    font-size: 13px;
-    color: var(--color-text-light);
-    letter-spacing: 0.4px;
     margin-bottom: var(--space-xs);
+    font-size: 13px;
+    color: var(--color-plum-soft);
   }
 
   .run-meta strong {
-    color: var(--color-text);
+    color: var(--color-plum);
   }
 
   .run-summary {
-    font-size: 15px;
-    line-height: 1.6;
     margin-bottom: var(--space-xs);
+    font-size: 15.5px;
+    line-height: 1.6;
   }
 
   .run-commentary {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--color-text-light);
-    border-left: 2px solid var(--color-coral);
-    padding-left: var(--space-md);
     margin-bottom: 0;
+    padding-left: var(--space-md);
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--color-plum-soft);
+    border-left: 2px solid var(--color-blush);
   }
 
   .older-runs summary {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    color: var(--color-text-light);
-    cursor: pointer;
     margin-bottom: var(--space-md);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-plum-soft);
+    cursor: pointer;
   }
 
   .older-runs summary:hover {
     color: var(--color-coral);
   }
 
-  .older-runs summary:focus-visible {
-    outline: 2px solid var(--color-coral);
-    outline-offset: 4px;
-  }
-
   .details-sections {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-xl);
   }
 
   .details-sections :global(.collapsible:last-of-type) {
-    border-bottom: 1px solid var(--color-coral);
+    border-bottom: 1px solid var(--color-blush);
   }
 
   .methodology-notes {
@@ -413,25 +366,26 @@ const datasetLd = {
   }
 
   .methodology-notes li {
-    font-size: 14px;
-    color: var(--color-text-light);
     margin-bottom: var(--space-sm);
+    font-size: 15px;
+    color: var(--color-plum-soft);
   }
 
   .methodology-body {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
   }
 
   .site-group h3 {
     margin-top: var(--space-md);
+    font-size: 24px;
   }
 
   .site-count {
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 400;
-    color: var(--color-text-light);
+    color: var(--color-plum-soft);
   }
 
   .site-list {
@@ -442,35 +396,19 @@ const datasetLd = {
   }
 
   .site-list li {
-    font-size: 14px;
     margin-bottom: var(--space-xs);
+    font-size: 15px;
     break-inside: avoid;
   }
 
   .site-domain {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--color-text-light);
+    font-size: 13px;
+    color: var(--color-plum-soft);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     .site-list {
       columns: 1;
-    }
-
-    .radar-head {
-      flex-direction: column-reverse;
-      align-items: flex-end;
-      gap: var(--space-sm);
-    }
-
-    .radar-head > div {
-      width: 100%;
-    }
-
-    .radar-head-icon {
-      width: 90px;
-      height: 90px;
     }
   }
 </style>

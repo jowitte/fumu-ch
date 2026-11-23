@@ -1,0 +1,92 @@
+---
+/**
+ * Eine Perspektive als Zeile in Übersicht und Themen-Seite: Datum in Coral
+ * (Versalien), Titel in Serif als Link, Beschreibung, optional Teil-Nummer
+ * und ein Link aufs Thema. Ohne Themenfarbe und ohne Icon (Redesign 2026-11).
+ */
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  date: Date;
+  part?: number;
+  thema?: { name: string; href: string };
+}
+
+const { href, title, description, date, part, thema } = Astro.props;
+
+const formatDate = (value: Date) =>
+  value.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
+---
+
+<div class="zeile">
+  <a href={href} class="zeile-link">
+    <time class="zeile-datum" datetime={date.toISOString().split('T')[0]}>{formatDate(date)}</time>
+    {part && <span class="zeile-teil">Teil {part}</span>}
+    <h3 class="zeile-titel">{title}</h3>
+    <p class="zeile-text">{description}</p>
+  </a>
+  {thema && <a href={thema.href} class="zeile-thema">Thema: {thema.name}</a>}
+</div>
+
+<style>
+  .zeile {
+    max-width: var(--page-width);
+    padding: 22px 0 24px;
+    border-top: 1px solid var(--color-blush);
+  }
+
+  .zeile-link {
+    display: block;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .zeile-datum,
+  .zeile-teil {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .zeile-datum {
+    color: var(--color-coral);
+  }
+
+  .zeile-teil {
+    margin-left: 14px;
+    color: var(--color-plum-soft);
+  }
+
+  .zeile-titel {
+    margin: 8px 0 6px;
+    font-size: 28px;
+    line-height: 1.1;
+  }
+
+  .zeile-link:hover .zeile-titel {
+    text-decoration: underline;
+    text-decoration-color: var(--color-coral);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
+
+  .zeile-text {
+    margin: 0;
+    color: var(--color-plum-soft);
+  }
+
+  .zeile-thema {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 860px) {
+    .zeile-titel {
+      font-size: 24px;
+    }
+  }
+</style>
