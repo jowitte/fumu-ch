@@ -1,264 +1,335 @@
 ---
-import { getEntry, getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { releases } from '../data/updates';
+import Karte from '../components/Karte.astro';
+import PapierBild from '../components/PapierBild.astro';
+import PerspektivenBlaetter from '../components/PerspektivenBlaetter.astro';
+import RichText from '../components/RichText.astro';
+import { home, pillarOfFormat } from '../data/pages/home';
+import { headingOf } from '../data/pages/to-markdown';
+import { isLink } from '../data/pages/types';
+import type { LinksItem, QuoteItem, TextItem } from '../data/pages/types';
+import { pillarPath } from '../data/pillars';
 import { isPublished } from '../lib/published';
 
+// Title und Description aus dem Frontmatter von home.md, die Inhalte aus
+// src/data/pages/home.ts (daraus entsteht auch /index.md).
 const page = await getEntry('pages', 'home');
+if (!page) throw new Error('src/content/pages/home.md fehlt');
+
 const posts = (await getCollection('perspektiven', isPublished))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 
-// Update-Stream: Perspektiven und Releases gemischt, absteigend nach Datum.
-const updates = [
-  ...posts.map((post) => ({
-    date: post.data.date,
-    href: `/perspektiven/${post.id}/`,
-    title: post.data.title,
-    description: post.data.description,
-    tag: null as string | null,
-  })),
-  ...releases.map((r) => ({
-    date: new Date(r.date),
-    href: r.href,
-    title: r.title,
-    description: r.description,
-    tag: 'Release' as string | null,
-  })),
-].sort((a, b) => b.date.getTime() - a.date.getTime());
+const wasWirTun = home.sections.find(section => section.label === 'Was wir tun');
+const referenzen = home.sections.find(section => section.label === 'Referenzen');
+if (!wasWirTun || !referenzen) throw new Error('home.ts: Sektion «Was wir tun» oder «Referenzen» fehlt');
 
-const formatDate = (date: Date) => {
-  return date.toLocaleDateString('de-CH', { year: 'numeric', month: 'short', day: 'numeric' }).toUpperCase();
+const themen = wasWirTun.items.find((item): item is LinksItem => item.kind === 'links')?.entries ?? [];
+const formate = wasWirTun.items.filter((item): item is TextItem => item.kind === 'item');
+const zitat = referenzen.items.find((item): item is QuoteItem => item.kind === 'quote');
+
+// Erste Leistung Coral (Regel 4: Coral als grosse Fläche einmal pro Seite),
+// zweite Safran, weitere Rosé-hell.
+const themaTone = (i: number) => (i === 0 ? 'coral' : i === 1 ? 'saffron' : 'blush-light') as const;
+
+// Eine Karte, die selbst ein Link ist, darf keinen Link enthalten.
+const formatHref = (format: TextItem) => {
+  const pillar = pillarOfFormat(format);
+  const hasLink = typeof format.body !== 'string' && format.body.some(part => typeof part === 'object' && isLink(part));
+  return pillar && !hasLink ? `${pillarPath(pillar)}#formate` : undefined;
 };
 ---
 
 <BaseLayout title={page.data.title} description={page.data.description}>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1 class="hero-title">Technologie in Wirkung übersetzen.</h1>
-        <p class="hero-sub">Wir verbinden Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird.</p>
-      </div>
-      <img
-        class="hero-icon"
-        src="/images/icons/hero-wirkung.webp"
-        alt=""
-        fetchpriority="high"
-      />
+  <section class="container hero">
+    <div class="hero-text">
+      <h1>{headingOf(home)}</h1>
+      {home.intro.map(text => <p class="lead">{text}</p>)}
+      <a href="/kontakt/" class="btn">Termin vereinbaren</a>
     </div>
+    <PapierBild
+      src="/images/home/hero-weg.webp"
+      alt="Drei Menschen über einem grossen Blatt: Einer zeichnet einen klaren Weg durch ein Gewirr von Linien."
+      width={1200}
+      height={896}
+      safran
+      eager
+    />
   </section>
 
-  {updates.length > 0 && (
-    <section class="recent-posts">
-      <div class="container">
-        <hr class="section-divider" />
-        <div class="posts-grid">
-          <div class="posts-label">
-            <h2>Updates</h2>
-          </div>
-          <div class="posts-list">
-            {updates.map(update => (
-              <a href={update.href} class="post-row">
-                <span class="post-date">{formatDate(update.date)}</span>
-                <div class="post-text">
-                  <span class="post-title">
-                    {update.tag && <span class="update-tag">{update.tag}</span>}
-                    {update.title}
-                  </span>
-                  <span class="post-description">{update.description}</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
+  <section class="container leistungen" aria-labelledby="was-wir-tun">
+    <h2 id="was-wir-tun">{wasWirTun.label}</h2>
+    {themen.length > 0 && (
+      <div class:list={['themen', { 'themen-einzeln': themen.length === 1 }]}>
+        {themen.map((thema, i) => (
+          <Karte tone={themaTone(i)} href={thema.href} class="thema">
+            <h3>{thema.title}</h3>
+            <p>{thema.teaser}</p>
+            <span class="thema-pfeil" aria-hidden="true">&rarr;</span>
+          </Karte>
+        ))}
       </div>
-    </section>
-  )}
+    )}
+    {formate.length > 0 && (
+      <div class="formate">
+        {formate.map(format => (
+          <Karte tone="blush-light" href={formatHref(format)} class="format">
+            {format.tag && <span class="dauer">{format.tag}</span>}
+            {format.title && <h3>{format.title}</h3>}
+            <p><RichText value={format.body} /></p>
+          </Karte>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <Fragment slot="sockel">
+    {zitat && (
+      <section class="zitat" aria-labelledby="referenzen">
+        <h2 id="referenzen" class="visually-hidden">{referenzen.label}</h2>
+        <div class="zitat-zeichen" aria-hidden="true">«</div>
+        <figure>
+          <blockquote>{zitat.text}</blockquote>
+          <figcaption>{zitat.cite}</figcaption>
+        </figure>
+      </section>
+    )}
+    {posts.length > 0 && (
+      <section class="perspektiven" aria-labelledby="perspektiven">
+        <div class="sec-head">
+          <h2 id="perspektiven">Perspektiven</h2>
+          <a href="/perspektiven/" class="sec-link">Alle Perspektiven</a>
+        </div>
+        <PerspektivenBlaetter
+          items={posts.map(post => ({
+            href: `/perspektiven/${post.id}/`,
+            title: post.data.title,
+            text: post.data.description,
+            date: post.data.date,
+          }))}
+        />
+      </section>
+    )}
+  </Fragment>
 </BaseLayout>
 
 <style>
   .hero {
-    padding: 12vh 0 8vh;
-  }
-
-  .hero-grid {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-xl);
-  }
-
-  .hero-icon {
-    width: 280px;
-    height: 280px;
-    object-fit: contain;
-    flex-shrink: 0;
-    margin-right: var(--space-xl);
-  }
-  .hero-title {
-    font-family: var(--font-serif);
-    font-size: 60px;
-    font-weight: 400;
-    color: var(--color-coral);
-    line-height: 1.15;
-    margin-top: 0;
-    margin-bottom: var(--space-md);
-    max-width: 820px;
-  }
-  .hero-sub {
-    font-family: var(--font-sans);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--color-text);
-    line-height: 1.5;
-    max-width: 600px;
-  }
-
-  .recent-posts {
-    padding-bottom: 12vh;
-  }
-
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--color-coral);
-    margin: 0;
-  }
-
-  .posts-grid {
     display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 0;
-    margin: var(--space-xl) 0;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 24px;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 88px;
   }
 
-  .posts-label {
-    padding: 0 0 0 0;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding-right: var(--space-lg);
-  }
-
-  .posts-label h2 {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-coral);
+  .hero h1 {
     margin: 0;
-    line-height: 17px;
+    font-size: 96px;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
   }
 
-  .posts-list {
-    border-left: 1px solid var(--color-coral);
-    padding-left: var(--space-lg);
+  .lead {
+    max-width: 29em;
+    margin: 30px 0 36px;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
   }
 
-  .post-row {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-lg);
-    padding: 0 0 var(--space-xl) 0;
-    text-decoration: none;
+  .leistungen {
+    padding-top: 24px;
+    padding-bottom: var(--space-xl);
   }
 
-  .post-text {
-    flex: 1;
+  .leistungen > h2 {
+    margin: 0 0 36px;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -0.015em;
   }
 
-  .post-row:hover {
-    text-decoration: none;
-    opacity: 0.8;
+  .themen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
   }
 
-  .post-date {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
-    width: 100px;
+  .themen-einzeln {
+    grid-template-columns: 1fr;
   }
 
-  .post-text {
+  .themen :global(.thema) {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    min-height: 300px;
+    padding: 40px 40px 44px;
   }
 
-  .post-title {
-    font-family: var(--font-sans);
-    font-size: 24px;
-    font-weight: 500;
+  .themen h3 {
+    max-width: 9em;
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  .themen-einzeln h3 {
+    max-width: 14em;
+  }
+
+  .themen p {
+    max-width: 26em;
+    margin: 0;
+  }
+
+  .thema-pfeil {
+    margin-top: auto;
+    padding-top: 26px;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .formate {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  /* Dauer der Formate: Serif kursiv in Coral, ab 24 px (Regel 3 auf Rosé-hell) */
+  .dauer {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-style: italic;
+    line-height: 1;
     color: var(--color-coral);
+  }
+
+  .formate h3 {
+    margin: 14px 0 10px;
+    font-size: 34px;
+    line-height: 1.05;
+  }
+
+  .formate p {
+    margin: 0;
+    font-size: 15.5px;
+    color: var(--color-plum-soft);
+  }
+
+  /* Sockel: Zitat und die neuesten Perspektiven */
+  .zitat {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: var(--space-xl);
+  }
+
+  .zitat-zeichen {
+    display: grid;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    padding-top: 30px;
+    font-family: var(--font-serif);
+    font-size: 90px;
+    line-height: 1;
+    color: var(--color-plum);
+    background: var(--color-saffron);
+    border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+  }
+
+  .zitat figure {
+    margin: 0;
+  }
+
+  .zitat blockquote {
+    max-width: 28em;
+    font-family: var(--font-serif);
+    font-size: 34px;
+    font-style: italic;
     line-height: 1.2;
-  }
-
-  .update-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    letter-spacing: -0.01em;
     color: var(--color-white);
-    background: var(--color-coral);
-    padding: 2px 6px;
-    border-radius: 2px;
-    margin-right: var(--space-sm);
-    vertical-align: 2px;
   }
 
-  .post-description {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--color-text-light);
+  .zitat figcaption {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-blush);
   }
 
-  @media (max-width: 768px) {
-    .hero { padding: 6vh 0 4vh; }
-    .hero-title { font-size: 38px; }
-    .hero-sub { font-size: 18px; }
-    .post-title { font-size: 20px; }
+  .sec-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm) var(--space-lg);
+    margin-bottom: 36px;
+  }
 
-    /* Hero stapelt: Text voll breit, Doodle kleiner darunter rechts */
-    .hero-grid {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-lg);
-    }
+  .sec-head h2 {
+    margin: 0;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
 
-    .hero-icon {
-      width: 150px;
-      height: 150px;
-      margin: 0;
-      align-self: flex-end;
-    }
+  .sec-link {
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
 
-    .posts-grid {
+  @media (max-width: 860px) {
+    .hero,
+    .themen,
+    .formate {
       grid-template-columns: 1fr;
     }
 
-    .posts-label {
-      padding: var(--space-lg) 0 0 0;
-      justify-content: flex-start;
+    .hero {
+      padding-bottom: var(--space-xl);
     }
 
-    .posts-list {
-      border-left: none;
-      border-top: 1px solid var(--color-coral);
-      padding-left: 0;
+    .hero h1 {
+      font-size: 58px;
     }
 
-    /* Zeile stapelt: Datum oben, Text darunter */
-    .post-row {
-      display: grid;
+    .leistungen > h2,
+    .sec-head h2 {
+      font-size: 44px;
+    }
+
+    .themen :global(.thema) {
+      min-height: 0;
+      padding: 32px 28px 34px;
+    }
+
+    .themen h3 {
+      font-size: 40px;
+    }
+
+    .zitat {
       grid-template-columns: 1fr;
-      row-gap: var(--space-xs);
-      align-items: start;
     }
 
-    .post-date {
-      width: auto;
+    .zitat-zeichen {
+      width: 80px;
+      height: 80px;
+      padding-top: 22px;
+      font-size: 64px;
+    }
+
+    .zitat blockquote {
+      font-size: 26px;
     }
   }
 </style>

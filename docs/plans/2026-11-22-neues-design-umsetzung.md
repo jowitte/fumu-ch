@@ -122,21 +122,21 @@
   - `intro: ['Wir verbinden Strategie, Organisation und Technologie – damit aus technologischem Potenzial echte Wirkung wird.']`,
   - `sections`: `{ label: 'Was wir tun', items: [ { kind: 'links', entries: pillars → { title: label, href: pillarPath, teaser } }, …die Items der Sektion `id: 'formate'` jeder Pillar unverändert ] }` und `{ label: 'Referenzen', items: [ das erste `quote`-Item aus `about.sections` ] }`.
 
-- [ ] **Step 1: Tests schreiben** (`src/data/pages/home.test.ts`):
+- [x] **Step 1: Tests schreiben** (`src/data/pages/home.test.ts`):
   - `home.heading` ist `'Technologie in Wirkung übersetzen.'`; `home.intro` wie oben.
   - Die `links`-Einträge entsprechen `pillars` (heute genau ein Eintrag `{ title: 'KI-Transformation', href: '/ki-transformation/', … }`).
   - Die Format-Items haben die Titel `['KI-Wertstromanalyse', 'Strategische Begleitung', 'KI-Implementierung']` und sind dieselben Objekte wie in der Pillar.
   - Das Zitat hat `cite: 'Silvano Oeschger, ehem. CEO OneLog AG'`.
   - `headingOf(home)` ist der Claim; `toMarkdown(home)` enthält den Lead, `- [KI-Transformation](/ki-transformation/): ` und `— Silvano Oeschger, ehem. CEO OneLog AG` und enthält weder «Platzhalter» noch «Updates».
   - Jedes Stück aus `textFragments(home)` kommt in `toMarkdown(home)` vor (dieselbe Regressionsprüfung wie für die übrigen Datenseiten).
-- [ ] **Step 2: Laufen lassen** – `npx vitest run src/data/pages/home.test.ts`. Expected: FAIL (Modul fehlt).
-- [ ] **Step 3: `home.ts` implementieren**. Kein neuer Satz; alle Texte kommen aus den genannten Modulen.
-- [ ] **Step 4: Tests grün** – Expected: PASS.
-- [ ] **Step 5: Bild** – `docs/plans/assets/2026-11-22-neues-design/hero-a.jpg` als `public/images/home/hero-weg.webp` (Breite 1200, Qualität 82) ablegen; Alt-Text: «Drei Menschen über einem grossen Blatt: Einer zeichnet einen klaren Weg durch ein Gewirr von Linien.» Es ist ein Übergangsbild; das abgenommene Bild aus dem Vault ersetzt die Datei später unter demselben Namen.
-- [ ] **Step 6: `index.astro`** – Aufbau wie `startseite.html`, gespeist aus `home`: Kopf (H1 `heading`, Lead `intro`, Knopf «Termin vereinbaren» `/kontakt/`, rechts `PapierBild` mit `safran`), «Was wir tun» als H2 mit Themen-Karten (`links`-Einträge; erste Coral, zweite Safran, weitere Rosé-hell; eine einzelne Karte spannt die volle Breite) und Format-Karten (Rosé-hell, `tag` als Dauer in Coral kursiv ≥ 24 px, Titel, `body` über `RichText`, Karte verlinkt auf `${pillarPath}#formate`). Im Slot `sockel`: Zitat (Safran-Kreis mit «, Text in Serif kursiv weiss, Quelle Rosé), dann H2 «Perspektiven» mit Link «Alle Perspektiven» und `PerspektivenBlaetter` mit den drei neuesten publizierten Perspektiven (`description` als Text).
-- [ ] **Step 7: Markdown-Zwilling** – `index.md.ts` gibt `# ${headingOf(home)}` und darunter `toMarkdown(home)` aus (gleiche Response-Header wie heute); der Body von `home.md` wird entfernt, das Frontmatter bleibt (Quelle für title/description in `index.astro`).
-- [ ] **Step 8: Verifizieren** – `npm run build && npx vitest run` grün; `dist/index.md` beginnt mit `# Technologie in Wirkung übersetzen.` und enthält die drei Formate und das Zitat; Sichtprüfung Desktop und 400 px, auch mit nur einer Themen-Karte.
-- [ ] **Step 9: Commit** «Startseite: Übergangs-Startseite im neuen Design, HTML und Markdown aus home.ts».
+- [x] **Step 2: Laufen lassen** – `npx vitest run src/data/pages/home.test.ts`. Expected: FAIL (Modul fehlt).
+- [x] **Step 3: `home.ts` implementieren**. Kein neuer Satz; alle Texte kommen aus den genannten Modulen.
+- [x] **Step 4: Tests grün** – Expected: PASS.
+- [x] **Step 5: Bild** – `docs/plans/assets/2026-11-22-neues-design/hero-a.jpg` als `public/images/home/hero-weg.webp` (Breite 1200, Qualität 82) ablegen; Alt-Text: «Drei Menschen über einem grossen Blatt: Einer zeichnet einen klaren Weg durch ein Gewirr von Linien.» Es ist ein Übergangsbild; das abgenommene Bild aus dem Vault ersetzt die Datei später unter demselben Namen.
+- [x] **Step 6: `index.astro`** – Aufbau wie `startseite.html`, gespeist aus `home`: Kopf (H1 `heading`, Lead `intro`, Knopf «Termin vereinbaren» `/kontakt/`, rechts `PapierBild` mit `safran`), «Was wir tun» als H2 mit Themen-Karten (`links`-Einträge; erste Coral, zweite Safran, weitere Rosé-hell; eine einzelne Karte spannt die volle Breite) und Format-Karten (Rosé-hell, `tag` als Dauer in Coral kursiv ≥ 24 px, Titel, `body` über `RichText`, Karte verlinkt auf `${pillarPath}#formate`). Im Slot `sockel`: Zitat (Safran-Kreis mit «, Text in Serif kursiv weiss, Quelle Rosé), dann H2 «Perspektiven» mit Link «Alle Perspektiven» und `PerspektivenBlaetter` mit den drei neuesten publizierten Perspektiven (`description` als Text).
+- [x] **Step 7: Markdown-Zwilling** – `index.md.ts` gibt `# ${headingOf(home)}` und darunter `toMarkdown(home)` aus (gleiche Response-Header wie heute); der Body von `home.md` wird entfernt, das Frontmatter bleibt (Quelle für title/description in `index.astro`).
+- [x] **Step 8: Verifizieren** – `npm run build && npx vitest run` grün; `dist/index.md` beginnt mit `# Technologie in Wirkung übersetzen.` und enthält die drei Formate und das Zitat; Sichtprüfung Desktop und 400 px, auch mit nur einer Themen-Karte.
+- [x] **Step 9: Commit** «Startseite: Übergangs-Startseite im neuen Design, HTML und Markdown aus home.ts».
 
 ### Task 6: Seiten aus PageContent (Was wir tun, Über fumu, Kontakt, Pillar)
 

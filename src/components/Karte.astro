@@ -85,8 +85,28 @@ const Tag = href ? 'a' : 'div';
     background: var(--color-blush);
   }
 
+  /* Der Titel darf nicht über dem Papierstück stehen: weisse Schrift auf
+     Rosé wäre unlesbar. Er hält Abstand zur sichtbaren Ecke. */
+  .karte-coral > :global(:is(h2, h3):first-child),
+  .karte-saffron > :global(:is(h2, h3):first-child) {
+    margin-right: 84px;
+  }
+
   .karte-saffron::after {
     background: var(--color-blush-light);
+  }
+
+  @media (max-width: 860px) {
+    .karte-coral::after,
+    .karte-saffron::after {
+      width: 84px;
+      height: 84px;
+    }
+
+    .karte-coral > :global(:is(h2, h3):first-child),
+    .karte-saffron > :global(:is(h2, h3):first-child) {
+      margin-right: 28px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
