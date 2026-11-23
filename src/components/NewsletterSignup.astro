@@ -36,7 +36,7 @@ const hasIntro = Boolean(heading || lead);
         placeholder="name@beispiel.ch"
         inputmode="email"
       />
-      <button class="newsletter-button" type="submit">Anmelden</button>
+      <button class="btn newsletter-button" type="submit">Anmelden</button>
     </div>
 
     {/* Honeypot – für Menschen unsichtbar, von Bots gern ausgefüllt. */}
@@ -107,23 +107,9 @@ const hasIntro = Boolean(heading || lead);
     outline-offset: 2px;
   }
 
+  /* Fläche, Riss und Schatten kommen von .btn (global.css). */
   .newsletter-button {
     flex: 0 0 auto;
-    padding: 0.85em 1.5em;
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1;
-    color: var(--color-white);
-    background: var(--color-coral);
-    border: none;
-    border-radius: var(--radius-cut);
-    box-shadow: var(--shadow-layer);
-    cursor: pointer;
-  }
-
-  .newsletter-button:hover {
-    background: color-mix(in srgb, var(--color-coral) 88%, var(--color-ink));
   }
 
   .newsletter-button:disabled {

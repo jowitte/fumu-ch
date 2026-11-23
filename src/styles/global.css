@@ -233,27 +233,73 @@ li {
   font-size: 34px;
 }
 
-/* Knopf: Coral mit weisser Schrift, Papier-Ecken, Schatten. Coral als Knopf
-   darf überall stehen, auch auf Pflaume (Regel 6). */
+/* Knopf: ein ausgerissener Streifen in Coral mit weisser Schrift – oben und
+   unten feiner Papierriss, die Seiten leicht unregelmässig, oben stellenweise
+   ein heller Faserrand (src/lib/riss.ts, Variablen --riss-* aus
+   torn-paper.css). Die Fläche liegt im ::before, der Faserrand im ::after,
+   die Farbe kommt aus --btn-farbe; der Text bleibt Text, der Fokusring das
+   Rechteck. Coral als Knopf darf überall stehen, auch auf Pflaume (Regel 6). */
 .btn {
+  --btn-farbe: var(--color-coral);
+  position: relative;
+  isolation: isolate;
   display: inline-block;
-  padding: 15px 24px;
+  padding: 18px 24px;
   font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 600;
   line-height: 1;
   color: var(--color-white);
-  background: var(--color-coral);
+  background: none;
   border: none;
-  border-radius: var(--radius-cut);
-  box-shadow: var(--shadow-layer);
   text-decoration: none;
   cursor: pointer;
+  filter: drop-shadow(0 1px 0 rgb(0 0 0 / .06)) drop-shadow(0 8px 6px rgb(43 26 39 / .18));
+}
+
+.btn::before,
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: var(--riss-seiten);
+}
+
+/* Fläche: Riss-Streifen oben und unten, dazwischen voll */
+.btn::before {
+  z-index: -1;
+  background: var(--btn-farbe);
+  -webkit-mask:
+    var(--riss-oben) top left / auto 10px repeat-x,
+    var(--riss-unten) bottom left / auto 10px repeat-x,
+    linear-gradient(#000 0 0) center / 100% calc(100% - 18px) no-repeat;
+  mask:
+    var(--riss-oben) top left / auto 10px repeat-x,
+    var(--riss-unten) bottom left / auto 10px repeat-x,
+    linear-gradient(#000 0 0) center / 100% calc(100% - 18px) no-repeat;
+}
+
+/* Heller Faserrand hinter der Oberkante */
+.btn::after {
+  z-index: -2;
+  bottom: auto;
+  height: 10px;
+  background: var(--riss-knopf-faser);
+  -webkit-mask: var(--riss-faser) top left / auto 10px repeat-x;
+  mask: var(--riss-faser) top left / auto 10px repeat-x;
 }
 
 .btn:hover {
+  --btn-farbe: color-mix(in srgb, var(--color-coral) 88%, var(--color-ink));
   color: var(--color-white);
-  background: color-mix(in srgb, var(--color-coral) 88%, var(--color-ink));
+}
+
+/* Windows-Kontrastmodus: Hintergründe fallen weg, der Knopf braucht einen Rahmen. */
+@media (forced-colors: active) {
+  .btn {
+    border: 1px solid ButtonText;
+  }
 }
 
 /* Kopf einer Sektion im Sockel und auf der Startseite: Titel links, ein
