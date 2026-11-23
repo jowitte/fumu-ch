@@ -137,6 +137,6 @@
 - Modify: `docs/plans/2026-11-23-was-wir-tun-grafisch-umsetzung.md` (Checkboxen)
 
 - [x] **Step 1: CLAUDE.md** – ein Absatz: `/was-wir-tun/` rendert seine Sektionen selbst und findet sie über `id` (`ansatz`, `schwerpunkt`, `leistungen`, `referenzen`, Helfer `sectionById`); Kopf-Diagramm über `hero` (Quelle im Vault, `diagram-technologie-allein`); Leistungs-Karten über `LeistungsKarten.astro`, Flächen aus `leistungsToene`; `Sektion.astro` rendert weiter About, Kontakt und Pillars.
-- [ ] **Step 2: Lokal-Review mit Jochen** – `npm run dev`, Jochen sieht `/was-wir-tun/` und die Startseite (Zitat) bei Desktop und Handy-Breite. Expected: Jochens Freigabe.
-- [ ] **Step 3: Push** – erst nach der Freigabe: `git pull --rebase`, `npm run build`, `git push`. Expected: Netlify-Deploy grün, https://fumu.ch/was-wir-tun/ zeigt die neue Seite.
-- [ ] **Step 4: Rückkanal** – in der Vault-Story «Pillar 1 und Kategorie-Seite live auf fumu.ch» den Umsetzungs-Task abhaken, Log-Eintrag mit Commit-Hash.
+- [x] **Step 2: Lokal-Review mit Jochen** – `npm run dev`, Jochen sieht `/was-wir-tun/` und die Startseite (Zitat) bei Desktop und Handy-Breite. Expected: Jochens Freigabe.
+- [x] **Step 3: Push** – erst nach der Freigabe: `git pull --rebase`, `npm run build`, `git push`. Expected: Netlify-Deploy grün, https://fumu.ch/was-wir-tun/ zeigt die neue Seite.
+- [x] **Step 4: Rückkanal** – in der Vault-Story «Pillar 1 und Kategorie-Seite live auf fumu.ch» den Umsetzungs-Task abhaken, Log-Eintrag mit Commit-Hash.
