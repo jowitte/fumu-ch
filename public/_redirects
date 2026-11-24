@@ -2,6 +2,11 @@
 /perspektiven/serien/            /perspektiven/themen/         301
 /perspektiven/serien/*           /perspektiven/themen/:splat   301
 
+# Porträts als WebP statt PNG (2026-11-24, Umbau /about/)
+/images/stefan-ropte.png         /images/stefan-ropte.webp     301
+/images/lukas-goeroeg.png        /images/lukas-goeroeg.webp    301
+/images/daniel-tschudi.png       /images/daniel-tschudi.webp   301
+
 # 301 Redirects: WordPress -> Astro Migration (2026-03)
 # Kann entfernt werden, sobald Google die alten URLs deindexiert hat.
 

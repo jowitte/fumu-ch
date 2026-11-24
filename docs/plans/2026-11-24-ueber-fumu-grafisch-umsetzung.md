@@ -145,6 +145,6 @@
 - Modify: `docs/plans/2026-11-24-ueber-fumu-grafisch-umsetzung.md` (Checkboxen)
 
 - [x] **Step 1: CLAUDE.md** – im Abschnitt zu `/was-wir-tun/` einen Absatz «Seite `/about/`»: rendert ihre Sektionen selbst über `id` (`gruender`, `netzwerk`, `arbeit`, `formate`), Wächter `itemsOfKinds` und `singleItem`; Oeschger-Zitat im Kopf, Schoch/Wehrle im Sockel, im Markdown-Zwilling an ihrem Ort; `Sektion.astro` rendert jetzt Kontakt und die Pillars (About aus dem Satz streichen). Unter Design-System > Formen: Porträts über `Portraet.astro`, Form `portraetPolygon`.
-- [ ] **Step 2: Lokal-Review mit Jochen** – `npm run dev`, Jochen sieht `/about/` bei Desktop und Handy-Breite und bestätigt die Vorschläge 5 bis 7 des Entwurfs. Expected: Jochens Freigabe.
-- [ ] **Step 3: Nach main und live** – erst nach der Freigabe: `git fetch`, Branch auf `origin/main` rebasen, `npm run build`, `git push origin HEAD:main`. Expected: Netlify-Deploy grün, https://fumu.ch/about/ zeigt die neue Seite. Das Hauptverzeichnis zieht beim nächsten `git pull` nach.
-- [ ] **Step 4: Rückkanal** – Vault: Umsetzungs-Task in der Folder Note «fumu.ch» abhaken, Log-Eintrag mit Commit-Hash; Task «20+ Jahre Digital» in «fumu Sprachstil definiert und ausgerollt» abhaken.
+- [x] **Step 2: Lokal-Review mit Jochen** – `npm run dev`, Jochen sieht `/about/` bei Desktop und Handy-Breite und bestätigt die Vorschläge 5 bis 7 des Entwurfs. Expected: Jochens Freigabe.
+- [x] **Step 3: Nach main und live** – erst nach der Freigabe: `git fetch`, Branch auf `origin/main` rebasen, `npm run build`, `git push origin HEAD:main`. Expected: Netlify-Deploy grün, https://fumu.ch/about/ zeigt die neue Seite. Das Hauptverzeichnis zieht beim nächsten `git pull` nach.
+- [x] **Step 4: Rückkanal** – Vault: Umsetzungs-Task in der Folder Note «fumu.ch» abhaken, Log-Eintrag mit Commit-Hash; Task «20+ Jahre Digital» in «fumu Sprachstil definiert und ausgerollt» abhaken.

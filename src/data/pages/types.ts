@@ -124,9 +124,10 @@ export type Section = {
    *   Markdown und das FAQPage-JSON-LD (structured-data.ts).
    * - `formate`: Items mit `title` sind Service-Formate (Dauer in `tag`) und
    *   speisen den Angebotskatalog im ProfessionalService-JSON-LD.
-   * Auf /was-wir-tun/ tragen die ids die Seite (`ansatz`, `schwerpunkt`,
-   * `leistungen`, `referenzen`): was-wir-tun.astro holt die Sektionen
-   * darüber (sectionsByIds), nicht über das Label.
+   * Auf /was-wir-tun/ (`ansatz`, `schwerpunkt`, `leistungen`, `referenzen`)
+   * und /about/ (`gruender`, `netzwerk`, `arbeit`, `formate`) tragen die ids
+   * die Seite: Sie holt ihre Sektionen darüber (sectionsByIds), nicht über
+   * das Label.
    */
   id?: string;
   items: Item[];
