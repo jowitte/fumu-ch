@@ -159,6 +159,40 @@ export const sectionsByIds = (page: PageContent, ids: string[]): Section[] => {
   return ids.map(id => sectionById(page, id));
 };
 
+/**
+ * Die Items einer Sektion, wenn sie nur die genannten Arten trägt – für Seiten,
+ * die jede Sektion selbst setzen. Kommt aus dem Vault eine andere Art dazu,
+ * bricht der Build: Sonst stünde sie nur im Markdown-Zwilling und fehlte auf
+ * der HTML-Seite still.
+ */
+export const itemsOfKinds = <K extends Item['kind']>(
+  page: PageContent,
+  section: Section,
+  ...kinds: K[]
+): Extract<Item, { kind: K }>[] => {
+  const fremd = section.items.find(item => !kinds.includes(item.kind as K));
+  if (fremd) {
+    throw new Error(`${page.title}: «${section.label}» enthält ein Item «${fremd.kind}», das die Seite nicht rendert`);
+  }
+  return section.items as Extract<Item, { kind: K }>[];
+};
+
+/**
+ * Das eine Item einer Art in einer Sektion – etwa das Zitat, das eine Seite an
+ * eine feste Stelle setzt. Fehlt es oder sind es mehrere, bricht der Build.
+ */
+export const singleItem = <K extends Item['kind']>(
+  page: PageContent,
+  section: Section,
+  kind: K,
+): Extract<Item, { kind: K }> => {
+  const treffer = section.items.filter(item => item.kind === kind);
+  if (treffer.length !== 1) {
+    throw new Error(`${page.title}: «${section.label}» braucht genau ein Item «${kind}», hat ${treffer.length}`);
+  }
+  return treffer[0] as Extract<Item, { kind: K }>;
+};
+
 export type PageContent = {
   /** Title-Tag (das Layout hängt «– fumu» an) und Breadcrumb. */
   title: string;

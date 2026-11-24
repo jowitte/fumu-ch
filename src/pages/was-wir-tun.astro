@@ -16,8 +16,8 @@ import RichText from '../components/RichText.astro';
 import SockelZitat from '../components/SockelZitat.astro';
 import { jsonLd } from '../lib/json-ld';
 import { wasWirTun } from '../data/pages/was-wir-tun';
-import { sectionsByIds } from '../data/pages/types';
-import type { Item, LinksItem, LogosItem, QuoteItem, Section, TextItem } from '../data/pages/types';
+import { itemsOfKinds, sectionsByIds } from '../data/pages/types';
+import type { LinksItem, LogosItem, QuoteItem, TextItem } from '../data/pages/types';
 
 const serviceLd = {
   '@context': 'https://schema.org',
@@ -70,19 +70,12 @@ const [ansatz, schwerpunkt, leistungen, referenzen] = sectionsByIds(wasWirTun, [
   'referenzen',
 ]);
 
-// Jede Sektion trägt nur die Item-Arten, die diese Seite rendert. Kommt aus
-// dem Vault eine andere dazu, bricht der Build – sonst stünde sie nur im
-// Markdown-Zwilling und fehlte hier still.
-const nur = <K extends Item['kind']>(section: Section, ...kinds: K[]) => {
-  const fremd = section.items.find(item => !kinds.includes(item.kind as K));
-  if (fremd) throw new Error(`was-wir-tun.astro: «${section.label}» enthält ein Item «${fremd.kind}», das die Seite nicht rendert`);
-  return section.items as Extract<Item, { kind: K }>[];
-};
-
-const saeulen: TextItem[] = nur(ansatz, 'item');
-const linsen: TextItem[] = nur(schwerpunkt, 'item');
-const leistungsEintraege = nur(leistungen, 'links').flatMap((item: LinksItem) => item.entries);
-const referenzItems = nur(referenzen, 'logos', 'quote');
+// Jede Sektion trägt nur die Item-Arten, die diese Seite rendert; eine andere
+// aus dem Vault bricht den Build (itemsOfKinds).
+const saeulen: TextItem[] = itemsOfKinds(wasWirTun, ansatz, 'item');
+const linsen: TextItem[] = itemsOfKinds(wasWirTun, schwerpunkt, 'item');
+const leistungsEintraege = itemsOfKinds(wasWirTun, leistungen, 'links').flatMap((item: LinksItem) => item.entries);
+const referenzItems = itemsOfKinds(wasWirTun, referenzen, 'logos', 'quote');
 const logos = referenzItems.filter((item): item is LogosItem => item.kind === 'logos').flatMap(item => item.entries);
 const zitat = referenzItems.find((item): item is QuoteItem => item.kind === 'quote');
 ---

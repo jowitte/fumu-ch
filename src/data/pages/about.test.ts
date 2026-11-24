@@ -3,7 +3,8 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { authors } from '../../content/authors';
 import { about } from './about';
-import type { PersonItem } from './types';
+import { itemsOfKinds, sectionById, sectionsByIds, singleItem } from './types';
+import type { PageContent, PersonItem, Section } from './types';
 
 const personen = about.sections.flatMap(s => s.items).filter((i): i is PersonItem => i.kind === 'person');
 const person = (anchor: string) => {
@@ -45,5 +46,38 @@ describe('about', () => {
       expect(existsSync(pfad), pfad).toBe(true);
       expect(statSync(pfad).size, pfad).toBeLessThanOrEqual(200_000);
     }
+  });
+});
+
+/**
+ * Was der Vault dazugibt und die Seite nicht rendert, bricht den Build – sonst
+ * stünde es nur im Markdown-Zwilling und fehlte auf der HTML-Seite still.
+ */
+describe('Wächter', () => {
+  const netzwerk = sectionById(about, 'netzwerk');
+  const gruender = sectionById(about, 'gruender');
+
+  it('lässt die Item-Arten durch, die eine Sektion trägt', () => {
+    expect(itemsOfKinds(about, netzwerk, 'person')).toHaveLength(3);
+  });
+
+  it('bricht ab, wenn eine Sektion eine fremde Item-Art trägt', () => {
+    const mitBild: Section = { ...netzwerk, items: [...netzwerk.items, { kind: 'image', src: '/x.svg', alt: 'x' }] };
+    expect(() => itemsOfKinds(about, mitBild, 'person')).toThrow('«Netzwerk» enthält ein Item «image»');
+  });
+
+  it('findet das eine Zitat einer Sektion', () => {
+    expect(singleItem(about, gruender, 'quote').cite).toMatch(/^Silvano Oeschger/);
+  });
+
+  it('bricht ab, wenn eine Sektion zwei Zitate trägt', () => {
+    const zitat = singleItem(about, gruender, 'quote');
+    const doppelt: Section = { ...gruender, items: [...gruender.items, zitat] };
+    expect(() => singleItem(about, doppelt, 'quote')).toThrow('braucht genau ein Item «quote», hat 2');
+  });
+
+  it('bricht ab, wenn eine Sektion dazukommt', () => {
+    const mehr: PageContent = { ...about, sections: [...about.sections, { label: 'Häufige Fragen', items: [] }] };
+    expect(() => sectionsByIds(mehr, ['gruender', 'netzwerk', 'arbeit', 'formate'])).toThrow('«Häufige Fragen»');
   });
 });
