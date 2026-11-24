@@ -1,0 +1,703 @@
+---
+/**
+ * WEGWERF-MOCKUP (ueber-fumu-grafisch, 2026-11-24) – nicht für main.
+ * Drei Varianten von /about/ aus denselben Daten (src/data/pages/about.ts),
+ * Wortlaut unverändert:
+ *   a – Porträt: Kopf wie die Startseite, Jochens Foto auf gerissenem Papier;
+ *       Oeschger neben dem Gründer-Text, Schoch/Wehrle im Sockel
+ *   b – Stimme: Kopf wie /was-wir-tun/, das Oeschger-Zitat auf einer Karte;
+ *       Gründer gross mit Foto, Schoch/Wehrle im Sockel
+ *   c – Gesichter: Kopf ohne Bild, alle vier Personen in einer Reihe;
+ *       Schoch/Wehrle neben «Wie wir arbeiten», Oeschger im Sockel
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Karte from '../components/Karte.astro';
+import RichText from '../components/RichText.astro';
+import SockelZitat from '../components/SockelZitat.astro';
+import { about } from '../data/pages/about';
+import { mulberry32 } from '../lib/zufall';
+import type { PersonItem, QuoteItem, Section, TextItem } from '../data/pages/types';
+
+interface Props {
+  variante: 'a' | 'b' | 'c';
+}
+
+const { variante } = Astro.props;
+
+const sec = (label: string): Section => {
+  const s = about.sections.find(x => x.label === label);
+  if (!s) throw new Error(`Sektion ${label} fehlt`);
+  return s;
+};
+const gruender = sec('Gründer');
+const netzwerk = sec('Netzwerk');
+const arbeit = sec('Wie wir arbeiten');
+const formate = sec('Typische Formate');
+
+const jochen = gruender.items.find((i): i is PersonItem => i.kind === 'person')!;
+const oeschger = gruender.items.find((i): i is QuoteItem => i.kind === 'quote')!;
+const partner = netzwerk.items.filter((i): i is PersonItem => i.kind === 'person');
+const prinzipien = arbeit.items.filter((i): i is TextItem => i.kind === 'item');
+const schoch = arbeit.items.find((i): i is QuoteItem => i.kind === 'quote')!;
+const formatItems = formate.items as TextItem[];
+
+const sockelZitat = variante === 'c' ? oeschger : schoch;
+
+// Porträt-Form: fast rund, mit feinem Riss statt der grossen Wellen von
+// --torn-*, die auf Fotos wie Kleckse wirken.
+const portraetForm = (seed: number) => {
+  const rnd = mulberry32(seed);
+  const u = (a: number, b: number) => a + (b - a) * rnd();
+  const wellen = Array.from({ length: 5 }, () => u(-0.03, 0.03));
+  const pts: string[] = [];
+  for (let i = 0; i < 140; i++) {
+    const t = (2 * Math.PI * i) / 140;
+    let r = 1 + wellen.reduce((s, w, k) => s + w * Math.sin((k + 2) * t + k), 0);
+    r += u(-0.012, 0.012);
+    pts.push(`${(50 + 48 * r * Math.cos(t)).toFixed(1)}% ${(50 + 48 * r * Math.sin(t)).toFixed(1)}%`);
+  }
+  return `polygon(${pts.join(', ')})`;
+};
+const formen = [portraetForm(3), portraetForm(17), portraetForm(29), portraetForm(41)];
+
+const namen = { a: 'A · Porträt', b: 'B · Stimme', c: 'C · Gesichter' };
+const target = (external?: boolean) => (external ? '_blank' : undefined);
+const rel = (external?: boolean) => (external ? 'noopener' : undefined);
+---
+
+<BaseLayout title={about.title} description={about.description}>
+  <div class:list={['container', 'ueber', `variante-${variante}`]}>
+
+    <!-- Kopf -->
+    <section class="kopf">
+      <div class="kopf-text">
+        <h1>{about.title}</h1>
+        {about.intro.map(text => <p class="lead">{text}</p>)}
+      </div>
+
+      {variante === 'a' && (
+        <figure class="portraet portraet-gross" style={`--form: ${formen[0]}`}>
+          <div class="portraet-papier" aria-hidden="true"></div>
+          <div class="portraet-foto"><img src={jochen.image} alt={jochen.name} /></div>
+        </figure>
+      )}
+
+      {variante === 'b' && (
+        <Karte tone="blush-light" class="kopf-zitat">
+          <div class="zeichen" aria-hidden="true">«</div>
+          <figure>
+            <blockquote>{oeschger.text}</blockquote>
+            <figcaption>{oeschger.cite}</figcaption>
+          </figure>
+        </Karte>
+      )}
+    </section>
+
+    <!-- A: Gründer-Text links, Oeschger rechts; Netzwerk in drei Spalten -->
+    {variante === 'a' && (
+      <>
+        <section class="block" aria-labelledby="gruender">
+          <h2 id="gruender">{gruender.label}</h2>
+          <div class="gruender-a">
+            <div class="person-text" id={jochen.anchor}>
+              <h3 class="name name-gross">{jochen.name}</h3>
+              <span class="label-caps etikett">{jochen.tag}</span>
+              <p><RichText value={jochen.body} /></p>
+              <p class="person-links">
+                {jochen.links.map(l => <a href={l.href} target={target(l.external)} rel={rel(l.external)}>{l.label}</a>)}
+              </p>
+            </div>
+            <figure class="zitat-inline">
+              <blockquote>&laquo;{oeschger.text}&raquo;</blockquote>
+              <figcaption>{oeschger.cite}</figcaption>
+            </figure>
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- B: Gründer gross mit Foto -->
+    {variante === 'b' && (
+      <section class="block" aria-labelledby="gruender">
+        <h2 id="gruender">{gruender.label}</h2>
+        <div class="gruender-b" id={jochen.anchor}>
+          <figure class="portraet" style={`--form: ${formen[0]}`}>
+            <div class="portraet-papier" aria-hidden="true"></div>
+            <div class="portraet-foto"><img src={jochen.image} alt={jochen.name} /></div>
+          </figure>
+          <div class="person-text">
+            <h3 class="name name-gross">{jochen.name}</h3>
+            <span class="label-caps etikett">{jochen.tag}</span>
+            <p class="gross"><RichText value={jochen.body} /></p>
+            <p class="person-links">
+              {jochen.links.map(l => <a href={l.href} target={target(l.external)} rel={rel(l.external)}>{l.label}</a>)}
+            </p>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- A und B: Netzwerk in drei Spalten -->
+    {variante !== 'c' && (
+      <section class="block" aria-labelledby="netzwerk">
+        <h2 id="netzwerk">{netzwerk.label}</h2>
+        <div class="personen personen-3">
+          {partner.map((p, i) => (
+            <div class="person" id={p.anchor}>
+              <figure class="portraet portraet-klein" style={`--form: ${formen[i + 1]}`}>
+                <div class="portraet-papier" aria-hidden="true"></div>
+                <div class="portraet-foto"><img src={p.image} alt={p.name} loading="lazy" /></div>
+              </figure>
+              <h3 class="name">{p.name}</h3>
+              <span class="label-caps etikett">{p.tag}</span>
+              <p><RichText value={p.body} /></p>
+              <p class="person-links">
+                {p.links.map(l => <a href={l.href} target={target(l.external)} rel={rel(l.external)}>{l.label}</a>)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- C: alle vier in einer Reihe, Gründer und Netzwerk als Titel darüber -->
+    {variante === 'c' && (
+      <section class="block personen-c">
+        <div class="personen-c-titel">
+          <h2 id="gruender">{gruender.label}</h2>
+          <h2 id="netzwerk">{netzwerk.label}</h2>
+        </div>
+        <div class="personen personen-4">
+          {[jochen, ...partner].map((p, i) => (
+            <>
+            {i < 2 && <h2 class="nur-mobil">{i === 0 ? gruender.label : netzwerk.label}</h2>}
+            <div class:list={['person', { 'person-gruender': i === 0 }]} id={p.anchor}>
+              <figure class="portraet portraet-klein" style={`--form: ${formen[i]}`}>
+                <div class="portraet-papier" aria-hidden="true"></div>
+                <div class="portraet-foto"><img src={p.image} alt={p.name} loading="lazy" /></div>
+              </figure>
+              <h3 class="name">{p.name}</h3>
+              <span class="label-caps etikett">{p.tag}</span>
+              <p><RichText value={p.body} /></p>
+              <p class="person-links">
+                {p.links.map(l => <a href={l.href} target={target(l.external)} rel={rel(l.external)}>{l.label}</a>)}
+              </p>
+            </div>
+            </>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Wie wir arbeiten -->
+    <section class="block" aria-labelledby="arbeit">
+      <h2 id="arbeit">{arbeit.label}</h2>
+      {variante === 'c' ? (
+        <div class="arbeit-c">
+          <div class="prinzipien prinzipien-2">
+            {prinzipien.map(p => (
+              <div class="prinzip">
+                <h3>{p.title}</h3>
+                <p><RichText value={p.body} /></p>
+              </div>
+            ))}
+          </div>
+          <figure class="zitat-inline">
+            <blockquote>&laquo;{schoch.text}&raquo;</blockquote>
+            <figcaption>{schoch.cite}</figcaption>
+          </figure>
+        </div>
+      ) : (
+        <div class:list={['prinzipien', variante === 'a' ? 'prinzipien-2' : 'prinzipien-4']}>
+          {prinzipien.map(p => (
+            <div class="prinzip">
+              <h3>{p.title}</h3>
+              <p><RichText value={p.body} /></p>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <!-- Typische Formate -->
+    <section class="block" aria-labelledby="formate">
+      <h2 id="formate">{formate.label}</h2>
+      <div class:list={['formate', variante === 'b' ? 'formate-2' : 'formate-4']}>
+        {formatItems.map(f => (
+          <Karte tone="blush-light" class="format">
+            {f.tag && <span class="dauer">{f.tag}</span>}
+            <h3>{f.title}</h3>
+            <p><RichText value={f.body} /></p>
+          </Karte>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <SockelZitat slot="sockel" zitat={sockelZitat} />
+
+  <nav class="schalter" aria-label="Varianten">
+    <a href="/about-a/" class:list={{ aktiv: variante === 'a' }}>A</a>
+    <a href="/about-b/" class:list={{ aktiv: variante === 'b' }}>B</a>
+    <a href="/about-c/" class:list={{ aktiv: variante === 'c' }}>C</a>
+    <a href="/about/">heute</a>
+    <span class="name">{namen[variante]}</span>
+  </nav>
+</BaseLayout>
+
+<style>
+  /* Kopf */
+  .kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 24px 56px;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 72px;
+  }
+
+  .variante-a .kopf {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  }
+
+  .variante-c .kopf {
+    grid-template-columns: minmax(0, 1fr);
+    padding-bottom: 56px;
+  }
+
+  .kopf h1 {
+    margin: 0;
+  }
+
+  .lead {
+    max-width: 30em;
+    margin: 28px 0 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
+  }
+
+  .variante-c .lead {
+    max-width: 40em;
+    font-size: 21px;
+  }
+
+  /* Porträt: Foto in Form eines gerissenen Papierstücks, Rosé dahinter.
+     multiply auf Rosé-hell färbt das Weiss und die Grautöne warm. */
+  .portraet {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 1;
+  }
+
+  .portraet-papier {
+    position: absolute;
+    inset: 7% -5% -3% 9%;
+    background: var(--color-blush);
+    clip-path: var(--torn-2);
+  }
+
+  .portraet-foto {
+    position: absolute;
+    inset: 0;
+    background: var(--color-blush-light);
+    clip-path: var(--form);
+  }
+
+  .portraet-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+    filter: grayscale(1) contrast(1.02);
+  }
+
+  .portraet-gross {
+    width: 100%;
+    max-width: 440px;
+    justify-self: end;
+  }
+
+  .portraet-klein {
+    width: 200px;
+    margin-bottom: 22px;
+  }
+
+  /* B: Zitat im Kopf auf Rosé-hell */
+  .kopf :global(.kopf-zitat) {
+    padding: 34px 40px 36px;
+  }
+
+  .zeichen {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 18px;
+    padding-top: 18px;
+    font-family: var(--font-serif);
+    font-size: 54px;
+    line-height: 1;
+    color: var(--color-plum);
+    background: var(--color-saffron);
+    border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+  }
+
+  .kopf :global(.kopf-zitat) figure {
+    margin: 0;
+  }
+
+  .kopf :global(.kopf-zitat) blockquote {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--color-plum);
+  }
+
+  .kopf :global(.kopf-zitat) figcaption {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-plum-soft);
+  }
+
+  /* Sektionen */
+  .block {
+    margin: 0 0 88px;
+  }
+
+  .block > h2,
+  .personen-c-titel h2 {
+    margin: 0 0 32px;
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .block h3 {
+    margin: 0 0 var(--space-sm);
+  }
+
+  .block p {
+    margin: 0;
+  }
+
+  .name {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .name-gross {
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .etikett {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--color-plum-soft);
+  }
+
+  .person-links {
+    margin-top: 10px !important;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .gross {
+    font-size: 19px;
+    line-height: 1.55;
+  }
+
+  /* Zitat in der Seite: Serif kursiv, Pflaume */
+  .zitat-inline {
+    margin: 0;
+  }
+
+  .zitat-inline blockquote {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--color-plum);
+  }
+
+  .zitat-inline figcaption {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-plum-soft);
+  }
+
+  /* A: Gründer-Text und Zitat nebeneinander */
+  .gruender-a {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 72px;
+    align-items: start;
+  }
+
+  .gruender-a .zitat-inline {
+    padding-left: 40px;
+    border-left: 1px solid var(--color-blush);
+  }
+
+  /* B: Foto links, Text rechts */
+  .gruender-b {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+  }
+
+  .gruender-b .person-text {
+    max-width: 34em;
+  }
+
+  /* Personen-Raster */
+  .personen {
+    display: grid;
+    gap: 48px 56px;
+  }
+
+  .personen-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .personen-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px 40px;
+  }
+
+  .personen-4 .portraet-klein {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .personen p {
+    font-size: 16px;
+  }
+
+  /* C: «Gründer» über der ersten Spalte, «Netzwerk» über den anderen drei */
+  .personen-c-titel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: 40px;
+  }
+
+  .personen-c-titel h2 {
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--color-blush);
+  }
+
+  .nur-mobil {
+    display: none;
+  }
+
+  /* Wie wir arbeiten: Raster ohne Karten, Haarlinie oben */
+  .prinzipien {
+    display: grid;
+    gap: 44px 64px;
+  }
+
+  .prinzipien-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prinzipien-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px 40px;
+  }
+
+  .prinzip {
+    padding-top: 22px;
+    border-top: 1px solid var(--color-blush);
+  }
+
+  .prinzip h3 {
+    font-size: 34px;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+
+  .prinzipien-4 .prinzip h3 {
+    font-size: 28px;
+  }
+
+  .arbeit-c {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 72px;
+    align-items: start;
+  }
+
+  .arbeit-c .prinzipien-2 {
+    gap: 36px 40px;
+  }
+
+  .arbeit-c .prinzip h3 {
+    font-size: 26px;
+  }
+
+  .arbeit-c .zitat-inline {
+    padding-left: 40px;
+    border-left: 1px solid var(--color-blush);
+  }
+
+  /* Formate */
+  .formate {
+    display: grid;
+    gap: 24px;
+  }
+
+  .formate-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .formate-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dauer {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-style: italic;
+    line-height: 1.1;
+    color: var(--color-coral);
+  }
+
+  .formate h3 {
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  .formate-2 h3 {
+    font-size: 34px;
+  }
+
+  .formate p {
+    font-size: 15.5px;
+    color: var(--color-plum-soft);
+  }
+
+  /* Variantenschalter */
+  .schalter {
+    position: fixed;
+    left: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px;
+    font: 600 13px/1 var(--font-sans);
+    background: #1d1d1f;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+  }
+
+  .schalter a {
+    padding: 7px 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+
+  .schalter a.aktiv {
+    color: #1d1d1f;
+    background: #fff;
+  }
+
+  .schalter .name {
+    padding: 0 8px 0 6px;
+    color: #bbb;
+  }
+
+  @media (max-width: 860px) {
+    .kopf,
+    .variante-a .kopf,
+    .gruender-a,
+    .gruender-b,
+    .personen-3,
+    .personen-4,
+    .personen-c-titel,
+    .prinzipien-2,
+    .prinzipien-4,
+    .arbeit-c,
+    .formate-2,
+    .formate-4 {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .kopf {
+      padding-bottom: var(--space-xl);
+    }
+
+    .portraet-gross {
+      max-width: 320px;
+      justify-self: start;
+    }
+
+    .gruender-b .portraet {
+      max-width: 280px;
+    }
+
+    .block {
+      margin-bottom: var(--space-xl);
+    }
+
+    .block > h2,
+    .personen-c-titel h2 {
+      font-size: 36px;
+    }
+
+    .personen-c-titel {
+      display: none;
+    }
+
+    .nur-mobil {
+      display: block;
+      margin: 0 0 -8px;
+      font-size: 36px;
+      line-height: 1.05;
+    }
+
+    .name-gross {
+      font-size: 36px;
+    }
+
+    .gruender-a,
+    .arbeit-c {
+      gap: 40px;
+    }
+
+    .gruender-a .zitat-inline,
+    .arbeit-c .zitat-inline {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .zitat-inline blockquote {
+      font-size: 24px;
+    }
+
+    .prinzip h3,
+    .prinzipien-4 .prinzip h3 {
+      font-size: 28px;
+    }
+
+    .personen-4 .portraet-klein,
+    .portraet-klein {
+      width: 180px;
+    }
+  }
+</style>
