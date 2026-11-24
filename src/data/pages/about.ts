@@ -13,6 +13,7 @@ export const about: PageContent = {
   sections: [
     {
       label: 'Gründer',
+      id: 'gruender',
       items: [
         {
           kind: 'person',
@@ -20,7 +21,7 @@ export const about: PageContent = {
           tag: 'Strategie & Umsetzungsbegleitung',
           image: '/images/jochen-witte.jpg',
           anchor: 'jochen-witte',
-          body: '20+ Jahre Digital – Startup-Gründer, Technologie-Chef in Medienhäusern, Strategieberater und AdTech-Experte. Systemische Ausbildung. Konzeption, Projektsteuerung, Sparring.',
+          body: 'Digital seit 1998 – Startup-Gründer, Technologie-Chef in Medienhäusern, Strategieberater und AdTech-Experte. Systemische Ausbildung. Konzeption, Projektsteuerung, Sparring.',
           links: [linkedin('https://www.linkedin.com/in/jochenwitte/')],
         },
         {
@@ -32,12 +33,13 @@ export const about: PageContent = {
     },
     {
       label: 'Netzwerk',
+      id: 'netzwerk',
       items: [
         {
           kind: 'person',
           name: 'Stefan Ropte',
           tag: 'Requirements & Umsetzung',
-          image: '/images/stefan-ropte.png',
+          image: '/images/stefan-ropte.webp',
           anchor: 'stefan-ropte',
           body: '20+ Jahre IT/AdTech/MarTech – ADvendio MD, ProSiebenSat.1. Requirements Engineering, Vendor-Evaluation, Pilotierung. Business Requirements, Evaluationsmatrix, Prototypen.',
           links: [linkedin('https://www.linkedin.com/in/stefan-ropte-08b7044a/')],
@@ -45,8 +47,8 @@ export const about: PageContent = {
         {
           kind: 'person',
           name: 'Lukas Görög',
-          tag: 'KI Akademie',
-          image: '/images/lukas-goeroeg.png',
+          tag: 'Akademie KI',
+          image: '/images/lukas-goeroeg.webp',
           anchor: 'lukas-goeroeg',
           body: [
             'KI-Strategie und Befähigung für Organisationen. ',
@@ -63,7 +65,7 @@ export const about: PageContent = {
           kind: 'person',
           name: 'Daniel Tschudi',
           tag: 'Transformation & EdTech',
-          image: '/images/daniel-tschudi.png',
+          image: '/images/daniel-tschudi.webp',
           anchor: 'daniel-tschudi',
           body: [
             'Organisationsentwicklung und agile Transformation. Studiengangsleiter und Dozent an mehreren Schulen. EdTech-Initiativen für den Schweizer Bildungsmarkt – Timeline Education, ',
@@ -78,6 +80,7 @@ export const about: PageContent = {
     },
     {
       label: 'Wie wir arbeiten',
+      id: 'arbeit',
       items: [
         {
           kind: 'item',
@@ -108,8 +111,8 @@ export const about: PageContent = {
     },
     {
       label: 'Typische Formate',
-      // Formate als Karten wie auf den Pillar-Seiten (Sektion.astro); speist
-      // hier kein JSON-LD, about.astro setzt nur das Person-Markup.
+      // Formate als Karten, gesetzt von about.astro; speist hier kein JSON-LD,
+      // about.astro setzt nur das Person-Markup.
       id: 'formate',
       items: [
         {
