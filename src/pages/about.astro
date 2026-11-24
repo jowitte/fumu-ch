@@ -1,9 +1,25 @@
 ---
+/**
+ * /about/ (Entwurf B vom 24.11., docs/plans/2026-11-24-ueber-fumu-grafisch-entwurf.md):
+ * Kopf wie /was-wir-tun/ mit dem Oeschger-Zitat auf einer Karte, Gründer gross
+ * mit Porträt, Netzwerk in drei Spalten, Prinzipien in vier, Formate 2 × 2,
+ * das Zitat von Schoch und Wehrle im Sockel.
+ *
+ * Die Seite rendert ihre Sektionen selbst und findet sie über die `id`
+ * (sectionsByIds), nicht über das Label. Text kommt aus src/data/pages/about.ts,
+ * derselben Quelle wie /about.md; dort stehen die Zitate an ihrem Ort unter
+ * «Gründer» und «Wie wir arbeiten». Die Personen-Anker sind das Ziel der
+ * Autorenlinks (/about/#<slug>).
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Karte from '../components/Karte.astro';
+import Portraet from '../components/Portraet.astro';
+import RichText from '../components/RichText.astro';
+import SockelZitat from '../components/SockelZitat.astro';
 import { jsonLd } from '../lib/json-ld';
-import Sektion from '../components/Sektion.astro';
-import PageIntro from '../components/PageIntro.astro';
 import { about } from '../data/pages/about';
+import { itemsOfKinds, sectionsByIds, singleItem } from '../data/pages/types';
+import type { PersonItem, TextItem } from '../data/pages/types';
 
 const personLd = {
   '@context': 'https://schema.org',
@@ -12,7 +28,7 @@ const personLd = {
   url: 'https://fumu.ch/about/',
   image: 'https://fumu.ch/images/jochen-witte.jpg',
   jobTitle: 'Strategieberater für KI-Transformation in Medien, Marketing und Werbung',
-  description: 'Strategieberater an der Schnittstelle von Strategie, Organisation, Prozessen und Technologie. 20+ Jahre Digital. Startup-Gründer, Technologie-Chef in Medienhäusern, Strategieberater. Systemische Ausbildung.',
+  description: 'Strategieberater an der Schnittstelle von Strategie, Organisation, Prozessen und Technologie. Digital seit 1998. Startup-Gründer, Technologie-Chef in Medienhäusern, Strategieberater. Systemische Ausbildung.',
   worksFor: {
     '@type': 'Organization',
     name: 'fumu',
@@ -36,6 +52,24 @@ const personLd = {
   ],
   knowsLanguage: ['de', 'en'],
 };
+
+// Genau diese vier, in dieser Reihenfolge, und in jeder nur die Item-Arten,
+// die die Seite rendert: Was der Vault dazugibt, bricht den Build, statt nur
+// im Markdown-Zwilling zu erscheinen.
+const [gruender, netzwerk, arbeit, formate] = sectionsByIds(about, ['gruender', 'netzwerk', 'arbeit', 'formate']);
+itemsOfKinds(about, gruender, 'person', 'quote');
+const jochen = singleItem(about, gruender, 'person');
+const oeschger = singleItem(about, gruender, 'quote');
+const partner: PersonItem[] = itemsOfKinds(about, netzwerk, 'person');
+const prinzipien = itemsOfKinds(about, arbeit, 'item', 'quote').filter((item): item is TextItem => item.kind === 'item');
+const schoch = singleItem(about, arbeit, 'quote');
+const formatItems: TextItem[] = itemsOfKinds(about, formate, 'item');
+
+// Startwerte der Porträt-Formen: Jochen 3, das Netzwerk der Reihe nach.
+const partnerFormen = [17, 29, 41, 53, 67, 79];
+
+const target = (external?: boolean) => (external ? '_blank' : undefined);
+const rel = (external?: boolean) => (external ? 'noopener' : undefined);
 ---
 
 <BaseLayout title={about.title} description={about.description}>
@@ -43,10 +77,312 @@ const personLd = {
   <script type="application/ld+json" set:html={jsonLd(personLd)} />
 
   <div class="container seite">
-    <h1>{about.title}</h1>
-    <PageIntro paragraphs={about.intro} />
-    {about.sections.map(section => <Sektion section={section} />)}
+    <section class="kopf">
+      <div class="kopf-text">
+        <h1>{about.title}</h1>
+        {about.intro.map(text => <p class="lead">{text}</p>)}
+      </div>
+      <Karte tone="blush-light" class="kopf-zitat">
+        <div class="zeichen" aria-hidden="true">«</div>
+        <figure class="kopf-zitat-figur">
+          <blockquote>{oeschger.text}</blockquote>
+          <figcaption>{oeschger.cite}</figcaption>
+        </figure>
+      </Karte>
+    </section>
+
+    <section class="block" aria-labelledby="gruender">
+      <h2 id="gruender">{gruender.label}</h2>
+      <div class="gruender" id={jochen.anchor}>
+        <Portraet src={jochen.image} alt={jochen.name} form={3} eager class="portraet-gross" />
+        <div class="person-text">
+          <h3 class="name name-gross">{jochen.name}</h3>
+          <span class="label-caps etikett">{jochen.tag}</span>
+          <p class="text-gross"><RichText value={jochen.body} /></p>
+          {jochen.links.length > 0 && (
+            <p class="person-links">
+              {jochen.links.map(l => <a href={l.href} target={target(l.external)} rel={rel(l.external)}>{l.label}</a>)}
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="netzwerk">
+      <h2 id="netzwerk">{netzwerk.label}</h2>
+      <div class="personen">
+        {partner.map((p, i) => (
+          <div class="person" id={p.anchor}>
+            <Portraet src={p.image} alt={p.name} form={partnerFormen[i % partnerFormen.length]} class="portraet-klein" />
+            <h3 class="name">{p.name}</h3>
+            <span class="label-caps etikett">{p.tag}</span>
+            <p><RichText value={p.body} /></p>
+            {p.links.length > 0 && (
+              <p class="person-links">
+                {p.links.map(l => <a href={l.href} target={target(l.external)} rel={rel(l.external)}>{l.label}</a>)}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="arbeit">
+      <h2 id="arbeit">{arbeit.label}</h2>
+      <div class="prinzipien">
+        {prinzipien.map(p => (
+          <div class="prinzip">
+            {p.title && <h3>{p.title}</h3>}
+            <p><RichText value={p.body} /></p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="formate">
+      <h2 id="formate">{formate.label}</h2>
+      <div class="formate">
+        {formatItems.map(f => (
+          <Karte tone="blush-light" class="format">
+            {f.tag && <span class="dauer">{f.tag}</span>}
+            {f.title && <h3>{f.title}</h3>}
+            <p><RichText value={f.body} /></p>
+          </Karte>
+        ))}
+      </div>
+    </section>
   </div>
+
+  <SockelZitat slot="sockel" zitat={schoch} />
 
 </BaseLayout>
 
+<style>
+  /* Kopf: Titel und Lead links, das Oeschger-Zitat auf Rosé-hell rechts */
+  .kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 24px 56px;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 72px;
+  }
+
+  .kopf h1 {
+    margin: 0;
+  }
+
+  .lead {
+    max-width: 30em;
+    margin: var(--space-md) 0 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--color-plum-soft);
+  }
+
+  .kopf h1 + .lead {
+    margin-top: 28px;
+  }
+
+  .kopf :global(.kopf-zitat) {
+    padding: 34px 40px 36px;
+  }
+
+  /* Safran-Fleck mit «, wie im Sockel, nur kleiner */
+  .zeichen {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 18px;
+    padding-top: 18px;
+    font-family: var(--font-serif);
+    font-size: 54px;
+    line-height: 1;
+    color: var(--color-plum);
+    background: var(--color-saffron);
+    border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+  }
+
+  .kopf-zitat-figur {
+    margin: 0;
+  }
+
+  .kopf-zitat-figur blockquote {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--color-plum);
+  }
+
+  .kopf-zitat-figur figcaption {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-plum-soft);
+  }
+
+  /* Sektionen */
+  .block {
+    margin: 0 0 88px;
+  }
+
+  .block > h2 {
+    margin: 0 0 32px;
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .block h3 {
+    margin: 0 0 var(--space-sm);
+  }
+
+  .block p {
+    margin: 0;
+  }
+
+  /* Personen */
+  .name {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .name-gross {
+    font-size: 44px;
+    line-height: 1.05;
+  }
+
+  .etikett {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--color-plum-soft);
+  }
+
+  .block .person-links {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .text-gross {
+    font-size: 19px;
+    line-height: 1.55;
+  }
+
+  /* Gründer: Porträt links, Text rechts */
+  .gruender {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+  }
+
+  .gruender .person-text {
+    max-width: 34em;
+  }
+
+  /* Netzwerk: drei Spalten, weitere Personen in der nächsten Reihe */
+  .personen {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px 56px;
+  }
+
+  .personen :global(.portraet-klein) {
+    width: 200px;
+    margin-bottom: 22px;
+  }
+
+  .personen p {
+    font-size: 16px;
+  }
+
+  /* Wie wir arbeiten: vier Spalten, Haarlinie oben, keine Karten */
+  .prinzipien {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  .prinzip {
+    padding-top: 22px;
+    border-top: 1px solid var(--color-blush);
+  }
+
+  .prinzip h3 {
+    margin-bottom: 12px;
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  /* Formate: 2 × 2 auf Rosé-hell; die Dauer in Coral erst ab 24 px (Regel 3) */
+  .formate {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .dauer {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-style: italic;
+    line-height: 1.1;
+    color: var(--color-coral);
+  }
+
+  .formate h3 {
+    font-size: 34px;
+    line-height: 1.05;
+  }
+
+  .formate p {
+    font-size: 15.5px;
+    color: var(--color-plum-soft);
+  }
+
+  @media (max-width: 860px) {
+    .kopf,
+    .gruender,
+    .personen,
+    .prinzipien,
+    .formate {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .kopf {
+      padding-bottom: var(--space-xl);
+    }
+
+    .kopf :global(.kopf-zitat) {
+      padding: 28px 26px 30px;
+    }
+
+    .block {
+      margin-bottom: var(--space-xl);
+    }
+
+    .block > h2 {
+      font-size: 36px;
+    }
+
+    .gruender {
+      gap: 32px;
+    }
+
+    .gruender :global(.portraet-gross) {
+      max-width: 280px;
+    }
+
+    .name-gross {
+      font-size: 36px;
+    }
+
+    .personen :global(.portraet-klein) {
+      width: 180px;
+    }
+  }
+</style>
