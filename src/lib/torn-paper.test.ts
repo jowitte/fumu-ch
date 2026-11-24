@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { tornCss, tornPolygon, tornTokens } from './torn-paper';
+import { portraetPolygon, tornCss, tornPolygon, tornTokens } from './torn-paper';
 
 const points = (polygon: string) => polygon.replace(/^polygon\(/, '').replace(/\)$/, '').split(', ');
 const numbers = (point: string) => point.split(' ').map(v => Number.parseFloat(v));
@@ -41,6 +41,29 @@ describe('tornPolygon', () => {
 
   it('nimmt eine andere Punktzahl an', () => {
     expect(points(tornPolygon(7, { points: 40 }))).toHaveLength(40);
+  });
+
+  it('nimmt Anzahl und Stärke der Wellen an', () => {
+    expect(tornPolygon(7, { wellen: 5, welle: 0.03 })).not.toBe(tornPolygon(7));
+  });
+});
+
+describe('portraetPolygon', () => {
+  it('ist deterministisch und hat 140 Punkte', () => {
+    expect(portraetPolygon(3)).toBe(portraetPolygon(3));
+    expect(portraetPolygon(3)).not.toBe(portraetPolygon(17));
+    expect(points(portraetPolygon(3))).toHaveLength(140);
+  });
+
+  it('bleibt fast rund', () => {
+    for (const seed of [3, 17, 29, 41]) {
+      for (const point of points(portraetPolygon(seed))) {
+        const [x, y] = numbers(point);
+        const abstand = Math.hypot(x - 50, y - 50);
+        expect(abstand).toBeGreaterThanOrEqual(40);
+        expect(abstand).toBeLessThanOrEqual(56);
+      }
+    }
   });
 });
 

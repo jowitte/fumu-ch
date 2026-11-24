@@ -23,6 +23,10 @@ export type TornOptions = {
   points?: number;
   /** Feines Zittern des Radius (Anteil), macht aus der Welle einen Riss. */
   jitter?: number;
+  /** Anzahl der grossen Wellen, die die Form geben. */
+  wellen?: number;
+  /** Stärke jeder Welle als Anteil des Radius (± welle). */
+  welle?: number;
   /** Mittelpunkt und Halbachsen der Grundellipse, in Prozent der Box. */
   cx?: number;
   cy?: number;
@@ -31,13 +35,13 @@ export type TornOptions = {
 };
 
 /**
- * Unregelmässige Ellipse mit gerissener Kante: sieben grosse Wellen geben die
- * Form, das Zittern pro Punkt den Riss.
+ * Unregelmässige Ellipse mit gerissener Kante: grosse Wellen (Default sieben)
+ * geben die Form, das Zittern pro Punkt den Riss.
  */
 export const tornPolygon = (seed: number, opts: TornOptions = {}): string => {
-  const { points = 90, jitter = 0.035, cx = 52, cy = 52, rx = 47, ry = 44 } = opts;
+  const { points = 90, jitter = 0.035, wellen = 7, welle = 0.08, cx = 52, cy = 52, rx = 47, ry = 44 } = opts;
   const rnd = mulberry32(seed);
-  const wobble = Array.from({ length: 7 }, () => uniform(rnd, -0.08, 0.08));
+  const wobble = Array.from({ length: wellen }, () => uniform(rnd, -welle, welle));
   const pts: string[] = [];
   for (let i = 0; i < points; i++) {
     const t = (2 * Math.PI * i) / points;
@@ -49,6 +53,15 @@ export const tornPolygon = (seed: number, opts: TornOptions = {}): string => {
   }
   return `polygon(${pts.join(', ')})`;
 };
+
+/**
+ * Form für Porträtfotos (Portraet.astro): fast rund, mit fünf flachen Wellen
+ * und feinem Riss. Die grossen Wellen von `--torn-*` passen zu Illustrationen,
+ * auf Gesichtern wirken sie wie Kleckse (Entwurf «Über fumu grafisch» vom
+ * 24.11.). Steht nur auf /about/ im style-Attribut, nicht in torn-paper.css.
+ */
+export const portraetPolygon = (seed: number): string =>
+  tornPolygon(seed, { points: 140, wellen: 5, welle: 0.03, jitter: 0.012, cx: 50, cy: 50, rx: 48, ry: 48 });
 
 export type TornTokens = Record<'--torn-1' | '--torn-2' | '--torn-3', string>;
 
