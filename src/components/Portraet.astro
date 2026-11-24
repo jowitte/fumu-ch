@@ -1,0 +1,78 @@
+---
+/**
+ * Porträtfoto auf gerissenem Papier (Entwurf «Über fumu grafisch» vom 24.11.).
+ * Zwei Ebenen in einem quadratischen Rahmen: hinten ein Stück Papier in Rosé
+ * (`--torn-2`), leicht nach rechts unten versetzt; vorn das Foto, beschnitten
+ * auf eine fast runde Form mit feinem Riss (`portraetPolygon`). Die grossen
+ * Wellen von `--torn-*` taugen fürs Papier, auf dem Gesicht wirkten sie wie
+ * Kleckse.
+ *
+ * Das Foto steht in Graustufen mit `multiply` auf Rosé-hell: Weiss und Grau
+ * werden warm, Fotos aus verschiedenen Quellen sehen aus wie eine Serie.
+ *
+ * Die Breite setzt der Aufrufer über `class` (in der Seite mit `:global()`).
+ */
+import { portraetPolygon } from '../lib/torn-paper';
+
+interface Props {
+  src: string;
+  alt: string;
+  /** Startwert der Form; jede Person bekommt ihren eigenen. */
+  form: number;
+  /** Ohne lazy laden, wenn das Bild auf dem ersten Bildschirm steht. */
+  eager?: boolean;
+  class?: string;
+}
+
+const { src, alt, form, eager = false, class: klasse } = Astro.props;
+---
+
+<figure class:list={['portraet', klasse]} style={`--form: ${portraetPolygon(form)}`}>
+  <div class="portraet-papier" aria-hidden="true"></div>
+  <div class="portraet-foto">
+    <img src={src} alt={alt} loading={eager ? undefined : 'lazy'} decoding="async" />
+  </div>
+</figure>
+
+<style>
+  .portraet {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 1;
+  }
+
+  .portraet-papier {
+    position: absolute;
+    inset: 7% -5% -3% 9%;
+    background: var(--color-blush);
+    clip-path: var(--torn-2);
+  }
+
+  .portraet-foto {
+    position: absolute;
+    inset: 0;
+    background: var(--color-blush-light);
+    clip-path: var(--form);
+  }
+
+  .portraet-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.02);
+    mix-blend-mode: multiply;
+  }
+
+  /* Kontrastmodus: Der Browser ersetzt die Hintergründe; auf Schwarz würde
+     multiply das Foto schwarz färben. Foto normal zeigen, Papier weg. */
+  @media (forced-colors: active) {
+    .portraet-papier {
+      display: none;
+    }
+
+    .portraet-foto img {
+      mix-blend-mode: normal;
+    }
+  }
+</style>
