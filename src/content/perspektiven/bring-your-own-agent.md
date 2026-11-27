@@ -1,6 +1,6 @@
 ---
 title: "Bring your own Agent"
-description: "Bring your own Agent. 78 Prozent der Wissensarbeiter bringen eigene KI-Werkzeuge mit, und in ihren Setups sammelt sich das Wissen der Organisation. Wem gehört es?"
+description: "Bring your own Agent. 78 Prozent der Wissensarbeiter, die KI nutzen, bringen eigene Werkzeuge mit, und in ihren Setups sammelt sich das Wissen der Organisation. Wem gehört es?"
 date: 2026-09-22
 category: "KI & Arbeit"
 image: "/images/perspektiven/bring-your-own-agent-hero.webp"

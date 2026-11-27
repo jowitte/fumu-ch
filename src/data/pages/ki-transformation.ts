@@ -1,9 +1,10 @@
 import type { PageContent } from './types';
 
 /**
- * Pillar 1. Quelle der Copy ist die Vault-Notiz «Pillar - KI-Transformation»
- * (Akasha-Vault, Aufwände/fumu Marketing/fumu.ch). Hier nie umformulieren –
- * nur aus dem Vault nachziehen.
+ * Pillar 1. Seit dem Live-Gang ist dieses Modul der Master der Copy; die
+ * Vault-Notiz «Pillar - KI-Transformation» (Akasha-Vault, Aufwände/fumu
+ * Marketing/fumu.ch) verweist mit `master:` hierher. Wortlaut wird hier
+ * geändert, nicht mehr im Vault.
  *
  * Bauplan (Referenz «Pillar-Architektur fumu.ch»): Lead fängt die Suchfrage
  * ein, dann belegte Analyse, Anlass-Brücke, Formate als Ausgang, FAQ und
@@ -13,10 +14,10 @@ export const kiTransformation: PageContent = {
   title: 'KI-Transformation',
   heading: 'KI-Transformation: warum Pilotprojekte überzeugen und der ROI trotzdem ausbleibt',
   hero: {
-    src: '/images/pillars/ki-transformation-organigramm.svg',
-    alt: 'Oben, überschrieben mit ‹Punktlösung: Jeder hat ein Werkzeug, die Organisation bleibt, wie sie ist›, ein Organigramm mit Geschäftsleitung, drei Bereichen und sechs Teams, jedes Team mit eigenem KI-Werkzeug. Unten, überschrieben mit ‹Systemlösung: Dieselben Teams, eine Ebene weniger, entlang des Prozesses›, dieselben sechs Teams ohne die Ebene der Bereiche, nebeneinander vom Kundenwunsch bis zur Erfüllung, darunter die KI als gemeinsamer Prozess.',
+    src: '/images/pillars/ki-transformation-kosten-nutzen.svg',
+    alt: 'Diagramm einer Treppe nach Kosten und Nutzen. Niedrig sind die Stufen der Punktlösung mit der Frage ‹Wo hilft uns KI bei dem, was wir heute tun?› und der Anwendungslösung mit ‹Wie lösen wir diese Aufgabe mit KI anders?›. Die hohe Stufe der Systemlösung trägt die Frage ‹Wie würden wir den Prozess bauen, wenn wir neu anfingen?›, davor steht eine Wand: Prozesse, Rollen und Zuständigkeiten umbauen.',
     caption:
-      'Punktlösung und Systemlösung an derselben Organisation: Oben bekommt jedes Team ein KI-Werkzeug, unten ändern sich Ebenen und Übergaben mit.',
+      'Grossen Nutzen bringt KI erst, wenn ein Unternehmen seine Prozesse umbaut, im weitesten Fall auch das Geschäftsmodell.',
   },
   description:
     'KI-Transformation. Pilotprojekte laufen, in der Erfolgsrechnung taucht davon wenig auf. Woran das liegt und welche drei Fragen zusammen zu klären sind.',
@@ -24,8 +25,8 @@ export const kiTransformation: PageContent = {
   order: 2.1,
   intro: [
     'In den meisten Unternehmen ist KI längst angekommen. Lizenzen sind gekauft, Pilotprojekte laufen, einzelne Teams sind spürbar schneller geworden. Nur in der Erfolgsrechnung taucht davon wenig auf: Die Kosten sind sichtbar, der Ertrag nicht.',
-    'Das liegt selten an den gewählten KI-Tools und fast nie an den Mitarbeitern. Es liegt daran, dass ein Werkzeug in einen Prozess geschoben und der Prozess selbst nicht angepasst wurde. Wer schneller tippt, während die Freigaben, Rollen und Übergaben unverändert bleiben, produziert schneller dasselbe Ergebnis mit mehr Stau.',
-    'KI-Transformation heisst, drei Fragen zugleich zu beantworten: was technisch machbar ist, ob sich der Umbau rechnet und welche Prozesse, Rollen und Zuständigkeiten sich dafür mitverändern müssen. Die letzte ist meist die schwerste. Sie fällt leicht zwischen IT und Geschäftsleitung hindurch, und wo jemand sie stellt, wird sie gern umgangen. Ihre Antwort verschiebt Zuständigkeiten, und solange die Pilotprojekte überzeugen, eröffnet kaum jemand diesen Streit.',
+    'Meist liegt das daran, dass ein Werkzeug in einen Prozess geschoben und der Prozess selbst nicht angepasst wurde. Wer schneller tippt, während Freigaben, Rollen und Übergaben bleiben, wie sie sind, gewinnt Zeit, die vor der nächsten Freigabe wieder verloren geht.',
+    'KI-Transformation heisst, zugleich zu klären, was technisch machbar ist, ob sich der Umbau rechnet und welche Prozesse, Rollen und Zuständigkeiten sich dafür mitverändern müssen. Die letzte Frage ist meist die schwerste. Sie fällt leicht zwischen IT und Geschäftsleitung hindurch, und wo jemand sie stellt, wird sie gern umgangen. Ihre Antwort verschiebt Zuständigkeiten, und solange die Pilotprojekte überzeugen, eröffnet kaum jemand diesen Streit.',
   ],
   sections: [
     {
@@ -54,9 +55,11 @@ export const kiTransformation: PageContent = {
           body: [
             'In ',
             { em: 'Power and Prediction' },
-            ' beschreiben die Ökonomen Ajay Agrawal, Joshua Gans und Avi Goldfarb, dass KI fast überall als ',
+            ' unterscheiden die Ökonomen Ajay Agrawal, Joshua Gans und Avi Goldfarb drei Arten, KI einzusetzen. Die ',
             { strong: 'Punktlösung' },
-            " eingesetzt wird: ein besseres Werkzeug in einem unveränderten Prozess. Als Beleg verweisen sie auf eine Erhebung des US Census Bureau bei über 300'000 Firmen. Schon vor der generativen KI setzten Firmen KI vor allem ein, um bestehende Prozesse zu automatisieren, und ihre Produktivität stieg kaum. Produktivität entsteht erst, wenn sich auch die Prozesse davor und danach mitverändern; die Autoren nennen das die ",
+            ' ist ein besseres Werkzeug in einem unveränderten Prozess, etwa wenn ein Versicherer das Risiko eines Kunden genauer schätzt. Die ',
+            { strong: 'Anwendungslösung' },
+            " löst eine Aufgabe auf neue Weise, etwa wenn er einen Schaden anhand eines Fotos berechnet und sofort auszahlt; auch sie lässt den Rest der Organisation, wie er ist. Die Autoren verweisen auf eine Erhebung des US Census Bureau bei über 300'000 Firmen. Die grossen Firmen, die KI einsetzten, nutzten sie schon vor der generativen KI ganz überwiegend, um bestehende Prozesse zu automatisieren und zu verbessern, also als Punkt- oder Anwendungslösung. Die Wirkung auf ihre Produktivität blieb bescheiden. Grosse Produktivitätsgewinne erwarten die Autoren erst, wenn sich auch die Prozesse mitverändern, die von der neuen Lösung abhängen; sie nennen das die ",
             { strong: 'Systemlösung' },
             '. Sie kann bis zum Geschäftsmodell reichen: Ein Versicherer, der Schäden vorhersagen kann, kann sein Geschäftsfeld auf die Schadensvermeidung ausweiten, statt nur das Risiko abzusichern.',
           ],
@@ -64,7 +67,7 @@ export const kiTransformation: PageContent = {
         {
           kind: 'item',
           body: [
-            'Wo die Systemlösung ausbleibt, verändert sich die Organisation trotzdem, nur ungeplant: Rollen weiten sich aus, ohne dass jemand sie neu beschreibt, Kompetenzen wandern zwischen Funktionen, Arbeit sickert in Momente, die vorher Pausen waren. Das geschieht von unten und freiwillig, ohne dass es jemand beschlossen hat oder verantwortet. Der Artikel zur ',
+            'Wo die Systemlösung ausbleibt, verändert sich die Organisation trotzdem, nur ungeplant: Rollen weiten sich aus, ohne dass jemand sie neu beschreibt, Kompetenzen wandern zwischen Funktionen, Arbeit sickert in Momente, die vorher Pausen waren. Das geschieht von unten und freiwillig, ohne dass es jemand verantwortet. Der Artikel zur ',
             { label: 'unsichtbaren Reorganisation', href: '/perspektiven/unsichtbare-reorganisation/' },
             ' zeichnet das an vier unabhängigen Forschungsbefunden nach.',
           ],
@@ -72,14 +75,14 @@ export const kiTransformation: PageContent = {
         {
           kind: 'item',
           body: [
-            'Der Zeitgewinn, den die Werkzeuge bringen, kommt dabei oft nicht im Ergebnis an, er ist nur verschoben. Wer mit KI schneller wird, gibt die Urteilsarbeit an den Empfänger weiter: Ein KI-Entwurf sieht aus wie fertige Arbeit, aber niemand hat geurteilt und niemand haftet. Wenn ein erster Entwurf nichts mehr kostet, fällt zugleich der Filter weg, der schwache Ideen früher ',
+            'Der Zeitgewinn, den die Werkzeuge bringen, kommt dabei oft nicht im Ergebnis an, weil sich die Arbeit nur verschiebt. Wer mit KI schneller wird, überlässt das Urteil häufig dem Empfänger: Ein KI-Entwurf sieht aus wie fertige Arbeit, aber geurteilt hat noch niemand. Wenn ein erster Entwurf nichts mehr kostet, fällt zugleich der Filter weg, der schwache Ideen früher ',
             { label: 'aussortiert hat', href: '/perspektiven/mehr-output-weniger-wert/' },
             '.',
           ],
         },
         {
           kind: 'item',
-          body: 'Eine Transformation wird entscheidbar, sobald die Frage lautet, welcher Prozess sich ändern muss, damit der Gewinn im Betriebsergebnis ankommt. Dazu gehören zwei weitere Fragen: ob das technisch machbar ist und ob sich die Änderung rechnet. Beantworten lassen sich alle drei nur zusammen.',
+          body: 'Eine Transformation wird entscheidbar, sobald die Frage lautet, welcher Prozess sich ändern muss, damit der Gewinn im Betriebsergebnis ankommt. Ob das technisch machbar ist und ob sich die Änderung rechnet, lässt sich nur an diesem Prozess beantworten.',
         },
       ],
     },
@@ -88,11 +91,11 @@ export const kiTransformation: PageContent = {
       items: [
         {
           kind: 'item',
-          body: 'Wo ein Unternehmen mit diesen Fragen steht, zeigt meist schon der erste Satz einer Anfrage. «Wie optimieren wir unsere Prozesse mit KI?» fragt, wer die Werkzeuge schon hat und den Prozess sucht, an dem sich der Umbau zuerst rechnet. Wer sagt «Bei uns laufen lauter KI-Initiativen, aber niemand hält sie zusammen», dem fehlt die Richtung: welche Prozesse sich im ganzen Unternehmen ändern sollen, in welcher Reihenfolge und wer das entscheidet.',
+          body: 'Wer uns anfragt, setzt KI meist schon als Punkt- oder Anwendungslösung ein, der Umbau zur Systemlösung steht noch aus. Wer fragt «Wie optimieren wir unsere Prozesse mit KI?», sucht den Prozess, an dem sich dieser Umbau zuerst rechnet. Dort setzt die KI-Wertstromanalyse an. Wer sagt «Bei uns laufen lauter KI-Initiativen, aber niemand hält sie zusammen», dem fehlt die Richtung: welche Prozesse sich im ganzen Unternehmen ändern sollen, in welcher Reihenfolge und wer das entscheidet. Diese Richtung erarbeitet die Strategische Begleitung.',
         },
         {
           kind: 'item',
-          body: 'Ist entschieden, welche Prozesse sich ändern, steht der Umbau selbst an. Rollen und Zuständigkeiten verschieben sich, und jemand muss die neuen Prozesse neben dem laufenden Geschäft einführen.',
+          body: 'Ist entschieden, welche Prozesse sich ändern, steht der Umbau selbst an. Rollen und Zuständigkeiten verschieben sich, und jemand muss die neuen Prozesse neben dem laufenden Geschäft einführen. Auch diesen Schritt machen wir mit Ihnen, in der KI-Implementierung.',
         },
       ],
     },
@@ -122,12 +125,12 @@ export const kiTransformation: PageContent = {
           kind: 'item',
           title: 'KI-Implementierung',
           tag: 'nach Vorhaben',
-          body: 'Wir setzen die beschlossenen KI-Anwendungen im Betrieb auf, zusammen mit den Teams, deren Prozesse sich ändern.',
+          body: 'Wir führen die Umsetzung, bis die neuen Prozesse im Alltag laufen, und arbeiten dabei mit den Teams, deren Arbeit sich ändert. Dazu gehört der Umbau von Rollen und Zuständigkeiten. Prototypen können wir selbst bauen, die Anwendungen für den Betrieb entwickeln Ihre IT oder externe Entwickler.',
         },
         {
           kind: 'item',
           body: [
-            'Die Formate bauen aufeinander auf. Wo Sie einsteigen, klären wir in einem ersten Gespräch über Ihre Lage. Schreiben Sie uns über die ',
+            'Wo Sie einsteigen, klären wir in einem ersten Gespräch über Ihre Lage. Schreiben Sie uns über die ',
             { label: 'Kontaktseite', href: '/kontakt/' },
             ' oder an ',
             { label: 'hello@fumu.ch', href: 'mailto:hello@fumu.ch' },
@@ -152,7 +155,7 @@ export const kiTransformation: PageContent = {
         },
         {
           kind: 'item',
-          title: 'Wo fängt man an, wenn der grösste Ansatzpunkt nicht offensichtlich ist?',
+          title: 'Wo fängt man an, wenn nicht offensichtlich ist, wo KI am meisten bringt?',
           body: 'Bei den Prozessen: wo Arbeit wartet, wo sie doppelt geprüft wird, wo eine Übergabe hängt. An diesen Stellen entscheidet sich, ob ein Zeitgewinn im Ergebnis ankommt. Hinweise liefern auch die KI-Initiativen, die schon laufen, weil sie zeigen, wo die Mitarbeiter selbst den Engpass sehen. Unsere KI-Wertstromanalyse misst diese Stellen über einen ganzen Wertstrom, vom Kundenwunsch bis zu seiner Erfüllung, ordnet sie nach Zeitverlust und zeigt je Schritt, wo KI hilft und was sie voraussetzt.',
         },
         {
@@ -163,17 +166,17 @@ export const kiTransformation: PageContent = {
         {
           kind: 'item',
           title: 'Welche Rolle übernimmt die Geschäftsleitung, welche die IT?',
-          body: 'Die Geschäftsleitung entscheidet, welche Prozesse sich ändern, was die Änderung einbringen muss und wer danach wofür zuständig ist. Die IT beurteilt, was technisch machbar ist, und baut es. Schwierig wird es, wenn KI als IT-Projekt läuft. Dann soll die IT auch den Geschäftsnutzen belegen und die neuen Zuständigkeiten regeln, über die sie nicht entscheidet.',
+          body: 'Die Geschäftsleitung entscheidet, welche Prozesse sich ändern, was die Änderung einbringen muss und wer danach wofür zuständig ist. Die IT beurteilt, was technisch machbar ist, und baut es. Läuft KI als IT-Projekt, soll die IT auch den Geschäftsnutzen belegen und die neuen Zuständigkeiten regeln, über die sie nicht entscheidet.',
         },
         {
           kind: 'item',
           title: 'Wie lange dauert es, bis eine KI-Strategie im Tagesgeschäft wirkt?',
-          body: 'Unsere KI-Wertstromanalyse dauert vier Wochen und benennt neben dem Umbau auch Quick Wins, die ohne eigenes Projekt starten. Bis feststeht, welche Prozesse sich im ganzen Unternehmen ändern, dauert die Strategische Begleitung acht bis sechzehn Wochen. Im Tagesgeschäft wirkt die Strategie, sobald der erste Prozess umgestellt ist. Wie schnell das geht, hängt vor allem daran, wann Rollen und Zuständigkeiten neu verteilt sind. Wer vorher festlegt, woran die Wirkung gemessen wird, sieht sie früher, weil der Streit über die Messgrösse entfällt.',
+          body: 'Unsere KI-Wertstromanalyse dauert vier Wochen und benennt neben dem Umbau auch Verbesserungen, die sofort und ohne eigenes Projekt starten können. Bis feststeht, welche Prozesse sich im ganzen Unternehmen ändern, dauert die Strategische Begleitung acht bis sechzehn Wochen. Im Tagesgeschäft wirkt die Strategie, sobald der erste Prozess umgestellt ist. Wie schnell das geht, hängt vor allem daran, wann Rollen und Zuständigkeiten neu verteilt sind. Wer vorher festlegt, woran die Wirkung gemessen wird, sieht sie früher, weil der Streit über die Messgrösse entfällt.',
         },
         {
           kind: 'item',
           title: 'Was unterscheidet KI-Strategie-Beratung von einer KI-Schulung?',
-          body: 'Eine Schulung macht die Mitarbeiter im Umgang mit dem Werkzeug sicher. Das ist nötig, denn ein umgebauter Prozess funktioniert nur mit Leuten, die das Werkzeug beherrschen. Welcher Prozess sich ändern muss und ob sich das rechnet, beantwortet die Schulung aber nicht, das klärt die Beratung mit der Geschäftsleitung. Schulungen bieten wir zusammen mit unserem Partner, der Akademie KI, an, ausgerichtet auf die Prozesse, die sich ändern.',
+          body: 'Eine Schulung macht die Mitarbeiter im Umgang mit dem Werkzeug sicher. Das ist nötig, denn ein umgebauter Prozess funktioniert nur mit Leuten, die das Werkzeug beherrschen. Welcher Prozess sich ändern muss und ob sich das rechnet, beantwortet die Schulung aber nicht, das klärt die Beratung mit der Geschäftsleitung. Mit unserem Partner, der Akademie KI, bieten wir Schulungen an. Sie richten sich nach den Prozessen, die sich ändern.',
         },
       ],
     },
